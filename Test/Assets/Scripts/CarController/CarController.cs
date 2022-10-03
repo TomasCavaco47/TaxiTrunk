@@ -1,6 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+public enum SpeedUnit
+{
+    Mph,
+    kmh
+}
 
 public class CarController : MonoBehaviour
 {
@@ -27,6 +33,42 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform _backLeftWheelTransform;
     [SerializeField] private Transform _backRightWheelTransform;
 
+    //TESTES
+
+    private float _currentSpeed;
+    [SerializeField] private Text _speedText;
+    [SerializeField] private SpeedUnit _speedUnit;
+    Rigidbody _rigidbody;
+
+    void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+ 
+
+
+     void Update()
+    {
+        
+        if (_speedUnit == SpeedUnit.Mph)
+        {
+            // 2.23694 is the constant to convert a value from m/s to mph.
+            
+            _currentSpeed = Mathf.RoundToInt(_rigidbody.velocity.magnitude * 2.23694f);
+
+            // _speedText.text = currentSpeed.ToString() + "MPH";
+        }
+        else
+        {
+            // 3.6 is the constant to convert a value from m/s to km/h.           
+            _currentSpeed = Mathf.RoundToInt(_rigidbody.velocity.magnitude * 3.6f);
+
+
+            //_speedText.text = currentSpeed.ToString() + " km/h";
+
+        }
+        Debug.Log(_currentSpeed);
+    }
     private void FixedUpdate()
     {
         GetInput();
@@ -47,18 +89,48 @@ public class CarController : MonoBehaviour
         _backLeftWheelCollider.motorTorque = _verticalInput * _motorForce;
         _backRightWheelCollider.motorTorque = _verticalInput * _motorForce;
 
+        if (_verticalInput==0)
+        {
+            _rigidbody.drag = Mathf.Lerp(GetComponent<Rigidbody>().drag, 0.5f, Time.deltaTime * 4);
+
+        }
+        else
+        {
+            _rigidbody.drag = 0;
+        }
+
         //Pesquisar
         _currentBreakingForce = _isBraking ? _brakeForce : 0f;
+       
 
         ApplyBraking();
     }
 
     private void ApplyBraking()
     {
-        _frontLeftWheelCollider.brakeTorque = _currentBreakingForce;
-        _frontRightWheelCollider.brakeTorque = _currentBreakingForce; _backLeftWheelCollider.brakeTorque = _currentBreakingForce;
-        _backRightWheelCollider.brakeTorque = _currentBreakingForce; _backLeftWheelCollider.brakeTorque = _currentBreakingForce;
-        _backLeftWheelCollider.brakeTorque = _currentBreakingForce;
+        if (_rigidbody.velocity.z > 0 && _isBraking)
+        {
+            _frontLeftWheelCollider.brakeTorque = _brakeForce;
+            _frontRightWheelCollider.brakeTorque = _brakeForce;
+            _backRightWheelCollider.brakeTorque = _brakeForce;
+            _backLeftWheelCollider.brakeTorque = _brakeForce;
+        }
+        else if(_rigidbody.velocity.z < 0 && _isBraking==false)
+        {
+            _frontLeftWheelCollider.brakeTorque = _brakeForce;
+            _frontRightWheelCollider.brakeTorque = _brakeForce;
+            _backRightWheelCollider.brakeTorque = _brakeForce;
+            _backLeftWheelCollider.brakeTorque = _brakeForce;
+        }
+        else
+        {
+            _frontLeftWheelCollider.brakeTorque = 0;
+            _frontRightWheelCollider.brakeTorque = 0;
+            _backRightWheelCollider.brakeTorque = 0;
+            _backLeftWheelCollider.brakeTorque = 0;
+        }
+
+
     }
 
     private void HandleSteering()
