@@ -10,9 +10,15 @@ public enum SpeedUnit
 
 public class CarController : MonoBehaviour
 {
-    private const string HORIZONTAL = "Horizontal";
-    private const string VERTICAL = "Vertical";
+    internal enum driveType
+    {
+        frontWheelDrive,
+        rearWheelDrive,
+        allWheelDrive
+    }
+    [SerializeField] private driveType drive;
 
+    [SerializeField] private int _version;
     private float _horizontalInput;
     private float _verticalInput;
     private float _currentStearingAngle;
@@ -23,15 +29,14 @@ public class CarController : MonoBehaviour
     [SerializeField] private float _brakeForce;
     [SerializeField] private float _maxSteerAngle;
 
-    [SerializeField] private WheelCollider _frontLeftWheelCollider;
-    [SerializeField] private WheelCollider _frontRightWheelCollider;
-    [SerializeField] private WheelCollider _backLeftWheelCollider;
-    [SerializeField] private WheelCollider _backRightWheelCollider;
+   
+    [SerializeField] private WheelCollider[] _wheelColliders;
 
-    [SerializeField] private Transform _frontLeftWheelTransform;
-    [SerializeField] private Transform _frontRightWheelTransform;
-    [SerializeField] private Transform _backLeftWheelTransform;
-    [SerializeField] private Transform _backRightWheelTransform;
+  
+    [SerializeField] private Transform[] _wheelTransforms;
+
+    private Vector3 _wheelPosition;
+    private Quaternion _wheelRotation;
 
     //TESTES
 
@@ -40,9 +45,16 @@ public class CarController : MonoBehaviour
     [SerializeField] private SpeedUnit _speedUnit;
     Rigidbody _rigidbody;
 
+
+    private float _vertical;
+    private float _horizontal;
+    private float _finalTurnAngle;
+    private float _radius;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.centerOfMass= new Vector3(0, 0.5f, -0.2f);
     }
  
 
@@ -73,7 +85,7 @@ public class CarController : MonoBehaviour
     {
         GetInput();
         HandleMotor();
-        HandleSteering();
+        SteerVehicle();
         UpdateWheels();
     }
 
@@ -86,12 +98,12 @@ public class CarController : MonoBehaviour
 
     private void HandleMotor()
     {
-        _backLeftWheelCollider.motorTorque = _verticalInput * _motorForce;
-        _backRightWheelCollider.motorTorque = _verticalInput * _motorForce;
+        _wheelColliders[2].motorTorque = _verticalInput * _motorForce;
+        _wheelColliders[3].motorTorque = _verticalInput * _motorForce;
 
         if (_verticalInput==0)
         {
-            _rigidbody.drag = Mathf.Lerp(GetComponent<Rigidbody>().drag, 0.5f, Time.deltaTime * 4);
+            _rigidbody.drag = Mathf.Lerp(GetComponent<Rigidbody>().drag, 0.3f, Time.deltaTime * 2);
 
         }
         else
@@ -110,52 +122,99 @@ public class CarController : MonoBehaviour
     {
         if (_rigidbody.velocity.z > 0 && _isBraking)
         {
-            _frontLeftWheelCollider.brakeTorque = _brakeForce;
-            _frontRightWheelCollider.brakeTorque = _brakeForce;
-            _backRightWheelCollider.brakeTorque = _brakeForce;
-            _backLeftWheelCollider.brakeTorque = _brakeForce;
+            _wheelColliders[0].brakeTorque = _brakeForce;
+            _wheelColliders[1].brakeTorque = _brakeForce;
+            _wheelColliders[2].brakeTorque = _brakeForce;
+            _wheelColliders[3].brakeTorque = _brakeForce;
         }
-        else if(_rigidbody.velocity.z < 0 && _isBraking==false)
+        else if(_rigidbody.velocity.z < 0 && _isBraking==false && _verticalInput == 0)
         {
-            _frontLeftWheelCollider.brakeTorque = _brakeForce;
-            _frontRightWheelCollider.brakeTorque = _brakeForce;
-            _backRightWheelCollider.brakeTorque = _brakeForce;
-            _backLeftWheelCollider.brakeTorque = _brakeForce;
+            _wheelColliders[0].brakeTorque = _brakeForce;
+            _wheelColliders[1].brakeTorque = _brakeForce;
+            _wheelColliders[2].brakeTorque = _brakeForce;
+            _wheelColliders[3].brakeTorque = _brakeForce;
+        }
+        else 
+        {
+            _wheelColliders[0].brakeTorque = 0;
+            _wheelColliders[1].brakeTorque = 0;
+            _wheelColliders[2].brakeTorque = 0;
+            _wheelColliders[3].brakeTorque = 0;
+        }
+
+
+    }
+
+    //private void HandleSteering()
+    //{
+    //    _currentStearingAngle = _maxSteerAngle * _horizontalInput;
+
+    //    _frontLeftWheelCollider.steerAngle = _currentStearingAngle;
+    //    _frontRightWheelCollider.steerAngle = _currentStearingAngle;
+    //}
+
+    //private void UpdateWheels()
+    //{
+    //    UpdateSingleWheel(_frontLeftWheelCollider, _frontLeftWheelTransform);
+    //    UpdateSingleWheel(_frontRightWheelCollider, _frontRightWheelTransform);
+    //    UpdateSingleWheel(_backLeftWheelCollider, _backLeftWheelTransform);
+    //    UpdateSingleWheel(_backRightWheelCollider, _backRightWheelTransform);
+
+    //}
+
+ 
+    void SteerVehicle()
+    {
+        if(_version == 1)
+        {
+        float _steeringAngle;
+        _steeringAngle = _maxSteerAngle * _horizontalInput;
+        _wheelColliders[0].steerAngle = _steeringAngle;
+        _wheelColliders[1].steerAngle = _steeringAngle;
+
         }
         else
         {
-            _frontLeftWheelCollider.brakeTorque = 0;
-            _frontRightWheelCollider.brakeTorque = 0;
-            _backRightWheelCollider.brakeTorque = 0;
-            _backLeftWheelCollider.brakeTorque = 0;
+            _vertical = _horizontalInput;
+            _horizontal = Mathf.Lerp(_horizontal, _horizontalInput, (_horizontalInput != 0) ? 5 * Time.deltaTime : 5 * 2 * Time.deltaTime);
+
+            _finalTurnAngle = (_radius > 5) ? _radius : 5;
+
+            if (_horizontal > 0)
+            {
+                //rear tracks size is set to 1.5f       wheel base has been set to 2.55f
+                _wheelColliders[0].steerAngle = Mathf.Rad2Deg * Mathf.Atan(4f / (_finalTurnAngle - (1.5f / 2))) * _horizontal;
+                _wheelColliders[1].steerAngle = Mathf.Rad2Deg * Mathf.Atan(4f / (_finalTurnAngle + (1.5f / 2))) * _horizontal;
+            }
+            else if (_horizontal < 0)
+            {
+                _wheelColliders[0].steerAngle = Mathf.Rad2Deg * Mathf.Atan(4f / (_finalTurnAngle + (1.5f / 2))) * _horizontal;
+                _wheelColliders[1].steerAngle = Mathf.Rad2Deg * Mathf.Atan(4f / (_finalTurnAngle - (1.5f / 2))) * _horizontal;
+                //transform.Rotate(Vector3.up * steerHelping);
+
+            }
+            else
+            {
+                _wheelColliders[0].steerAngle = 0;
+                _wheelColliders[1].steerAngle = 0;
+            }
+
         }
 
 
     }
 
-    private void HandleSteering()
+    void UpdateWheels()
     {
-        _currentStearingAngle = _maxSteerAngle * _horizontalInput;
 
-        _frontLeftWheelCollider.steerAngle = _currentStearingAngle;
-        _frontRightWheelCollider.steerAngle = _currentStearingAngle;
+        for (int i = 0; i < _wheelColliders.Length; i++)
+        {
+            _wheelColliders[i].GetWorldPose(out _wheelPosition, out _wheelRotation);
+            _wheelTransforms[i].transform.rotation = _wheelRotation;
+            _wheelTransforms[i].transform.position = _wheelPosition;
+        }
     }
 
-    private void UpdateWheels()
-    {
-        UpdateSingleWheel(_frontLeftWheelCollider, _frontLeftWheelTransform);
-        UpdateSingleWheel(_frontRightWheelCollider, _frontRightWheelTransform);
-        UpdateSingleWheel(_backLeftWheelCollider, _backLeftWheelTransform);
-        UpdateSingleWheel(_backRightWheelCollider, _backRightWheelTransform);
 
-    }
-
-    private void UpdateSingleWheel(WheelCollider wheelCollider, Transform wheelTransform)
-    {
-        Vector3 pos;
-        Quaternion rot;
-        wheelCollider.GetWorldPose(out pos, out rot);
-        wheelTransform.rotation = rot;
-        wheelTransform.position = pos;
-    }
+ 
 }
