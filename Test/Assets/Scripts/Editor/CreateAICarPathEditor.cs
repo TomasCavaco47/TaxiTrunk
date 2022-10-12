@@ -40,6 +40,7 @@ public class CreateAICarPathEditor : EditorWindow
                          {
                              _newChekPoint = Instantiate(_lastCheckPoint);
                              _newChekPoint.SetParent(_lastCheckPoint.parent);
+                            _newChekPoint.GetComponent<WayPoints>().SlowDown = false;
                              _newChekPoint.name = "WayPoint " + _lastCheckPoint.parent.childCount;
                              _lastCheckPoint.GetComponent<WayPoints>().NextWaypoint =new Transform[1] ;
                              _lastCheckPoint.GetComponent<WayPoints>().NextWaypoint[0] = _newChekPoint;
