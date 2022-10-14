@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class AI_Car_Controller : MonoBehaviour
 {
+    public LayerMask rayMask;
+    enum TurnType
+    {
+        Left,
+        Center,
+        Right
+    }
     //private carModifier modifier;
     [SerializeField] private WheelCollider[] wheels;
-
+    [SerializeField] private TurnType _cornerType;
     [SerializeField] private float totalPower;
     [SerializeField] private float vertical, horizontal;
     private bool _tractionControl = true;
@@ -20,11 +27,14 @@ public class AI_Car_Controller : MonoBehaviour
     private float radius = 8;
     [SerializeField] private WayPoints _wayPoints;
     [SerializeField] private Transform _currentWaypoint;
+    [SerializeField] private Transform _turnWaypoint;
     private Rigidbody _rb;
     [SerializeField]private bool _carInFront;
     [SerializeField]private bool _canTurn;
+    [SerializeField]private bool _hasCheckTurn = false;
     private float _angleToTurn;
    [SerializeField] private Transform _checkPointToCheckCar;
+   [SerializeField] private Transform _checkPointToCheckCar2;
 
     Vector3 fwd;
     Vector3 left;
@@ -52,7 +62,6 @@ public class AI_Car_Controller : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_checkPointToCheckCar);
         _angleToTurn = Vector3.SignedAngle(_currentWaypoint.position - transform.position, transform.forward, Vector3.up);
        // _angleToTurn =Vector3.Angle(transform.forward,  _currentWaypoint.position -  transform.position);
         //Debug.Log(_angleToTurn);
@@ -64,6 +73,20 @@ public class AI_Car_Controller : MonoBehaviour
         speed =Mathf.RoundToInt( _rb.velocity.magnitude * 3.6f);
      
         //Debug.Log(speed);
+    }
+    void FixedUpdate()
+    {
+        try
+        {
+            checkDistance();
+            steerVehicle();
+            AntiRoll();
+            TractionControl();
+            SpeedLimiter();
+            MoveCar();
+        }
+        catch { }
+
     }
     private void CheckCarInFront()
     {
@@ -83,64 +106,79 @@ public class AI_Car_Controller : MonoBehaviour
     }
     private void CheckCanTurn()
     {
+        
         if (_checkPointToCheckCar != null)
         {
-            Debug.DrawRay(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), -_checkPointToCheckCar.right * 50, Color.green);
-            if (Physics.Raycast(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), left, out objectHit, 50))
-            {
-                //do something if hit object ie
-                if (objectHit.collider.tag == "AICar")
+            if(_cornerType== TurnType.Left)
+            {               
+                Debug.DrawRay(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), -_checkPointToCheckCar.right * 50, Color.green);
+                Debug.DrawRay(new Vector3(_checkPointToCheckCar2.position.x, _checkPointToCheckCar2.position.y, _checkPointToCheckCar2.position.z), _checkPointToCheckCar2.right * 50, Color.magenta);
+                if (Physics.Raycast(new Vector3(_checkPointToCheckCar2.position.x, _checkPointToCheckCar2.position.y, _checkPointToCheckCar2.position.z), _checkPointToCheckCar2.right, out objectHit, 50, rayMask) || Physics.Raycast(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), -_checkPointToCheckCar.right, out objectHit, 50, rayMask))
                 {
-                    _canTurn = false;
+                    Debug.Log(objectHit.collider.gameObject);
+                    if (objectHit.collider.tag == "AICar")
+                    {
+                        Debug.Log("v");
+
+                        _canTurn = false;
+                    }
+                }
+                else
+                {
+                    Debug.Log("c");
+
+                    _canTurn = true;
+                    _checkPointToCheckCar = null;
+                    _checkPointToCheckCar2 = null;
 
                 }
-
             }
-            else
+            if(_cornerType== TurnType.Right)
             {
-                _checkPointToCheckCar = null; ;
+                
 
-                _canTurn = true;
+                Debug.DrawRay(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), -_checkPointToCheckCar.right * 50, Color.green);
+                if (Physics.Raycast(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), left, out objectHit, 50))
+                {
+                    //do something if hit object ie
+                    if (objectHit.collider.tag == "AICar")
+                    {
+                        _canTurn = false;
+                    }
+                }
+                else
+                {    
 
+                    _canTurn = true;
+                    _checkPointToCheckCar = null;
+
+                }
             }
         }
 
     }
 
-    void FixedUpdate()
-    {
-        try
-        {
-            checkDistance();
-            steerVehicle();
-            AntiRoll();
-            TractionControl();
-            SpeedLimiter();
-            MoveCar();
-        }
-        catch { }
-
-    }
+    
 
 
     void checkDistance()
     {         
 
-        foreach (var item in wheels)
-        {
+        //foreach (var item in wheels)
+        //{
            
-            if (_currentWaypoint.GetComponent<WayPoints>().SlowDown == false)
-            {
-            item.motorTorque = totalPower / 2;
-            item.brakeTorque = 1000;
+        //    if (_currentWaypoint.GetComponent<WayPoints>().SlowDown == false)
+        //    {
+        //    item.motorTorque = totalPower / 2;
+        //    item.brakeTorque = 1000;
 
-            }
-            else
-            {
-            item.motorTorque = totalPower;
-            item.brakeTorque = 0;
-            }
-        }
+        //    }
+        //    else
+        //    {
+        //    item.motorTorque = totalPower;
+        //    item.brakeTorque = 0;
+        //    }
+        //}
 
     }
 
@@ -156,22 +194,22 @@ public class AI_Car_Controller : MonoBehaviour
     {
         foreach (var item in wheels)
         {
-            if (_currentWaypoint.GetComponent<WayPoints>().SlowDown == false && _carInFront == false && _canTurn == true)
+            if (_currentWaypoint.GetComponent<WayPoints>().SlowDown == false && _carInFront == false)
             {
                 item.motorTorque = totalPower;
                 item.brakeTorque = 0;
-                Debug.Log("1");
+                
 
             }
             else if (_carInFront)
             {
                 item.brakeTorque = 700;
                 item.motorTorque = 0;
-                Debug.Log("2");
 
             }
             else if (_currentWaypoint.GetComponent<WayPoints>().SlowDown && _currentWaypoint.GetComponent<WayPoints>().ItsATurn ==false)
             {
+
                 if (speed < 20 && _carInFront == false)
                 {
                     item.brakeTorque = 0;
@@ -185,33 +223,57 @@ public class AI_Car_Controller : MonoBehaviour
                     item.motorTorque = 0;
                 }           
             }
-            else if (_currentWaypoint.GetComponent<WayPoints>().SlowDown && _currentWaypoint.GetComponent<WayPoints>().ItsATurn)
+            else if (_currentWaypoint.GetComponent<WayPoints>().ItsATurn)
             {
 
-              
-                    if (_checkPointToCheckCar == null)
-                    {
-                        _checkPointToCheckCar = _currentWaypoint;
-                        int routeToTake = Random.Range(0, _checkPointToCheckCar.GetComponent<WayPoints>().NextWaypoint.Length);
-                        _currentWaypoint = _checkPointToCheckCar.GetComponent<WayPoints>().NextWaypoint[routeToTake];
-                    }
-                    else
-                    {
 
+                if (_checkPointToCheckCar == null)
+                {
+                    Debug.Log("4");
+
+                    _checkPointToCheckCar = _currentWaypoint;
+                    if (Physics.Raycast(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), fwd, out objectHit, 15))
+                    {
+                        //do something if hit object ie
+                        if (objectHit.collider.tag == "WayPoints")
+                        {
+                            _checkPointToCheckCar2 = objectHit.transform;
+                        }
                     }
-                        if (_canTurn == false)
-                        {
-                            item.brakeTorque = 700;
-                            item.motorTorque = 0;
-                            Debug.Log("1");
-                        }
-                        else
-                        {
-                            item.brakeTorque = 0;
-                            item.motorTorque = totalPower;
-                            Debug.Log("2");
-                        }
-                
+                    int routeToTake = Random.Range(0, _checkPointToCheckCar.GetComponent<WayPoints>().NextWaypoint.Length);
+                        _currentWaypoint = _checkPointToCheckCar.GetComponent<WayPoints>().NextWaypoint[routeToTake];
+                    _turnWaypoint = _currentWaypoint;
+                }
+
+
+                        
+            }
+            if (_checkPointToCheckCar != null )
+            {
+                if(horizontal < -0.2 && _hasCheckTurn ==false)
+                {
+                    Debug.Log("1232321");
+                    _cornerType = TurnType.Left;
+                    _currentWaypoint = _checkPointToCheckCar;
+                    _hasCheckTurn = true;
+                }
+                else if(horizontal > 0.2 && _hasCheckTurn == false)
+                {
+                    _cornerType = TurnType.Right;
+                    _currentWaypoint = _checkPointToCheckCar;
+                    _hasCheckTurn = true;
+                }
+                if (_canTurn == false)
+                {
+                    item.brakeTorque = 700;
+                    item.motorTorque = 0;
+                }
+                else
+                {
+                    item.brakeTorque = 0;
+                    item.motorTorque = totalPower;
+                }
+
             }
         }
 
@@ -223,79 +285,7 @@ public class AI_Car_Controller : MonoBehaviour
         relativeVector /= relativeVector.magnitude;
         float newSteer = (relativeVector.x / relativeVector.magnitude) * 2;
         horizontal = newSteer;
-        foreach (var item in wheels)
-        {
-            //if(_currentWaypoint.GetComponent<WayPoints>().SlowDown == false && _carInFront==false )
-            //{
-            //    item.motorTorque = totalPower;
-            //    item.brakeTorque = 0;
-
-            //}
-            //else
-            //{
-                //if(_currentWaypoint.GetComponent<WayPoints>().ItsATurn)
-                //{
-                //    if (_checkPointToCheckCar == null)
-                //    {
-                //        _checkPointToCheckCar = _currentWaypoint.GetComponent<WayPoints>().NextWaypoint[0];
-                //        int routeToTake = Random.Range(0, _checkPointToCheckCar.GetComponent<WayPoints>().NextWaypoint.Length);
-                //        _currentWaypoint = _checkPointToCheckCar.GetComponent<WayPoints>().NextWaypoint[routeToTake];
-
-
-                        
-                //    }
-
-                //if(speed < 20 && _carInFront==false )
-                //{
-                //    if (_angleToTurn >10 ||_angleToTurn< -10 )
-                //    {
-
-                //        if(_checkPointToCheckCar ==null)
-                //        {
-                //            if (Physics.Raycast(new Vector3(_pointToCastForward.transform.position.x, _pointToCastForward.transform.position.y, _pointToCastForward.transform.position.z + 8), fwd, out objectHit, 15))
-                //            {
-                //                Debug.DrawRay(new Vector3(_pointToCastForward.transform.position.x, _pointToCastForward.transform.position.y, _pointToCastForward.transform.position.z + 8), fwd * 15, Color.cyan);
-
-                //                //do something if hit object ie
-                //                if (objectHit.collider.tag == "WayPoints")
-                //                {
-                //                    _checkPointToCheckCar = objectHit.transform;
-
-                //                }
-
-                //            }
-
-                //            //_checkPointToCheckCar = _currentWaypoint;
-                //        }
-                //        if (_canTurn ==false)
-                //        {
-                //            item.brakeTorque = 700;
-                //            item.motorTorque = 0;
-                //            Debug.Log("1");
-
-                //        }
-                //        else
-                //        {
-
-                //            item.brakeTorque = 0;
-                //            item.motorTorque = totalPower;
-                //            Debug.Log("2");
-                //        }
-
-                //    }
-
-
-
-                //}
-                //else
-                //{
-                //    Debug.Log("3");
-                //    _checkPointToCheckCar = null;
-                //    item.brakeTorque = 500;
-                //    item.motorTorque = 0;
-              //  }
-            //}
-        }
+     
 
         if (horizontal > 0)
         {
@@ -394,14 +384,18 @@ public class AI_Car_Controller : MonoBehaviour
     {
         if (other.tag == "WayPoints")
         {
-            if (other.GetComponent<WayPoints>().NextWaypoint.Length ==1)
+            if (other.GetComponent<WayPoints>().NextWaypoint.Length == 1)
             {
             _currentWaypoint = other.GetComponent<WayPoints>().NextWaypoint[0];
+                _hasCheckTurn = false;
+                _checkPointToCheckCar = null;
 
             }
             else
             {
-              
+                    _currentWaypoint = _turnWaypoint;
+                
+                
 
             }
            
