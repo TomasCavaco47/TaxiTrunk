@@ -5,15 +5,22 @@ using UnityEngine;
 public class AI_Car_Controller : MonoBehaviour
 {
     public LayerMask rayMask;
-    enum TurnType
+    enum TurnDirection
     {
         Left,
         Center,
         Right
+    }  
+    enum TurnType
+    {
+        CrossRoad,
+        NormalTurn
+        
     }
     //private carModifier modifier;
     [SerializeField] private WheelCollider[] wheels;
-    [SerializeField] private TurnType _cornerType;
+    [SerializeField] private TurnDirection _turnDirection;
+    [SerializeField] private TurnType _turnType;
     [SerializeField] private float totalPower;
     [SerializeField] private float vertical, horizontal;
     private bool _tractionControl = true;
@@ -72,7 +79,7 @@ public class AI_Car_Controller : MonoBehaviour
         
         speed =Mathf.RoundToInt( _rb.velocity.magnitude * 3.6f);
      
-        //Debug.Log(speed);
+        Debug.Log(speed);
     }
     void FixedUpdate()
     {
@@ -106,54 +113,57 @@ public class AI_Car_Controller : MonoBehaviour
     }
     private void CheckCanTurn()
     {
-        
-        if (_checkPointToCheckCar != null)
-        {
-            if(_cornerType== TurnType.Left)
-            {               
-                Debug.DrawRay(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), -_checkPointToCheckCar.right * 50, Color.green);
-                Debug.DrawRay(new Vector3(_checkPointToCheckCar2.position.x, _checkPointToCheckCar2.position.y, _checkPointToCheckCar2.position.z), _checkPointToCheckCar2.right * 50, Color.magenta);
-                if (Physics.Raycast(new Vector3(_checkPointToCheckCar2.position.x, _checkPointToCheckCar2.position.y, _checkPointToCheckCar2.position.z), _checkPointToCheckCar2.right, out objectHit, 50, rayMask) || Physics.Raycast(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), -_checkPointToCheckCar.right, out objectHit, 50, rayMask))
-                {
-                    Debug.Log(objectHit.collider.gameObject);
-                    if (objectHit.collider.tag == "AICar")
+        if(_turnType == TurnType.CrossRoad)
+            if (_checkPointToCheckCar != null)
+            {
+                if(_turnDirection == TurnDirection.Left)
+                {               
+                    Debug.DrawRay(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), -_checkPointToCheckCar.right * 50, Color.green);
+                    Debug.DrawRay(new Vector3(_checkPointToCheckCar2.position.x, _checkPointToCheckCar2.position.y, _checkPointToCheckCar2.position.z), _checkPointToCheckCar2.right * 50, Color.magenta);
+                    if (Physics.Raycast(new Vector3(_checkPointToCheckCar2.position.x, _checkPointToCheckCar2.position.y, _checkPointToCheckCar2.position.z), _checkPointToCheckCar2.right, out objectHit, 50, rayMask) || Physics.Raycast(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), -_checkPointToCheckCar.right, out objectHit, 50, rayMask))
                     {
-                        Debug.Log("v");
+                        Debug.Log(objectHit.collider.gameObject);
+                        if (objectHit.collider.tag == "AICar")
+                        {
+                            Debug.Log("v");
 
-                        _canTurn = false;
+                            _canTurn = false;
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("c");
+
+                        _canTurn = true;
+                        _checkPointToCheckCar = null;
+                        _checkPointToCheckCar2 = null;
+
                     }
                 }
-                else
+                if(_turnDirection == TurnDirection.Right)
                 {
-                    Debug.Log("c");
-
-                    _canTurn = true;
-                    _checkPointToCheckCar = null;
-                    _checkPointToCheckCar2 = null;
-
-                }
-            }
-            if(_cornerType== TurnType.Right)
-            {
                 
 
-                Debug.DrawRay(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), -_checkPointToCheckCar.right * 50, Color.green);
-                if (Physics.Raycast(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), left, out objectHit, 50))
-                {
-                    //do something if hit object ie
-                    if (objectHit.collider.tag == "AICar")
+                    Debug.DrawRay(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), -_checkPointToCheckCar.right * 50, Color.green);
+                    if (Physics.Raycast(new Vector3(_checkPointToCheckCar.position.x, _checkPointToCheckCar.position.y, _checkPointToCheckCar.position.z), left, out objectHit, 50))
                     {
-                        _canTurn = false;
+                        //do something if hit object ie
+                        if (objectHit.collider.tag == "AICar")
+                        {
+                            _canTurn = false;
+                        }
+                    }
+                    else
+                    {    
+
+                        _canTurn = true;
+                        _checkPointToCheckCar = null;
+
                     }
                 }
-                else
-                {    
-
-                    _canTurn = true;
-                    _checkPointToCheckCar = null;
-
-                }
             }
+        {
+
         }
 
     }
@@ -194,8 +204,10 @@ public class AI_Car_Controller : MonoBehaviour
     {
         foreach (var item in wheels)
         {
-            if (_currentWaypoint.GetComponent<WayPoints>().SlowDown == false && _carInFront == false)
+            if (_currentWaypoint.GetComponent<WayPoints>().SlowDown == false && _carInFront == false  && speed < _currentWaypoint.GetComponent<WayPoints>().RoadMaxSpeed)
             {
+                Debug.Log("two");
+
                 item.motorTorque = totalPower;
                 item.brakeTorque = 0;
                 
@@ -253,13 +265,13 @@ public class AI_Car_Controller : MonoBehaviour
                 if(horizontal < -0.2 && _hasCheckTurn ==false)
                 {
                     Debug.Log("1232321");
-                    _cornerType = TurnType.Left;
+                    _turnDirection = TurnDirection.Left;
                     _currentWaypoint = _checkPointToCheckCar;
                     _hasCheckTurn = true;
                 }
                 else if(horizontal > 0.2 && _hasCheckTurn == false)
                 {
-                    _cornerType = TurnType.Right;
+                    _turnDirection = TurnDirection.Right;
                     _currentWaypoint = _checkPointToCheckCar;
                     _hasCheckTurn = true;
                 }
@@ -270,6 +282,8 @@ public class AI_Car_Controller : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("one");
+
                     item.brakeTorque = 0;
                     item.motorTorque = totalPower;
                 }
@@ -359,7 +373,7 @@ public class AI_Car_Controller : MonoBehaviour
     }
     void SpeedLimiter()
     {
-        if(speed > 40)
+        if(speed > _currentWaypoint.GetComponent<WayPoints>().RoadMaxSpeed)
         {
             foreach (var item in wheels)
             {

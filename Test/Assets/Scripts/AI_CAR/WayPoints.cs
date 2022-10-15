@@ -8,11 +8,14 @@ public class WayPoints : MonoBehaviour
     [SerializeField] private Transform[] _nextWaypoint;
     [SerializeField] private bool _slowDown;
     [SerializeField] private bool _itsATurn;
+    
+    [SerializeField] private int _roadMaxSpeed;
 
 
     public Transform[] NextWaypoint { get => _nextWaypoint; set => _nextWaypoint = value; }
     public bool SlowDown { get => _slowDown; set => _slowDown = value; }
     public bool ItsATurn { get => _itsATurn; set => _itsATurn = value; }
+    public int RoadMaxSpeed { get => _roadMaxSpeed; set => _roadMaxSpeed = value; }
 
     private void OnDrawGizmos()
     {
