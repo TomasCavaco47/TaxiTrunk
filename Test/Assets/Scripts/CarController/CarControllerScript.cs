@@ -29,8 +29,9 @@ public class CarControllerScript : MonoBehaviour
     private float _verticalInput;
     private bool _isReversing = false;
     private float _rotationInPreviousFrame;
-    private float _currentSpeed;
-   
+    private int _currentSpeed;
+
+    public int CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
 
     private void Start()
     {
@@ -38,6 +39,7 @@ public class CarControllerScript : MonoBehaviour
     }
     private void Update()
     {
+        _currentSpeed = Mathf.RoundToInt(_rb.velocity.magnitude * 3.6f);
     }
 
     private void FixedUpdate()
@@ -59,14 +61,14 @@ public class CarControllerScript : MonoBehaviour
     // Verify current speed in KMH or MPH
     private void UpdateCurrentSpeed()
     {
-        if (_speedType == SpeedType.KPH)
-        {
-            _currentSpeed = _rb.velocity.magnitude * 3.6f;
-        }
-        else
-        {
-            _currentSpeed = _rb.velocity.magnitude * 2.23693629f;
-        }
+        //if (_speedType == SpeedType.KPH)
+        //{
+        //    CurrentSpeed = _rb.velocity.magnitude * 3.6f;
+        //}
+        //else
+        //{
+        //    CurrentSpeed = _rb.velocity.magnitude * 2.23693629f;
+        //}
     }
     //Steers the car
     private void HandleSteering()

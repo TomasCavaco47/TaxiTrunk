@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[System.Serializable]
+
 
 public class WayPoints : MonoBehaviour
 {
    
     [SerializeField] private Transform[] _nextWaypoint;
     [SerializeField] private bool _slowDown;
-    [SerializeField] private bool _itsATurn;
-    
+    [SerializeField] private bool _hasATurn;
+    [SerializeField] private bool _stop;   
     [SerializeField] private int _roadMaxSpeed;
+
 
 
     public Transform[] NextWaypoint { get => _nextWaypoint; set => _nextWaypoint = value; }
     public bool SlowDown { get => _slowDown; set => _slowDown = value; }
-    public bool ItsATurn { get => _itsATurn; set => _itsATurn = value; }
+    public bool HasATurn { get => _hasATurn; set => _hasATurn = value; }
     public int RoadMaxSpeed { get => _roadMaxSpeed; set => _roadMaxSpeed = value; }
+    public bool Stop { get => _stop; set => _stop = value; }
 
     private void OnDrawGizmos()
     {
@@ -50,5 +54,9 @@ public class WayPoints : MonoBehaviour
 
         }
     }
-       
+
+  
+  
+ 
+
 }

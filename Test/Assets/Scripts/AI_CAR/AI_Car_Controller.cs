@@ -219,7 +219,7 @@ public class AI_Car_Controller : MonoBehaviour
                 item.motorTorque = 0;
 
             }
-            else if (_currentWaypoint.GetComponent<WayPoints>().SlowDown && _currentWaypoint.GetComponent<WayPoints>().ItsATurn ==false)
+            else if (_currentWaypoint.GetComponent<WayPoints>().SlowDown && _currentWaypoint.GetComponent<WayPoints>().HasATurn ==false)
             {
 
                 if (speed < 20 && _carInFront == false)
@@ -235,7 +235,7 @@ public class AI_Car_Controller : MonoBehaviour
                     item.motorTorque = 0;
                 }           
             }
-            else if (_currentWaypoint.GetComponent<WayPoints>().ItsATurn)
+            else if (_currentWaypoint.GetComponent<WayPoints>().HasATurn)
             {
 
 
