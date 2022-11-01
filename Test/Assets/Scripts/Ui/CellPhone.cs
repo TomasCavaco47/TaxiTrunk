@@ -16,13 +16,13 @@ public class CellPhone : MonoBehaviour
 
     public void UseCellPhone()
     {
-        if (Input.GetKeyDown(KeyCode.T) && _isPhoneOpen == false)
+        if (Input.GetKeyDown(KeyCode.Mouse2) && _isPhoneOpen == false)
         {
             _cellPhone.SetActive(true);
             _isPhoneOpen = true;
             //triger da animação
         }
-        else if (Input.GetKeyDown(KeyCode.T) && _isPhoneOpen == true)
+        else if (Input.GetKeyDown(KeyCode.Mouse2) && _isPhoneOpen == true)
         {
             _cellPhone.SetActive(false);
             _isPhoneOpen = false;

@@ -6,39 +6,73 @@ using Random = UnityEngine.Random;
 
 public class Client : MonoBehaviour
 {
-    [SerializeField] CarControllerScript _car;
     [SerializeField] Transform[] _goalLocalization;
     
     [SerializeField] bool _isClientIn = false;
     CellPhone _phone;
+    Timer _timer;
+    [SerializeField] GameObject _casio;
 
-    //caso fazer o spawn do Goal com envento.
-    //Action _goalSpwan;
-    //public Action GoalSpwan { get => _goalSpwan; set => _goalSpwan = value; }
+    //Distacia entre pontos
+    [SerializeField] float _distance;
+    [SerializeField] int _loc;
+  
+   
 
     private void Awake()
     {
-        _car = GameObject.Find("Free Racing Car (1)").GetComponent<CarControllerScript>();
+        _timer = GameObject.Find("Timer").GetComponent<Timer>();
         _phone = GameObject.Find("CellPhone").GetComponent<CellPhone>();
+    }
+
+    private void Update()
+    {
+      
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if(_car != null && _isClientIn == false)
+        if (other.tag == "Player" && _isClientIn == false)
         {
+           
             _isClientIn = true;
-            int _loc = Random.Range(0, _goalLocalization.Length);
-            gameObject.transform.position = _goalLocalization[_loc].position;
-            //_goalSpwan.Invoke();
+            
+            StartCoroutine(SpwanGoal());
+
+
+
         }
-        else if (_car != null && _isClientIn == true)
+        else if (other.tag == "Player" && _isClientIn == true)
         {
             _phone.IsMissonOn = false;
-            Destroy(gameObject);
+            _timer.StopTimer();
             
+            Destroy(gameObject);
+
         }
     }
+
+   
+    IEnumerator SpwanGoal()
+    {
+            _loc = Random.Range(0, _goalLocalization.Length);
+            _distance = Vector3.Distance(gameObject.transform.position, _goalLocalization[_loc].transform.position);
+        if (_distance < 55)
+        {
+            StartCoroutine(SpwanGoal());
+        }
+        else
+        {
+            _timer.StartMinutes = (int)_distance / 4;
+            _timer.StartTimer();
+            gameObject.transform.position = _goalLocalization[_loc].position;
+        }
+            yield return new WaitForSeconds(0.1f);
+    }
+
+
+
+
 
    
 }
