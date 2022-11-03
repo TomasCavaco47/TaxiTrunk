@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GoalSpwanEvent : MonoBehaviour
 {
-    Client _client;
+    private Client _client;
     [SerializeField] Transform _goalLocalization;
     [SerializeField] GameObject _goal;
 

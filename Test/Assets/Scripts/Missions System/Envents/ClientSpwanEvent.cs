@@ -4,37 +4,33 @@ using UnityEngine;
 
 public class ClientSpwanEvent : MonoBehaviour
 {
-    CellPhone _cP;
+    
+    /// /////////////////////////////////////////////////////////////////////////////////
+   /////////////////// ///////////// // /////////////////// // //////////////////////////
+    private CellPhone _cellPhone;
+
+    [SerializeField] int _whichClient = 0;
+    [SerializeField] GameObject[] _clients; /////////////////
+    [SerializeField] int _wereTheClientIs = 0;
+    [SerializeField] Transform[] _clientLocalization;
     private void Awake()
     {
-        _cP = GetComponent<CellPhone>();
+        _cellPhone = GetComponent<CellPhone>();
     }
 
     void OnEnable()
     {
-        _cP.PassagerSpwanEvent += SpawnPasseger;
+        _cellPhone.PassagerSpwanEvent += SpawnPasseger;
     }
     void OnDisable()
     {
-        _cP.PassagerSpwanEvent -= SpawnPasseger;
+        _cellPhone.PassagerSpwanEvent -= SpawnPasseger;
     }
 
-    [SerializeField] int _whichClient = 0;
-    [SerializeField] GameObject[] _clients;
-    [SerializeField] int _wereTheClientIs = 0;
-    [SerializeField] Transform[] _clientLocalization;
+
     void SpawnPasseger()
     {
-        if (_whichClient >= _clients.Length || _whichClient < 0)
-        {
-            _whichClient = 0;
-        }
-
-        if (_wereTheClientIs >= _clientLocalization.Length || _wereTheClientIs < 0)
-        {
-            _wereTheClientIs = 0;
-        }
-
+        
         GameObject client = Instantiate(_clients[_whichClient]);
         _wereTheClientIs = Random.Range(0, _clientLocalization.Length);
         client.transform.position = _clientLocalization[_wereTheClientIs].position;

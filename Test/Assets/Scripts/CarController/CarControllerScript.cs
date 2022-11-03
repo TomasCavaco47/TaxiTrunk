@@ -22,6 +22,7 @@ public class CarControllerScript : MonoBehaviour
     [SerializeField] private float _steeringAssistRatio = 0.5f;
     [SerializeField] private WheelCollider[] _wheelColliders = new WheelCollider[4];
     [SerializeField] private Transform[] _wheelMeshes = new Transform[4];
+    private GameManager _gameManager;
 
     private Rigidbody _rb;
 
@@ -35,11 +36,14 @@ public class CarControllerScript : MonoBehaviour
 
     private void Start()
     {
+        _gameManager = GameManager.instance;
+
         _rb = GetComponent<Rigidbody>();
     }
     private void Update()
     {
         _currentSpeed = Mathf.RoundToInt(_rb.velocity.magnitude * 3.6f);
+        PlayerInputs();
     }
 
     private void FixedUpdate()
@@ -57,6 +61,10 @@ public class CarControllerScript : MonoBehaviour
         TractionControl();
         SteeringAssist();
       
+    }
+    private void PlayerInputs()
+    {
+       
     }
     // Verify current speed in KMH or MPH
     private void UpdateCurrentSpeed()
