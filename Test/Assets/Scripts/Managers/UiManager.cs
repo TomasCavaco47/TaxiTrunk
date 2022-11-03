@@ -63,7 +63,9 @@ public class UiManager : MonoBehaviour
 
             if (_curentTimerTime <= 0)
             {
+            // quando chega a 0 o tempo aumenta um pouco mas o reward do player diminui
             StartTimer(0);
+            
             Debug.Log("lose");
             _gameManager.IsMissonOn = false;
             

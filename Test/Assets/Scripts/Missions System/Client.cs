@@ -30,8 +30,8 @@ public class Client : MonoBehaviour
         {
            
             _isClientIn = true;
-            //Spawnn();
-            StartCoroutine(SpwanGoal());
+            
+            SpawnGoal();
 
 
 
@@ -46,13 +46,13 @@ public class Client : MonoBehaviour
 
         }
     }
-    IEnumerator SpwanGoal()
+    void SpawnGoal()
     { 
             _loc = Random.Range(0, _goalLocalization.Length);
             _distance = Vector3.Distance(gameObject.transform.position, _goalLocalization[_loc].transform.position);
         if (_distance < 55)
         {
-            StartCoroutine(SpwanGoal());
+            SpawnGoal();
             
         }
         else
@@ -60,6 +60,6 @@ public class Client : MonoBehaviour
             _gameManager.UiManager.StartTimer((int)_distance / 4);
             gameObject.transform.position = _goalLocalization[_loc].position;
         }
-            yield return new WaitForSeconds(0.1f);
+
     }
 }
