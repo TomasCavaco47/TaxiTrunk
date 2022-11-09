@@ -11,7 +11,6 @@ public class AICARCONTROLLE2 : MonoBehaviour
         Center,
         Right
     }
-    
     [SerializeField] private float _maxDistance;
     [SerializeField] private float _distanceToWaypoint;
     [Range(0,360)]
@@ -80,13 +79,42 @@ public class AICARCONTROLLE2 : MonoBehaviour
         {
 
         }
-        //Debug.Log(Speed);
+        Debug.Log(Speed);
         if (_currentWaypoint == null)
         {
-            
-
+            float timer = +Time.deltaTime;
+            if (timer > 3)
+            {
+                Debug.Log("1");
+                List<Collider> wayPoints = new List<Collider>();
+                wayPoints = Physics.OverlapSphere(_checkFront.position, 20, _waypointsLayer).ToList();
+                Transform newWaypoint = null;
+                float newWaypointCurrentAngle = 0;
+                for (var i = 0; i < wayPoints.Count; i++)
+                {
+                    Transform tempTarget = wayPoints[i].transform;
+                    Vector3 dir = tempTarget.position - _checkLeft.position; // find target direction
+                    Vector3 yourDir = tempTarget.forward;
+                    float yourAngle = Vector3.Angle(yourDir, -dir);
+                    if (newWaypoint == null)
+                    {
+                        newWaypoint = wayPoints[i].transform;
+                        newWaypointCurrentAngle = yourAngle;
+                    }
+                    else
+                    {
+                        if (newWaypointCurrentAngle < yourAngle)
+                        {
+                            newWaypoint = wayPoints[i].transform;
+                            newWaypointCurrentAngle = yourAngle;
+                        }
+                    }
+                }
+                _currentWaypoint = newWaypoint;
+            }
         }
         Speed = Mathf.RoundToInt(_rb.velocity.magnitude * 3.6f);
+        ////////////
         if(_nextWaypoint != null)
         {
             Vector3 localPos = transform.InverseTransformPoint(_nextWaypoint.transform.position);
@@ -193,8 +221,8 @@ public class AICARCONTROLLE2 : MonoBehaviour
                         float myAngle = Vector3.Angle(myDir, dir);
                         float yourAngle = Vector3.Angle(yourDir, -dir);
                         float yourAngle2 = Vector3.Angle(yourDir, -dir2);
-                        Debug.Log(tempTarget.parent.name + " " + Vector3.Angle(dir2, _checkRight.right));
-                        Debug.Log(tempTarget.parent.name + " " + yourAngle+ " and "+ yourAngle2 );
+                       // Debug.Log(tempTarget.parent.name + " " + Vector3.Angle(dir2, _checkRight.right));
+                      //  Debug.Log(tempTarget.parent.name + " " + yourAngle+ " and "+ yourAngle2 );
 
                         if (Vector3.Angle(dir, _checkLeft.right) <= 100 / 2 || Vector3.Angle(dir, -_checkLeft.right) <= 100 / 2)
                         {
@@ -330,8 +358,8 @@ public class AICARCONTROLLE2 : MonoBehaviour
                             float myAngle = Vector3.Angle(myDir, dir);
                             float yourAngle = Vector3.Angle(yourDir, -dir);
                             float yourAngle2 = Vector3.Angle(yourDir, -dir2);
-                            Debug.Log(tempTarget.parent.name + " " + Vector3.Angle(dir2, _checkRight.right));
-                            Debug.Log(tempTarget.parent.name + " " + yourAngle + " and " + yourAngle2);
+                            //Debug.Log(tempTarget.parent.name + " " + Vector3.Angle(dir2, _checkRight.right));
+                           // Debug.Log(tempTarget.parent.name + " " + yourAngle + " and " + yourAngle2);
 
                             if (Vector3.Angle(dir, _checkLeft.right) <= 100 / 2 || Vector3.Angle(dir, -_checkLeft.right) <= 100 / 2)
                             {
@@ -429,7 +457,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                                 tempCar = _carsStopedInFront[i];
                                             }
                                         }
-                                        Debug.Log(tempCar.name);
+                                        //Debug.Log(tempCar.name);
 
                                         if (tempCar.GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
                                         {
@@ -601,6 +629,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                     {
                         if (_front == false)
                         {
+                            Debug.Log("1");
                             _currentWaypoint = _nextWaypoint;
                             CheckPath();
                             _canMove = true;
@@ -610,6 +639,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                         {
                             if (_carsStopedInFront.Count == 0)
                             {
+                                Debug.Log("2");
                                 _currentWaypoint = _nextWaypoint;
                                 CheckPath();
                                 _canMove = true;
@@ -623,6 +653,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                 {
                                     if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
                                     {
+                                        Debug.Log("3");
                                         _currentWaypoint = _nextWaypoint;
                                         CheckPath();
                                         _canMove = true;
@@ -630,6 +661,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                     }
                                     if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Left)
                                     {
+                                        Debug.Log("4");
                                         _currentWaypoint = _nextWaypoint;
                                         CheckPath();
                                         _canMove = true;
@@ -637,32 +669,25 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                     }
                                     if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Right)
                                     {
+                                        Debug.Log("5");
                                         _currentWaypoint = _nextWaypoint;
                                         CheckPath();
                                         _canMove = true;
                                         _nextWaypoint = null;
                                     }
-
                                 }
-                                else
-                                {
-
-
-                                }
-
                             }
                         }
                     }
                 }
                 else
                 {
+                    Debug.Log("1");
                     _currentWaypoint = _nextWaypoint;
                     CheckPath();
                     _canMove = true;
                     _nextWaypoint = null;
                 }
-
-
             }
             
         }
@@ -699,20 +724,13 @@ public class AICARCONTROLLE2 : MonoBehaviour
                 float yourAngle = Vector3.Angle(yourDir, -dir);
                 if (Vector3.Angle(dir, _checkLeft.forward) <= 100 / 2)
                 {
-
                     // Debug.Log(myAngle + " " + yourAngle);
-
                     if (yourAngle > 90)
-                    {
-                        
-                            _carInFront = true;
-                        
-                        
+                    {         
+                            _carInFront = true;                                        
                     }
-
-                }
+               }
                
-
             }
             else
             {
