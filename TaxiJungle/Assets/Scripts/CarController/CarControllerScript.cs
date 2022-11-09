@@ -43,7 +43,6 @@ public class CarControllerScript : MonoBehaviour
     private void Update()
     {
         _currentSpeed = Mathf.RoundToInt(_rb.velocity.magnitude * 3.6f);
-        PlayerInputs();
     }
 
     private void FixedUpdate()
@@ -61,10 +60,6 @@ public class CarControllerScript : MonoBehaviour
         TractionControl();
         SteeringAssist();
       
-    }
-    private void PlayerInputs()
-    {
-       
     }
     // Verify current speed in KMH or MPH
     private void UpdateCurrentSpeed()
@@ -106,7 +101,7 @@ public class CarControllerScript : MonoBehaviour
         }
         if (_verticalInput == 0 || _isReversing)
         {
-            _rb.drag = Mathf.Lerp(GetComponent<Rigidbody>().drag, 0.3f, Time.deltaTime * 2);
+            _rb.drag = Mathf.Lerp(GetComponent<Rigidbody>().drag, 0.5f, Time.deltaTime * 2);
 
         }
         else

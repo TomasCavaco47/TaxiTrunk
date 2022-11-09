@@ -8,13 +8,28 @@ using UnityEngine;
 public class UiManager : MonoBehaviour
 {
     private GameManager _gameManager;
-   
-    [SerializeField] GameObject _cellPhone;
+    public static UiManager instance;
+
+    [SerializeField] GameObject _cellPhoneImage;
+    [SerializeField] GameObject _cellPhoneFirstMenu;
+    [SerializeField] GameObject _cellPhoneSecoundMenu;
+
     [SerializeField] GameObject _timerObject;
     [SerializeField] private bool _startTimer = false;
     [SerializeField] private float _curentTimerTime;
     [SerializeField] Text _currentTimeText;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
 
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     private void Start()
     {
         _gameManager = GameManager.instance;
@@ -29,16 +44,21 @@ public class UiManager : MonoBehaviour
     }
     public void CellPhone()
     {
-      if(_cellPhone.activeSelf ==true)
+      if(_cellPhoneImage.activeSelf ==true)
         {
-           _cellPhone.SetActive(false);
+           _cellPhoneImage.SetActive(false);
        }
        else
        {
-           _cellPhone.SetActive(true);
+           _cellPhoneImage.SetActive(true);
        }
 
     }   
+
+    public void CellPhoneStoryMissions()
+    {
+
+    }
     public void ShowTimer(int time)
     {
         if (_timerObject.activeSelf == true)

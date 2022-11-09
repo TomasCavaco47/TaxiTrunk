@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7830729546204655243}
   - component: {fileID: 7830729546204655245}
   - component: {fileID: 7830729546204655242}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: FrontLeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7830729546257529122}
   - component: {fileID: 7830729546257529125}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: RearLeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 7830729546265162490}
   - component: {fileID: 7830729546265162491}
   - component: {fileID: 7830729546265162488}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: AICARTEST (22)
   m_TagString: AICar
   m_Icon: {fileID: 0}
@@ -219,10 +219,13 @@ MonoBehaviour:
   _angle: 140
   _waypointsLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   _aiCarLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
+  _playerCarLayer:
+    serializedVersion: 2
+    m_Bits: 256
   _turnDirection: 1
   wheels:
   - {fileID: 7830729546458610188}
@@ -256,7 +259,7 @@ GameObject:
   - component: {fileID: 7830729546387993897}
   - component: {fileID: 7830729546387993899}
   - component: {fileID: 7830729546387993896}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Spoiler
   m_TagString: AICar
   m_Icon: {fileID: 0}
@@ -338,7 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7830729546458610189}
   - component: {fileID: 7830729546458610188}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: FrontLeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +405,7 @@ GameObject:
   - component: {fileID: 7830729546693373963}
   - component: {fileID: 7830729546693373960}
   - component: {fileID: 7830729546693373961}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: CheckLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7830729546721634173}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: CastFoward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +533,7 @@ GameObject:
   - component: {fileID: 7830729546805743437}
   - component: {fileID: 7830729546805743434}
   - component: {fileID: 7830729546805743435}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: CheckRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -624,7 +627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7830729546968756043}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +665,7 @@ GameObject:
   - component: {fileID: 7830729547057648703}
   - component: {fileID: 7830729547057648700}
   - component: {fileID: 7830729547057648701}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: CheckFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +762,7 @@ GameObject:
   - component: {fileID: 7830729547089453264}
   - component: {fileID: 7830729547089453265}
   - component: {fileID: 7830729547089453230}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Body
   m_TagString: AICar
   m_Icon: {fileID: 0}
@@ -855,7 +858,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7830729547276755823}
   - component: {fileID: 7830729547276755822}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: FrontRightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -917,7 +920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7830729547345784239}
   - component: {fileID: 7830729547345784236}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: RearRightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,7 +981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7830729547743103949}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Castleft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1009,7 +1012,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7830729547780078073}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Wheels
   m_TagString: AICar
   m_Icon: {fileID: 0}
@@ -1044,7 +1047,7 @@ GameObject:
   - component: {fileID: 7830729547825256282}
   - component: {fileID: 7830729547825256284}
   - component: {fileID: 7830729547825256285}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: FrontRightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1127,7 +1130,7 @@ GameObject:
   - component: {fileID: 7830729548102827900}
   - component: {fileID: 7830729548102827902}
   - component: {fileID: 7830729548102827903}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: RearLeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1210,7 +1213,7 @@ GameObject:
   - component: {fileID: 7830729548105654558}
   - component: {fileID: 7830729548105654528}
   - component: {fileID: 7830729548105654529}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: RearRightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1291,7 +1294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7830729548109813343}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
