@@ -79,7 +79,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
         {
 
         }
-        Debug.Log(Speed);
+        //Debug.Log(Speed);
         if (_currentWaypoint == null)
         {
             float timer = +Time.deltaTime;

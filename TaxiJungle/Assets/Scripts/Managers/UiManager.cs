@@ -15,9 +15,9 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject _cellPhoneSecoundMenu;
 
     [SerializeField] GameObject _timerObject;
-    [SerializeField] private bool _startTimer = false;
-    [SerializeField] private float _curentTimerTime;
     [SerializeField] Text _currentTimeText;
+
+    [SerializeField] GameObject _dialogueObject;
     private void Awake()
     {
         if (instance != null)
@@ -37,10 +37,7 @@ public class UiManager : MonoBehaviour
 
     private void Update()
     {
-        if(_startTimer)
-        {
-            TickTimer();
-        }
+       
     }
     public void CellPhone()
     {
@@ -55,43 +52,27 @@ public class UiManager : MonoBehaviour
 
     }   
 
-    public void CellPhoneStoryMissions()
+    public void ShowTimer(bool active, float timer)
     {
-
-    }
-    public void ShowTimer(int time)
-    {
-        if (_timerObject.activeSelf == true)
+        _timerObject.SetActive(active);
+        if (active)
         {
-            _timerObject.SetActive(false);
-            _curentTimerTime = time;
-            _startTimer = false;
-
-        }
-        else
-        {
-            _startTimer = true;
-            _curentTimerTime = time;
-            _timerObject.SetActive(true);
-
-
+            
+            TimeSpan time = TimeSpan.FromSeconds(timer);
+            _currentTimeText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString();
         }
     }
-    void TickTimer()
-    {
-        _curentTimerTime = _curentTimerTime - Time.deltaTime;
 
-            if (_curentTimerTime <= 0)
-            {
-            // quando chega a 0 o tempo aumenta um pouco mas o reward do player diminui
-            ShowTimer(0);
-            
-            Debug.Log("lose");
-            _gameManager.IsMissonOn = false;
-            
-            }
-        
-        TimeSpan time = TimeSpan.FromSeconds(_curentTimerTime);
-        _currentTimeText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString();
+    public void Dialogue( Sprite sprite, string text)
+    {
+        _dialogueObject.SetActive(true);
+        _dialogueObject.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
+        _dialogueObject.transform.GetChild(1).GetComponent<Text>().text = text;
     }
+    public void CloseDialogue()
+    {
+        _dialogueObject.SetActive(false);
+       
+    }
+    
 }

@@ -22,6 +22,8 @@ public class CarControllerScript : MonoBehaviour
     [SerializeField] private float _steeringAssistRatio = 0.5f;
     [SerializeField] private WheelCollider[] _wheelColliders = new WheelCollider[4];
     [SerializeField] private Transform[] _wheelMeshes = new Transform[4];
+
+    private bool _canMove=false;
     private GameManager _gameManager;
 
     private Rigidbody _rb;
@@ -33,15 +35,35 @@ public class CarControllerScript : MonoBehaviour
     private int _currentSpeed;
 
     public int CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody>();
 
+    }
     private void Start()
     {
-        _gameManager = GameManager.instance;
+        Debug.Log(_rb.centerOfMass);
+        _rb.centerOfMass = new Vector3(0,0.25f,-0.02f);
+        
 
-        _rb = GetComponent<Rigidbody>();
+        // Time.timeScale = 1.5f;
+        //Time.fixedDeltaTime =0.03f;
+         Time.timeScale = 1f;
+        // Time.timeScale = 0.9f;
+        //Time.fixedDeltaTime =Time.timeScale* 0.02f;
+        Time.fixedDeltaTime =0.02f;
+
+        _gameManager = GameManager.instance;
+        
+
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _rb.velocity *= 0.9f;
+        }
+        Debug.Log(_currentSpeed);
         _currentSpeed = Mathf.RoundToInt(_rb.velocity.magnitude * 3.6f);
     }
 
@@ -49,13 +71,13 @@ public class CarControllerScript : MonoBehaviour
     {
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
-
-        UpdateCurrentSpeed();
+        
+            UpdateCurrentSpeed();
         HandleSteering();
         HandleDrive();
         HandleWheelTransform();
 
-        AntiRoll();
+        //AntiRoll();
         DetectReverse();
         TractionControl();
         SteeringAssist();
@@ -109,7 +131,7 @@ public class CarControllerScript : MonoBehaviour
             _rb.drag = 0;
         }
     }
-    // Brakes teh car while accerlarating or reversing
+    // Brakes the car while accerlarating or reversing
     private void ApplyBrakes()
     {
        

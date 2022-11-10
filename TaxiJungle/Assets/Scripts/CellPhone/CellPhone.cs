@@ -11,6 +11,8 @@ public class CellPhone : MonoBehaviour
     private UiManager _uiManager;
    [SerializeField] private MissionManager _missionManager;
 
+    [SerializeField] private Client _client;
+
     public Action StartQuickMission { get => _startQuickMission; set => _startQuickMission = value; }
     private void Awake()
     {
@@ -43,7 +45,7 @@ public class CellPhone : MonoBehaviour
         {
             if (_missionManager.MissionStarted == false)
             {
-                
+                _missionManager.StartStoryMissions(_client);
             }
             else
             {
