@@ -45,6 +45,7 @@ public struct Dialogue
 
     public Sprite Sprite { get => sprite; set => sprite = value; }
     public WhosTalking WhosTalking { get => _whosTalking; set => _whosTalking = value; }
+    public string Text { get => _text; set => _text = value; }
 }
 
 
