@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum SpeedType
-{
-    KPH,
-    MPH
-}
+//enum SpeedType
+//{
+//    KPH,
+//    MPH
+//}
 public class CarControllerScript : MonoBehaviour
 {
   
@@ -44,14 +44,16 @@ public class CarControllerScript : MonoBehaviour
     {
         Debug.Log(_rb.centerOfMass);
         _rb.centerOfMass = new Vector3(0,0.25f,-0.02f);
-        
 
-        // Time.timeScale = 1.5f;
-        //Time.fixedDeltaTime =0.03f;
-         Time.timeScale = 1f;
+
+        
         // Time.timeScale = 0.9f;
         //Time.fixedDeltaTime =Time.timeScale* 0.02f;
-        Time.fixedDeltaTime =0.02f;
+
+
+        //Time.fixedDeltaTime =0.02f;
+        //Time.timeScale = 1f;
+
 
         _gameManager = GameManager.instance;
         
@@ -72,7 +74,7 @@ public class CarControllerScript : MonoBehaviour
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
         
-            UpdateCurrentSpeed();
+        UpdateCurrentSpeed();
         HandleSteering();
         HandleDrive();
         HandleWheelTransform();
@@ -104,8 +106,8 @@ public class CarControllerScript : MonoBehaviour
     // Makes the car acelarate, brake ,reverse and adds  drag when there is no input 
     private void HandleDrive()
     {
-        _wheelColliders[0].motorTorque = _motorForce * _verticalInput / 2;
-        _wheelColliders[1].motorTorque = _motorForce * _verticalInput / 2;
+        _wheelColliders[2].motorTorque = _motorForce * _verticalInput / 2;
+        _wheelColliders[3].motorTorque = _motorForce * _verticalInput / 2;
 
         if (!_isReversing && _verticalInput < 0 && _rb.velocity.magnitude > 1)
         {
@@ -252,6 +254,7 @@ public class CarControllerScript : MonoBehaviour
         }
         _rotationInPreviousFrame = transform.eulerAngles.y;
     }
+   
 
 
 }
