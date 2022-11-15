@@ -5,13 +5,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    int _money;
 
     [SerializeField] private UiManager _uiManager;
-    private bool _isMissonOn = false;
+    
 
 
     public UiManager UiManager { get => _uiManager; set => _uiManager = value; }
-    public bool IsMissonOn { get => _isMissonOn; set => _isMissonOn = value; }
+  
 
     // Start is called before the first frame update
     private void Awake()
@@ -30,17 +31,24 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         OpenPhone();
+        ClosePhone();
     }
     void OpenPhone()
     {
-        if(IsMissonOn)
+       
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            return;
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            _uiManager.CellPhone();
+            _uiManager.OpenPhone();
         }
     }
+
+    void ClosePhone()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            _uiManager.ClosePhone();
+        }
+    }
+  
     
 }
