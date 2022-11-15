@@ -59,9 +59,9 @@ public class MissionManager : MonoBehaviour
     {
         _currentClient = client;
         _activeMission = _currentClient.MissionsArcOne[0];
+        _uiManager.GpsOn(_activeMission.Origin);
+        // _activeMission = _clients[0].MissionsArcOne[0];
 
-       // _activeMission = _clients[0].MissionsArcOne[0];
-       
         MissionStarted = true;
 
 
@@ -74,6 +74,7 @@ public class MissionManager : MonoBehaviour
 
         Debug.Log("Pick me up in " + _activeMission.Origin.name);
         SpawnGoal();
+        _uiManager.GpsOn(_activeMission.Origin);
         MissionStarted = true;
     }
     
@@ -97,9 +98,10 @@ public class MissionManager : MonoBehaviour
             {
 
                 Debug.Log("Take me to " + _activeMission.Destination.name);
+                _uiManager.GpsOn(_activeMission.Destination);
 
-            
-                _timer = ((int)(Vector3.Distance(_playerCar.transform.position, _activeMission.Destination.position)) / 4);
+
+            _timer = ((int)(Vector3.Distance(_playerCar.transform.position, _activeMission.Destination.position)) / 4);
             if(_activeMission.DialoguesPickUp.Length>0)
             {
                 Time.timeScale = _slowMotionTimeScale;
@@ -132,6 +134,7 @@ public class MissionManager : MonoBehaviour
         Debug.Log(Vector3.Distance(_playerCar.transform.position, _activeMission.Destination.position));
         if (Vector3.Distance(_playerCar.transform.position, _activeMission.Destination.position) <= 5 && _playerCar.CurrentSpeed == 0)
         {
+            _uiManager.GpsOff();
             _uiManager.ShowTimer(false, 0);
             _clientPickedUp = false;
             MissionStarted = false;
@@ -152,6 +155,7 @@ public class MissionManager : MonoBehaviour
         {
             // quando chega a 0 o tempo aumenta um pouco mas o reward do player diminui
             _uiManager.ShowTimer(false,0);
+            _uiManager.GpsOff();
 
             Debug.Log("lose");
             MissionStarted = false;
@@ -159,10 +163,11 @@ public class MissionManager : MonoBehaviour
             _clientPickedUp = false;
 
         }
-
+      
         
         
     }
     #endregion
+
 
 }
