@@ -40,8 +40,10 @@ public class CarControllerTest : MonoBehaviour
     [SerializeField] AnimationCurve _drag;
     [SerializeField] WheelFrictionCurve _normal;
     [SerializeField] WheelFrictionCurve _new;
+    bool _canMove =true;
 
     public int CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
+    public bool CanMove { get => _canMove; set => _canMove = value; }
 
     private void Awake()
     {
@@ -65,7 +67,8 @@ public class CarControllerTest : MonoBehaviour
     }
     private void FixedUpdate()
     {
-       // _rigidBody.drag = _drag.Evaluate(_currentSpeed);
+       
+
 
         HandleSteering();
         HandleDrive();
@@ -98,30 +101,31 @@ public class CarControllerTest : MonoBehaviour
     private void HandleDrive()
     {
         float input = Input.GetAxis("Vertical") * _maxTorque;
-
-        //Accelerate
-        if(input>0)
+        if(CanMove)
         {
-            if (_reachedMaxSpeed== false)
+            //Accelerate
+            if (input > 0)
             {
-  
-                foreach (WheelElements element in _wheelData)
+                if (_reachedMaxSpeed == false)
                 {
-                    if (element.AddWheelTorque)
-                    {
-                        element.RightWheel.brakeTorque = 0;
-                        element.LeftWheel.brakeTorque = 0;
-                        element.LeftWheel.motorTorque = input;
-                        element.RightWheel.motorTorque = input;
-                    }
-                    HandleWheelTransform(element.LeftWheel);
-                    HandleWheelTransform(element.RightWheel);
-                }
 
-            }
-            else
-            {
-               
+                    foreach (WheelElements element in _wheelData)
+                    {
+                        if (element.AddWheelTorque)
+                        {
+                            element.RightWheel.brakeTorque = 0;
+                            element.LeftWheel.brakeTorque = 0;
+                            element.LeftWheel.motorTorque = input;
+                            element.RightWheel.motorTorque = input;
+                        }
+                        HandleWheelTransform(element.LeftWheel);
+                        HandleWheelTransform(element.RightWheel);
+                    }
+
+                }
+                else
+                {
+
                     Debug.LogWarning("222");
 
                     foreach (WheelElements element in _wheelData)
@@ -137,63 +141,81 @@ public class CarControllerTest : MonoBehaviour
                         HandleWheelTransform(element.RightWheel);
                     }
 
-                
+
+                }
+            }
+            //Brake
+            if (input < 0 && _wheelData[0].LeftWheel.rpm > 0)
+            {
+
+                foreach (WheelElements element in _wheelData)
+                {
+                    if (element.AddWheelTorque)
+                    {
+                        element.LeftWheel.motorTorque = 0;
+                        element.RightWheel.motorTorque = 0;
+
+                        element.RightWheel.brakeTorque = _brakeTorque;
+                        element.LeftWheel.brakeTorque = _brakeTorque;
+
+                    }
+                    HandleWheelTransform(element.LeftWheel);
+                    HandleWheelTransform(element.RightWheel);
+                }
+            }
+            //Reverse
+            if (input < 0 && _wheelData[0].LeftWheel.rpm <= 0)
+            {
+                if (_reachedMaxSpeed == false)
+                {
+                    foreach (WheelElements element in _wheelData)
+                    {
+                        if (element.AddWheelTorque)
+                        {
+                            element.RightWheel.brakeTorque = 0;
+                            element.LeftWheel.brakeTorque = 0;
+                            element.LeftWheel.motorTorque = input;
+                            element.RightWheel.motorTorque = input;
+                        }
+                        HandleWheelTransform(element.LeftWheel);
+                        HandleWheelTransform(element.RightWheel);
+                    }
+
+                }
+                else
+                {
+                    foreach (WheelElements element in _wheelData)
+                    {
+                        if (element.AddWheelTorque)
+                        {
+                            element.RightWheel.brakeTorque = 0;
+                            element.LeftWheel.brakeTorque = 0;
+                            element.LeftWheel.motorTorque = 0;
+                            element.RightWheel.motorTorque = 0;
+                        }
+                        HandleWheelTransform(element.LeftWheel);
+                        HandleWheelTransform(element.RightWheel);
+                    }
+                }
             }
         }
-        //Brake
-        if(input< 0 && _wheelData[0].LeftWheel.rpm>0)
+        else
         {
-
             foreach (WheelElements element in _wheelData)
             {
                 if (element.AddWheelTorque)
                 {
+                    element.RightWheel.brakeTorque = 1000;
+                    element.LeftWheel.brakeTorque = 1000;
                     element.LeftWheel.motorTorque = 0;
                     element.RightWheel.motorTorque = 0;
-
-                    element.RightWheel.brakeTorque = _brakeTorque;
-                    element.LeftWheel.brakeTorque = _brakeTorque;
-
                 }
                 HandleWheelTransform(element.LeftWheel);
                 HandleWheelTransform(element.RightWheel);
             }
         }
-        //Reverse
-        if(input < 0 && _wheelData[0].LeftWheel.rpm <= 0 )
-        {
-            if (_reachedMaxSpeed == false)
-            {
-                foreach (WheelElements element in _wheelData)
-                {
-                    if (element.AddWheelTorque)
-                    {
-                        element.RightWheel.brakeTorque = 0;
-                        element.LeftWheel.brakeTorque = 0;
-                        element.LeftWheel.motorTorque = input;
-                        element.RightWheel.motorTorque = input;
-                    }
-                    HandleWheelTransform(element.LeftWheel);
-                    HandleWheelTransform(element.RightWheel);
-                }
-
-            }
-            else
-            {
-                foreach (WheelElements element in _wheelData)
-                {
-                    if (element.AddWheelTorque)
-                    {
-                        element.RightWheel.brakeTorque = 0;
-                        element.LeftWheel.brakeTorque = 0;
-                        element.LeftWheel.motorTorque = 0;
-                        element.RightWheel.motorTorque = 0;
-                    }
-                    HandleWheelTransform(element.LeftWheel);
-                    HandleWheelTransform(element.RightWheel);
-                }
-            }
-        }
+        
+        
         
     }
     void HandleWheelTransform (WheelCollider collider)
@@ -221,7 +243,7 @@ public class CarControllerTest : MonoBehaviour
         {
             CurrentSpeed = Mathf.RoundToInt(_rigidBody.velocity.magnitude * 2.23693629f);
         }
-        Debug.Log(_currentSpeed);
+        //Debug.Log(_currentSpeed);
     }
     void LimitMaxSpeed()
     {
@@ -287,4 +309,16 @@ public class CarControllerTest : MonoBehaviour
         }
 
     }
+    //private void GForce()
+    //{
+    
+   
+
+
+    //    float G;
+    //    float steer = _wheelData[0].LeftWheel.steerAngle;
+    //    float a = _currentSpeed * steer;
+    //    G = a / 9.81f;
+    //    Debug.Log( G);
+    //}
 }

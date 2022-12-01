@@ -20,6 +20,10 @@ public class Client : MonoBehaviour
             {
                 break;
             }
+            else
+            {
+                    
+            }
             for (int a = 0; a < MissionsArcOne[i].DialoguesPickUp.Length; a++)
             {
                 if(MissionsArcOne[i].DialoguesPickUp.Length!=0)

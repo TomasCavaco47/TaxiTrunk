@@ -21,12 +21,16 @@ public class Mission
     [SerializeField] private Dialogue[] _dialoguesInMission;
     [SerializeField] private Dialogue[] _dialoguesDestination;
 
+
+
     public Dialogue[] DialoguesPickUp { get => _dialoguesPickUp; set => _dialoguesPickUp = value; }
     public Dialogue[] DialoguesInMission { get => _dialoguesInMission; set => _dialoguesInMission = value; }
     public Dialogue[] DialoguesDestination { get => _dialoguesDestination; set => _dialoguesDestination = value; }
     public MissionType MissionType { get => _missionType; set => _missionType = value; }
     public Transform Origin { get => _origin; set => _origin = value; }
     public Transform Destination { get => _destination; set => _destination = value; }
+
+
 }
 
 
