@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class GetPlacesAndClients
@@ -9,6 +10,8 @@ public class GetPlacesAndClients
     [SerializeField] List<Transform> _places;
     [SerializeField] GameObject _client;
     [SerializeField] List<Client> _clients;
+
+    
 
     public Transform Place { get => _place; set => _place = value; }
     public List<Transform> Places { get => _places; set => _places = value; }
@@ -21,6 +24,9 @@ public class MissionManager : MonoBehaviour
     [Header("Refferences")]
     [SerializeField] UiManager _uiManager;
     [SerializeField] CarControllerTest _playerCar;
+    [SerializeField] Canvas _canvas;
+    [SerializeField] GameObject _PuzzleCanvas;
+    public static MissionManager instance;
 
     [Header("Data")]
 
@@ -30,20 +36,30 @@ public class MissionManager : MonoBehaviour
     [Header("MissionConfirmations")]
     [SerializeField] Client _currentClient;
     [SerializeField] Mission _activeMission;
+    [SerializeField] bool _puzzleCompleted;
 
     [SerializeField] float _timer;
-    [SerializeField] bool _startTimer;
+    [SerializeField] bool _startTimer=false;
 
     [SerializeField] bool _missionStarted;
     [SerializeField] bool _clientPickedUp;
     float _startTimeScale;
     [SerializeField] float _slowMotionTimeScale;
     float _startFixedDeltaTime;
-    private int _dialogueCounter;
+    [SerializeField]private int _dialogueCounter;
 
     public bool MissionStarted { get => _missionStarted; set => _missionStarted = value; }
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+
+        }
+        else
+        {
+            instance = this;
+        }
         _uiManager = UiManager.instance;
         _startFixedDeltaTime = Time.fixedDeltaTime;
         _startTimeScale = Time.timeScale;
@@ -53,6 +69,7 @@ public class MissionManager : MonoBehaviour
        
 
     }
+  
     private void OnValidate()
     {
         for (int i = 0; i < _placesAndClients.Place.childCount; i++)
@@ -73,10 +90,12 @@ public class MissionManager : MonoBehaviour
 
         }
     }
+ 
     private void Update()
     {
        
-        if(_activeMission!=null)
+
+        if (_activeMission!=null)
         {
 
         }
@@ -153,15 +172,20 @@ public class MissionManager : MonoBehaviour
                     }            
                 }
                 break;
+
             case MissionType.Tetris:
-                _playerCar.CanMove = false;
-                _uiManager.GpsOn(_activeMission.Destination);
-                _timer = ((int)(Vector3.Distance(_playerCar.transform.position, _activeMission.Destination.position)) / 4);
-                if (CheckDialog(_activeMission.DialoguesPickUp))
+                if (Vector3.Distance(_playerCar.transform.position, _activeMission.Origin.position) <= 5 && _playerCar.CurrentSpeed == 0 && _clientPickedUp == false)
                 {
-                    StartDialogue();
+                    _playerCar.CanMove = false;
+                    _uiManager.GpsOn(_activeMission.Destination);
+                    _timer = ((int)(Vector3.Distance(_playerCar.transform.position, _activeMission.Destination.position)) / 4);
+                    if (CheckDialog(_activeMission.DialoguesPickUp))
+                    {
+                        StartDialogue();
+                    }
                 }
                 break;
+
             case MissionType.Coffee:
                 break;
 
@@ -185,7 +209,6 @@ public class MissionManager : MonoBehaviour
     }
     void StartDialogue()
     {
-        _uiManager.Dialogue(_activeMission.DialoguesPickUp[_dialogueCounter].Sprite, _activeMission.DialoguesPickUp[_dialogueCounter].Text);
         if (Input.GetKeyDown(KeyCode.Return))
         {
             _dialogueCounter++;
@@ -193,15 +216,38 @@ public class MissionManager : MonoBehaviour
         if (_dialogueCounter == _activeMission.DialoguesPickUp.Length)
         {
             _uiManager.CloseDialogue();
-            if(_activeMission.MissionType != MissionType.Tetris)
+            switch (_activeMission.MissionType)
             {
-            _clientPickedUp = true;
-            _startTimer = true;
-            _playerCar.CanMove = true;
+                case MissionType.AtoB:
+                    StartTimer();
+                    break;
 
+                case MissionType.Tetris:
+                    // HERE 
+                    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Puzzle", LoadSceneMode.Additive); break;
+
+                case MissionType.Coffee:
+                    StartTimer();
+                    break;
+
+              
             }
+            _dialogueCounter++;
+        }
+        if (_dialogueCounter < _activeMission.DialoguesPickUp.Length)
+        {
+            _uiManager.Dialogue(_activeMission.DialoguesPickUp[_dialogueCounter].Sprite, _activeMission.DialoguesPickUp[_dialogueCounter].Text);
+
         }
     }
+    public  void StartTimer()
+    {
+        _clientPickedUp = true;
+        _startTimer = true;
+        _playerCar.CanMove = true;
+        Timer();
+    }
+
     void ClientDestination()
     {
        

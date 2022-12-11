@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ObjectScript : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class ObjectScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField] private int _width, _height;
+    [SerializeField] private int _size;
     Vector2Int _itemSize;
     private int _baseSize=150;
     RectTransform _rectTransform;
@@ -15,13 +16,15 @@ public class ObjectScript : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     Vector2 _initialPos;
     [SerializeField] List<Slots> _currentSlot ;
     [SerializeField] Slots _oldSlot;
-    [SerializeField] SlotManager _slotManager;
     [SerializeField]private RectTransform _pointToDrag;
 
     public Vector2Int ItemSize { get => _itemSize; set => _itemSize = value; }
     public Vector2 InitialPos { get => _initialPos; set => _initialPos = value; }
     public List<Slots> CurrentSlot { get => _currentSlot; set => _currentSlot = value; }
     public Slots OldSlot { get => _oldSlot; set => _oldSlot = value; }
+    public int Width { get => _width; set => _width = value; }
+    public int Height { get => _height; set => _height = value; }
+    public int Size { get => _size; set => _size = value; }
 
     private void Awake()
     {
@@ -29,12 +32,12 @@ public class ObjectScript : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
         _canvasGroup = GetComponent<CanvasGroup>();
         _canvas = GetComponentInParent<Canvas>();
         //_pointToDrag = GetComponentInChildren<RectTransform>();    
-        _rectTransform.sizeDelta = new Vector2(150 * _width, 150 * _height);
-        ItemSize = new Vector2Int(_width, _height);
+        _rectTransform.sizeDelta = new Vector2(150 * Width, 150 * Height);
+        ItemSize = new Vector2Int(Width, Height);
     }
     void Start()
     {
-        _slotManager = SlotManager.instance;
+       
     }
     
     public void OnBeginDrag(PointerEventData eventData)
@@ -80,39 +83,5 @@ public class ObjectScript : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
             Debug.Log("fdsfdsfdsa");
 
         }
-        //if (eventData.pointerCurrentRaycast.gameObject)
-        //{
-        //    if (eventData.pointerCurrentRaycast.gameObject.CompareTag("Object"))
-        //    {
-        //        _rectTransform.anchoredPosition = _initialPos;
-
-        //    }
-        //    Debug.Log(eventData.pointerCurrentRaycast.gameObject);
-        //}
-        //else
-        //{
-        //    if (_currentSlot != null)
-        //    {
-        //        _currentSlot.Ocupied = false;
-        //        _currentSlot = null;
-
-        //    }
-        //    _rectTransform.anchoredPosition = _initialPos;
-        //}
-
-
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -185,7 +185,7 @@ public class Slots : MonoBehaviour,IPointerEnterHandler,IDropHandler, IPointerEx
                 {
                     itemOject.transform.SetParent(gameObject.transform);
                     itemOject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-                    itemOject.transform.parent = gameObject.transform.parent.parent;
+                        itemOject.transform.parent=gameObject.transform.parent.parent;
                     for (int i = 0; i < itemOject.CurrentSlot.Count; i++)
                     {
                             
