@@ -163,9 +163,18 @@ public class MissionManager : MonoBehaviour
             _clientPickedUp = false;
 
         }
-      
         
-        
+        for (int i = 0; i < _clients.Count; i++)
+        {
+            if (_clients[i].MissionsArcOne.Count > 0)
+            {
+                Debug.Log("mostrar");
+
+            }
+
+        }
+
+
     }
     #endregion
 

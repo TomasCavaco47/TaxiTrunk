@@ -16,6 +16,10 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject _phoneImage;
     [SerializeField] GameObject _phoneFirstMenu, _phoneQuickMissonMenu, _phoneStoryMissonMenu, _alreadyMenu;
     [SerializeField] GameObject _firstButtonMenu1, _firstButtonQuickMisson, _firstButtonStoryMisson;
+    [Header("StoryMissons")]
+    [SerializeField] GameObject _buttonPrefab;
+    [SerializeField] GameObject _Parrent;
+    
 
     [Header("Timer")]
     [SerializeField] GameObject _timerObject;
@@ -28,6 +32,9 @@ public class UiManager : MonoBehaviour
     [SerializeField] Transform _miniMapCam;
     [SerializeField] float _miniMapSize;
     private Vector3 _v3 = new Vector3(0, 30, 0);
+
+    [Header("Refs")]
+    [SerializeField] ScrolSysteam _scrolSysteam;
 
 
     private void Awake()
@@ -50,14 +57,20 @@ public class UiManager : MonoBehaviour
     private void Update()
     {
         _gps.transform.position = _v3;
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            AddNewButton();
+        }
     }
-    private void LateUpdate()
+    public void ShowTimer(bool active, float timer)
     {
-        //isto é o que mexe o icon do gps para estar sempre a apareçer no mapa
-        _gps.transform.position = new Vector3(
-           Mathf.Clamp(_gps.transform.position.x, _miniMapCam.position.x - _miniMapSize, _miniMapSize + _miniMapCam.position.x),
-           30,
-           Mathf.Clamp(_gps.transform.position.z, _miniMapCam.position.z - _miniMapSize, _miniMapSize + _miniMapCam.position.z));
+        _timerObject.SetActive(active);
+        if (active)
+        {
+            
+            TimeSpan time = TimeSpan.FromSeconds(timer);
+            _currentTimeText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString();
+        }
     }
     #region CellPhone
    
@@ -100,6 +113,7 @@ public class UiManager : MonoBehaviour
 
     public void OpenStoryMenu()
     {
+        _scrolSysteam.IndexButton=0;
         _phoneFirstMenu.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_firstButtonStoryMisson);
@@ -127,25 +141,17 @@ public class UiManager : MonoBehaviour
         _alreadyMenu.SetActive(true);
 
     }
-
-
-
-
-
-
+    public void AddNewButton()
+    {
+        GameObject buttonPrefab = Instantiate(_buttonPrefab);
+        buttonPrefab.transform.SetParent(_Parrent.transform);
+        buttonPrefab.transform.SetAsFirstSibling();
+        _scrolSysteam.ButtonsList.Add(buttonPrefab);
+        _firstButtonStoryMisson = buttonPrefab;
+        _scrolSysteam.ValueAlterate();
+    }
 
     #endregion
-
-    public void ShowTimer(bool active, float timer)
-    {
-        _timerObject.SetActive(active);
-        if (active)
-        {
-            
-            TimeSpan time = TimeSpan.FromSeconds(timer);
-            _currentTimeText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString();
-        }
-    }
     #region Dialogue
     public void Dialogue( Sprite sprite, string text)
     {
@@ -169,6 +175,14 @@ public class UiManager : MonoBehaviour
     {
         _gps.SetActive(false);
 
+    }
+    public void GpsAllwaysInMap()
+    {
+        //isto é o que mexe o icon do gps para estar sempre a apareçer no mapa
+        _gps.transform.position = new Vector3(
+           Mathf.Clamp(_gps.transform.position.x, _miniMapCam.position.x - _miniMapSize, _miniMapSize + _miniMapCam.position.x),
+           30,
+           Mathf.Clamp(_gps.transform.position.z, _miniMapCam.position.z - _miniMapSize, _miniMapSize + _miniMapCam.position.z));
     }
 
     #endregion
