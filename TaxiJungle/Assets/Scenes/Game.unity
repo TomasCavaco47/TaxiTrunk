@@ -11890,7 +11890,7 @@ MonoBehaviour:
   _clientSprite: {fileID: 21300000, guid: ec21933755e743c4a862c8fb839e519b, type: 3}
   _vinSprite: {fileID: 0}
   _missionsArcOne:
-  - _missionType: 0
+  - _missionType: 1
     _origin: {fileID: 908680321}
     _destination: {fileID: 1408318440}
     _reward: 0
@@ -13236,7 +13236,7 @@ GameObject:
   - component: {fileID: 780062230}
   - component: {fileID: 780062229}
   m_Layer: 0
-  m_Name: w
+  m_Name: RAmp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25999,7 +25999,7 @@ MonoBehaviour:
   _clientSprite: {fileID: 21300000, guid: 4a88e6cdd465ecf4398d809329329389, type: 3}
   _vinSprite: {fileID: 0}
   _missionsArcOne:
-  - _missionType: 0
+  - _missionType: 1
     _origin: {fileID: 0}
     _destination: {fileID: 0}
     _reward: 0
@@ -31263,6 +31263,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiManager: {fileID: 595064196}
   _playerCar: {fileID: 1911476870}
+  _canvas: {fileID: 439257546}
+  _PuzzleCanvas: {fileID: 845482070221855631, guid: bfabdaf8aa82a334bb86ecad8332d231, type: 3}
   _placesAndClients:
     _place: {fileID: 2099124878}
     _places:
@@ -31282,11 +31284,13 @@ MonoBehaviour:
     _dialoguesPickUp: []
     _dialoguesInMission: []
     _dialoguesDestination: []
+  _puzzleCompleted: 0
   _timer: 0
   _startTimer: 0
   _missionStarted: 0
   _clientPickedUp: 0
   _slowMotionTimeScale: 0.1
+  _dialogueCounter: 0
 --- !u!4 &1822199790
 Transform:
   m_ObjectHideFlags: 0
