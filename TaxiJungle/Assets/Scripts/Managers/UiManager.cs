@@ -145,7 +145,7 @@ public class UiManager : MonoBehaviour
     {
         GameObject buttonPrefab = Instantiate(_buttonPrefab);
         buttonPrefab.transform.SetParent(_Parrent.transform);
-        buttonPrefab.transform.SetAsFirstSibling();
+        //buttonPrefab.transform.SetAsFirstSibling();
         _scrolSysteam.ButtonsList.Add(buttonPrefab);
         _firstButtonStoryMisson = buttonPrefab;
         _scrolSysteam.ValueAlterate();
