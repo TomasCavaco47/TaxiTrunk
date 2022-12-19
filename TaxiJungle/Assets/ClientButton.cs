@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ClientButton : CellPhone
-{
-    
-    [SerializeField] GameObject _phone;
+{  
     [SerializeField] private  Client _client;
-
+    [SerializeField] TMP_Text _ContactName;
+    [SerializeField] 
 
     public void StoryMissonButton()
     {
