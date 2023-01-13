@@ -31,8 +31,11 @@ public class ScrolSysteam : MonoBehaviour
     }
     void Update()
     {
-        
+       if(_buttonsList.Count > 0)
+        {
         EventSystem.current.SetSelectedGameObject(_buttonsList[_indexButton]);
+        }
+        
         Scroll();
         ScrollRotateFix();
       
@@ -41,20 +44,25 @@ public class ScrolSysteam : MonoBehaviour
     {
         _valueAlterater = 1f / (_buttonsList.Count - 3);
     }
-    void OnValidate()
-    {
-        _buttonsList = new List<GameObject>();
-        
-        for (int i = 0; i < _container.childCount; i++)
-        {
-            if (_container.GetChild(i).GetComponent<button>() != null)
-            {
-                _buttonsList.Add(_container.GetChild(i).gameObject);
-            }
-        }
 
-        
-    }
+
+    
+
+
+    //void OnValidate()
+    //{
+    //    _buttonsList = new List<GameObject>();
+
+    //    for (int i = 0; i < _container.childCount; i++)
+    //    {
+    //        if (_container.GetChild(i).GetComponent<button>() != null)
+    //        {
+    //            _buttonsList.Add(_container.GetChild(i).gameObject);
+    //        }
+    //    }
+
+
+    //}
 
     public void Scroll()
     {
@@ -70,30 +78,7 @@ public class ScrolSysteam : MonoBehaviour
                         if (_indexButton > 1)
                         {
                             _scrollbar.value -= _valueAlterater;
-                            //if (_buttonsList.Count == 4)
-                            //{
-                            //    _scrollbar.value = 0;
-                            //}
-                            //if (_buttonsList.Count == 5)
-                            //{
-                            //    _scrollbar.value -= 0.5f;
-                            //}
-                            //if (_buttonsList.Count == 6)
-                            //{
-                            //    _scrollbar.value -= 0.33f;
-                            //}
-                            //if (_buttonsList.Count == 7)
-                            //{
-                            //    _scrollbar.value -= 0.25f;
-                            //}
-                            //if (_buttonsList.Count == 8)
-                            //{
-                            //    _scrollbar.value -= 0.20f;
-                            //}
-                            //if (_buttonsList.Count == 9)
-                            //{
-                            //    _scrollbar.value -= 0.1683259f;
-                            //}
+                        
                         }
                             
 
@@ -107,32 +92,6 @@ public class ScrolSysteam : MonoBehaviour
                         if (_indexButton < _buttonsList.Count-2)
                         {
                             _scrollbar.value += _valueAlterater;
-
-                            //if (_buttonsList.Count == 4)
-                            //{
-                            //    _scrollbar.value = 1;
-                            //}
-                            //if (_buttonsList.Count == 5)
-                            //{
-                            //    _scrollbar.value += 0.5f;
-                            //}
-                            //if (_buttonsList.Count == 6)
-                            //{
-                            //    _scrollbar.value += 0.33f;
-                            //}
-                            //if (_buttonsList.Count == 7)
-                            //{
-                            //    _scrollbar.value += 0.25f;
-                            //}
-                            //if (_buttonsList.Count == 8)
-                            //{
-                            //    _scrollbar.value += 0.20f;
-                            //}
-                            //if (_buttonsList.Count == 9)
-                            //{
-                            //    _scrollbar.value += 0.1683259f;
-                            //}
-
                         }
                     }
                 }
@@ -165,6 +124,9 @@ public class ScrolSysteam : MonoBehaviour
             _scrollbar.value = 1;
         }
     }
+
+
+  #region Tests
     //public void ExpandContainer()
     //{
     //    GameObject buttonPrefab = Instantiate(_buttonPrefab);
@@ -174,7 +136,6 @@ public class ScrolSysteam : MonoBehaviour
     //   _container.offsetMin = new Vector2(_container.offsetMin.x, _container.offsetMin.y-27.8866f);
         
     //}
-  #region Tests
 
     //public void Inputs()
     //{

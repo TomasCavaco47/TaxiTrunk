@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class UiManager : MonoBehaviour
 {
-    private GameManager _gameManager;
+    GameManager _gameManager;
     public static UiManager instance;
 
     [Header("CellPhone")]
@@ -19,6 +19,7 @@ public class UiManager : MonoBehaviour
     [Header("StoryMissons")]
     [SerializeField] GameObject _buttonPrefab;
     [SerializeField] GameObject _Parrent;
+    int _indexClient = 0;
     
 
     [Header("Timer")]
@@ -31,10 +32,13 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject _gps;
     [SerializeField] Transform _miniMapCam;
     [SerializeField] float _miniMapSize;
-    private Vector3 _v3 = new Vector3(0, 30, 0);
+    Vector3 _v3 = new Vector3(0, 30, 0);
 
     [Header("Refs")]
     [SerializeField] ScrolSysteam _scrolSysteam;
+
+
+    [SerializeField] List<Client> _clients = new List<Client>();
 
 
     private void Awake()
@@ -56,7 +60,9 @@ public class UiManager : MonoBehaviour
 
     private void Update()
     {
-        _gps.transform.position = _v3;
+
+        GpsAllwaysInMap();
+
         if (Input.GetKeyDown(KeyCode.Y))
         {
             AddNewButton();
@@ -145,6 +151,8 @@ public class UiManager : MonoBehaviour
     {
         GameObject buttonPrefab = Instantiate(_buttonPrefab);
         buttonPrefab.transform.SetParent(_Parrent.transform);
+        buttonPrefab.GetComponent<ClientButton>().Client = _clients[_indexClient];
+        _indexClient++;
         //buttonPrefab.transform.SetAsFirstSibling();
         _scrolSysteam.ButtonsList.Add(buttonPrefab);
         _firstButtonStoryMisson = buttonPrefab;
@@ -179,10 +187,11 @@ public class UiManager : MonoBehaviour
     public void GpsAllwaysInMap()
     {
         //isto é o que mexe o icon do gps para estar sempre a apareçer no mapa
+        _gps.transform.position = _v3;
         _gps.transform.position = new Vector3(
-           Mathf.Clamp(_gps.transform.position.x, _miniMapCam.position.x - _miniMapSize, _miniMapSize + _miniMapCam.position.x),
-           30,
-           Mathf.Clamp(_gps.transform.position.z, _miniMapCam.position.z - _miniMapSize, _miniMapSize + _miniMapCam.position.z));
+       Mathf.Clamp(_gps.transform.position.x, _miniMapCam.position.x - _miniMapSize, _miniMapSize + _miniMapCam.position.x),
+       30,
+       Mathf.Clamp(_gps.transform.position.z, _miniMapCam.position.z - _miniMapSize, _miniMapSize + _miniMapCam.position.z));
     }
 
     #endregion

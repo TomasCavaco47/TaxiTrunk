@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2650113866440085141}
   - component: {fileID: 2650113866440085162}
   - component: {fileID: 2650113866440085163}
-  - component: {fileID: 2650113866440085160}
+  - component: {fileID: 6770966199578652284}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: "But\xE3o Andr\xE9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,8 +123,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2650113866440085162}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2650113866440085160
+      m_Calls:
+      - m_Target: {fileID: 6770966199578652284}
+        m_TargetAssemblyTypeName: ClientButton, Assembly-CSharp
+        m_MethodName: StoryMissonButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6770966199578652284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,10 +145,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2650113866440085166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bcc9c3bfab77a941b1f0f771ed1f484, type: 3}
+  m_Script: {fileID: 11500000, guid: 38325274a6eb3d24eaafd52cb16ba256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rect: {fileID: 2650113866440085161}
+  _missionManager: {fileID: 0}
+  _client: {fileID: 0}
+  _ContactName: {fileID: 0}
 --- !u!1 &2650113866469586324
 GameObject:
   m_ObjectHideFlags: 0
