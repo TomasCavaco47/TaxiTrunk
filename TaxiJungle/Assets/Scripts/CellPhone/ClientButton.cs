@@ -5,9 +5,17 @@ using TMPro;
 
 public class ClientButton : CellPhone
 {  
-    [SerializeField] private  Client _client;
-    [SerializeField] TMP_Text _ContactName;
-    [SerializeField] 
+    [SerializeField] Client _client;
+
+    public Client Client { get => _client; set => _client = value; }
+
+    protected override void Start()
+    {
+        base.Start();
+        _missionManager = MissionManager.instance;
+
+    }
+
 
     public void StoryMissonButton()
     {
@@ -18,6 +26,7 @@ public class ClientButton : CellPhone
 
             _missionManager.StartStoryMissions(_client);
             _uiManager.ClosePhone();
+           
         }
         else
         {
