@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    MissionManager _missionManager;
     int _money;
 
     [SerializeField] private UiManager _uiManager;
@@ -27,6 +28,10 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
+    private void Start()
+    {
+        _missionManager = MissionManager.instance;
+    }
 
     void Update()
     {
@@ -35,10 +40,12 @@ public class GameManager : MonoBehaviour
     }
     void OpenPhone()
     {
-       
+        
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            _uiManager.OpenPhone();
+            _uiManager.OpenPhone(_missionManager.PlacesAndClients.Clients);
+           
+
         }
     }
 

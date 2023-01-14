@@ -6,19 +6,43 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+[System.Serializable]
+public class Phone
+{
+    [SerializeField] GameObject _phoneImage;
+    [SerializeField] GameObject _phoneQuickMissonMenu, _phoneStoryMissonMenu, _inServiceMenu;
+    [SerializeField] GameObject _phoneFirstButtonSelected, _quickMissionFirstButtonSelected, _storyMissionFirstButtonSelected;
+    [SerializeField] ScrolSysteam _scrollSystem;
+    bool _missionMenuOppened;
+    [SerializeField] List<Client> _clientsAdded;
+
+    public GameObject PhoneImage { get => _phoneImage; set => _phoneImage = value; }
+    public GameObject PhoneQuickMissonMenu { get => _phoneQuickMissonMenu; set => _phoneQuickMissonMenu = value; }
+    public GameObject PhoneStoryMissonMenu { get => _phoneStoryMissonMenu; set => _phoneStoryMissonMenu = value; }
+    public GameObject InServiceMenu { get => _inServiceMenu; set => _inServiceMenu = value; }
+    public GameObject PhoneFirstButtonSelected { get => _phoneFirstButtonSelected; set => _phoneFirstButtonSelected = value; }
+    public GameObject QuickMissionFirstButtonSelected { get => _quickMissionFirstButtonSelected; set => _quickMissionFirstButtonSelected = value; }
+    public GameObject StoryMissionFirstButtonSelected { get => _storyMissionFirstButtonSelected; set => _storyMissionFirstButtonSelected = value; }
+    public ScrolSysteam ScrollSystem { get => _scrollSystem; set => _scrollSystem = value; }
+    public bool MissionMenuOppened { get => _missionMenuOppened; set => _missionMenuOppened = value; }
+    public List<Client> ClientsAdded { get => _clientsAdded; set => _clientsAdded = value; }
+}
+
 public class UiManager : MonoBehaviour
 {
-    GameManager _gameManager;
     public static UiManager instance;
 
-    [Header("CellPhone")]
     
-    [SerializeField] GameObject _phoneImage;
-    [SerializeField] GameObject _phoneFirstMenu, _phoneQuickMissonMenu, _phoneStoryMissonMenu, _alreadyMenu;
-    [SerializeField] GameObject _firstButtonMenu1, _firstButtonQuickMisson, _firstButtonStoryMisson;
+    [SerializeField] Phone _cellPhone;
+    //[SerializeField] GameObject _phoneImage;
+    //[SerializeField] GameObject _phoneQuickMissonMenu, _phoneStoryMissonMenu, _inServiceMenu;
+    //[SerializeField] GameObject _phoneFirstButtonSelected, _quickMissionFirstButtonSelected, _storyMissionFirstButtonSelected;
+    //[SerializeField] ScrolSysteam _scrollSystem;
+    //bool _missionMenuOppened;
     [Header("StoryMissons")]
     [SerializeField] GameObject _buttonPrefab;
-    [SerializeField] GameObject _Parrent;
+    // _scrollSystem child child
+    GameObject _gridLayoutGroup;
     int _indexClient = 0;
     
 
@@ -32,10 +56,10 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject _gps;
     [SerializeField] Transform _miniMapCam;
     [SerializeField] float _miniMapSize;
-    Vector3 _v3 = new Vector3(0, 30, 0);
+    Vector3 _gpsVector = new Vector3(0, 30, 0);
 
     [Header("Refs")]
-    [SerializeField] ScrolSysteam _scrolSysteam;
+   
 
 
     [SerializeField] List<Client> _clients = new List<Client>();
@@ -43,6 +67,7 @@ public class UiManager : MonoBehaviour
 
     private void Awake()
     {
+        _gridLayoutGroup = _cellPhone.ScrollSystem.transform.GetChild(0).GetChild(0).gameObject;
         if (instance != null)
         {
             Destroy(gameObject);
@@ -53,20 +78,15 @@ public class UiManager : MonoBehaviour
             instance = this;
         }
     }
-    private void Start()
-    {
-        _gameManager = GameManager.instance;
-    }
-
     private void Update()
     {
-
         GpsAllwaysInMap();
 
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            AddNewButton();
-        }
+        //retirar
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //{
+        //    AddNewButton();
+        //}
     }
     public void ShowTimer(bool active, float timer)
     {
@@ -80,83 +100,134 @@ public class UiManager : MonoBehaviour
     }
     #region CellPhone
    
-    public void OpenPhone()
+    public void OpenPhone(List<Client> clientsList)
     {
-        if (_phoneImage.activeSelf == false)
+        
+
+        if (_cellPhone.PhoneImage.activeSelf == false)
         {
-            _phoneQuickMissonMenu.SetActive(false);
-        _phoneStoryMissonMenu.SetActive(false);
-        _phoneImage.SetActive(true);
-        _phoneFirstMenu.SetActive(true);
+           
+
+            //  _phoneQuickMissonMenu.SetActive(false);
+            // _phoneStoryMissonMenu.SetActive(false);
+            _cellPhone.PhoneImage.SetActive(true);
+        //_phoneFirstMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(_firstButtonMenu1);
-      
+        EventSystem.current.SetSelectedGameObject(_cellPhone.PhoneFirstButtonSelected);
+            if (_cellPhone.ClientsAdded.Count == 0)
+            {
+                _cellPhone.ClientsAdded.Add(clientsList[0]);
+                AddNewButton(clientsList[0]);
+                Debug.Log("addedfirst");
+
+            }
+            if (_cellPhone.ClientsAdded.Count != 0)
+            {
+                for (int i = 0; i < clientsList.Count; i++)
+                {
+                 int timesFounded = 0;
+                    Debug.Log("i = " +i);
+
+                    for (int x = 0; x < _cellPhone.ClientsAdded.Count; x++)
+                    {
+
+                        Debug.Log("x = "+x);
+                        if (clientsList[i] != _cellPhone.ClientsAdded[x])
+                        {
+                          
+                            
+                            Debug.Log("not there");
+
+                        }
+                        else
+                        {
+                            timesFounded++;
+                            Debug.Log("already there");
+
+                        }
+                    }
+                    if(timesFounded==0)
+                    {
+                        Debug.Log("added");
+                        _cellPhone.ClientsAdded.Add(clientsList[i]);
+                        AddNewButton(clientsList[i]);
+                    }
+
+                }
+            }
         }
     }
     public void ClosePhone()
     {
-        if (_phoneFirstMenu.activeSelf == false)
+        //if (_phoneFirstMenu.activeSelf == false)
+        //{
+        //    BackButton();
+        //}
+        //else if (_phoneFirstMenu.activeSelf == true)
+        //{
+        //    _phoneImage.SetActive(false);
+        //}
+
+        if (_cellPhone.MissionMenuOppened)
         {
             BackButton();
+            _cellPhone.MissionMenuOppened = false;
         }
-        else if (_phoneFirstMenu.activeSelf == true)
+        else 
         {
-            _phoneImage.SetActive(false);
+            _cellPhone.PhoneImage.SetActive(false);
         }
 
     }
 
     public void OpenQuickMissonMenu()
     {
-        
-        _phoneFirstMenu.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(_firstButtonQuickMisson);
-        _phoneQuickMissonMenu.SetActive(true);
-        
-
+        _cellPhone.MissionMenuOppened = true;
+        _cellPhone.PhoneQuickMissonMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(_cellPhone.QuickMissionFirstButtonSelected);              
     }
 
     public void OpenStoryMenu()
     {
-        _scrolSysteam.IndexButton=0;
-        _phoneFirstMenu.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(_firstButtonStoryMisson);
-        _phoneStoryMissonMenu.SetActive(true);
-        
+        _cellPhone.MissionMenuOppened = true;
+        _cellPhone.ScrollSystem.IndexButton=0;
+        //_phoneFirstMenu.SetActive(false);
+        _cellPhone.PhoneStoryMissonMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(_cellPhone.StoryMissionFirstButtonSelected);
+
     }
 
     public void BackButton()
     {
-       
-       _phoneQuickMissonMenu.SetActive(false);
-       _phoneStoryMissonMenu.SetActive(false);
-        _alreadyMenu.SetActive(false);
-       EventSystem.current.SetSelectedGameObject(null);
-       EventSystem.current.SetSelectedGameObject(_firstButtonMenu1);
-       _phoneFirstMenu.SetActive(true);
-       
+
+        _cellPhone.PhoneQuickMissonMenu.SetActive(false);
+        _cellPhone.PhoneStoryMissonMenu.SetActive(false);
+        _cellPhone.InServiceMenu.SetActive(false);
+       EventSystem.current.SetSelectedGameObject(_cellPhone.PhoneFirstButtonSelected);
+      // _phoneFirstMenu.SetActive(true);
+
     }
 
     public void AlreadyInService()
     {
-        _phoneFirstMenu.SetActive(false);
-        _phoneQuickMissonMenu.SetActive(false);
-        _phoneStoryMissonMenu.SetActive(false);
-        _alreadyMenu.SetActive(true);
+        _cellPhone.PhoneQuickMissonMenu.SetActive(false);
+        _cellPhone.PhoneStoryMissonMenu.SetActive(false);
+        _cellPhone.MissionMenuOppened = true;
+        _cellPhone.InServiceMenu.SetActive(true);
 
     }
-    public void AddNewButton()
+    //temporario para testes
+    public void AddNewButton(Client client)
     {
+
         GameObject buttonPrefab = Instantiate(_buttonPrefab);
-        buttonPrefab.transform.SetParent(_Parrent.transform);
-        buttonPrefab.GetComponent<ClientButton>().Client = _clients[_indexClient];
+        buttonPrefab.transform.SetParent(_gridLayoutGroup.transform);
+        buttonPrefab.GetComponent<ClientButton>().Client = client;
         _indexClient++;
         //buttonPrefab.transform.SetAsFirstSibling();
-        _scrolSysteam.ButtonsList.Add(buttonPrefab);
-        _firstButtonStoryMisson = buttonPrefab;
-        _scrolSysteam.ValueAlterate();
+        _cellPhone.ScrollSystem.ButtonsList.Add(buttonPrefab);
+        _cellPhone.StoryMissionFirstButtonSelected = buttonPrefab;
+        _cellPhone.ScrollSystem.ValueAlterate();
     }
 
     #endregion
@@ -177,7 +248,7 @@ public class UiManager : MonoBehaviour
     public void GpsOn(Transform goal)
     {
         _gps.SetActive(true);
-        _v3 = new Vector3(goal.transform.position.x, _v3.y, goal.transform.position.z);
+        _gpsVector = new Vector3(goal.transform.position.x, _gpsVector.y, goal.transform.position.z);
     }
     public void GpsOff()
     {
@@ -187,7 +258,7 @@ public class UiManager : MonoBehaviour
     public void GpsAllwaysInMap()
     {
         //isto é o que mexe o icon do gps para estar sempre a apareçer no mapa
-        _gps.transform.position = _v3;
+        _gps.transform.position = _gpsVector;
         _gps.transform.position = new Vector3(
        Mathf.Clamp(_gps.transform.position.x, _miniMapCam.position.x - _miniMapSize, _miniMapSize + _miniMapCam.position.x),
        30,

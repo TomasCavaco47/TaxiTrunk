@@ -5,15 +5,25 @@ using System;
 
 public class CellPhone : MonoBehaviour
 {
-    GameManager _gameManager;
-    protected UiManager _uiManager;
+   [SerializeField] protected UiManager _uiManager;
+    [SerializeField] List<Client> _clientsAdded;
    [SerializeField] protected MissionManager _missionManager;
+
+    private void Awake()
+    {
+        _uiManager = UiManager.instance;
+
+    }
 
     protected virtual void Start()
     {
-        _gameManager = GameManager.instance;
-        _uiManager = UiManager.instance;
+        _missionManager = MissionManager.instance;
        
+    }
+    private void OnEnable()
+    {
+       
+        
     }
 
     public void QuickMissonButton()
@@ -31,8 +41,8 @@ public class CellPhone : MonoBehaviour
             }
         
     }
-  
 
-   
+
+    //temporario para testes
    
 }
