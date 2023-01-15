@@ -29,6 +29,7 @@ public class ScrolSysteam : MonoBehaviour
     {
         ValueAlterate();
     }
+  
     void Update()
     {
        if(_buttonsList.Count > 0)

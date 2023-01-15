@@ -49,6 +49,8 @@ public class MissionManager : MonoBehaviour
     [SerializeField]private int _dialogueCounter;
 
     public bool MissionStarted { get => _missionStarted; set => _missionStarted = value; }
+    public GetPlacesAndClients PlacesAndClients { get => _placesAndClients; set => _placesAndClients = value; }
+
     private void Awake()
     {
         if (instance != null)
@@ -72,20 +74,20 @@ public class MissionManager : MonoBehaviour
   
     private void OnValidate()
     {
-        for (int i = 0; i < _placesAndClients.Place.childCount; i++)
+        for (int i = 0; i < PlacesAndClients.Place.childCount; i++)
         {
-            if(_placesAndClients.Places.Contains(_placesAndClients.Place.GetChild(i))==false)
+            if(PlacesAndClients.Places.Contains(PlacesAndClients.Place.GetChild(i))==false)
             {
-                _placesAndClients.Places.Add(_placesAndClients.Place.GetChild(i));
+                PlacesAndClients.Places.Add(PlacesAndClients.Place.GetChild(i));
             }
             
 
         }
-        for (int i = 0; i < _placesAndClients.Client.transform.childCount; i++)
+        for (int i = 0; i < PlacesAndClients.Client.transform.childCount; i++)
         {
-            if (_placesAndClients.Clients.Contains(_placesAndClients.Client.transform.GetChild(i).GetComponent<Client>()) == false)
+            if (PlacesAndClients.Clients.Contains(PlacesAndClients.Client.transform.GetChild(i).GetComponent<Client>()) == false)
             {
-                _placesAndClients.Clients.Add(_placesAndClients.Client.transform.GetChild(i).GetComponent<Client>());
+                PlacesAndClients.Clients.Add(PlacesAndClients.Client.transform.GetChild(i).GetComponent<Client>());
             }
 
         }
@@ -136,7 +138,7 @@ public class MissionManager : MonoBehaviour
     public void StartQuickMissions()
     {
 
-        _activeMission.Origin = _placesAndClients.Places[Random.Range(0, _placesAndClients.Places.Count)];
+        _activeMission.Origin = PlacesAndClients.Places[Random.Range(0, PlacesAndClients.Places.Count)];
 
         Debug.Log("Pick me up in " + _activeMission.Origin.name);
         SpawnGoal();
@@ -146,7 +148,7 @@ public class MissionManager : MonoBehaviour
     
     void SpawnGoal()
     {
-        _activeMission.Destination = _placesAndClients.Places[Random.Range(0, _placesAndClients.Places.Count)];
+        _activeMission.Destination = PlacesAndClients.Places[Random.Range(0, PlacesAndClients.Places.Count)];
         float distance = Vector3.Distance(_activeMission.Origin.position, _activeMission.Destination.position);
         if (distance < 55)
         {
