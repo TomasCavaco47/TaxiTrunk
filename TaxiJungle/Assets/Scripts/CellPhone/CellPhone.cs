@@ -26,21 +26,7 @@ public class CellPhone : MonoBehaviour
         
     }
 
-    public void QuickMissonButton()
-    {
-        
-            if (_missionManager.MissionStarted == false)
-            {
-                _missionManager.StartQuickMissions();
-                gameObject.SetActive(false);
-            }
-            else
-            {
-            _uiManager.AlreadyInService();
-                Debug.Log("InMission");
-            }
-        
-    }
+ 
 
 
     //temporario para testes

@@ -1,38 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-
-public class ClientButton : CellPhone
+using UnityEngine.EventSystems;
+public class ClientButton:MonoBehaviour
 {  
     [SerializeField] Client _client;
+    UiManager _uiManager;
 
     public Client Client { get => _client; set => _client = value; }
+    public UiManager UiManager { get => _uiManager; set => _uiManager = value; }
 
-    protected override void Start()
+    public void StartStoryMissonButton()
     {
-        base.Start();
-        _missionManager = MissionManager.instance;
-
-    }
-
-
-    public void StoryMissonButton()
-    {
-
-
-        if (_missionManager.MissionStarted == false)
-        {
-
-            _missionManager.StartStoryMissions(_client);
-            _uiManager.ClosePhone();
-           
-        }
-        else
-        {
-            _uiManager.AlreadyInService();
-            Debug.Log("InMission");
-        }
-
+        UiManager.CellPhone.StartStoryMisson(_client);
     }
 }

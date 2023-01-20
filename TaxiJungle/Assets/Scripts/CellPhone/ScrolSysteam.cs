@@ -45,11 +45,6 @@ public class ScrolSysteam : MonoBehaviour
     {
         _valueAlterater = 1f / (_buttonsList.Count - 3);
     }
-
-
-    
-
-
     //void OnValidate()
     //{
     //    _buttonsList = new List<GameObject>();
