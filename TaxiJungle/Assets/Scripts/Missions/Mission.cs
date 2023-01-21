@@ -12,10 +12,13 @@ public enum MissionType
 [Serializable]
 public class Mission
 {
+    [Dropdown("_clients")]
+    [SerializeField] Client _client;
     [SerializeField] private MissionType _missionType;
+    [Dropdown("_places")]
     [SerializeField] private Transform _origin;
+    [Dropdown("_places")]
     [SerializeField] private Transform _destination;
-
     [SerializeField] private int _reward;
     [SerializeField] private Dialogue[] _dialoguesPickUp;
     [SerializeField] private Dialogue[] _dialoguesInMission;
@@ -29,8 +32,7 @@ public class Mission
     public MissionType MissionType { get => _missionType; set => _missionType = value; }
     public Transform Origin { get => _origin; set => _origin = value; }
     public Transform Destination { get => _destination; set => _destination = value; }
-
-
+    public Client Client { get => _client; set => _client = value; }
 }
 
 

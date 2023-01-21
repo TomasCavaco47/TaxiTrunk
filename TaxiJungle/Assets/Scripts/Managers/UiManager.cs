@@ -12,12 +12,12 @@ public class Phone
 {
     [SerializeField] GameObject _phoneImage;
     [SerializeField] GameObject _phoneQuickMissonMenu, _phoneStoryMissonMenu, _inServiceMenu;
-    [SerializeField] GameObject _phoneFirstButtonSelected, _quickMissionFirstButtonSelected, _storyMissionFirstButtonSelected;
-    [SerializeField] ScrolSysteam _scrollSystem;
+    [SerializeField] GameObject _phoneFirstButtonSelected, _quickMissionFirstButtonSelected, _storyMissionButtonSelected;
+    //[SerializeField] ScrolSysteam _scrollSystem;
     bool _missionMenuOppened;
-    [SerializeField] List<Client> _clientsAdded;
+    [SerializeField] List<Clients> _clientsAdded;
     int _indexClient;
-    GameObject _gridLayoutGroup;
+   // GameObject _gridLayoutGroup;
     [SerializeField] GameObject _buttonPrefab;
 
 
@@ -26,14 +26,12 @@ public class Phone
     public GameObject PhoneQuickMissonMenu { get => _phoneQuickMissonMenu; set => _phoneQuickMissonMenu = value; }
     public GameObject PhoneStoryMissonMenu { get => _phoneStoryMissonMenu; set => _phoneStoryMissonMenu = value; }
     public GameObject InServiceMenu { get => _inServiceMenu; set => _inServiceMenu = value; }
-    public ScrolSysteam ScrollSystem { get => _scrollSystem; set => _scrollSystem = value; }
     public bool MissionMenuOppened { get => _missionMenuOppened; set => _missionMenuOppened = value; }
-    public GameObject GridLayoutGroup { get => _gridLayoutGroup; set => _gridLayoutGroup = value; }
     public GameObject ButtonPrefab { get => _buttonPrefab; set => _buttonPrefab = value; }
     public int IndexClient { get => _indexClient; set => _indexClient = value; }
     public GameObject PhoneFirstButtonSelected { get => PhoneFirstButtonSelected1; set => PhoneFirstButtonSelected1 = value; }
-    public GameObject StoryMissionFirstButtonSelected { get => _storyMissionFirstButtonSelected; set => _storyMissionFirstButtonSelected = value; }
-    public List<Client> ClientsAdded { get => _clientsAdded; set => _clientsAdded = value; }
+    public GameObject StoryMissionButtonSelected { get => _storyMissionButtonSelected; set => _storyMissionButtonSelected = value; }
+    public List<Clients> ClientsAdded { get => _clientsAdded; set => _clientsAdded = value; }
     public GameObject PhoneFirstButtonSelected1 { get => _phoneFirstButtonSelected; set => _phoneFirstButtonSelected = value; }
     public GameObject QuickMissionFirstButtonSelected { get => _quickMissionFirstButtonSelected; set => _quickMissionFirstButtonSelected = value; }
 
@@ -63,14 +61,14 @@ public class Phone
             _phoneImage.SetActive(false);
         }
     }
-    public void StartStoryMisson(Client client)
+    public void StartStoryMissonButton()
     {
 
 
         if (MissionManager.instance.MissionStarted == false)
         {
 
-            MissionManager.instance.StartStoryMissions(client);
+            MissionManager.instance.StartStoryMissions();
             ClosePhone();
 
         }
@@ -134,7 +132,7 @@ public class UiManager : MonoBehaviour
     Vector3 _gpsVector = new Vector3(0, 30, 0);
 
     [Header("Refs")]
-    [SerializeField] List<Client> _clients = new List<Client>();
+    [SerializeField] List<Clients> _clients = new List<Clients>();
 
     public Phone CellPhone { get => _cellPhone; set => _cellPhone = value; }
 
@@ -149,7 +147,7 @@ public class UiManager : MonoBehaviour
         {
             instance = this;
         }
-        CellPhone.GridLayoutGroup = CellPhone.ScrollSystem.transform.GetChild(0).GetChild(0).gameObject;
+        //CellPhone.GridLayoutGroup = CellPhone.ScrollSystem.transform.GetChild(0).GetChild(0).gameObject;
     }
     private void Update()
     {
@@ -176,53 +174,45 @@ public class UiManager : MonoBehaviour
     
     private void OpenPhone()
     {
-        List<Client> clientsList=null;
+        //List<Client> clientsList=null;
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             // precisa de melhorias
             CellPhone.OpenPhone();
-            clientsList = MissionManager.instance.PlacesAndClients.Clients;
-            if (CellPhone.ClientsAdded.Count == 0)
-            {
-                CellPhone.ClientsAdded.Add(clientsList[0]);
-                AddNewButton(clientsList[0]);
-                Debug.Log("addedfirst");
-
-            }
-            if (CellPhone.ClientsAdded.Count != 0)
-            {
-                for (int i = 0; i < clientsList.Count; i++)
-                {
-                    int timesFounded = 0;
-                    Debug.Log("i = " + i);
-
-                    for (int x = 0; x < CellPhone.ClientsAdded.Count; x++)
-                    {
-
-                        Debug.Log("x = " + x);
-                        if (clientsList[i] != CellPhone.ClientsAdded[x])
-                        {
-
-
-                            Debug.Log("not there");
-
-                        }
-                        else
-                        {
-                            timesFounded++;
-                            Debug.Log("already there");
-
-                        }
-                    }
-                    if (timesFounded == 0)
-                    {
-                        Debug.Log("added");
-                        CellPhone.ClientsAdded.Add(clientsList[i]);
-                        AddNewButton(clientsList[i]);
-                    }
-
-                }
-            }
+            //clientsList = MissionManager.instance.PlacesAndClients.Clients;
+            //if (CellPhone.ClientsAdded.Count == 0)
+            //{
+            //    CellPhone.ClientsAdded.Add(clientsList[0]);
+            //    AddNewButton(clientsList[0]);
+            //    Debug.Log("addedfirst");
+            //}
+            //if (CellPhone.ClientsAdded.Count != 0)
+            //{
+            //    for (int i = 0; i < clientsList.Count; i++)
+            //    {
+            //        int timesFounded = 0;
+            //        Debug.Log("i = " + i);
+            //        for (int x = 0; x < CellPhone.ClientsAdded.Count; x++)
+            //        {
+            //            Debug.Log("x = " + x);
+            //            if (clientsList[i] != CellPhone.ClientsAdded[x])
+            //            {
+            //                Debug.Log("not there");
+            //            }
+            //            else
+            //            {
+            //                timesFounded++;
+            //                Debug.Log("already there");
+            //            }
+            //        }
+            //        if (timesFounded == 0)
+            //        {
+            //            Debug.Log("added");
+            //            CellPhone.ClientsAdded.Add(clientsList[i]);
+            //            AddNewButton(clientsList[i]);
+            //        }
+            //    }
+            //}
         }
         
     }
@@ -243,29 +233,34 @@ public class UiManager : MonoBehaviour
     public void OpenStoryMenu()
     {
         CellPhone.MissionMenuOppened = true;
-        CellPhone.ScrollSystem.IndexButton = 0;
+       // CellPhone.ScrollSystem.IndexButton = 0;
         //_phoneFirstMenu.SetActive(false);
         CellPhone.PhoneStoryMissonMenu.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(CellPhone.StoryMissionFirstButtonSelected);
+        EventSystem.current.SetSelectedGameObject(CellPhone.StoryMissionButtonSelected);
 
     }
+
 
     public void StartQuickMissonButton()
     {
         CellPhone.StartQuickMissonButton();
     }
-    private void AddNewButton(Client client)
+    public void StartStoryMissonButton()
+    {
+        CellPhone.StartStoryMissonButton();
+    }
+    private void AddNewButton(Clients client)
     {
         GameObject buttonPrefab = Instantiate(CellPhone.ButtonPrefab);
-        buttonPrefab.transform.SetParent(CellPhone.GridLayoutGroup.transform);
+        //buttonPrefab.transform.SetParent(CellPhone.GridLayoutGroup.transform);
         buttonPrefab.GetComponent<ClientButton>().Client = client;
         buttonPrefab.GetComponent<ClientButton>().UiManager = this;
 
         CellPhone.IndexClient++;
         //buttonPrefab.transform.SetAsFirstSibling();
-       CellPhone.ScrollSystem.ButtonsList.Add(buttonPrefab);
-        CellPhone.StoryMissionFirstButtonSelected = buttonPrefab;
-        CellPhone.ScrollSystem.ValueAlterate();
+       //CellPhone.ScrollSystem.ButtonsList.Add(buttonPrefab);
+       // CellPhone.StoryMissionFirstButtonSelected = buttonPrefab;
+       // CellPhone.ScrollSystem.ValueAlterate();
     }
 
 

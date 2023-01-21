@@ -6,7 +6,7 @@ using System;
 public class CellPhone : MonoBehaviour
 {
    [SerializeField] protected UiManager _uiManager;
-    [SerializeField] List<Client> _clientsAdded;
+    [SerializeField] List<Clients> _clientsAdded;
    [SerializeField] protected MissionManager _missionManager;
 
     private void Awake()
