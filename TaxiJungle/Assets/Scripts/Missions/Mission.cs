@@ -10,15 +10,22 @@ public enum MissionType
     Coffee
 }
 [Serializable]
+
 public class Mission
 {
-    [Dropdown("_clients")]
+    [Dropdown("_clients", "_clientName")]
     [SerializeField] Client _client;
     [SerializeField] private MissionType _missionType;
+
+    List<GameObject> _placess;
     [Dropdown("_places")]
-    [SerializeField] private Transform _origin;
+    [SerializeField] private GameObject _origin;
+
+    
     [Dropdown("_places")]
-    [SerializeField] private Transform _destination;
+    [SerializeField] private GameObject _destination;
+
+
     [SerializeField] private int _reward;
     [SerializeField] private Dialogue[] _dialoguesPickUp;
     [SerializeField] private Dialogue[] _dialoguesInMission;
@@ -30,11 +37,10 @@ public class Mission
     public Dialogue[] DialoguesInMission { get => _dialoguesInMission; set => _dialoguesInMission = value; }
     public Dialogue[] DialoguesDestination { get => _dialoguesDestination; set => _dialoguesDestination = value; }
     public MissionType MissionType { get => _missionType; set => _missionType = value; }
-    public Transform Origin { get => _origin; set => _origin = value; }
-    public Transform Destination { get => _destination; set => _destination = value; }
+    public GameObject Origin { get => _origin; set => _origin = value; }
+    public GameObject Destination { get => _destination; set => _destination = value; }
     public Client Client { get => _client; set => _client = value; }
 }
-
 
 public enum WhosTalking
 {

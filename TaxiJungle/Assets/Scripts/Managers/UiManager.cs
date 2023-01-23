@@ -15,23 +15,18 @@ public class Phone
     [SerializeField] GameObject _phoneFirstButtonSelected, _quickMissionFirstButtonSelected, _storyMissionButtonSelected;
     //[SerializeField] ScrolSysteam _scrollSystem;
     bool _missionMenuOppened;
-    [SerializeField] List<Clients> _clientsAdded;
-    int _indexClient;
-   // GameObject _gridLayoutGroup;
-    [SerializeField] GameObject _buttonPrefab;
+    //int _indexClient;
+    // GameObject _gridLayoutGroup;
+    //[SerializeField] GameObject _buttonPrefab;
 
 
 
 
     public GameObject PhoneQuickMissonMenu { get => _phoneQuickMissonMenu; set => _phoneQuickMissonMenu = value; }
     public GameObject PhoneStoryMissonMenu { get => _phoneStoryMissonMenu; set => _phoneStoryMissonMenu = value; }
-    public GameObject InServiceMenu { get => _inServiceMenu; set => _inServiceMenu = value; }
     public bool MissionMenuOppened { get => _missionMenuOppened; set => _missionMenuOppened = value; }
-    public GameObject ButtonPrefab { get => _buttonPrefab; set => _buttonPrefab = value; }
-    public int IndexClient { get => _indexClient; set => _indexClient = value; }
     public GameObject PhoneFirstButtonSelected { get => PhoneFirstButtonSelected1; set => PhoneFirstButtonSelected1 = value; }
     public GameObject StoryMissionButtonSelected { get => _storyMissionButtonSelected; set => _storyMissionButtonSelected = value; }
-    public List<Clients> ClientsAdded { get => _clientsAdded; set => _clientsAdded = value; }
     public GameObject PhoneFirstButtonSelected1 { get => _phoneFirstButtonSelected; set => _phoneFirstButtonSelected = value; }
     public GameObject QuickMissionFirstButtonSelected { get => _quickMissionFirstButtonSelected; set => _quickMissionFirstButtonSelected = value; }
 
@@ -63,7 +58,7 @@ public class Phone
     }
     public void StartStoryMissonButton()
     {
-
+        // acho que nao se devia vir aqui quando ja estamos em missão
 
         if (MissionManager.instance.MissionStarted == false)
         {
@@ -131,8 +126,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] float _miniMapSize;
     Vector3 _gpsVector = new Vector3(0, 30, 0);
 
-    [Header("Refs")]
-    [SerializeField] List<Clients> _clients = new List<Clients>();
+   // [Header("Refs")]
 
     public Phone CellPhone { get => _cellPhone; set => _cellPhone = value; }
 
@@ -249,19 +243,19 @@ public class UiManager : MonoBehaviour
     {
         CellPhone.StartStoryMissonButton();
     }
-    private void AddNewButton(Clients client)
-    {
-        GameObject buttonPrefab = Instantiate(CellPhone.ButtonPrefab);
-        //buttonPrefab.transform.SetParent(CellPhone.GridLayoutGroup.transform);
-        buttonPrefab.GetComponent<ClientButton>().Client = client;
-        buttonPrefab.GetComponent<ClientButton>().UiManager = this;
+    //private void AddNewButton(Clients client)
+    //{
+    //    GameObject buttonPrefab = Instantiate(CellPhone.ButtonPrefab);
+    //    //buttonPrefab.transform.SetParent(CellPhone.GridLayoutGroup.transform);
+    //    buttonPrefab.GetComponent<ClientButton>().Client = client;
+    //    buttonPrefab.GetComponent<ClientButton>().UiManager = this;
 
-        CellPhone.IndexClient++;
-        //buttonPrefab.transform.SetAsFirstSibling();
-       //CellPhone.ScrollSystem.ButtonsList.Add(buttonPrefab);
-       // CellPhone.StoryMissionFirstButtonSelected = buttonPrefab;
-       // CellPhone.ScrollSystem.ValueAlterate();
-    }
+    //    CellPhone.IndexClient++;
+    //    //buttonPrefab.transform.SetAsFirstSibling();
+    //   //CellPhone.ScrollSystem.ButtonsList.Add(buttonPrefab);
+    //   // CellPhone.StoryMissionFirstButtonSelected = buttonPrefab;
+    //   // CellPhone.ScrollSystem.ValueAlterate();
+    //}
 
 
 
@@ -282,8 +276,8 @@ public class UiManager : MonoBehaviour
     #region Gps;
     public void GpsOn(Transform goal)
     {
-        _gps.SetActive(true);
         _gpsVector = new Vector3(goal.transform.position.x, _gpsVector.y, goal.transform.position.z);
+        _gps.SetActive(true);
     }
     public void GpsOff()
     {

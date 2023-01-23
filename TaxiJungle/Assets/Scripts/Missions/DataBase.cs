@@ -14,12 +14,12 @@ public class Client
 }
 public class DataBase : MonoBehaviour
 {
-    [SerializeField] List<Transform> _places;
+    [SerializeField] List<GameObject> _places;
     [SerializeField] List<Client> _clients;
     [SerializeField] Sprite _vinSprite;
 
 
-    public List<Transform> Places { get => _places; set => _places = value; }
+    public List<GameObject> Places { get => _places; set => _places = value; }
     public List<Client> Clients { get => _clients; set => _clients = value; }
     public Sprite VinSprite { get => _vinSprite; set => _vinSprite = value; }
 }
