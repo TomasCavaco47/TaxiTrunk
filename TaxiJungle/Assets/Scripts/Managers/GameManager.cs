@@ -33,29 +33,8 @@ public class GameManager : MonoBehaviour
         _missionManager = MissionManager.instance;
     }
 
-    void Update()
-    {
-        OpenPhone();
-        ClosePhone();
-    }
-    void OpenPhone()
-    {
-        
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            _uiManager.OpenPhone(_missionManager.PlacesAndClients.Clients);
-           
 
-        }
-    }
 
-    void ClosePhone()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            _uiManager.ClosePhone();
-        }
-    }
   
     
 }

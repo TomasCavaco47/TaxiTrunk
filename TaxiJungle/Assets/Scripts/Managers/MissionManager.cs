@@ -4,37 +4,26 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public class GetPlacesAndClients
+public class MissionData
 {
-    [SerializeField] Transform _place;
-    [SerializeField] List<Transform> _places;
-    [SerializeField] GameObject _client;
-    [SerializeField] List<Client> _clients;
-
-    
-
-    public Transform Place { get => _place; set => _place = value; }
-    public List<Transform> Places { get => _places; set => _places = value; }
-    public GameObject Client { get => _client; set => _client = value; }
-    public List<Client> Clients { get => _clients; set => _clients = value; }
+    [SerializeField] List<Mission> _arcOneMissions;
+    public List<Mission> ArcOneMissions { get => _arcOneMissions; set => _arcOneMissions = value; }
 }
-
 public class MissionManager : MonoBehaviour
 {
+    [SerializeField] MissionData _missions;
+
     [Header("Refferences")]
     [SerializeField] UiManager _uiManager;
     [SerializeField] CarControllerTest _playerCar;
-    [SerializeField] Canvas _canvas;
     [SerializeField] GameObject _PuzzleCanvas;
     public static MissionManager instance;
 
     [Header("Data")]
-
-    [SerializeField] GetPlacesAndClients _placesAndClients;
-  
-
+    [SerializeField] DataBase _database;
+    private List<GameObject> _places;
+    private List<Client> _clients;
     [Header("MissionConfirmations")]
-    [SerializeField] Client _currentClient;
     [SerializeField] Mission _activeMission;
     [SerializeField] bool _puzzleCompleted;
 
@@ -43,13 +32,17 @@ public class MissionManager : MonoBehaviour
 
     [SerializeField] bool _missionStarted;
     [SerializeField] bool _clientPickedUp;
-    float _startTimeScale;
+    [SerializeField] bool _clientReachedDestination;
     [SerializeField] float _slowMotionTimeScale;
+
+    float _startTimeScale;
     float _startFixedDeltaTime;
     [SerializeField]private int _dialogueCounter;
 
     public bool MissionStarted { get => _missionStarted; set => _missionStarted = value; }
-    public GetPlacesAndClients PlacesAndClients { get => _placesAndClients; set => _placesAndClients = value; }
+    public MissionData Missions { get => _missions; set => _missions = value; }
+    public List<GameObject> Places { get => _places; set => _places = value; }
+    public CarControllerTest PlayerCar { get => _playerCar; set => _playerCar = value; }
 
     private void Awake()
     {
@@ -62,41 +55,87 @@ public class MissionManager : MonoBehaviour
         {
             instance = this;
         }
+        Places = _database.Places;
         _uiManager = UiManager.instance;
         _startFixedDeltaTime = Time.fixedDeltaTime;
         _startTimeScale = Time.timeScale;
     }
-    private void Start()
-    {
-       
-
-    }
   
     private void OnValidate()
     {
-        for (int i = 0; i < PlacesAndClients.Place.childCount; i++)
+        Places = _database.Places;
+        _clients = _database.Clients;
+        for (int i = 0; i < Missions.ArcOneMissions.Count; i++)
         {
-            if(PlacesAndClients.Places.Contains(PlacesAndClients.Place.GetChild(i))==false)
+            if (Missions.ArcOneMissions.Count == 0)
             {
-                PlacesAndClients.Places.Add(PlacesAndClients.Place.GetChild(i));
+                break;
             }
-            
-
-        }
-        for (int i = 0; i < PlacesAndClients.Client.transform.childCount; i++)
-        {
-            if (PlacesAndClients.Clients.Contains(PlacesAndClients.Client.transform.GetChild(i).GetComponent<Client>()) == false)
+            else
             {
-                PlacesAndClients.Clients.Add(PlacesAndClients.Client.transform.GetChild(i).GetComponent<Client>());
-            }
+                for (int a = 0; a < Missions.ArcOneMissions[i].DialoguesPickUp.Length; a++)
+                {
+                    if (Missions.ArcOneMissions[i].DialoguesPickUp.Length != 0)
+                    {
+                        switch (Missions.ArcOneMissions[i].DialoguesPickUp[a].WhosTalking)
+                        {
+                            case WhosTalking.Client:
+                                Missions.ArcOneMissions[i].DialoguesPickUp[a].Sprite = Missions.ArcOneMissions[i].Client.ClientSprite;
+                                break;
+                            case WhosTalking.Vin:
+                                Missions.ArcOneMissions[i].DialoguesPickUp[a].Sprite = _database.VinSprite;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
 
+                for (int a = 0; a < Missions.ArcOneMissions[i].DialoguesInMission.Length; a++)
+                {
+                    if (Missions.ArcOneMissions[i].DialoguesInMission.Length != 0)
+                    {
+                        switch (Missions.ArcOneMissions[i].DialoguesInMission[a].WhosTalking)
+                        {
+                            case WhosTalking.Client:
+                                Missions.ArcOneMissions[i].DialoguesInMission[a].Sprite = Missions.ArcOneMissions[i].Client.ClientSprite;
+                                break;
+                            case WhosTalking.Vin:
+                                Missions.ArcOneMissions[i].DialoguesInMission[a].Sprite = _database.VinSprite;
+
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+
+                for (int a = 0; a < Missions.ArcOneMissions[i].DialoguesDestination.Length; a++)
+                {
+                    if (Missions.ArcOneMissions[i].DialoguesDestination.Length != 0)
+                    {
+                        switch (Missions.ArcOneMissions[i].DialoguesDestination[a].WhosTalking)
+                        {
+                            case WhosTalking.Client:
+                                Missions.ArcOneMissions[i].DialoguesDestination[a].Sprite = Missions.ArcOneMissions[i].Client.ClientSprite;
+                                break;
+                            case WhosTalking.Vin:
+                                Missions.ArcOneMissions[i].DialoguesDestination[a].Sprite = _database.VinSprite;
+
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    
+
+                }
+            }
         }
-    }
- 
+    } 
     private void Update()
     {
-       
-
+        //?????????????????????????????
         if (_activeMission!=null)
         {
 
@@ -119,40 +158,32 @@ public class MissionManager : MonoBehaviour
 
         }
     }
-    public void StartStoryMissions(Client client)
+    public void StartStoryMissions()
     {
-        _currentClient = client;
-
-        _activeMission = _currentClient.MissionsArcOne[0];
-
-
-
-
-        _uiManager.GpsOn(_activeMission.Origin);
-
+        _activeMission = Missions.ArcOneMissions[0];
+        _uiManager.GpsOn(_activeMission.Origin.transform);
         MissionStarted = true;
-
-
     }
     #region QuickMission
     public void StartQuickMissions()
     {
-
-        _activeMission.Origin = PlacesAndClients.Places[Random.Range(0, PlacesAndClients.Places.Count)];
+        _activeMission = new Mission();
+       _activeMission.Origin = Places[Random.Range(0,Places.Count)];
 
         Debug.Log("Pick me up in " + _activeMission.Origin.name);
-        SpawnGoal();
-        _uiManager.GpsOn(_activeMission.Origin);
+        SpawnDestination();
+        _uiManager.GpsOn(_activeMission.Origin.transform);
         MissionStarted = true;
     }
     
-    void SpawnGoal()
+    void SpawnDestination()
     {
-        _activeMission.Destination = PlacesAndClients.Places[Random.Range(0, PlacesAndClients.Places.Count)];
-        float distance = Vector3.Distance(_activeMission.Origin.position, _activeMission.Destination.position);
+
+        _activeMission.Destination = Places[Random.Range(0, Places.Count)];
+        float distance = Vector3.Distance(_activeMission.Origin.transform.position, _activeMission.Destination.transform.position);
         if (distance < 55)
         {
-            SpawnGoal();
+            SpawnDestination();
 
         }
     }
@@ -160,47 +191,75 @@ public class MissionManager : MonoBehaviour
     #region Cliente Origin and Destination Checkers
     void ClientPickUp()
     {
-        switch (_activeMission.MissionType)
+        if (Vector3.Distance(PlayerCar.transform.position, _activeMission.Origin.transform.position) <= 5 && PlayerCar.CurrentSpeed == 0 && _clientPickedUp == false)
         {
-            case MissionType.AtoB:
-                if (Vector3.Distance(_playerCar.transform.position, _activeMission.Origin.position) <= 5 && _playerCar.CurrentSpeed == 0 && _clientPickedUp == false)
-                {
-                    _playerCar.CanMove = false;
-                    _uiManager.GpsOn(_activeMission.Destination);
-                    _timer = ((int)(Vector3.Distance(_playerCar.transform.position, _activeMission.Destination.position)) / 4);
-                    if (CheckDialog(_activeMission.DialoguesPickUp))
-                    {
-                        StartDialogue();
-                    }            
-                }
-                break;
-
-            case MissionType.Tetris:
-                if (Vector3.Distance(_playerCar.transform.position, _activeMission.Origin.position) <= 5 && _playerCar.CurrentSpeed == 0 && _clientPickedUp == false)
-                {
-                    _playerCar.CanMove = false;
-                    _uiManager.GpsOn(_activeMission.Destination);
-                    _timer = ((int)(Vector3.Distance(_playerCar.transform.position, _activeMission.Destination.position)) / 4);
-                    if (CheckDialog(_activeMission.DialoguesPickUp))
-                    {
-                        StartDialogue();
-                    }
-                }
-                break;
-
-            case MissionType.Coffee:
-                break;
+            PlayerCar.CanMove = false;
+            _uiManager.GpsOn(_activeMission.Destination.transform);
+            _timer = ((int)(Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position)) / 4);
+            if (CheckDialog(_activeMission.DialoguesPickUp))
+            {
+                StartDialogue();
+            }
 
         }
-                        
     }
+    
+    public  void StartTimer()
+    {
+        _clientPickedUp = true;
+        _startTimer = true;
+        PlayerCar.CanMove = true;
+        _dialogueCounter = 0;
+        Timer();
+    }
+
+    void ClientDestination()
+    {
+       
+        Debug.Log(Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position));
+        if (Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position) <= 5 && PlayerCar.CurrentSpeed == 0)
+        {
+            if (_activeMission.MissionType == MissionType.Coffee)
+            {
+                SceneManager.UnloadSceneAsync("Coffe");
+
+            }
+            _clientReachedDestination = true;
+            _uiManager.GpsOff();
+            _uiManager.ShowTimer(false, 0);
+            PlayerCar.CanMove = false;
+            _uiManager.GpsOn(_activeMission.Destination.transform);
+            _timer = ((int)(Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position)) / 4);
+            if (CheckDialog(_activeMission.DialoguesDestination))
+            {
+               StartDialogue();
+                
+            }
+            if(_dialogueCounter >= _activeMission.DialoguesDestination.Length)
+            {
+
+                _dialogueCounter = 0;
+                _clientPickedUp = false;
+                MissionStarted = false;
+                _activeMission = null;
+                _startTimer = false;
+                _clientReachedDestination = false;
+                PlayerCar.CanMove = true;
+
+                Missions.ArcOneMissions.RemoveAt(0);
+            }
+            //send to ui next mission info
+        }           
+    }
+    #endregion
+    #region Dialogue
+
     bool CheckDialog(Dialogue[] dialogues)
     {
-        if(dialogues.Length == 0)
+        if (dialogues.Length == 0)
         {
-            _clientPickedUp = true;
             _startTimer = true;
-            _playerCar.CanMove = true;
+            PlayerCar.CanMove = true;
 
             return false;
         }
@@ -213,59 +272,80 @@ public class MissionManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            Debug.Log("1");
+
             _dialogueCounter++;
         }
-        if (_dialogueCounter == _activeMission.DialoguesPickUp.Length)
+        if (_clientPickedUp == false)
         {
-            _uiManager.CloseDialogue();
-            switch (_activeMission.MissionType)
+            Debug.Log("1");
+            if (_dialogueCounter < _activeMission.DialoguesPickUp.Length)
             {
-                case MissionType.AtoB:
-                    StartTimer();
-                    break;
+                _uiManager.Dialogue(_activeMission.DialoguesPickUp[_dialogueCounter].Sprite, _activeMission.DialoguesPickUp[_dialogueCounter].Text);
 
-                case MissionType.Tetris:
-                    // HERE 
-                    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Puzzle", LoadSceneMode.Additive); break;
-
-                case MissionType.Coffee:
-                    StartTimer();
-                    break;
-
-              
             }
-            _dialogueCounter++;
+            else
+            {
+                Debug.Log("2");
+
+                _uiManager.CloseDialogue();
+                switch (_activeMission.MissionType)
+                {
+                    case MissionType.AtoB:
+                        StartTimer();
+                        break;
+
+                    case MissionType.Tetris:
+                        // HERE 
+                        if (SceneManager.sceneCount == 1)
+                        {
+
+                            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Puzzle", LoadSceneMode.Additive);
+                            
+                        }
+                        break;
+
+                    case MissionType.Coffee:
+                        if (SceneManager.sceneCount == 1)
+                        {
+
+                            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Coffe", LoadSceneMode.Additive);
+                            StartTimer();
+
+
+                        }
+                        break;
+
+
+                }
+            }
         }
-        if (_dialogueCounter < _activeMission.DialoguesPickUp.Length)
+        else if (_clientPickedUp == true && _clientReachedDestination == false)
         {
-            _uiManager.Dialogue(_activeMission.DialoguesPickUp[_dialogueCounter].Sprite, _activeMission.DialoguesPickUp[_dialogueCounter].Text);
+            if (_dialogueCounter < _activeMission.DialoguesInMission.Length)
+            {
+                _uiManager.Dialogue(_activeMission.DialoguesInMission[_dialogueCounter].Sprite, _activeMission.DialoguesInMission[_dialogueCounter].Text);
+
+            }
+            else
+            {
+                _uiManager.CloseDialogue();
+            }
 
         }
-    }
-    public  void StartTimer()
-    {
-        _clientPickedUp = true;
-        _startTimer = true;
-        _playerCar.CanMove = true;
-        Timer();
-    }
-
-    void ClientDestination()
-    {
-       
-        Debug.Log(Vector3.Distance(_playerCar.transform.position, _activeMission.Destination.position));
-        if (Vector3.Distance(_playerCar.transform.position, _activeMission.Destination.position) <= 5 && _playerCar.CurrentSpeed == 0)
+        else
         {
-            _uiManager.GpsOff();
-            _uiManager.ShowTimer(false, 0);
-            _clientPickedUp = false;
-            MissionStarted = false;
-            _activeMission = null;
-            _startTimer = false;
-            _currentClient.MissionsArcOne.RemoveAt(0);
-            _currentClient = null;
-            //_clients[0].MissionsArcOne.RemoveAt(0);           
-        }           
+            if (_dialogueCounter < _activeMission.DialoguesDestination.Length)
+            {
+                _uiManager.Dialogue(_activeMission.DialoguesDestination[_dialogueCounter].Sprite, _activeMission.DialoguesDestination[_dialogueCounter].Text);
+
+            }
+            else
+            {
+                _uiManager.CloseDialogue();
+            }
+        }
+
     }
     #endregion
     #region timerLogic
@@ -275,30 +355,26 @@ public class MissionManager : MonoBehaviour
         _uiManager.ShowTimer(true, _timer);
         if (_timer <= 0)
         {
-            // quando chega a 0 o tempo aumenta um pouco mas o reward do player diminui
-            _uiManager.ShowTimer(false,0);
-            _uiManager.GpsOff();
-
-            Debug.Log("lose");
-            MissionStarted = false;
-            _startTimer = false;
-            _clientPickedUp = false;
-
+            LostMission();
         }
-
-        //for (int i = 0; i < _clients.Count; i++)
-        //{
-        //    if (_clients[i].MissionsArcOne.Count > 0)
-        //    {
-        //        Debug.Log("mostrar");
-
-        //    }
-
-        //}
-
-
     }
     #endregion
+    public void LostMission()
+    {
+        // quando chega a 0 o tempo aumenta um pouco mas o reward do player diminui
+        if (_activeMission.MissionType == MissionType.Coffee)
+        {
+            SceneManager.UnloadSceneAsync("Coffe");
+        }
+        _startTimer = false;
+        _uiManager.ShowTimer(false, 0);
+        _uiManager.GpsOff();
+        _activeMission = null;
+        _clientPickedUp = false;
+        MissionStarted = false;
+        _clientReachedDestination = false;
+     
+    }
 
 
 }
