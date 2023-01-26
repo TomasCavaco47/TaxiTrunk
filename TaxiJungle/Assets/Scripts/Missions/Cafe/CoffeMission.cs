@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class CoffeMission : MonoBehaviour
 {
     MissionManager _missionManager;
@@ -12,11 +11,6 @@ public class CoffeMission : MonoBehaviour
     [SerializeField] float _currentCoffe;
 
     float _timer;
-    
-
-
-
-
     private void Awake()
     {
         _missionManager = MissionManager.instance;

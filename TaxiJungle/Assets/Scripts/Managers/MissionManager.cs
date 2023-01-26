@@ -16,7 +16,6 @@ public class MissionManager : MonoBehaviour
     [Header("Refferences")]
     [SerializeField] UiManager _uiManager;
     [SerializeField] CarControllerTest _playerCar;
-    [SerializeField] Canvas _canvas;
     [SerializeField] GameObject _PuzzleCanvas;
     public static MissionManager instance;
 
@@ -25,7 +24,6 @@ public class MissionManager : MonoBehaviour
     private List<GameObject> _places;
     private List<Client> _clients;
     [Header("MissionConfirmations")]
-    //[SerializeField] Client _currentClient;
     [SerializeField] Mission _activeMission;
     [SerializeField] bool _puzzleCompleted;
 
@@ -35,8 +33,9 @@ public class MissionManager : MonoBehaviour
     [SerializeField] bool _missionStarted;
     [SerializeField] bool _clientPickedUp;
     [SerializeField] bool _clientReachedDestination;
-    float _startTimeScale;
     [SerializeField] float _slowMotionTimeScale;
+
+    float _startTimeScale;
     float _startFixedDeltaTime;
     [SerializeField]private int _dialogueCounter;
 
