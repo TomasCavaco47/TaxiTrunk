@@ -17,7 +17,6 @@ public class Mission
     [SerializeField] Client _client;
     [SerializeField] private MissionType _missionType;
 
-    List<GameObject> _placess;
     [Dropdown("_places")]
     [SerializeField] private GameObject _origin;
 
