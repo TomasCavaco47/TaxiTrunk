@@ -7,12 +7,11 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     MissionManager _missionManager;
     int _money;
+    [SerializeField] private List<GameObject> _playerCarsBought;
 
-    [SerializeField] private UiManager _uiManager;
     
 
 
-    public UiManager UiManager { get => _uiManager; set => _uiManager = value; }
   
 
     // Start is called before the first frame update

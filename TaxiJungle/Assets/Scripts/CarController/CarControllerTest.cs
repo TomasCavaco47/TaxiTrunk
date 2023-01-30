@@ -3,14 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+public class Upgrades
+{
+    [Dropdown("_upgradeLevels")]
+    [SerializeField] private int _maxSpeedLevel;
+    [Dropdown("_upgradeLevels")]
+    [SerializeField] private int _brakeUpgradeLevel;
+    [Dropdown("_upgradeLevels")]
+    [SerializeField] private int _acelarationUpgradeLevel;
+
+}
+
+
+[System.Serializable]
 public class WheelElements
 {
     [SerializeField] WheelCollider _leftWheel;
     [SerializeField] WheelCollider _rightWheel;
-
     [SerializeField] bool _addWheelTorque;
     [SerializeField] bool _ShouldSteer;
-
     public WheelCollider LeftWheel { get => _leftWheel; set => _leftWheel = value; }
     public WheelCollider RightWheel { get => _rightWheel; set => _rightWheel = value; }
     public bool AddWheelTorque { get => _addWheelTorque; set => _addWheelTorque = value; }
@@ -25,8 +36,10 @@ enum SpeedType
 public class CarControllerTest : MonoBehaviour
 {
     [SerializeField] List<WheelElements> _wheelData;
-
-    [SerializeField] float _maxTorque;
+    [SerializeField] Upgrades _upgrades;
+    [SerializeField] private int _currentSpeed;
+    [SerializeField] float _currentMotorTorque;
+    [SerializeField] float _motorTorque;
     [SerializeField] float _brakeTorque;
     [SerializeField] float _maxSteerAngle =30;
 
@@ -34,12 +47,14 @@ public class CarControllerTest : MonoBehaviour
     [SerializeField] private Transform _massCenter;
 
     [SerializeField] private SpeedType _speedType;
-    private int _currentSpeed;
+    
     [SerializeField]private bool _reachedMaxSpeed;
     [SerializeField] private int _maxSpeed;
     [SerializeField] AnimationCurve _drag;
     [SerializeField] WheelFrictionCurve _normal;
     [SerializeField] WheelFrictionCurve _new;
+    List<int> _upgradeLevels = new List<int> { 1, 2, 3 };
+
     bool _canMove =true;
 
     public int CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
@@ -60,6 +75,9 @@ public class CarControllerTest : MonoBehaviour
 
     void Update()
     {
+
+        _currentMotorTorque = Mathf.Lerp(_motorTorque,_motorTorque/1.5f, _currentSpeed/50f);
+        Debug.Log(_currentMotorTorque);
         Drag();
         LimitMaxSpeed();
         UpdateCurrentSpeed();
@@ -100,7 +118,7 @@ public class CarControllerTest : MonoBehaviour
     }
     private void HandleDrive()
     {
-        float input = Input.GetAxis("Vertical") * _maxTorque;
+        float input = Input.GetAxis("Vertical") * _currentMotorTorque;
         if(CanMove)
         {
             //Accelerate
