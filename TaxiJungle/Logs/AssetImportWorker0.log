@@ -15,7 +15,7 @@ C:/Users/rafae/Desktop/Unity Games/TaxiJungle/TaxiJungle
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-65059
+53316
 Successfully changed project path to: C:/Users/rafae/Desktop/Unity Games/TaxiJungle/TaxiJungle
 C:/Users/rafae/Desktop/Unity Games/TaxiJungle/TaxiJungle
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/rafae/Desktop/Unity Games/TaxiJungle/TaxiJungle
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 69.88 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 65.25 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.10f1 (1c7d0df0160b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -63,39 +63,39 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56768
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56544
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.004373 seconds.
+Registered in 0.004886 seconds.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 57.74 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 57.07 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.454 seconds
+- Completed reload, in  0.464 seconds
 Domain Reload Profiling:
-	ReloadAssembly (454ms)
-		BeginReloadAssembly (51ms)
+	ReloadAssembly (464ms)
+		BeginReloadAssembly (55ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (322ms)
-			LoadAssemblies (50ms)
+		EndReloadAssembly (329ms)
+			LoadAssemblies (54ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (69ms)
+			SetupTypeCache (75ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (18ms)
-			SetupLoadedEditorAssemblies (198ms)
+			RebuildScriptCaches (19ms)
+			SetupLoadedEditorAssemblies (199ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (58ms)
+				RefreshPlugins (57ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (101ms)
+				ProcessInitializeOnLoadAttributes (102ms)
 				ProcessInitializeOnLoadMethodAttributes (32ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -103,52 +103,52 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004595 seconds.
+Registered in 0.005389 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\rafae\Desktop\Unity Games\TaxiJungle\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\rafae\Desktop\Unity Games\TaxiJungle\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.52 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.62 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.736 seconds
+- Completed reload, in  0.771 seconds
 Domain Reload Profiling:
-	ReloadAssembly (737ms)
-		BeginReloadAssembly (77ms)
+	ReloadAssembly (772ms)
+		BeginReloadAssembly (82ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (15ms)
-		EndReloadAssembly (578ms)
-			LoadAssemblies (57ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (608ms)
+			LoadAssemblies (61ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (176ms)
-			ReleaseScriptCaches (0ms)
+			SetupTypeCache (185ms)
+			ReleaseScriptCaches (1ms)
 			RebuildScriptCaches (34ms)
-			SetupLoadedEditorAssemblies (278ms)
+			SetupLoadedEditorAssemblies (297ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (63ms)
-				ProcessInitializeOnLoadAttributes (172ms)
-				ProcessInitializeOnLoadMethodAttributes (29ms)
-				AfterProcessingInitializeOnLoad (8ms)
+				BeforeProcessingInitializeOnLoad (69ms)
+				ProcessInitializeOnLoadAttributes (186ms)
+				ProcessInitializeOnLoadMethodAttributes (31ms)
+				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (4ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.54 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.58 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3466 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 29 unused Assets / (56.6 KB). Loaded Objects now: 3952.
-Memory consumption went from 129.7 MB to 129.6 MB.
-Total: 2.660700 ms (FindLiveObjects: 0.219000 ms CreateObjectMapping: 0.074700 ms MarkObjects: 2.302800 ms  DeleteObjects: 0.063600 ms)
+Unloading 3467 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (56.7 KB). Loaded Objects now: 3953.
+Memory consumption went from 129.7 MB to 129.7 MB.
+Total: 2.664700 ms (FindLiveObjects: 0.185400 ms CreateObjectMapping: 0.127200 ms MarkObjects: 2.294200 ms  DeleteObjects: 0.057100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -162,89 +162,31 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 351476.347839 seconds.
-  path: Assets/DropdownAttributes
-  artifactKey: Guid(0b10e20f2ec59ea4e9eeb32a0573b593) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DropdownAttributes using Guid(0b10e20f2ec59ea4e9eeb32a0573b593) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea28ed92d41ce6f158f6430b69adbc91') in 0.010861 seconds 
+  Time since last request: 604780.544594 seconds.
+  path: Assets/Scenes/PlayTest.unity
+  artifactKey: Guid(d39e32a861542de47b664d8bb50a482c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/PlayTest.unity using Guid(d39e32a861542de47b664d8bb50a482c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bbf3191ca35f93b4351d0cc68aeee56') in 0.010525 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.847559 seconds.
-  path: Assets/DropdownAttributes/Core/Scripts
-  artifactKey: Guid(c68d8b0e342b08242a84acef434a808b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DropdownAttributes/Core/Scripts using Guid(c68d8b0e342b08242a84acef434a808b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd19d3a3985740b79f4c1ece374d20520') in 0.004863 seconds 
+  Time since last request: 0.837686 seconds.
+  path: Assets/Scenes/PlayTest 1.unity
+  artifactKey: Guid(7eb1ee030e41f9a4ca15a70b9adc6789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/PlayTest 1.unity using Guid(7eb1ee030e41f9a4ca15a70b9adc6789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '520fe6509558b574f4c5ea0eb70798bb') in 0.004998 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 24.388735 seconds.
-  path: Assets/RCK 2.3/Models
-  artifactKey: Guid(739e18eb4aba92f49b7f431478ab91a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/RCK 2.3/Models using Guid(739e18eb4aba92f49b7f431478ab91a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcac529c096b06f71b34731d8152f8d2') in 0.004545 seconds 
+  Time since last request: 3.658224 seconds.
+  path: Assets/Scenes/Teste
+  artifactKey: Guid(ff26b421c654f95428ab57c40f1e0ee2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Teste using Guid(ff26b421c654f95428ab57c40f1e0ee2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8748fa7c74f3cef6595dc13690dd6f0c') in 0.009147 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.627297 seconds.
-  path: Assets/RCK 2.3/Models/Street
-  artifactKey: Guid(510a9898d73b5144bbfbd40efd2351aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/RCK 2.3/Models/Street using Guid(510a9898d73b5144bbfbd40efd2351aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a94ad08e53a8756559b0d994cd96bef') in 0.004610 seconds 
+  Time since last request: 12.111672 seconds.
+  path: Assets/Scenes/TomyTest.unity
+  artifactKey: Guid(7eb1ee030e41f9a4ca15a70b9adc6789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/TomyTest.unity using Guid(7eb1ee030e41f9a4ca15a70b9adc6789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0dfe6828d9732de59aa72155c2b463ce') in 0.004098 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.563067 seconds.
-  path: Assets/RCK 2.3/Models/Street/Textures
-  artifactKey: Guid(323e6c0d31a2fba40934e0b78eda8682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/RCK 2.3/Models/Street/Textures using Guid(323e6c0d31a2fba40934e0b78eda8682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ecb26832975663fae9304c14d327fae') in 0.004342 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.645780 seconds.
-  path: Assets/RCK 2.3/Models/Street/Textures/Grass
-  artifactKey: Guid(8a9b4efd63ce4824cbc7a2493f80524a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/RCK 2.3/Models/Street/Textures/Grass using Guid(8a9b4efd63ce4824cbc7a2493f80524a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '109646856a72d507abf26c3503f3d3c5') in 0.004278 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 10.179634 seconds.
-  path: Assets/FBX/teste 2.fbx
-  artifactKey: Guid(7087c34fc57e04049bf7e5fc834943c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FBX/teste 2.fbx using Guid(7087c34fc57e04049bf7e5fc834943c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '230eb478e0d631ef0c43115c3ccdd83a') in 0.424136 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.076305 seconds.
-  path: Assets/FBX/textures
-  artifactKey: Guid(b1733dfaa215a02418c192680ae27770) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FBX/textures using Guid(b1733dfaa215a02418c192680ae27770) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7eea984630b9aa599a70a3e3eefe3507') in 0.004510 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.128956 seconds.
-  path: Assets/FBX/textures/english_red_bricks_building_6_20141211_1531123938.jpg
-  artifactKey: Guid(2200e86e1f6fab44b8f1fd594b50c853) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FBX/textures/english_red_bricks_building_6_20141211_1531123938.jpg using Guid(2200e86e1f6fab44b8f1fd594b50c853) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96af236fe5f91b8a2e694406444b6db7') in 0.023410 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/FBX/textures/mtgeneralstore_front2.jpg
-  artifactKey: Guid(3c3e799bbc52efc40b3f0ac9a22a6200) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FBX/textures/mtgeneralstore_front2.jpg using Guid(3c3e799bbc52efc40b3f0ac9a22a6200) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76c54c86e495b1d3e12395e1ad98c011') in 0.013942 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/FBX/textures/photo-1612365009551-0abb42a5f096.jpg
-  artifactKey: Guid(e3e03370efa0a754cb96d18224a6b3a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FBX/textures/photo-1612365009551-0abb42a5f096.jpg using Guid(e3e03370efa0a754cb96d18224a6b3a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '309eb187fcbfbb0d7347ba386ca583ec') in 0.011428 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/FBX/textures/Quarantine-Dancing-scaled.jpg
-  artifactKey: Guid(99748e594c7367d41af78bf1cef40a2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FBX/textures/Quarantine-Dancing-scaled.jpg using Guid(99748e594c7367d41af78bf1cef40a2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70f3ebfdd073da3fd012a1259b92cef6') in 0.011745 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/FBX/textures/house_texture_by_walnutscorpion_d8m3y2s-fullview.jpg
-  artifactKey: Guid(648ba95d831942a4680c733b1334b381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FBX/textures/house_texture_by_walnutscorpion_d8m3y2s-fullview.jpg using Guid(648ba95d831942a4680c733b1334b381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34d23654752349dec668f41f2a4a61a9') in 0.010068 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/FBX/textures/modern-european-office-building-wall-texture-CPW60H.jpg
-  artifactKey: Guid(2189c7c447029e942b79e3d540aaf44f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FBX/textures/modern-european-office-building-wall-texture-CPW60H.jpg using Guid(2189c7c447029e942b79e3d540aaf44f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2ca70b8f960888e47f8150dfaceddbf') in 0.010799 seconds 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
+  Time since last request: 7.142317 seconds.
+  path: Assets/Scenes/Tommy
+  artifactKey: Guid(8121e78a85d32664695604c384a29b52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Tommy using Guid(8121e78a85d32664695604c384a29b52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39562bc8900ff62310b6db0f4ac4f2bd') in 0.004332 seconds 
