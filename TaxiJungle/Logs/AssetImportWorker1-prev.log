@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2021.3/staging' branch; Version is '2021.3.10f1 (1c7d0df0160b) revision 1867021'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'pt' Physical Memory: 16309 MB
+OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'pt' Physical Memory: 16310 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -11,13 +11,13 @@ C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Unity.exe
 -name
 AssetImportWorker1
 -projectPath
-C:/Users/rafae/Desktop/Unity Games/TaxiJungle/TaxiJungle
+C:/Users/thoma/Desktop/Taxí22_23/TaxiJungle
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-65059
-Successfully changed project path to: C:/Users/rafae/Desktop/Unity Games/TaxiJungle/TaxiJungle
-C:/Users/rafae/Desktop/Unity Games/TaxiJungle/TaxiJungle
+63779
+Successfully changed project path to: C:/Users/thoma/Desktop/Taxí22_23/TaxiJungle
+C:/Users/thoma/Desktop/Taxí22_23/TaxiJungle
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,108 +47,105 @@ C:/Users/rafae/Desktop/Unity Games/TaxiJungle/TaxiJungle
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 70.09 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 74.52 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.10f1 (1c7d0df0160b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/rafae/Desktop/Unity Games/TaxiJungle/TaxiJungle/Assets
+[Subsystems] Discovering subsystems at path C:/Users/thoma/Desktop/Taxí22_23/TaxiJungle/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1060 6GB (ID=0x1c03)
+    Renderer: NVIDIA GeForce RTX 3060 Ti (ID=0x2489)
     Vendor:   NVIDIA
-    VRAM:     6044 MB
-    Driver:   31.0.15.2802
+    VRAM:     8038 MB
+    Driver:   31.0.15.2698
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56688
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56212
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.004204 seconds.
-Native extension for UWP target not found
+Registered in 0.007412 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 56.74 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 74.47 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.450 seconds
+- Completed reload, in  0.588 seconds
 Domain Reload Profiling:
-	ReloadAssembly (451ms)
-		BeginReloadAssembly (51ms)
+	ReloadAssembly (588ms)
+		BeginReloadAssembly (69ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (0ms)
-		EndReloadAssembly (319ms)
-			LoadAssemblies (49ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (416ms)
+			LoadAssemblies (66ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (68ms)
+			SetupTypeCache (94ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (18ms)
-			SetupLoadedEditorAssemblies (197ms)
+			RebuildScriptCaches (24ms)
+			SetupLoadedEditorAssemblies (252ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (57ms)
+				RefreshPlugins (75ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (100ms)
-				ProcessInitializeOnLoadMethodAttributes (32ms)
+				ProcessInitializeOnLoadAttributes (124ms)
+				ProcessInitializeOnLoadMethodAttributes (44ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004796 seconds.
+Registered in 0.006909 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\rafae\Desktop\Unity Games\TaxiJungle\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\rafae\Desktop\Unity Games\TaxiJungle\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for UWP target not found
+Symbol file LoadedFromMemory doesn't match image C:\Users\thoma\Desktop\Taxí22_23\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\thoma\Desktop\Taxí22_23\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.76 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.737 seconds
+- Completed reload, in  0.962 seconds
 Domain Reload Profiling:
-	ReloadAssembly (738ms)
-		BeginReloadAssembly (79ms)
+	ReloadAssembly (963ms)
+		BeginReloadAssembly (111ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (15ms)
-		EndReloadAssembly (576ms)
-			LoadAssemblies (58ms)
+			CreateAndSetChildDomain (19ms)
+		EndReloadAssembly (748ms)
+			LoadAssemblies (79ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (176ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (35ms)
-			SetupLoadedEditorAssemblies (276ms)
+			SetupTypeCache (241ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (46ms)
+			SetupLoadedEditorAssemblies (346ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (64ms)
-				ProcessInitializeOnLoadAttributes (170ms)
-				ProcessInitializeOnLoadMethodAttributes (30ms)
-				AfterProcessingInitializeOnLoad (6ms)
+				BeforeProcessingInitializeOnLoad (82ms)
+				ProcessInitializeOnLoadAttributes (216ms)
+				ProcessInitializeOnLoadMethodAttributes (32ms)
+				AfterProcessingInitializeOnLoad (8ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (4ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.55 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.67 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3466 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 29 unused Assets / (56.7 KB). Loaded Objects now: 3952.
-Memory consumption went from 129.7 MB to 129.6 MB.
-Total: 2.591100 ms (FindLiveObjects: 0.210200 ms CreateObjectMapping: 0.073600 ms MarkObjects: 2.247600 ms  DeleteObjects: 0.059100 ms)
+Unloading 3467 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (57.0 KB). Loaded Objects now: 3935.
+Memory consumption went from 122.7 MB to 122.7 MB.
+Total: 3.026400 ms (FindLiveObjects: 0.344600 ms CreateObjectMapping: 0.091600 ms MarkObjects: 2.504700 ms  DeleteObjects: 0.084500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -162,34 +159,28 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 351476.337508 seconds.
-  path: Assets/DropdownAttributes/Core
-  artifactKey: Guid(3fa8e99f12c43f641a0414ccc7ddf102) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DropdownAttributes/Core using Guid(3fa8e99f12c43f641a0414ccc7ddf102) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db598e3f6bf5a02d449ff39035d6612c') in 0.010929 seconds 
+  Time since last request: 876176.643347 seconds.
+  path: Assets/SAP2D/Resources/Main/Editor/GUI/Icons/pencil_icon1.png
+  artifactKey: Guid(5690acac546767e4c8b955ad2755a47f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SAP2D/Resources/Main/Editor/GUI/Icons/pencil_icon1.png using Guid(5690acac546767e4c8b955ad2755a47f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ffe10c85d207a8378c95b111226820b') in 0.110337 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 38.950011 seconds.
-  path: Assets/FBX/textures/green-grass-texture-background_125540-971.jpg
-  artifactKey: Guid(2e93c2b6b8588a044aefe585097c0184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FBX/textures/green-grass-texture-background_125540-971.jpg using Guid(2e93c2b6b8588a044aefe585097c0184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d248739e5e3c9c1f20d1ea7fb1eb729') in 0.066271 seconds 
+  Time since last request: 0.000028 seconds.
+  path: Assets/SAP2D/Resources/Main/Editor/GUI/Icons/sap2d_logo.png
+  artifactKey: Guid(c3e4ae804b247b84eb264243a2d7295c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SAP2D/Resources/Main/Editor/GUI/Icons/sap2d_logo.png using Guid(c3e4ae804b247b84eb264243a2d7295c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20c407bb0f3cd19c62b0d3412f8f984e') in 0.057192 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/FBX/textures/texture-building-outdoors-general-37677231.jpg
-  artifactKey: Guid(c9458035734209f42b0ffa9d6e570e92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FBX/textures/texture-building-outdoors-general-37677231.jpg using Guid(c9458035734209f42b0ffa9d6e570e92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f6b4c2833b2ef44bdcadaeca57a1250') in 0.012715 seconds 
+  Time since last request: 0.000033 seconds.
+  path: Assets/SAP2D/Resources/Main/Editor/GUI/Icons/settings_icon0.png
+  artifactKey: Guid(302ba2a83d86c0e4d9a198273c32555b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SAP2D/Resources/Main/Editor/GUI/Icons/settings_icon0.png using Guid(302ba2a83d86c0e4d9a198273c32555b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da6cbeb979b4d4cc5ec53c5287ca9059') in 0.019269 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/FBX/textures/photo-1518164969361-b3ed71d5e7e7.jpg
-  artifactKey: Guid(e926ca6421aae104eb4b74870b7d27fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FBX/textures/photo-1518164969361-b3ed71d5e7e7.jpg using Guid(e926ca6421aae104eb4b74870b7d27fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68cfd8a9ec3b8f7e11df24d9586240b3') in 0.010758 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/FBX/textures/photo-1463778996521-da8b6f00dacf.jpg
-  artifactKey: Guid(81431bd265112d34da02a19d681406c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FBX/textures/photo-1463778996521-da8b6f00dacf.jpg using Guid(81431bd265112d34da02a19d681406c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62fc635e6c60dcaf62db5fb529eb286c') in 0.011222 seconds 
+  Time since last request: 0.000021 seconds.
+  path: Assets/SAP2D/Resources/Main/Editor/GUI/Icons/rectangle_icon0.png
+  artifactKey: Guid(fd5d17599c383b740a6e748b90b5501a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SAP2D/Resources/Main/Editor/GUI/Icons/rectangle_icon0.png using Guid(fd5d17599c383b740a6e748b90b5501a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89a7ba20468f4debae59448ba1bd7df5') in 0.013416 seconds 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
 Process exiting
