@@ -2,15 +2,71 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+
+public class UpgradeUI
+{
+    [SerializeField] private List<GameObject> _acelarationUpgradeImages;
+    [SerializeField] private List<GameObject> _brakingUpgradeImages;
+    [SerializeField] private List<GameObject> _maxSpeedUpgradeImages;
+
+    public void CkeckUpgrades()
+    {
+        Debug.Log(GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel);
+        for (int i = 0; i < _acelarationUpgradeImages.Count; i++)
+        {
+            _acelarationUpgradeImages[i].SetActive(false);
+            _brakingUpgradeImages[i].SetActive(false);
+            _maxSpeedUpgradeImages[i].SetActive(false);
+        }
+        for (int i = 0; i <= GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel; i++)
+        {
+            _acelarationUpgradeImages[i].SetActive(true);
+        } 
+        for (int i = 0; i <= GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel; i++)
+        {
+            _brakingUpgradeImages[i].SetActive(true);
+        } 
+        for (int i = 0; i <= GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel; i++)
+        {
+            _maxSpeedUpgradeImages[i].SetActive(true);
+        }
+        
+    }
+
+    public List<GameObject> AcelarationUpgradeImages { get => _acelarationUpgradeImages; set => _acelarationUpgradeImages = value; }
+    public List<GameObject> BrakingUpgradeImages { get => _brakingUpgradeImages; set => _brakingUpgradeImages = value; }
+    public List<GameObject> MaxSpeedUpgradeImages { get => _maxSpeedUpgradeImages; set => _maxSpeedUpgradeImages = value; }
+}
 public class StoreManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> _carModels;
     [SerializeField] int _currentDisplaying;
+    [SerializeField] Transform _displayPos;
+    [Space]
+    [SerializeField] GameObject _changeCarbutton;
+    [SerializeField] GameObject _buyCarbutton;
+    [SerializeField] GameObject _carSelectedText;
+    [SerializeField] GameObject _upgradePanel;
+    [SerializeField] UpgradeUI _upgradeUI;
     void Start()
     {
-        _currentDisplaying = 0;
+        _carModels = GameManager.instance.CarModels;
+        for (int i = 0; i < _carModels.Count; i++)
+        {
+            _carModels[i].SetActive(false);
+            _carModels[i].transform.position = _displayPos.position;
+
+            if (GameManager.instance.CurrentCarInUse == _carModels[i])
+            {
+                _currentDisplaying = i;
+            }
+        }
         _carModels[_currentDisplaying].SetActive(true);
-        
+        _carModels[_currentDisplaying].transform.position = _displayPos.position;
+        CheckCar();
+
+
     }
 
     // Update is called once per frame
@@ -55,8 +111,49 @@ public class StoreManager : MonoBehaviour
         _carModels[_currentDisplaying].transform.eulerAngles = new Vector3(0, 130, 0);
 
         _carModels[_currentDisplaying].SetActive(true);
-
+        CheckCar();
 
 
     }
+    private void CheckCar()
+    {
+        if (_carModels[_currentDisplaying]==GameManager.instance.CurrentCarInUse)
+        {
+            _carSelectedText.SetActive(true);
+            _buyCarbutton.SetActive(false);
+            _changeCarbutton.SetActive(false);
+            _upgradePanel.SetActive(true);
+            _upgradeUI.CkeckUpgrades();
+        }
+        else if(GameManager.instance.PlayerCarsBought.Contains(_carModels[_currentDisplaying]))
+        {
+            _carSelectedText.SetActive(false);
+            _buyCarbutton.SetActive(false);
+            _changeCarbutton.SetActive(true);
+            _upgradePanel.SetActive(true);
+            _upgradeUI.CkeckUpgrades();
+        }
+        else
+        {
+            _carSelectedText.SetActive(false);
+            _buyCarbutton.SetActive(true);
+            _changeCarbutton.SetActive(false);
+            _upgradePanel.SetActive(false);
+            _upgradeUI.CkeckUpgrades();
+        }
+       
+    }
+    public void BuyCarButton()
+    {
+        GameManager.instance.PlayerCarsBought.Add(_carModels[_currentDisplaying]);
+        GameManager.instance.CurrentCarInUse = _carModels[_currentDisplaying];
+
+        CheckCar();
+    }
+    public void ChangeCarButton()
+    {
+        GameManager.instance.CurrentCarInUse = _carModels[_currentDisplaying];
+        CheckCar();
+    }
+
 }

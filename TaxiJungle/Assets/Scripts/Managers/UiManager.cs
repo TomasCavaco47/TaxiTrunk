@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -296,5 +297,8 @@ public class UiManager : MonoBehaviour
 
     #endregion
 
-
+    public void OpenStore()
+    {
+        SceneManager.LoadSceneAsync("Store",LoadSceneMode.Additive);
+    }
 }
