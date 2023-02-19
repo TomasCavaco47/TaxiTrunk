@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> CarModels { get => _carModels; set => _carModels = value; }
     public bool CanEnterStore { get => _canEnterStore; set => _canEnterStore = value; }
     public List<GameObject> PlayerCarsBought { get => _playerCarsBought; set => _playerCarsBought = value; }
+    public Transform CarExitStorePos { get => _carExitStorePos; set => _carExitStorePos = value; }
 
     private void Awake()
     {

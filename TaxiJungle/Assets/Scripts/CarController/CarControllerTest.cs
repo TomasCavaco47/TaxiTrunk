@@ -60,7 +60,7 @@ public class CarControllerTest : MonoBehaviour
     [SerializeField] AnimationCurve _drag;
     [SerializeField] WheelFrictionCurve _normal;
     [SerializeField] WheelFrictionCurve _new;
-    List<int> _upgradeLevels = new List<int> { 1, 2, 3 };
+    List<int> _upgradeLevels = new List<int> { 0, 1, 2 };
 
     GameManager _gameManager;
 
@@ -154,9 +154,6 @@ public class CarControllerTest : MonoBehaviour
                 }
                 else
                 {
-
-                    Debug.LogWarning("222");
-
                     foreach (WheelElements element in _wheelData)
                     {
                         if (element.AddWheelTorque)
