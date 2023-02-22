@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class NPC_NavigatorController : MonoBehaviour
+{
+    [SerializeField] Vector3 _destination;
+    Vector3 _lastPosition;
+    [SerializeField] bool _reachedDestination;
+    [SerializeField] float _stopDistance = 1;
+    [SerializeField] float _rotationSpeed;
+    [SerializeField] float _minSpeed, _maxSpeed;
+    [SerializeField] float _movementSpeed;
+    Vector3 _velocity;
+    [SerializeField]Animator _animator;
+
+    public bool ReachedDestination { get => _reachedDestination; set => _reachedDestination = value; }
+
+    private void Start()
+    {
+        _movementSpeed = Random.Range(_minSpeed, _maxSpeed);
+    }
+    private void Update()
+    {
+        if (transform.position != _destination)
+        {
+            Vector3 destinationDirection = _destination - transform.position;
+            destinationDirection.y = 0;
+
+            float destinationDistance = destinationDirection.magnitude;
+
+            if (destinationDistance >= _stopDistance)
+            {
+                ReachedDestination = false;
+                Quaternion targetRotation = Quaternion.LookRotation(destinationDirection);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+                transform.Translate(Vector3.forward * _movementSpeed * Time.deltaTime);
+            }
+            else
+            {
+                ReachedDestination = true;
+            }
+
+            _velocity = (transform.position - _lastPosition) / Time.deltaTime;
+            _velocity.y = 0;
+            var velocityMagnitude = _velocity.magnitude;
+            _velocity = _velocity.normalized;
+            var fwdDotProduct = Vector3.Dot(transform.forward, _velocity);
+            var rightDotProduct = Vector3.Dot(transform.right, _velocity);
+          //  _animator.SetFloat("horizontal", rightDotProduct);
+            //_animator.SetFloat("Forward", fwdDotProduct);
+        }
+    }
+
+    public void SetDestination(Vector3 destination)
+    {
+        Debug.Log(1);
+        this._destination = destination;
+        ReachedDestination = false;
+    }
+
+}
