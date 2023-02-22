@@ -7,11 +7,21 @@ public class Upgrades
 {
     [Dropdown("_upgradeLevels")]
     [SerializeField] private int _maxSpeedLevel;
+    [SerializeField] private List<float> _maxSpeed;
     [Dropdown("_upgradeLevels")]
     [SerializeField] private int _brakeUpgradeLevel;
+    [SerializeField] private List<float> _brakeForce;
+
     [Dropdown("_upgradeLevels")]
     [SerializeField] private int _acelarationUpgradeLevel;
+    [SerializeField] private List<float> _acelaration;
 
+    public List<float> Acelaration { get => _acelaration; set => _acelaration = value; }
+    public int AcelarationUpgradeLevel { get => _acelarationUpgradeLevel; set => _acelarationUpgradeLevel = value; }
+    public int BrakeUpgradeLevel { get => _brakeUpgradeLevel; set => _brakeUpgradeLevel = value; }
+    public List<float> BrakeForce { get => _brakeForce; set => _brakeForce = value; }
+    public int MaxSpeedLevel { get => _maxSpeedLevel; set => _maxSpeedLevel = value; }
+    public List<float> MaxSpeed { get => _maxSpeed; set => _maxSpeed = value; }
 }
 
 
@@ -26,7 +36,7 @@ public class WheelElements
     public WheelCollider RightWheel { get => _rightWheel; set => _rightWheel = value; }
     public bool AddWheelTorque { get => _addWheelTorque; set => _addWheelTorque = value; }
     public bool ShouldSteer { get => _ShouldSteer; set => _ShouldSteer = value; }
-    
+
 }
 enum SpeedType
 {
@@ -39,45 +49,46 @@ public class CarControllerTest : MonoBehaviour
     [SerializeField] Upgrades _upgrades;
     [SerializeField] private int _currentSpeed;
     [SerializeField] float _currentMotorTorque;
-    [SerializeField] float _motorTorque;
-    [SerializeField] float _brakeTorque;
-    [SerializeField] float _maxSteerAngle =30;
+    [SerializeField] float _maxSteerAngle = 30;
 
     private Rigidbody _rigidBody;
     [SerializeField] private Transform _massCenter;
 
     [SerializeField] private SpeedType _speedType;
-    
-    [SerializeField]private bool _reachedMaxSpeed;
-    [SerializeField] private int _maxSpeed;
+
+    [SerializeField] private bool _reachedMaxSpeed;
     [SerializeField] AnimationCurve _drag;
     [SerializeField] WheelFrictionCurve _normal;
     [SerializeField] WheelFrictionCurve _new;
-    List<int> _upgradeLevels = new List<int> { 1, 2, 3 };
+    List<int> _upgradeLevels = new List<int> { 0, 1, 2 };
 
-    bool _canMove =true;
+    GameManager _gameManager;
+
+    bool _canMove = true;
 
     public int CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
     public bool CanMove { get => _canMove; set => _canMove = value; }
+    public Upgrades Upgrades { get => _upgrades; set => _upgrades = value; }
 
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();
         _normal = _wheelData[0].RightWheel.sidewaysFriction;
-            _new = _normal;
+        _new = _normal;
         _new.extremumSlip = 0.1f;
         _new.stiffness = 1f;
     }
     void Start()
     {
+        _gameManager = GameManager.instance;
         _rigidBody.centerOfMass = _massCenter.localPosition;
     }
 
     void Update()
     {
 
-        _currentMotorTorque = Mathf.Lerp(_motorTorque,_motorTorque/1.5f, _currentSpeed/50f);
-        //Debug.Log(_currentMotorTorque);
+        _currentMotorTorque = Mathf.Lerp(Upgrades.Acelaration[Upgrades.AcelarationUpgradeLevel], Upgrades.Acelaration[Upgrades.AcelarationUpgradeLevel] / 1.5f, _currentSpeed / 50f);
+        Debug.Log(_currentMotorTorque);
         Drag();
         LimitMaxSpeed();
         UpdateCurrentSpeed();
@@ -85,12 +96,12 @@ public class CarControllerTest : MonoBehaviour
     }
     private void FixedUpdate()
     {
-       
+
 
 
         HandleSteering();
         HandleDrive();
-      
+
     }
     private void HandleSteering()
     {
@@ -100,7 +111,7 @@ public class CarControllerTest : MonoBehaviour
         {
             if (element.ShouldSteer)
             {
-                if(Input.GetAxisRaw("Horizontal") == 0)
+                if (Input.GetAxisRaw("Horizontal") == 0)
                 {
                     element.LeftWheel.steerAngle = 0;
                     element.RightWheel.steerAngle = 0;
@@ -111,7 +122,7 @@ public class CarControllerTest : MonoBehaviour
                     element.RightWheel.steerAngle = steer;
 
                 }
-            }     
+            }
             HandleWheelTransform(element.LeftWheel);
             HandleWheelTransform(element.RightWheel);
         }
@@ -119,7 +130,7 @@ public class CarControllerTest : MonoBehaviour
     private void HandleDrive()
     {
         float input = Input.GetAxis("Vertical") * _currentMotorTorque;
-        if(CanMove)
+        if (CanMove)
         {
             //Accelerate
             if (input > 0)
@@ -143,9 +154,6 @@ public class CarControllerTest : MonoBehaviour
                 }
                 else
                 {
-
-                    Debug.LogWarning("222");
-
                     foreach (WheelElements element in _wheelData)
                     {
                         if (element.AddWheelTorque)
@@ -173,8 +181,8 @@ public class CarControllerTest : MonoBehaviour
                         element.LeftWheel.motorTorque = 0;
                         element.RightWheel.motorTorque = 0;
 
-                        element.RightWheel.brakeTorque = _brakeTorque;
-                        element.LeftWheel.brakeTorque = _brakeTorque;
+                        element.RightWheel.brakeTorque = Upgrades.BrakeForce[Upgrades.BrakeUpgradeLevel];
+                        element.LeftWheel.brakeTorque = Upgrades.BrakeForce[Upgrades.BrakeUpgradeLevel];
 
                     }
                     HandleWheelTransform(element.LeftWheel);
@@ -232,13 +240,13 @@ public class CarControllerTest : MonoBehaviour
                 HandleWheelTransform(element.RightWheel);
             }
         }
-        
-        
-        
+
+
+
     }
-    void HandleWheelTransform (WheelCollider collider)
+    void HandleWheelTransform(WheelCollider collider)
     {
-        if(collider.transform.childCount ==0)
+        if (collider.transform.childCount == 0)
         {
             return;
         }
@@ -265,9 +273,9 @@ public class CarControllerTest : MonoBehaviour
     }
     void LimitMaxSpeed()
     {
-        if(Input.GetAxisRaw("Vertical") ==1)
+        if (Input.GetAxisRaw("Vertical") == 1)
         {
-            if (_currentSpeed >= _maxSpeed)
+            if (_currentSpeed >= Upgrades.MaxSpeed[Upgrades.MaxSpeedLevel])
             {
                 _reachedMaxSpeed = true;
             }
@@ -277,9 +285,9 @@ public class CarControllerTest : MonoBehaviour
             }
 
         }
-        else if(Input.GetAxisRaw("Vertical") == -1)
+        else if (Input.GetAxisRaw("Vertical") == -1)
         {
-            if (_currentSpeed >= _maxSpeed/3)
+            if (_currentSpeed >= Upgrades.MaxSpeed[Upgrades.MaxSpeedLevel] / 3)
             {
                 _reachedMaxSpeed = true;
             }
@@ -317,26 +325,29 @@ public class CarControllerTest : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
-            
+
             foreach (WheelElements element in _wheelData)
             {
-               
-                element.RightWheel.sidewaysFriction =  _normal;
-                element.LeftWheel.sidewaysFriction =  _normal;
+
+                element.RightWheel.sidewaysFriction = _normal;
+                element.LeftWheel.sidewaysFriction = _normal;
             }
         }
 
     }
-    //private void GForce()
-    //{
-    
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Store")
+        {
+            _gameManager.CanEnterStore = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Store")
+        {
+            _gameManager.CanEnterStore = false;
+        }
+    }
 
-
-    //    float G;
-    //    float steer = _wheelData[0].LeftWheel.steerAngle;
-    //    float a = _currentSpeed * steer;
-    //    G = a / 9.81f;
-    //    Debug.Log( G);
-    //}
 }
