@@ -145,7 +145,7 @@ public class UiManager : MonoBehaviour
     }
     private void Update()
     {
-            GpsAllwaysInMap();
+        //GpsAllwaysInMap();
         OpenPhone();
         ClosePhone();
         //retirar
