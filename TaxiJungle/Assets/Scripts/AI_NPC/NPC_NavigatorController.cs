@@ -13,12 +13,22 @@ public class NPC_NavigatorController : MonoBehaviour
     [SerializeField] float _movementSpeed;
     Vector3 _velocity;
     [SerializeField]Animator _animator;
+    [SerializeField] bool _onBranch=false;
+
 
     public bool ReachedDestination { get => _reachedDestination; set => _reachedDestination = value; }
+    public bool OnBranch { get => _onBranch; set => _onBranch = value; }
 
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+
+
+    }
     private void Start()
     {
         _movementSpeed = Random.Range(_minSpeed, _maxSpeed);
+        _animator.speed = _movementSpeed/2;
     }
     private void Update()
     {
@@ -54,7 +64,6 @@ public class NPC_NavigatorController : MonoBehaviour
 
     public void SetDestination(Vector3 destination)
     {
-        Debug.Log(1);
         this._destination = destination;
         ReachedDestination = false;
     }

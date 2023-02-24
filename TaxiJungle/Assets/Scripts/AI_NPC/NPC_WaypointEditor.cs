@@ -39,5 +39,14 @@ public class NPC_WaypointEditor
 
             Gizmos.DrawLine(waypoint.transform.position + offset, waypoint.NetxWaypoint.transform.position + offsetTo);
         }
+
+        if(waypoint.Branches!=null)
+        {
+            foreach (NPC_Waypoint branch in waypoint.Branches)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawLine(waypoint.transform.position, branch.transform.position);
+            }
+        }
     }
 }

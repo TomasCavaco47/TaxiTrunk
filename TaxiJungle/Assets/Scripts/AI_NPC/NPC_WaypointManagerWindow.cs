@@ -39,6 +39,10 @@ public class NPC_WaypointManagerWindow : EditorWindow
         }
         if(Selection.activeGameObject !=null && Selection.activeGameObject.GetComponent<NPC_Waypoint>())
         {
+            if (GUILayout.Button("Add Branch Waypoint"))
+            {
+                CreateNewBrach();
+            }
             if(GUILayout.Button("Create Waypoint Before"))
             {
                 CreateWaypointBefore();
@@ -52,6 +56,22 @@ public class NPC_WaypointManagerWindow : EditorWindow
                 RemoveWaypoint();
             }
         }
+    }
+    void CreateNewBrach()
+    {
+        GameObject waypointObject = new GameObject("Waypoint " + npcWaypointRoot.childCount, typeof(NPC_Waypoint));
+        waypointObject.transform.SetParent(npcWaypointRoot, false);
+
+        NPC_Waypoint waypoint = waypointObject.GetComponent<NPC_Waypoint>();
+
+        NPC_Waypoint branchFrom = Selection.activeGameObject.GetComponent<NPC_Waypoint>();
+        Debug.Log(waypoint);
+        branchFrom.Branches.Add(waypoint);
+
+        waypoint.transform.position = branchFrom.transform.position;
+        waypoint.transform.forward = branchFrom.transform.forward;
+        Selection.activeGameObject =waypoint.gameObject;
+
     }
     void CreateWaypoint()
     {
