@@ -18,6 +18,7 @@ public class NPC_NavigatorController : MonoBehaviour
 
     public bool ReachedDestination { get => _reachedDestination; set => _reachedDestination = value; }
     public bool OnBranch { get => _onBranch; set => _onBranch = value; }
+    public float MovementSpeed { get => _movementSpeed; set => _movementSpeed = value; }
 
     private void Awake()
     {
@@ -27,8 +28,8 @@ public class NPC_NavigatorController : MonoBehaviour
     }
     private void Start()
     {
-        _movementSpeed = Random.Range(_minSpeed, _maxSpeed);
-        _animator.speed = _movementSpeed/2;
+        MovementSpeed = Random.Range(_minSpeed, _maxSpeed);
+        _animator.speed = MovementSpeed/2;
     }
     private void Update()
     {
@@ -44,7 +45,7 @@ public class NPC_NavigatorController : MonoBehaviour
                 ReachedDestination = false;
                 Quaternion targetRotation = Quaternion.LookRotation(destinationDirection);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
-                transform.Translate(Vector3.forward * _movementSpeed * Time.deltaTime);
+                transform.Translate(Vector3.forward * MovementSpeed * Time.deltaTime);
             }
             else
             {

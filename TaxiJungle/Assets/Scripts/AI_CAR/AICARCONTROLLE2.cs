@@ -18,6 +18,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
     [SerializeField] private LayerMask _waypointsLayer;
     [SerializeField] private LayerMask _aiCarLayer;
     [SerializeField] private LayerMask _playerCarLayer;
+    [SerializeField] private LayerMask _npcLayer;
     [SerializeField] private TurnDirection _turnDirection;
 
     [SerializeField] private WheelCollider[] wheels;
@@ -48,6 +49,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
     [SerializeField] private List<GameObject> _carsStopedInFront;
     [SerializeField] private bool _front;
     [SerializeField] private bool _side;
+    [SerializeField] private bool _nPCCrossing;
 
     public int Speed { get => _speed; set => _speed = value; }
     public float DistanceToWaypoint { get => _distanceToWaypoint; set => _distanceToWaypoint = value; }
@@ -282,7 +284,6 @@ public class AICARCONTROLLE2 : MonoBehaviour
                             }
                             else
                             {
-                                GameObject tempCar;
                                 if(_carsStopedInFront.Count ==1)
                                 {
                                     if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
@@ -533,7 +534,6 @@ public class AICARCONTROLLE2 : MonoBehaviour
                         }
                         else
                         {
-                            GameObject tempCar;
                             if (_carsStopedInFront.Count == 1)
                             {
                                 if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
@@ -648,7 +648,6 @@ public class AICARCONTROLLE2 : MonoBehaviour
                             }
                             else
                             {
-                                GameObject tempCar;
                                 if (_carsStopedInFront.Count == 1)
                                 {
                                     if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
@@ -713,28 +712,40 @@ public class AICARCONTROLLE2 : MonoBehaviour
 
 
            
-            if (Physics.Raycast(new Vector3(_checkFront.position.x, _checkFront.position.y, _checkFront.position.z), transform.forward, out objectHit, 7, _aiCarLayer + _playerCarLayer))
+            if (Physics.Raycast(new Vector3(_checkFront.position.x, _checkFront.position.y, _checkFront.position.z), transform.forward, out objectHit, 7, _aiCarLayer + _playerCarLayer + _npcLayer))
             {
                 //do something if hit object ie
                 Vector3 dir = objectHit.transform.position - _checkLeft.position; // find target direction
                 Vector3 myDir = transform.forward;
                 Vector3 yourDir = objectHit.transform.forward;
+                Debug.Log(objectHit.transform.gameObject);
 
                 float myAngle = Vector3.Angle(myDir, dir);
                 float yourAngle = Vector3.Angle(yourDir, -dir);
                 if (Vector3.Angle(dir, _checkLeft.forward) <= 100 / 2)
                 {
                     // Debug.Log(myAngle + " " + yourAngle);
-                    if (yourAngle > 90)
-                    {         
-                            _carInFront = true;                                        
+                    if (objectHit.collider.tag == "AICar")
+                    {
+                        if (yourAngle > 90)
+                        {
+                            _carInFront = true;
+                        }
+
                     }
-               }
-               
+                    
+                }
+                if (objectHit.collider.tag == "NPC")
+                {
+                    _nPCCrossing = true;
+                    Debug.Log("ola");
+                }
+
             }
             else
             {
                 _carInFront = false;
+                _nPCCrossing = false;
             }
             if (_canMove)
             {
@@ -759,7 +770,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                 }
                 else
                 {
-                    if(objectHit.collider.tag == "AICar")
+                    if(_carInFront==true)
                     {
                         if (Speed < objectHit.transform.GetComponent<AICARCONTROLLE2>().Speed)
                         {
@@ -777,6 +788,17 @@ public class AICARCONTROLLE2 : MonoBehaviour
                             item.motorTorque = 0;
                             item.brakeTorque = 0;
                         }
+                    }
+                    else if(_nPCCrossing == true)
+                        {
+                        if (Speed < objectHit.transform.GetComponent<AICARCONTROLLE2>().Speed)
+                        {
+                            item.motorTorque = 0;
+                            item.brakeTorque = 2000;
+                           
+
+                        }
+                       
                     }
                     else
                     {

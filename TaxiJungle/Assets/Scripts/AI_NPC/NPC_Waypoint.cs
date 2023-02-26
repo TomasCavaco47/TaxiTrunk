@@ -11,6 +11,9 @@ public class NPC_Waypoint : MonoBehaviour
     [SerializeField] float _width = 1f;
 
     [SerializeField] List<NPC_Waypoint> _branches;
+    [SerializeField] bool _isAExitBranch=false;
+    [SerializeField] bool _beginingCrosswalk=false;
+    [SerializeField] bool _hasAnEntryBranch=false;
 
     [Range(0f, 1f)]
     [SerializeField] float _branchRatio = 0.5f;
@@ -19,6 +22,9 @@ public class NPC_Waypoint : MonoBehaviour
     public float Width { get => _width; set => _width = value; }
     public List<NPC_Waypoint> Branches { get => _branches; set => _branches = value; }
     public float BranchRatio { get => _branchRatio; set => _branchRatio = value; }
+    public bool IsAExitBranch { get => _isAExitBranch; set => _isAExitBranch = value; }
+    public bool BeginingCrosswalk { get => _beginingCrosswalk; set => _beginingCrosswalk = value; }
+    public bool HasAnEntryBranch { get => _hasAnEntryBranch; set => _hasAnEntryBranch = value; }
 
     public Vector3 GetPosition()
     {

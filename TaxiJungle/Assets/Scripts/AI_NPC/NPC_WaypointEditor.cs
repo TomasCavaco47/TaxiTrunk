@@ -44,8 +44,17 @@ public class NPC_WaypointEditor
         {
             foreach (NPC_Waypoint branch in waypoint.Branches)
             {
+                if(waypoint.IsAExitBranch)
+                {
+                    Gizmos.color = Color.yellow;
+                    Gizmos.DrawLine(waypoint.transform.position, branch.transform.position);
+                }
+                else
+                {
                 Gizmos.color = Color.blue;
                 Gizmos.DrawLine(waypoint.transform.position, branch.transform.position);
+
+                }
             }
         }
     }
