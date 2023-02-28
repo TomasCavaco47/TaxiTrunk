@@ -6,6 +6,7 @@ public class NPC_Waypoint : MonoBehaviour
 {
     [SerializeField] NPC_Waypoint _previousWaypoint;
     [SerializeField] NPC_Waypoint _netxWaypoint;
+    [SerializeField] TraficLight _traficLight;
 
     [Range(0f,5f)]
     [SerializeField] float _width = 1f;
@@ -25,6 +26,7 @@ public class NPC_Waypoint : MonoBehaviour
     public bool IsAExitBranch { get => _isAExitBranch; set => _isAExitBranch = value; }
     public bool BeginingCrosswalk { get => _beginingCrosswalk; set => _beginingCrosswalk = value; }
     public bool HasAnEntryBranch { get => _hasAnEntryBranch; set => _hasAnEntryBranch = value; }
+    public TraficLight TraficLight { get => _traficLight; set => _traficLight = value; }
 
     public Vector3 GetPosition()
     {

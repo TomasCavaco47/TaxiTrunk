@@ -9,6 +9,7 @@ public class NPC_WaypointNavigator : MonoBehaviour
     [SerializeField]int _direction;
     [SerializeField] bool _canGoToCrosswalk=true;
     [SerializeField] bool _onTheCrossWalk=false;
+    
     int i;
 
     public NPC_Waypoint CurrentWaypoint { get => _currentWaypoint; set => _currentWaypoint = value; }
@@ -51,15 +52,24 @@ public class NPC_WaypointNavigator : MonoBehaviour
             {          
                 NPC_Waypoint previousWaypoint = CurrentWaypoint;
                 CurrentWaypoint = CurrentWaypoint.Branches[Random.Range(0, CurrentWaypoint.Branches.Count)];
-                _canGoToCrosswalk = false;
-                _onTheCrossWalk = true;
+                
                  ChangeDirection();
+
+                
                 if(previousWaypoint.IsAExitBranch)
                 {
                     OnExitCrossRoad();
+                    previousWaypoint.TraficLight.NcpCrossing--;
+                }
+                else
+                {
+                    _canGoToCrosswalk = false;
+                    _onTheCrossWalk = true;
+                    StartCoroutine(WaitForGreenLight(previousWaypoint.TraficLight));
+                                                   
                 }
                 i = 0;
-
+                
 
             }
             else
@@ -89,7 +99,6 @@ public class NPC_WaypointNavigator : MonoBehaviour
                             {
                                 if (CurrentWaypoint?.Branches != null && CurrentWaypoint.Branches.Count > 0)
                                 {
-                                    Debug.Log("1");
                                     CurrentWaypoint = CurrentWaypoint.Branches[0];
                                 }
                                 else
@@ -193,5 +202,15 @@ public class NPC_WaypointNavigator : MonoBehaviour
         //Animation
         yield return new WaitForSeconds(Random.Range(8,20));
         _controller.MovementSpeed = _normalSpeed;
+    }
+    IEnumerator WaitForGreenLight(TraficLight traficLight)
+    {
+        float _normalSpeed = _controller.MovementSpeed;
+        _controller.MovementSpeed = 0;
+        //Idle Animation
+        yield return new WaitUntil(() => traficLight.NpcCanCross);
+        traficLight .NcpCrossing++;
+        _controller.MovementSpeed = _normalSpeed;
+
     }
 }
