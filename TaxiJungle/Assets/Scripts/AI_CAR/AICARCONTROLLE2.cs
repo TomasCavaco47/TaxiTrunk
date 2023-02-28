@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class AICARCONTROLLE2 : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
     [SerializeField] private LayerMask _waypointsLayer;
     [SerializeField] private LayerMask _aiCarLayer;
     [SerializeField] private LayerMask _playerCarLayer;
+    [SerializeField] private LayerMask _npcLayer;
     [SerializeField] private TurnDirection _turnDirection;
 
     [SerializeField] private WheelCollider[] wheels;
@@ -48,6 +50,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
     [SerializeField] private List<GameObject> _carsStopedInFront;
     [SerializeField] private bool _front;
     [SerializeField] private bool _side;
+    [SerializeField] private bool _nPCCrossing;
 
     public int Speed { get => _speed; set => _speed = value; }
     public float DistanceToWaypoint { get => _distanceToWaypoint; set => _distanceToWaypoint = value; }
@@ -161,190 +164,95 @@ public class AICARCONTROLLE2 : MonoBehaviour
     {
         DistanceToWaypoint= Vector3.Distance(transform.position, _currentWaypoint.position);
         //Debug.Log(Vector3.Distance(transform.position, _currentWaypoint.position));
-        if(DistanceToWaypoint <=3 && _currentWaypoint.GetComponent<WayPoints>().HasATurn == false)
-        {
-            
+        if(DistanceToWaypoint <=3 && _currentWaypoint.GetComponent<WayPoints>().HasATurn == false && _currentWaypoint.GetComponent<WayPoints>().HasATraficLight==false)
+        {       
                 if(_currentWaypoint.GetComponent<WayPoints>().NextWaypoint.Length == 1)
                 {
                     _currentWaypoint = _currentWaypoint.GetComponent<WayPoints>().NextWaypoint[0];
                     _nextWaypoint = null;
-                    CheckPath();
-              
-                }
-               
-                    
-                 
-     
+                    CheckPath();            
+                }                                                 
         }
-        else if (DistanceToWaypoint <= 25&&DistanceToWaypoint>5 && _currentWaypoint.GetComponent<WayPoints>().HasATurn)
+        else if (DistanceToWaypoint <= 25&&DistanceToWaypoint>5 && _currentWaypoint.GetComponent<WayPoints>().HasATurn || DistanceToWaypoint <= 25 && DistanceToWaypoint > 5 && _currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
         {
-            if (_turnDirection == TurnDirection.Center && _currentWaypoint.GetComponent<WayPoints>().Stop ==false)
+            if(_currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
             {
-                _canMove = true;
+                if (_currentWaypoint.GetComponent<WayPoints>().TraficLight.CarCanGo)
+                {
+                    _canMove = true;
+
+                }
+                else
+                {
+                    if (Speed > 20)
+                    {
+                        _canMove = false;
+                    }
+                    else
+                    {
+                        _canMove = true;
+                    }
+                }
             }
             else
             {
-                if (Speed>20)
+                if (_turnDirection == TurnDirection.Center && _currentWaypoint.GetComponent<WayPoints>().Stop == false && _currentWaypoint.GetComponent<WayPoints>().HasATraficLight == false)
                 {
-                _canMove = false;
-                }
-                else
-                {
-                _canMove = true;
-                }
-
-            }
-        }
-        else if(DistanceToWaypoint <= 5 && _currentWaypoint.GetComponent<WayPoints>().HasATurn)
-        {
-            if (_turnDirection == TurnDirection.Center)
-            {
-                if (_currentWaypoint.GetComponent<WayPoints>().Stop)
-                {
-                    _numberOfcarsPassing = 0;
-                    _carsStopedInFront = new List<GameObject>();
-                    List<Collider> hitColliders2 = new List<Collider>();
-                    hitColliders2 = Physics.OverlapSphere(_checkFront.position, 20, _aiCarLayer).ToList();
-                    List<Collider> hitColliders = new List<Collider>();
-                    hitColliders = Physics.OverlapSphere(_checkFront.position, _maxDistance, _aiCarLayer + _playerCarLayer).ToList();
-                    
-                    for (var i = 0; i < hitColliders.Count; i++)
-                    {
-                        
-                        Transform tempTarget = hitColliders[i].transform;
-                       
-                        Vector3 dir = tempTarget.position - _checkLeft.position; // find target direction
-                        Vector3 dir2 = tempTarget.position - _checkRight.position; // find target direction
-                        Vector3 myDir = _checkLeft.forward;
-                        Vector3 myDir2 = _checkRight.forward;
-                        Vector3 yourDir = tempTarget.forward;
-                        float myAngle = Vector3.Angle(myDir, dir);
-                        float yourAngle = Vector3.Angle(yourDir, -dir);
-                        float yourAngle2 = Vector3.Angle(yourDir, -dir2);
-                       // Debug.Log(tempTarget.parent.name + " " + Vector3.Angle(dir2, _checkRight.right));
-                      //  Debug.Log(tempTarget.parent.name + " " + yourAngle+ " and "+ yourAngle2 );
-
-                        if (Vector3.Angle(dir, _checkLeft.right) <= 100 / 2 || Vector3.Angle(dir, -_checkLeft.right) <= 100 / 2)
-                        {
-                            if (yourAngle < 90 )
-                            {
-                                Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.magenta);
-
-                                _numberOfcarsPassing++;
-                                _canMove = false;
-                                _side = true;
-                            }
-
-                        }
-                       
-                    }
-                    for (var i = 0; i < hitColliders2.Count; i++)
-                    {
-                        Transform tempTarget = hitColliders2[i].transform;
-                        Vector3 dir3 = tempTarget.position - _checkFront.position; // find target direction
-                        Vector3 myDir3 = _checkFront.forward;
-                        Vector3 yourDir = tempTarget.forward;
-                        float yourAngle3 = Vector3.Angle(yourDir, -dir3);
-                        if (Vector3.Angle(dir3, _checkFront.forward) <= 70 / 2)
-                        {
-                            if (yourAngle3 < 90)
-                            {
-                                _carsStopedInFront.Add(tempTarget.transform.parent.gameObject);
-                                
-                                Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.magenta);
-                                _canMove = false;
-                                _front = true;
-                            }
-                        }
-                    }
-                    if(_carsStopedInFront.Count ==0)
-                    {
-                        _front = false;
-                    }
-                    if (_numberOfcarsPassing == 0)
-                    {
-                        if (_front == false)
-                        {
-                            _currentWaypoint = _nextWaypoint;
-                            CheckPath();
-                            _canMove = true;
-                            _nextWaypoint = null;
-                        }
-                        else
-                        {
-                            if(_carsStopedInFront.Count == 0)
-                            {
-                                _currentWaypoint = _nextWaypoint;
-                                CheckPath();
-                                _canMove = true;
-                                _nextWaypoint = null;
-                                _front = false;
-                            }
-                            else
-                            {
-                                GameObject tempCar;
-                                if(_carsStopedInFront.Count ==1)
-                                {
-                                    if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
-                                    {
-                                        _currentWaypoint = _nextWaypoint;
-                                        CheckPath();
-                                        _canMove = true;
-                                        _nextWaypoint = null;
-                                    }
-                                    if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Left)
-                                    {
-                                        _currentWaypoint = _nextWaypoint;
-                                        CheckPath();
-                                        _canMove = true;
-                                        _nextWaypoint = null;
-                                    }
-                                    if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Right)
-                                    {
-                                        _currentWaypoint = _nextWaypoint;
-                                        CheckPath();
-                                        _canMove = true;
-                                        _nextWaypoint = null;
-                                    }
-
-                                }
-                                else
-                                {
-
-                                    _currentWaypoint = _nextWaypoint;
-                                    CheckPath();
-                                    _canMove = true;
-                                    _nextWaypoint = null;
-                                }
-
-                            }
-                        }
-                    }                
-                }
-                else
-                {
-                    Debug.Log("3");
-                    _currentWaypoint = _nextWaypoint;
-                    
-                    CheckPath();
                     _canMove = true;
-                    _nextWaypoint = null;
+
+                }
+                else
+                {
+                    if (Speed > 20)
+                    {
+                        _canMove = false;
+                    }
+                    else
+                    {
+                        _canMove = true;
+                       
+
+
+
+                    }
+
                 }
             }
-            else if (_turnDirection == TurnDirection.Left)
+            
+            
+            
+            
+        }
+        else if(DistanceToWaypoint <= 5 && _currentWaypoint.GetComponent<WayPoints>().HasATurn|| DistanceToWaypoint <= 5 && _currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
+        {
+            if(_currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
+            {
+                if (_currentWaypoint.GetComponent<WayPoints>().TraficLight.CarCanGo)
                 {
-                if (_currentWaypoint.GetComponent<WayPoints>().Stop)
+                    _canMove = true;
+                    CheckPath();
+                    CheckPath();
+                    Debug.Log("321");
+                    _currentWaypoint = _currentWaypoint.GetComponent<WayPoints>().NextWaypoint[0];
+                }
+                else
                 {
-                    if (_nextWaypoint != null)
+                    _canMove = false;
+                }
+            }
+            else
+            {
+                if (_turnDirection == TurnDirection.Center)
+                {
+                    if (_currentWaypoint.GetComponent<WayPoints>().Stop)
                     {
                         _numberOfcarsPassing = 0;
-
                         _carsStopedInFront = new List<GameObject>();
-
-                        List<Collider> hitColliders = new List<Collider>();
                         List<Collider> hitColliders2 = new List<Collider>();
+                        hitColliders2 = Physics.OverlapSphere(_checkFront.position, 20, _aiCarLayer).ToList();
+                        List<Collider> hitColliders = new List<Collider>();
                         hitColliders = Physics.OverlapSphere(_checkFront.position, _maxDistance, _aiCarLayer + _playerCarLayer).ToList();
-                        hitColliders2 = Physics.OverlapSphere(_checkFront.position, 27, _aiCarLayer).ToList();
+
                         for (var i = 0; i < hitColliders.Count; i++)
                         {
 
@@ -358,8 +266,8 @@ public class AICARCONTROLLE2 : MonoBehaviour
                             float myAngle = Vector3.Angle(myDir, dir);
                             float yourAngle = Vector3.Angle(yourDir, -dir);
                             float yourAngle2 = Vector3.Angle(yourDir, -dir2);
-                            //Debug.Log(tempTarget.parent.name + " " + Vector3.Angle(dir2, _checkRight.right));
-                           // Debug.Log(tempTarget.parent.name + " " + yourAngle + " and " + yourAngle2);
+                            // Debug.Log(tempTarget.parent.name + " " + Vector3.Angle(dir2, _checkRight.right));
+                            //  Debug.Log(tempTarget.parent.name + " " + yourAngle+ " and "+ yourAngle2 );
 
                             if (Vector3.Angle(dir, _checkLeft.right) <= 100 / 2 || Vector3.Angle(dir, -_checkLeft.right) <= 100 / 2)
                             {
@@ -370,6 +278,368 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                     _numberOfcarsPassing++;
                                     _canMove = false;
                                     _side = true;
+                                }
+
+                            }
+
+                        }
+                        for (var i = 0; i < hitColliders2.Count; i++)
+                        {
+                            Transform tempTarget = hitColliders2[i].transform;
+                            Vector3 dir3 = tempTarget.position - _checkFront.position; // find target direction
+                            Vector3 myDir3 = _checkFront.forward;
+                            Vector3 yourDir = tempTarget.forward;
+                            float yourAngle3 = Vector3.Angle(yourDir, -dir3);
+                            if (Vector3.Angle(dir3, _checkFront.forward) <= 70 / 2)
+                            {
+                                if (yourAngle3 < 90)
+                                {
+                                    _carsStopedInFront.Add(tempTarget.transform.parent.gameObject);
+
+                                    Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.magenta);
+                                    _canMove = false;
+                                    _front = true;
+                                }
+                            }
+                        }
+                        if (_carsStopedInFront.Count == 0)
+                        {
+                            _front = false;
+                        }
+                        if (_numberOfcarsPassing == 0)
+                        {
+                            if (_front == false)
+                            {
+                                _currentWaypoint = _nextWaypoint;
+                                CheckPath();
+                                _canMove = true;
+                                _nextWaypoint = null;
+                            }
+                            else
+                            {
+                                if (_carsStopedInFront.Count == 0)
+                                {
+                                    _currentWaypoint = _nextWaypoint;
+                                    CheckPath();
+                                    _canMove = true;
+                                    _nextWaypoint = null;
+                                    _front = false;
+                                }
+                                else
+                                {
+                                    if (_carsStopedInFront.Count == 1)
+                                    {
+                                        if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
+                                        {
+                                            _currentWaypoint = _nextWaypoint;
+                                            CheckPath();
+                                            _canMove = true;
+                                            _nextWaypoint = null;
+                                        }
+                                        if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Left)
+                                        {
+                                            _currentWaypoint = _nextWaypoint;
+                                            CheckPath();
+                                            _canMove = true;
+                                            _nextWaypoint = null;
+                                        }
+                                        if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Right)
+                                        {
+                                            _currentWaypoint = _nextWaypoint;
+                                            CheckPath();
+                                            _canMove = true;
+                                            _nextWaypoint = null;
+                                        }
+
+                                    }
+                                    else
+                                    {
+
+                                        _currentWaypoint = _nextWaypoint;
+                                        CheckPath();
+                                        _canMove = true;
+                                        _nextWaypoint = null;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        _currentWaypoint = _nextWaypoint;
+
+                        CheckPath();
+                        _canMove = true;
+                        _nextWaypoint = null;
+                    }
+                }
+                else if (_turnDirection == TurnDirection.Left)
+                {
+                    if (_currentWaypoint.GetComponent<WayPoints>().Stop)
+                    {
+                        if (_nextWaypoint != null)
+                        {
+                            _numberOfcarsPassing = 0;
+
+                            _carsStopedInFront = new List<GameObject>();
+
+                            List<Collider> hitColliders = new List<Collider>();
+                            List<Collider> hitColliders2 = new List<Collider>();
+                            hitColliders = Physics.OverlapSphere(_checkFront.position, _maxDistance, _aiCarLayer + _playerCarLayer).ToList();
+                            hitColliders2 = Physics.OverlapSphere(_checkFront.position, 27, _aiCarLayer).ToList();
+                            for (var i = 0; i < hitColliders.Count; i++)
+                            {
+
+                                Transform tempTarget = hitColliders[i].transform;
+
+                                Vector3 dir = tempTarget.position - _checkLeft.position; // find target direction
+                                Vector3 dir2 = tempTarget.position - _checkRight.position; // find target direction
+                                Vector3 myDir = _checkLeft.forward;
+                                Vector3 myDir2 = _checkRight.forward;
+                                Vector3 yourDir = tempTarget.forward;
+                                float myAngle = Vector3.Angle(myDir, dir);
+                                float yourAngle = Vector3.Angle(yourDir, -dir);
+                                float yourAngle2 = Vector3.Angle(yourDir, -dir2);
+                                //Debug.Log(tempTarget.parent.name + " " + Vector3.Angle(dir2, _checkRight.right));
+                                // Debug.Log(tempTarget.parent.name + " " + yourAngle + " and " + yourAngle2);
+
+                                if (Vector3.Angle(dir, _checkLeft.right) <= 100 / 2 || Vector3.Angle(dir, -_checkLeft.right) <= 100 / 2)
+                                {
+                                    if (yourAngle < 90)
+                                    {
+                                        Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.magenta);
+
+                                        _numberOfcarsPassing++;
+                                        _canMove = false;
+                                        _side = true;
+                                    }
+                                }
+                            }
+                            for (var i = 0; i < hitColliders2.Count; i++)
+                            {
+                                Transform tempTarget = hitColliders2[i].transform;
+                                Vector3 dir3 = tempTarget.position - _checkFront.position; // find target direction
+                                Vector3 myDir3 = _checkFront.forward;
+                                Vector3 yourDir = tempTarget.forward;
+                                float yourAngle3 = Vector3.Angle(yourDir, -dir3);
+                                if (Vector3.Angle(dir3, _checkFront.forward) <= 70 / 2)
+                                {
+                                    if (yourAngle3 < 90)
+                                    {
+                                        _carsStopedInFront.Add(tempTarget.transform.parent.gameObject);
+
+                                        Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.magenta);
+                                        //_carsStopedInFront = tempTarget.parent.gameObject;
+                                        _canMove = false;
+                                        _front = true;
+                                    }
+                                }
+                            }
+                            if (_carsStopedInFront.Count == 0)
+                            {
+                                _front = false;
+                            }
+                            if (_numberOfcarsPassing == 0)
+                            {
+                                if (_front == false)
+                                {
+                                    _currentWaypoint = _nextWaypoint;
+                                    CheckPath();
+                                    _canMove = true;
+                                    _nextWaypoint = null;
+                                }
+                                else
+                                {
+                                    if (_carsStopedInFront.Count == 0)
+                                    {
+                                        _currentWaypoint = _nextWaypoint;
+                                        CheckPath();
+                                        _canMove = true;
+                                        _nextWaypoint = null;
+                                        _front = false;
+                                    }
+                                    else
+                                    {
+                                        GameObject tempCar;
+                                        if (_carsStopedInFront.Count == 1)
+                                        {
+                                            if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
+                                            {
+                                                _canMove = false;
+                                            }
+                                            if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Left)
+                                            {
+                                                if (DistanceToWaypoint > _carsStopedInFront[0].GetComponent<AICARCONTROLLE2>().DistanceToWaypoint)
+                                                {
+                                                    _currentWaypoint = _nextWaypoint;
+                                                    CheckPath();
+                                                    _canMove = true;
+                                                    _nextWaypoint = null;
+                                                }
+                                                else
+                                                {
+                                                    _canMove = false;
+
+                                                }
+                                            }
+                                            if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Right)
+                                            {
+                                                _canMove = false;
+
+                                            }
+                                        }
+                                        else
+                                        {
+                                            tempCar = _carsStopedInFront[0].gameObject;
+                                            for (int i = 0; i < _carsStopedInFront.Count; i++)
+                                            {
+
+                                                if (Vector3.Distance(gameObject.transform.position, _carsStopedInFront[i].transform.position) <= Vector3.Distance(gameObject.transform.position, tempCar.transform.position))
+                                                {
+                                                    tempCar = _carsStopedInFront[i];
+                                                }
+                                            }
+                                            //Debug.Log(tempCar.name);
+
+                                            if (tempCar.GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
+                                            {
+                                                _canMove = false;
+                                            }
+                                            if (tempCar.GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Left)
+                                            {
+                                                if (DistanceToWaypoint > tempCar.GetComponent<AICARCONTROLLE2>().DistanceToWaypoint)
+                                                {
+                                                    _currentWaypoint = _nextWaypoint;
+                                                    CheckPath();
+                                                    _canMove = true;
+                                                    _nextWaypoint = null;
+                                                }
+                                                else
+                                                {
+                                                    _canMove = false;
+
+                                                }
+                                            }
+                                            if (tempCar.GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Right)
+                                            {
+                                                _canMove = false;
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        if (_nextWaypoint != null)
+                        {
+                            _numberOfcarsPassing = 0;
+
+                            _carsStopedInFront = new List<GameObject>();
+
+                            List<Collider> hitColliders = new List<Collider>();
+                            List<Collider> hitColliders2 = new List<Collider>();
+                            hitColliders2 = Physics.OverlapSphere(_checkLeft.position, 20, _aiCarLayer).ToList();
+                            for (var i = 0; i < hitColliders2.Count; i++)
+                            {
+                                Transform tempTarget = hitColliders2[i].transform;
+                                Vector3 dir3 = tempTarget.position - _checkLeft.position; // find target direction
+                                Vector3 myDir3 = _checkLeft.forward;
+                                Vector3 yourDir = tempTarget.forward;
+                                float yourAngle3 = Vector3.Angle(yourDir, -dir3);
+                                if (Vector3.Angle(dir3, _checkLeft.forward) <= 70 / 2)
+                                {
+                                    if (yourAngle3 < 90)
+                                    {
+                                        _carsStopedInFront.Add(tempTarget.transform.parent.gameObject);
+
+                                        Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.cyan);
+                                        //  _carsStopedInFront = tempTarget.parent.gameObject;
+                                        _canMove = false;
+                                        _front = false;
+                                    }
+
+                                }
+                            }
+
+                            if (_carsStopedInFront.Count == 0)
+                            {
+                                _currentWaypoint = _nextWaypoint;
+                                CheckPath();
+                                _canMove = true;
+                                _nextWaypoint = null;
+                                _front = false;
+                            }
+                            else
+                            {
+                                if (_carsStopedInFront.Count == 1)
+                                {
+                                    if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
+                                    {
+                                        _canMove = false;
+                                    }
+                                    if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Left)
+                                    {
+                                        if (DistanceToWaypoint > _carsStopedInFront[0].GetComponent<AICARCONTROLLE2>().DistanceToWaypoint)
+                                        {
+                                            _currentWaypoint = _nextWaypoint;
+                                            CheckPath();
+                                            _canMove = true;
+                                            _nextWaypoint = null;
+                                        }
+                                        else
+                                        {
+                                            _canMove = false;
+                                        }
+                                    }
+                                    if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Right)
+                                    {
+                                        _canMove = false;
+                                    }
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (_turnDirection == TurnDirection.Right)
+                {
+                    if (_currentWaypoint.GetComponent<WayPoints>().Stop)
+                    {
+                        _numberOfcarsPassing = 0;
+                        _carsStopedInFront = new List<GameObject>();
+
+                        List<Collider> hitColliders = new List<Collider>();
+                        List<Collider> hitColliders2 = new List<Collider>();
+                        hitColliders = Physics.OverlapSphere(_checkFront.position, _maxDistance, _aiCarLayer + _playerCarLayer).ToList();
+                        hitColliders2 = Physics.OverlapSphere(_checkFront.position, 20, _aiCarLayer).ToList();
+
+                        for (var i = 0; i < hitColliders.Count; i++)
+                        {
+                            Transform tempTarget = hitColliders[i].transform;
+                            Vector3 dir = tempTarget.position - _checkLeft.position; // find target direction
+                            Vector3 dir2 = tempTarget.position - _checkRight.position; // find target direction
+                            Vector3 myDir = _checkLeft.forward;
+                            Vector3 myDir2 = _checkRight.forward;
+                            Vector3 yourDir = tempTarget.forward;
+                            float myAngle = Vector3.Angle(myDir, dir);
+                            float myAngle2 = Vector3.Angle(myDir2, dir2);
+                            float yourAngle = Vector3.Angle(yourDir, -dir);
+                            float yourAngle2 = Vector3.Angle(yourDir, -dir2);
+                            if (Vector3.Angle(dir2, _checkRight.right) <= 100 / 2 || Vector3.Angle(dir, -_checkLeft.right) <= 100 / 2)
+                            {
+                                if (yourAngle < 90 || yourAngle2 < 90)
+                                {
+                                    Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.yellow);
+                                    _numberOfcarsPassing++;
+                                    _canMove = false;
                                 }
                             }
                         }
@@ -401,6 +671,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                         {
                             if (_front == false)
                             {
+                                Debug.Log("1");
                                 _currentWaypoint = _nextWaypoint;
                                 CheckPath();
                                 _canMove = true;
@@ -410,6 +681,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                             {
                                 if (_carsStopedInFront.Count == 0)
                                 {
+                                    Debug.Log("2");
                                     _currentWaypoint = _nextWaypoint;
                                     CheckPath();
                                     _canMove = true;
@@ -418,277 +690,48 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                 }
                                 else
                                 {
-                                    GameObject tempCar;
                                     if (_carsStopedInFront.Count == 1)
                                     {
                                         if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
                                         {
-                                            _canMove = false;
+                                            _currentWaypoint = _nextWaypoint;
+                                            CheckPath();
+                                            _canMove = true;
+                                            _nextWaypoint = null;
                                         }
                                         if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Left)
                                         {
-                                            if (DistanceToWaypoint > _carsStopedInFront[0].GetComponent<AICARCONTROLLE2>().DistanceToWaypoint)
-                                            {
-                                                _currentWaypoint = _nextWaypoint;
-                                                CheckPath();
-                                                _canMove = true;
-                                                _nextWaypoint = null;
-                                            }
-                                            else
-                                            {
-                                                _canMove = false;
-
-                                            }
+                                            Debug.Log("4");
+                                            _currentWaypoint = _nextWaypoint;
+                                            CheckPath();
+                                            _canMove = true;
+                                            _nextWaypoint = null;
                                         }
                                         if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Right)
                                         {
-                                            _canMove = false;
-
-                                        }
-                                    }
-                                    else
-                                    {
-                                        tempCar = _carsStopedInFront[0].gameObject;
-                                        for (int i = 0; i < _carsStopedInFront.Count; i++)
-                                        {
-                                            
-                                            if (Vector3.Distance(gameObject.transform.position, _carsStopedInFront[i].transform.position) <= Vector3.Distance(gameObject.transform.position, tempCar.transform.position))
-                                            {
-                                                tempCar = _carsStopedInFront[i];
-                                            }
-                                        }
-                                        //Debug.Log(tempCar.name);
-
-                                        if (tempCar.GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
-                                        {
-                                            _canMove = false;
-                                        }
-                                        if (tempCar.GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Left)
-                                        {
-                                            if (DistanceToWaypoint > tempCar.GetComponent<AICARCONTROLLE2>().DistanceToWaypoint)
-                                            {
-                                                _currentWaypoint = _nextWaypoint;
-                                                CheckPath();
-                                                _canMove = true;
-                                                _nextWaypoint = null;
-                                            }
-                                            else
-                                            {
-                                                _canMove = false;
-
-                                            }
-                                        }
-                                        if (tempCar.GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Right)
-                                        {
-                                            _canMove = false;
-
+                                            Debug.Log("5");
+                                            _currentWaypoint = _nextWaypoint;
+                                            CheckPath();
+                                            _canMove = true;
+                                            _nextWaypoint = null;
                                         }
                                     }
                                 }
                             }
                         }
                     }
-
-                }
-                else
-                {
-                    if (_nextWaypoint != null)
+                    else
                     {
-                        _numberOfcarsPassing = 0;
-
-                        _carsStopedInFront = new List<GameObject>();
-
-                        List<Collider> hitColliders = new List<Collider>();
-                        List<Collider> hitColliders2 = new List<Collider>();
-                        hitColliders2 = Physics.OverlapSphere(_checkLeft.position, 20, _aiCarLayer).ToList();
-                        for (var i = 0; i < hitColliders2.Count; i++)
-                        {
-                            Transform tempTarget = hitColliders2[i].transform;
-                            Vector3 dir3 = tempTarget.position - _checkLeft.position; // find target direction
-                            Vector3 myDir3 = _checkLeft.forward;
-                            Vector3 yourDir = tempTarget.forward;
-                            float yourAngle3 = Vector3.Angle(yourDir, -dir3);
-                            if (Vector3.Angle(dir3, _checkLeft.forward) <= 70 / 2)
-                            {
-                                if (yourAngle3 < 90)
-                                {
-                                    _carsStopedInFront.Add(tempTarget.transform.parent.gameObject);
-
-                                    Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.cyan);
-                                  //  _carsStopedInFront = tempTarget.parent.gameObject;
-                                    _canMove = false;
-                                    _front = false;
-                                }
-
-                            }
-                        }
-
-                        if (_carsStopedInFront.Count == 0)
-                        {
-                            _currentWaypoint = _nextWaypoint;
-                            CheckPath();
-                            _canMove = true;
-                            _nextWaypoint = null;
-                            _front = false;
-                        }
-                        else
-                        {
-                            GameObject tempCar;
-                            if (_carsStopedInFront.Count == 1)
-                            {
-                                if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
-                                {
-                                    _canMove = false;
-                                }
-                                if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Left)
-                                {
-                                    if (DistanceToWaypoint > _carsStopedInFront[0].GetComponent<AICARCONTROLLE2>().DistanceToWaypoint)
-                                    {
-                                        _currentWaypoint = _nextWaypoint;
-                                        CheckPath();
-                                        _canMove = true;
-                                        _nextWaypoint = null;
-                                    }
-                                    else
-                                    {
-                                        _canMove = false;
-                                    }
-                                }
-                                if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Right)
-                                {
-                                    _canMove = false;
-                                }
-                            }
-                            else
-                            {
-
-                            }
-                        }
+                        Debug.Log("1");
+                        _currentWaypoint = _nextWaypoint;
+                        CheckPath();
+                        _canMove = true;
+                        _nextWaypoint = null;
                     }
                 }
             }
-            else if (_turnDirection == TurnDirection.Right)
-            {
-                if (_currentWaypoint.GetComponent<WayPoints>().Stop)
-                {
-                    _numberOfcarsPassing = 0;
-                    _carsStopedInFront = new List<GameObject>();
-
-                    List<Collider> hitColliders = new List<Collider>();
-                    List<Collider> hitColliders2 = new List<Collider>();
-                    hitColliders = Physics.OverlapSphere(_checkFront.position, _maxDistance, _aiCarLayer + _playerCarLayer).ToList();
-                    hitColliders2 = Physics.OverlapSphere(_checkFront.position, 20, _aiCarLayer).ToList();
-
-                    for (var i = 0; i < hitColliders.Count; i++)
-                    {
-                        Transform tempTarget = hitColliders[i].transform;
-                        Vector3 dir = tempTarget.position - _checkLeft.position; // find target direction
-                        Vector3 dir2 = tempTarget.position - _checkRight.position; // find target direction
-                        Vector3 myDir = _checkLeft.forward;
-                        Vector3 myDir2 = _checkRight.forward;
-                        Vector3 yourDir = tempTarget.forward;
-                        float myAngle = Vector3.Angle(myDir, dir);
-                        float myAngle2 = Vector3.Angle(myDir2, dir2);
-                        float yourAngle = Vector3.Angle(yourDir, -dir);
-                        float yourAngle2 = Vector3.Angle(yourDir, -dir2);
-                        if (Vector3.Angle(dir2, _checkRight.right) <= 100 / 2 || Vector3.Angle(dir, -_checkLeft.right) <= 100 / 2)
-                        {
-                            if (yourAngle < 90 || yourAngle2 < 90)
-                            {
-                                Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.yellow);
-                                _numberOfcarsPassing++;
-                                _canMove = false;
-                            }
-                        }
-                    }
-                    for (var i = 0; i < hitColliders2.Count; i++)
-                    {
-                        Transform tempTarget = hitColliders2[i].transform;
-                        Vector3 dir3 = tempTarget.position - _checkFront.position; // find target direction
-                        Vector3 myDir3 = _checkFront.forward;
-                        Vector3 yourDir = tempTarget.forward;
-                        float yourAngle3 = Vector3.Angle(yourDir, -dir3);
-                        if (Vector3.Angle(dir3, _checkFront.forward) <= 70 / 2)
-                        {
-                            if (yourAngle3 < 90)
-                            {
-                                _carsStopedInFront.Add(tempTarget.transform.parent.gameObject);
-
-                                Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.magenta);
-                                //_carsStopedInFront = tempTarget.parent.gameObject;
-                                _canMove = false;
-                                _front = true;
-                            }
-                        }
-                    }
-                    if (_carsStopedInFront.Count == 0)
-                    {
-                        _front = false;
-                    }
-                    if (_numberOfcarsPassing == 0)
-                    {
-                        if (_front == false)
-                        {
-                            Debug.Log("1");
-                            _currentWaypoint = _nextWaypoint;
-                            CheckPath();
-                            _canMove = true;
-                            _nextWaypoint = null;
-                        }
-                        else
-                        {
-                            if (_carsStopedInFront.Count == 0)
-                            {
-                                Debug.Log("2");
-                                _currentWaypoint = _nextWaypoint;
-                                CheckPath();
-                                _canMove = true;
-                                _nextWaypoint = null;
-                                _front = false;
-                            }
-                            else
-                            {
-                                GameObject tempCar;
-                                if (_carsStopedInFront.Count == 1)
-                                {
-                                    if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
-                                    {
-                                        Debug.Log("3");
-                                        _currentWaypoint = _nextWaypoint;
-                                        CheckPath();
-                                        _canMove = true;
-                                        _nextWaypoint = null;
-                                    }
-                                    if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Left)
-                                    {
-                                        Debug.Log("4");
-                                        _currentWaypoint = _nextWaypoint;
-                                        CheckPath();
-                                        _canMove = true;
-                                        _nextWaypoint = null;
-                                    }
-                                    if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Right)
-                                    {
-                                        Debug.Log("5");
-                                        _currentWaypoint = _nextWaypoint;
-                                        CheckPath();
-                                        _canMove = true;
-                                        _nextWaypoint = null;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    Debug.Log("1");
-                    _currentWaypoint = _nextWaypoint;
-                    CheckPath();
-                    _canMove = true;
-                    _nextWaypoint = null;
-                }
-            }
+            
+            
             
         }
     }
@@ -725,12 +768,17 @@ public class AICARCONTROLLE2 : MonoBehaviour
                 if (Vector3.Angle(dir, _checkLeft.forward) <= 100 / 2)
                 {
                     // Debug.Log(myAngle + " " + yourAngle);
-                    if (yourAngle > 90)
-                    {         
-                            _carInFront = true;                                        
-                    }
-               }
-               
+                   
+                        if (yourAngle > 90)
+                        {
+                            _carInFront = true;
+                        }
+
+                    
+                    
+                }
+              
+
             }
             else
             {
@@ -759,7 +807,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                 }
                 else
                 {
-                    if(objectHit.collider.tag == "AICar")
+                    if(_carInFront==true)
                     {
                         if (Speed < objectHit.transform.GetComponent<AICARCONTROLLE2>().Speed)
                         {
@@ -777,7 +825,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                             item.motorTorque = 0;
                             item.brakeTorque = 0;
                         }
-                    }
+                    }                                      
                     else
                     {
                         if (Speed < objectHit.transform.GetComponent<CarControllerScript>().CurrentSpeed)

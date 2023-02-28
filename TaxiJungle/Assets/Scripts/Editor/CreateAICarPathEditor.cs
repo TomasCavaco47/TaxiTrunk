@@ -41,7 +41,6 @@ public class CreateAICarPathEditor : EditorWindow
                             {
                                 _newChekPoint = Instantiate(_lastCheckPoint);
                                 _newChekPoint.SetParent(_lastCheckPoint.parent);
-                                _newChekPoint.GetComponent<WayPoints>().SlowDown = false;
                                 _newChekPoint.GetComponent<WayPoints>().HasATurn = false;
                                 _newChekPoint.GetComponent<WayPoints>().Stop = false;
                                 _newChekPoint.name = "WayPoint " + _lastCheckPoint.parent.childCount;
@@ -72,7 +71,6 @@ public class CreateAICarPathEditor : EditorWindow
                                     _newChekPoint = Instantiate(_lastCheckPoint);
                                     _newChekPoint.GetComponent<WayPoints>().NextWaypoint = new Transform[0];
                                     _newChekPoint.SetParent(_lastCheckPoint.parent);
-                                    _newChekPoint.GetComponent<WayPoints>().SlowDown = false;
                                     _newChekPoint.GetComponent<WayPoints>().HasATurn = false;
                                     _newChekPoint.GetComponent<WayPoints>().Stop = false;
                                     _templist2.Add(_newChekPoint.gameObject);
@@ -156,7 +154,6 @@ public class CreateAICarPathEditor : EditorWindow
                                     _templist2.Add(_newChekPoint.gameObject);
                                     _newChekPoint.GetComponent<WayPoints>().NextWaypoint = new Transform[_lastCheckPoint.GetComponent<WayPoints>().NextWaypoint.Length + _possibleWays];
                                     _newChekPoint.SetParent(_lastCheckPoint.parent);
-                                    _newChekPoint.GetComponent<WayPoints>().SlowDown = false;
                                     _newChekPoint.GetComponent<WayPoints>().HasATurn = false;
                                     _newChekPoint.GetComponent<WayPoints>().Stop = false;
                                     _newChekPoint.name = "WayPoint " + _lastCheckPoint.parent.childCount;
