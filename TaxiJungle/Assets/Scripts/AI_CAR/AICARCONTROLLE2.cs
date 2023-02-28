@@ -186,12 +186,10 @@ public class AICARCONTROLLE2 : MonoBehaviour
                 {
                     if (Speed > 20)
                     {
-                        Debug.Log("0");
                         _canMove = false;
                     }
                     else
                     {
-                        Debug.Log("1");
                         _canMove = true;
                     }
                 }
@@ -212,6 +210,8 @@ public class AICARCONTROLLE2 : MonoBehaviour
                     else
                     {
                         _canMove = true;
+                       
+
 
 
                     }
@@ -230,6 +230,10 @@ public class AICARCONTROLLE2 : MonoBehaviour
                 if (_currentWaypoint.GetComponent<WayPoints>().TraficLight.CarCanGo)
                 {
                     _canMove = true;
+                    CheckPath();
+                    CheckPath();
+                    Debug.Log("321");
+                    _currentWaypoint = _currentWaypoint.GetComponent<WayPoints>().NextWaypoint[0];
                 }
                 else
                 {

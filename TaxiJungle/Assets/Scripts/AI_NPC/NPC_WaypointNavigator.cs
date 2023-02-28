@@ -77,7 +77,11 @@ public class NPC_WaypointNavigator : MonoBehaviour
                 bool shoulLookAtFone = Random.Range(0f, 1f) < 0.02f;
                 if (shoulLookAtFone&& _onTheCrossWalk ==false)
                 {
-                    StartCoroutine(LookAtFone());
+                    if(i >2)
+                    {
+                        StartCoroutine(LookAtFone());
+
+                    }
                 }
                 if (_direction == 0)
                 {

@@ -31,18 +31,14 @@ public class TraficLight : MonoBehaviour
             
             if (_timer <= 10) 
             {
-
                 _timer += Time.deltaTime;
-
             }
             else
             {
                 _canStartTimer = false;
                 _timer=0;
                 StartCoroutine(CarsCanPass());
-
             }
-
         }
     }
     IEnumerator CarsCanPass()
