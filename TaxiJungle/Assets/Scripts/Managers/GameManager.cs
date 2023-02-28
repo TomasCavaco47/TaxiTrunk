@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject _currentCarInUse;
     [SerializeField] Transform _carExitStorePos;
     [SerializeField] Transform _startgamePos;
+    [SerializeField] MiniMapCameraFolows _miniMapCamera;
+    [SerializeField] LineAI _gps;
+    [SerializeField] UiManager _ui;
     MissionManager _missionManager;
     [SerializeField]bool _canEnterStore;
     int _money;
@@ -48,9 +51,17 @@ public class GameManager : MonoBehaviour
         _currentCarInUse = PlayerCarsBought[0];
         _currentCarInUse.SetActive(true);
         _currentCarInUse.transform.position = _startgamePos.position;
-        Camera.main.GetComponent<CameraFollow>().Target = _currentCarInUse.transform;
+        UpdateCamerasAndGps();
+        //_ui.Car = _currentCarInUse;
+        
 
         _missionManager = MissionManager.instance;
+    }
+    public void UpdateCamerasAndGps()
+    {
+        Camera.main.GetComponent<CameraFollow>().Target = _currentCarInUse.transform;
+        _miniMapCamera.Target = _currentCarInUse.transform;
+        _gps.Player = _currentCarInUse.transform;
     }
     public void EnterStore()
     {
