@@ -42,9 +42,9 @@ public class UpgradeUI
     public List<GameObject> AcelarationUpgradeImages { get => _acelarationUpgradeImages; set => _acelarationUpgradeImages = value; }
     public List<GameObject> BrakingUpgradeImages { get => _brakingUpgradeImages; set => _brakingUpgradeImages = value; }
     public List<GameObject> MaxSpeedUpgradeImages { get => _maxSpeedUpgradeImages; set => _maxSpeedUpgradeImages = value; }
-    public GameObject BuyMaxSpeedButton { get => BuyMaxSpeedButton; set => BuyMaxSpeedButton = value; }
-    public GameObject BuyBrakesButton { get => BuyBrakesButton; set => BuyBrakesButton = value; }
-    public GameObject BuyAcelarationButton { get => BuyAcelarationButton; set => BuyAcelarationButton = value; }
+    public GameObject BuyMaxSpeedButton { get => _buyMaxSpeedButton; set => _buyMaxSpeedButton = value; }
+    public GameObject BuyBrakesButton { get => _buyBrakesButton; set => _buyBrakesButton = value; }
+    public GameObject BuyAcelarationButton { get => _buyAcelarationButton; set => _buyAcelarationButton = value; }
 }
 public class StoreManager : MonoBehaviour
 {
@@ -194,9 +194,11 @@ public class StoreManager : MonoBehaviour
 
     public void ExitStore()
     {
+        GameManager.instance.UpdateCamerasAndGps();
         GameManager.instance.CurrentCarInUse.transform.position = GameManager.instance.CarExitStorePos.position;
         GameManager.instance.CurrentCarInUse.transform.rotation = GameManager.instance.CarExitStorePos.rotation;
         SceneManager.UnloadSceneAsync("Store");
+        
 
 
 

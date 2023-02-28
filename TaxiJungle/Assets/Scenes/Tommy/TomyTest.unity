@@ -15221,7 +15221,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f76ee7801c76d54baa7b8ebacaca00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _carModels: []
   _playerCarsBought: []
+  _currentCarInUse: {fileID: 0}
+  _carExitStorePos: {fileID: 0}
+  _startgamePos: {fileID: 0}
+  _miniMapCamera: {fileID: 0}
+  _gps: {fileID: 0}
+  _canEnterStore: 0
 --- !u!1 &893932516
 GameObject:
   m_ObjectHideFlags: 0
@@ -26275,7 +26282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569084747}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.91, y: -3.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33391,17 +33398,17 @@ MonoBehaviour:
     _ShouldSteer: 0
   _upgrades:
     _maxSpeedLevel: 0
+    _maxSpeed: []
     _brakeUpgradeLevel: 0
+    _brakeForce: []
     _acelarationUpgradeLevel: 0
+    _acelaration: []
   _currentSpeed: 0
   _currentMotorTorque: 0
-  _motorTorque: 500
-  _brakeTorque: 1000
   _maxSteerAngle: 30
   _massCenter: {fileID: 596093441}
   _speedType: 0
   _reachedMaxSpeed: 0
-  _maxSpeed: 200
   _drag:
     serializedVersion: 2
     m_Curve:
@@ -34363,9 +34370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _goalT: {fileID: 1082686554}
   refreshTimer: 0.5
-  player: {fileID: 2792218740596941399}
-  _isOnRoad: 0
-  _line2: {fileID: 0}
+  player: {fileID: 0}
 --- !u!4 &1949956001
 Transform:
   m_ObjectHideFlags: 0

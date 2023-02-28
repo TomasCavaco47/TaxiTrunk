@@ -93,6 +93,7 @@ public class CarControllerTest : MonoBehaviour
         LimitMaxSpeed();
         UpdateCurrentSpeed();
         HandBreake();
+        UiManager.instance.Speedometer(_currentSpeed, Upgrades.MaxSpeed[Upgrades.MaxSpeedLevel]);
     }
     private void FixedUpdate()
     {
