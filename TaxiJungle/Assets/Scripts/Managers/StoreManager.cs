@@ -64,6 +64,7 @@ public class StoreManager : MonoBehaviour
         {
             _carModels[i].SetActive(false);
             _carModels[i].transform.position = _displayPos.position;
+            _carModels[i].GetComponent<CarControllerTest>().CanMove = false;
 
             if (GameManager.instance.CurrentCarInUse == _carModels[i])
             {
@@ -197,6 +198,8 @@ public class StoreManager : MonoBehaviour
         GameManager.instance.UpdateCamerasAndGps();
         GameManager.instance.CurrentCarInUse.transform.position = GameManager.instance.CarExitStorePos.position;
         GameManager.instance.CurrentCarInUse.transform.rotation = GameManager.instance.CarExitStorePos.rotation;
+        GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().CanMove = true;
+        Test.instance.ChangeCameraTargets();
         SceneManager.UnloadSceneAsync("Store");
         
 

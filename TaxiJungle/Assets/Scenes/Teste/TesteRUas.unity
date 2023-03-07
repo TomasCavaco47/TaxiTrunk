@@ -512,13 +512,19 @@ MonoBehaviour:
     _rightWheel: {fileID: 2035080440}
     _addWheelTorque: 1
     _ShouldSteer: 0
-  _maxTorque: 300
-  _brakeTorque: 1000
+  _upgrades:
+    _maxSpeedLevel: 0
+    _maxSpeed: []
+    _brakeUpgradeLevel: 0
+    _brakeForce: []
+    _acelarationUpgradeLevel: 0
+    _acelaration: []
+  _currentSpeed: 0
+  _currentMotorTorque: 0
   _maxSteerAngle: 30
   _massCenter: {fileID: 362815493}
   _speedType: 0
   _reachedMaxSpeed: 0
-  _maxSpeed: 200
   _drag:
     serializedVersion: 2
     m_Curve:
@@ -642,7 +648,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
