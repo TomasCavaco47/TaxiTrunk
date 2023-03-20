@@ -15,7 +15,7 @@ C:/Users/rafae/OneDrive/Ambiente de Trabalho/Jogos a fazer/taxi jungle/TaxiJungl
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-52984
+55402
 Successfully changed project path to: C:/Users/rafae/OneDrive/Ambiente de Trabalho/Jogos a fazer/taxi jungle/TaxiJungle
 C:/Users/rafae/OneDrive/Ambiente de Trabalho/Jogos a fazer/taxi jungle/TaxiJungle
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/rafae/OneDrive/Ambiente de Trabalho/Jogos a fazer/taxi jungle/TaxiJungl
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 106.67 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 86.70 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.10f1 (1c7d0df0160b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -63,7 +63,7 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56736
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56888
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
@@ -74,7 +74,7 @@ Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.006592 seconds.
+Registered in 0.355442 seconds.
 Native extension for UWP target not found
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
@@ -87,39 +87,40 @@ Native extension for iOS target not found
 Native extension for Android target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 104.95 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 85.11 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.591 seconds
+- Completed reload, in  2.660 seconds
 Domain Reload Profiling:
-	ReloadAssembly (592ms)
-		BeginReloadAssembly (59ms)
+	ReloadAssembly (2660ms)
+		BeginReloadAssembly (828ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (446ms)
-			LoadAssemblies (57ms)
+		EndReloadAssembly (1246ms)
+			LoadAssemblies (852ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (95ms)
+			SetupTypeCache (702ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (19ms)
-			SetupLoadedEditorAssemblies (293ms)
+			RebuildScriptCaches (18ms)
+			SetupLoadedEditorAssemblies (462ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (57ms)
+				InitializePlatformSupportModulesInManaged (266ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (105ms)
+				RefreshPlugins (85ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (90ms)
-				ProcessInitializeOnLoadMethodAttributes (38ms)
+				ProcessInitializeOnLoadAttributes (73ms)
+				ProcessInitializeOnLoadMethodAttributes (36ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005552 seconds.
+Registered in 0.610585 seconds.
+Android Extension - Scanning For ADB Devices 4345 ms
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\rafae\OneDrive\Ambiente de Trabalho\Jogos a fazer\taxi jungle\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\rafae\OneDrive\Ambiente de Trabalho\Jogos a fazer\taxi jungle\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -131,46 +132,46 @@ Native extension for iOS target not found
 Native extension for Android target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 112.40 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 102.31 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.360 seconds
+- Completed reload, in  3.032 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1361ms)
-		BeginReloadAssembly (193ms)
+	ReloadAssembly (3033ms)
+		BeginReloadAssembly (88ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (124ms)
-		EndReloadAssembly (1060ms)
-			LoadAssemblies (81ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (2806ms)
+			LoadAssemblies (897ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (276ms)
+			SetupTypeCache (608ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (62ms)
-			SetupLoadedEditorAssemblies (594ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (1216ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (29ms)
+				InitializePlatformSupportModulesInManaged (21ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (112ms)
-				BeforeProcessingInitializeOnLoad (108ms)
-				ProcessInitializeOnLoadAttributes (253ms)
-				ProcessInitializeOnLoadMethodAttributes (86ms)
+				RefreshPlugins (102ms)
+				BeforeProcessingInitializeOnLoad (94ms)
+				ProcessInitializeOnLoadAttributes (268ms)
+				ProcessInitializeOnLoadMethodAttributes (726ms)
 				AfterProcessingInitializeOnLoad (4ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 1.03 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.82 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5370 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 52 unused Assets / (0.8 MB). Loaded Objects now: 5826.
-Memory consumption went from 211.3 MB to 210.6 MB.
-Total: 4.462700 ms (FindLiveObjects: 0.634500 ms CreateObjectMapping: 0.149200 ms MarkObjects: 3.292200 ms  DeleteObjects: 0.386000 ms)
+Unloading 5418 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 52 unused Assets / (0.8 MB). Loaded Objects now: 5874.
+Memory consumption went from 216.0 MB to 215.2 MB.
+Total: 3.651400 ms (FindLiveObjects: 0.356200 ms CreateObjectMapping: 0.265000 ms MarkObjects: 2.685200 ms  DeleteObjects: 0.344200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -185,701 +186,37 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 10216.403631 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Prefabs (Meshes Only)/Free Racing Car Purple Variant.prefab
-  artifactKey: Guid(98c57f100a7d7684dba02b8725bbc5d8) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Prefabs (Meshes Only)/Free Racing Car Purple Variant.prefab using Guid(98c57f100a7d7684dba02b8725bbc5d8) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '5e6ba148049cdf1d6ab0c1a99283f697') in 0.198727 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Materials/unknown.mat
-  artifactKey: Guid(4bd304848a033214fa6b88bf3655a685) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/Materials/unknown.mat using Guid(4bd304848a033214fa6b88bf3655a685) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8331996a752bc4d1be1ed3de196697cb') in 0.019207 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Scenes/Tommy/TomyTest.unity
-  artifactKey: Guid(7eb1ee030e41f9a4ca15a70b9adc6789) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scenes/Tommy/TomyTest.unity using Guid(7eb1ee030e41f9a4ca15a70b9adc6789) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'e66526249075b170258c464a56722676') in 0.006018 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader
-  artifactKey: Guid(dd89cf5b9246416f84610a006f916af7) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader using Guid(dd89cf5b9246416f84610a006f916af7) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '3442494ed786d1892a24f3d74c8cb9ed') in 0.014638 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/DropdownAttributes/Core/Scripts/AdvancedReflection/SerializedPropertyExtensions.cs
-  artifactKey: Guid(dd8ef359368e71647a48a71e48700ad0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/DropdownAttributes/Core/Scripts/AdvancedReflection/SerializedPropertyExtensions.cs using Guid(dd8ef359368e71647a48a71e48700ad0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'ab8277de33ee0b69a5551bea88536f98') in 0.009469 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Scenes/PlayTest/NavMesh.asset
-  artifactKey: Guid(0d170501140eaeb49a5e1ed4e422105e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scenes/PlayTest/NavMesh.asset using Guid(0d170501140eaeb49a5e1ed4e422105e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8973917cefa8e6ed47be92c75d865b12') in 0.052389 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/walking_NPC_Prefab.prefab
-  artifactKey: Guid(57c4030c9fea736459f457a1e4ea9d51) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/walking_NPC_Prefab.prefab using Guid(57c4030c9fea736459f457a1e4ea9d51) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '755dea0b913ea4bf61d0a1a53ed7d2a1') in 0.033386 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Prefabs (With Colliders)/Free Racing Car Red Variant.prefab
-  artifactKey: Guid(8a8f57edf3523624eb9f886833e8e97a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Prefabs (With Colliders)/Free Racing Car Red Variant.prefab using Guid(8a8f57edf3523624eb9f886833e8e97a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '25da9e99d4e40d268e9752e6ec2a294d') in 0.014616 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Textures/Color Variations/AFRC_Tex_Col5.png
-  artifactKey: Guid(ee5f07cb504e5b04dbdd32ef7d265c72) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Textures/Color Variations/AFRC_Tex_Col5.png using Guid(ee5f07cb504e5b04dbdd32ef7d265c72) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '858af9b2ab134a46f3576e09ebd8d6be') in 0.045103 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Scripts/Missions/Puzzle Scripts/GridBuilder.cs
-  artifactKey: Guid(c4c4105f8792dcf478c144b345cc055d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scripts/Missions/Puzzle Scripts/GridBuilder.cs using Guid(c4c4105f8792dcf478c144b345cc055d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '1ec1ba5a07e5438f80b323c0aac993e7') in 0.009487 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/DropdownAttributes/Core/Scripts/AdvancedReflection/ReflectionItemType.cs
-  artifactKey: Guid(a0262e70ebb82c04c8e3f96a00660da3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/DropdownAttributes/Core/Scripts/AdvancedReflection/ReflectionItemType.cs using Guid(a0262e70ebb82c04c8e3f96a00660da3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8fecb52597ec3570522e1495bcbcc46f') in 0.009001 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/DropdownAttributes/Core/Scripts/AdvancedReflection/ReflectionExtensions.cs
-  artifactKey: Guid(0c0f5492e605213459045e00529daf70) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/DropdownAttributes/Core/Scripts/AdvancedReflection/ReflectionExtensions.cs using Guid(0c0f5492e605213459045e00529daf70) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '49d8f84f7f3b78b718f7f06dc7576f7f') in 0.007291 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Prefabs/Test/test.prefab
-  artifactKey: Guid(b493d7380226ca9488f9e1c72a3e2631) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Prefabs/Test/test.prefab using Guid(b493d7380226ca9488f9e1c72a3e2631) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'bc5fe488a4b1297f8ab3c306018ec0dd') in 0.005404 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/2D Assets/LondrinaSolid-Regular.ttf
-  artifactKey: Guid(020e115004d8ad9418b40c31da0c4c22) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/2D Assets/LondrinaSolid-Regular.ttf using Guid(020e115004d8ad9418b40c31da0c4c22) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '77bacaeea4489a19836b45e51bc73920') in 0.014215 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Textures/Color Variations/AFRC_Tex_Col3.png
-  artifactKey: Guid(f5339e3a5ecdae64aa3afa490a1d892e) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Textures/Color Variations/AFRC_Tex_Col3.png using Guid(f5339e3a5ecdae64aa3afa490a1d892e) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '457fd0b1a415984abba38d8ea3215959') in 0.018888 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col4.mat
-  artifactKey: Guid(104696f8b5f23d24586d858b68916bdc) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col4.mat using Guid(104696f8b5f23d24586d858b68916bdc) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'a4934044ce02beef712c53e9a42e8ee7') in 0.010313 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Scripts/AI/AI_CAR/Editor/CreateAICarPathEditor.cs
-  artifactKey: Guid(60c77ffa5a51d50419b8ab92daa917dc) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/Scripts/AI/AI_CAR/Editor/CreateAICarPathEditor.cs using Guid(60c77ffa5a51d50419b8ab92daa917dc) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '6264c7807f78d6f6a5dcd401153e84d3') in 0.007232 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Textures/AFRC_Env_Mat.png
-  artifactKey: Guid(34a74330fac842a4f97649ddf77d6d50) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Textures/AFRC_Env_Mat.png using Guid(34a74330fac842a4f97649ddf77d6d50) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '603f31c4e608db2c6c143e5f3644aa18') in 0.012425 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/FBX/Big window building ENTRANCE 1.fbx
-  artifactKey: Guid(27d74d734003ad64fbf583dc6da43137) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/FBX/Big window building ENTRANCE 1.fbx using Guid(27d74d734003ad64fbf583dc6da43137) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'c1cd8dd2c2315cd3ece6f9b07d0049fa') in 0.045120 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/2D Assets/Ui assets/OldCell phone/app Info.png
-  artifactKey: Guid(d85ab14a2449c11448b07c2536f31309) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/2D Assets/Ui assets/OldCell phone/app Info.png using Guid(d85ab14a2449c11448b07c2536f31309) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '610ca017258d9b256a9ead72a3df667a') in 0.016668 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/2D Assets/Ui assets/OldCell phone/cellphone.png
-  artifactKey: Guid(12d317c969d878a4da600c862454e958) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/2D Assets/Ui assets/OldCell phone/cellphone.png using Guid(12d317c969d878a4da600c862454e958) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '3f57571d35c1384b0d2f606404b07836') in 0.015062 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset
-  artifactKey: Guid(f952c082cb03451daed3ee968ac6c63e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset using Guid(f952c082cb03451daed3ee968ac6c63e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '29fe3fe394bb26a83d4c0d420780b819') in 0.009866 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/FBX/NPC_Textures/Material.001.mat
-  artifactKey: Guid(a8f406193e5c06a40a347e4e37a9738b) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/FBX/NPC_Textures/Material.001.mat using Guid(a8f406193e5c06a40a347e4e37a9738b) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '13bc0ef07accfe299e25bea9276f88b7') in 0.010050 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Prefabs/Goals/GoalsLocalization/GoalLoc2.prefab
-  artifactKey: Guid(faa7db10642250e43a788a67a3ddd87d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Prefabs/Goals/GoalsLocalization/GoalLoc2.prefab using Guid(faa7db10642250e43a788a67a3ddd87d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'afe39f9bb6c6d1e286ca80ccf04da009') in 0.006807 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/2D Assets/Sprite/macaco.png
-  artifactKey: Guid(3b415f79e1d3e2b49a4c3c34322f854c) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/2D Assets/Sprite/macaco.png using Guid(3b415f79e1d3e2b49a4c3c34322f854c) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '6985fc02b8ed312ad75fa25fffb529bb') in 0.016849 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
+  Time since last request: 95945.485335 seconds.
   path: Assets/FBX/Big window building ENTRANCE.fbx
-  artifactKey: Guid(cece45a498148634cb0c87d0c2c60635) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/FBX/Big window building ENTRANCE.fbx using Guid(cece45a498148634cb0c87d0c2c60635) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'aca3aea8bff286452eef826d06332700') in 0.027673 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Scripts/Missions/Mission/Mission.cs
-  artifactKey: Guid(f54acec172b3e1d4c8e96ab533889d96) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/Scripts/Missions/Mission/Mission.cs using Guid(f54acec172b3e1d4c8e96ab533889d96) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '1a13195eea6a756e455b445bd5559931') in 0.007799 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Textures/AFRC_Tex_Emission.png
-  artifactKey: Guid(573a5992a1e562d45a64f56dabbe47ea) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Textures/AFRC_Tex_Emission.png using Guid(573a5992a1e562d45a64f56dabbe47ea) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '07795bf3c21a25bc7b5262de563f82c7') in 0.014046 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/FBX/textures/modern-european-office-building-wall-texture-CPW60H.jpg
-  artifactKey: Guid(2189c7c447029e942b79e3d540aaf44f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/FBX/textures/modern-european-office-building-wall-texture-CPW60H.jpg using Guid(2189c7c447029e942b79e3d540aaf44f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '17ba10c7388ec6d5565bca2f3954a564') in 0.014206 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/FBX/textures/photo-1463778996521-da8b6f00dacf.jpg
-  artifactKey: Guid(81431bd265112d34da02a19d681406c8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/FBX/textures/photo-1463778996521-da8b6f00dacf.jpg using Guid(81431bd265112d34da02a19d681406c8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '11d673ac33d03ead313711f330794e0c') in 0.022181 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Scripts/MainMenu.cs
-  artifactKey: Guid(4373d0f18b5d5c64db672a81c5210749) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scripts/MainMenu.cs using Guid(4373d0f18b5d5c64db672a81c5210749) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '9167c769966572d196222524178caf98') in 0.006718 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Scenes/Store/Store.unity
-  artifactKey: Guid(88fb74b79ec1ad44a9a2ef31ca5e41dc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scenes/Store/Store.unity using Guid(88fb74b79ec1ad44a9a2ef31ca5e41dc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'b57b9f6feb30fb3e9eb9874d79af6fab') in 0.006006 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/FBX/textures/1000_F_35038684_9fuzYsQ4EQH4Wv842eZc2Av0eY3a02Q0.jpg
-  artifactKey: Guid(9b782353792bbfe4380727cc8cc043d8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/FBX/textures/1000_F_35038684_9fuzYsQ4EQH4Wv842eZc2Av0eY3a02Q0.jpg using Guid(9b782353792bbfe4380727cc8cc043d8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'e0899ebaabaef0b09af0a9f4a40c5d99') in 0.133354 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000041 seconds.
-  path: Assets/Scripts/ComedyShow/ComedyShow.cs
-  artifactKey: Guid(58db276c7fe03e64599414090d272a6c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scripts/ComedyShow/ComedyShow.cs using Guid(58db276c7fe03e64599414090d272a6c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'e262be1dacebcf460b0f823ad9b16892') in 0.014866 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Scripts/AI/AI_NPC/NPC_Waypoint.cs
-  artifactKey: Guid(5e3384ffe6873a34787f807056d901c6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scripts/AI/AI_NPC/NPC_Waypoint.cs using Guid(5e3384ffe6873a34787f807056d901c6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '09e3f87e11fa7eeb38305cb1966f4bbf') in 0.015439 seconds 
+  artifactKey: Guid(cece45a498148634cb0c87d0c2c60635) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FBX/Big window building ENTRANCE.fbx using Guid(cece45a498148634cb0c87d0c2c60635) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f5bf71edc40229b58ae84f56db5a8f8') in 0.364173 seconds 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000022 seconds.
-  path: Assets/FBX/textures/mtgeneralstore_front2.jpg
-  artifactKey: Guid(3c3e799bbc52efc40b3f0ac9a22a6200) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/FBX/textures/mtgeneralstore_front2.jpg using Guid(3c3e799bbc52efc40b3f0ac9a22a6200) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '51fa3c44762b0138979a22c04eede3f2') in 0.024688 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Scripts/AI/TraficLight.cs
-  artifactKey: Guid(d4bcc672e44c10e4ea9c39b0a816a034) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/Scripts/AI/TraficLight.cs using Guid(d4bcc672e44c10e4ea9c39b0a816a034) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'd7efc196343e91003b615b6a4c404977') in 0.006937 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/2D Assets/Ui assets/OldCell phone/76.png
-  artifactKey: Guid(440db4cae8e48ef4f87aae9629f5a4ff) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/2D Assets/Ui assets/OldCell phone/76.png using Guid(440db4cae8e48ef4f87aae9629f5a4ff) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '10b4e9f1f7bed7a09aa925e8a220b7c4') in 0.029995 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Meshes/ARCADE - FREE Racing Car.fbx
-  artifactKey: Guid(9ec6a8fc6925acb4abc5500eeecb8270) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Meshes/ARCADE - FREE Racing Car.fbx using Guid(9ec6a8fc6925acb4abc5500eeecb8270) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'd2f93b0383265a927bfaf6ea18f97e84') in 0.017692 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/2D Assets/Ui assets/MiniMap/MiniMapRenderTexure.renderTexture
-  artifactKey: Guid(dd4029665bcea1743ad017c116ff6fc5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/2D Assets/Ui assets/MiniMap/MiniMapRenderTexure.renderTexture using Guid(dd4029665bcea1743ad017c116ff6fc5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'a545119c2d4afffa11faa0808e29e759') in 0.015224 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Prefabs/Puzzle/Canvas.prefab
-  artifactKey: Guid(bfabdaf8aa82a334bb86ecad8332d231) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Prefabs/Puzzle/Canvas.prefab using Guid(bfabdaf8aa82a334bb86ecad8332d231) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '3d99beaf1aaaf47cef5f529ed529d166') in 0.018187 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Scripts/Missions/Cafe/CoffeMission.cs
-  artifactKey: Guid(ca6e88463512f3b4599a1f4fe7f3629c) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/Scripts/Missions/Cafe/CoffeMission.cs using Guid(ca6e88463512f3b4599a1f4fe7f3629c) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '317346f9a0796e6b76387f237f1b5697') in 0.007006 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col1.mat
-  artifactKey: Guid(07f44fe3e9c462146a7769b976c50ec4) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col1.mat using Guid(07f44fe3e9c462146a7769b976c50ec4) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8b2e29eba49cf79890ab2ed1c7404798') in 0.009314 seconds 
+  path: Assets/FBX/Cars
+  artifactKey: Guid(30f824a63d2fc834a9df4b589711a564) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FBX/Cars using Guid(30f824a63d2fc834a9df4b589711a564) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f93b01812bdfa36049a1033b6423cf5') in 0.004753 seconds 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000027 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col4.mat
-  artifactKey: Guid(104696f8b5f23d24586d858b68916bdc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col4.mat using Guid(104696f8b5f23d24586d858b68916bdc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '74ba1eb453a3abdadc929daef15e874d') in 0.008194 seconds 
+  path: Assets/FBX/entrancebigwindowbuilding.png
+  artifactKey: Guid(4e97481e62d79e24ca5e28e82d5e539e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FBX/entrancebigwindowbuilding.png using Guid(4e97481e62d79e24ca5e28e82d5e539e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1efcf2788314f96993685544a02be58') in 0.020781 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
-  artifactKey: Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset using Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'd20e07120b877af209df0f82e0468b53') in 0.053310 seconds 
+  Time since last request: 0.000017 seconds.
+  path: Assets/FBX/walking npc.fbx
+  artifactKey: Guid(fd76afc105f9ed845aefe6ca2e446ac8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FBX/walking npc.fbx using Guid(fd76afc105f9ed845aefe6ca2e446ac8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74ccf6deb287ff79ea810b62db094b5b') in 0.070077 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col2.mat
-  artifactKey: Guid(d2344366b80fe3d4f886ec412e0174fa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col2.mat using Guid(d2344366b80fe3d4f886ec412e0174fa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '4009f9baf7ee6f6f2a6249590e4fd2e3') in 0.008182 seconds 
+  Time since last request: 0.000017 seconds.
+  path: Assets/FBX/Big window building ENTRANCE 1.fbx
+  artifactKey: Guid(27d74d734003ad64fbf583dc6da43137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FBX/Big window building ENTRANCE 1.fbx using Guid(27d74d734003ad64fbf583dc6da43137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcfac65e717c4667a142928e04ddef48') in 0.092370 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/AFRC_Emission.mat
-  artifactKey: Guid(ab035d7682921704a9015ac353311d57) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/AFRC_Emission.mat using Guid(ab035d7682921704a9015ac353311d57) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '24ea559cf7d4f843d8402a7a663b6562') in 0.010236 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Prefabs (Meshes Only)/Free Racing Car Red Variant.prefab
-  artifactKey: Guid(a82f70a5f0178974093910fc6fd84c38) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Prefabs (Meshes Only)/Free Racing Car Red Variant.prefab using Guid(a82f70a5f0178974093910fc6fd84c38) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'cb12f042f5558c843fd3e1728aa1f8b1') in 0.042558 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Textures/Color Variations/AFRC_Tex_Col4.png
-  artifactKey: Guid(1732d531203aec748bc591f92d780684) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Textures/Color Variations/AFRC_Tex_Col4.png using Guid(1732d531203aec748bc591f92d780684) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '0b8b558b4c9d777f084013c45d745e56') in 0.015242 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Prefabs (Meshes Only)/Free Racing Car Red Variant.prefab
-  artifactKey: Guid(a82f70a5f0178974093910fc6fd84c38) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Prefabs (Meshes Only)/Free Racing Car Red Variant.prefab using Guid(a82f70a5f0178974093910fc6fd84c38) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '7dbed50bb85fd982fb68baace6dd4ed9') in 0.008004 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Animation/YesButton.controller
-  artifactKey: Guid(455012d05dadbd04997fd2214081ebf8) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/Animation/YesButton.controller using Guid(455012d05dadbd04997fd2214081ebf8) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'a3476702044c6f7d64ecb9d1859c3f97') in 0.018361 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Scripts/Missions/Puzzle Scripts/PuzzleManager.cs
-  artifactKey: Guid(4ba3cd53ce9c2244ca19cfdd921d8208) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/Scripts/Missions/Puzzle Scripts/PuzzleManager.cs using Guid(4ba3cd53ce9c2244ca19cfdd921d8208) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '7dd84af26e80935a7361bc8756062d5e') in 0.005489 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Scenes/Tutorial.unity
-  artifactKey: Guid(f3f97a141c3d7f447a0f5c1770a602b1) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe)
-Start importing Assets/Scenes/Tutorial.unity using Guid(f3f97a141c3d7f447a0f5c1770a602b1) Importer(2089858483,c653a7c40615fbf8c82c05b109e42dfe) Opening scene 'Assets/Scenes/Tutorial.unity additively'
-Loaded scene 'Assets/Scenes/Tutorial.unity'
-	Deserialize:            105.648 ms
-	Integration:            63.054 ms
-	Integration of assets:  3.218 ms
-	Thread Wait Time:       0.005 ms
-	Total Operation Time:   171.926 ms
-The method get_fontSharedMaterials was not found on Text (TMP). This property will not be indexed.
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-UnityEditor.Rendering.Universal.Converters.MaterialReferenceBuilder:GetMaterialFromMethod (System.Reflection.MethodInfo,UnityEngine.Object,System.Func`3<string, string, string>) (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/MaterialReferenceBuilder.cs:133)
-UnityEditor.Rendering.Universal.Converters.ConversionIndexers:ConversionIndexer (UnityEditor.Search.CustomObjectIndexerTarget,UnityEditor.Search.ObjectIndexer) (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/ConversionIndexers.cs:21)
-UnityEditor.Search.ObjectIndexer:CallCustomIndexers (string,int,UnityEngine.Object,UnityEditor.SerializedObject,bool)
-UnityEditor.Search.ObjectIndexer:IndexCustomProperties (string,int,UnityEngine.Object)
-UnityEditor.Search.AssetIndexer:IndexCustomGameObjectProperties (string,int,UnityEngine.GameObject)
-UnityEditor.Search.AssetIndexer:IndexObjects (UnityEngine.GameObject[],string,string,string,bool)
-UnityEditor.Search.AssetIndexer:IndexScene (string,bool)
-UnityEditor.Search.AssetIndexer:IndexSceneDocument (string,bool)
-UnityEditor.Search.AssetIndexer:IndexDocument (string,bool)
-UnityEditor.Search.SearchIndexEntryImporter:OnImportAsset (UnityEditor.AssetImporters.AssetImportContext)
-UnityEditor.AssetImporters.ScriptedImporter:GenerateAssetData (UnityEditor.AssetImporters.AssetImportContext)
-
-(Filename: Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/MaterialReferenceBuilder.cs Line: 133)
-
-The method get_fontSharedMaterials was not found on Text (TMP). This property will not be indexed.
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-UnityEditor.Rendering.Universal.Converters.MaterialReferenceBuilder:GetMaterialFromMethod (System.Reflection.MethodInfo,UnityEngine.Object,System.Func`3<string, string, string>) (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/MaterialReferenceBuilder.cs:133)
-UnityEditor.Rendering.Universal.Converters.ConversionIndexers:ConversionIndexer (UnityEditor.Search.CustomObjectIndexerTarget,UnityEditor.Search.ObjectIndexer) (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/ConversionIndexers.cs:21)
-UnityEditor.Search.ObjectIndexer:CallCustomIndexers (string,int,UnityEngine.Object,UnityEditor.SerializedObject,bool)
-UnityEditor.Search.ObjectIndexer:IndexCustomProperties (string,int,UnityEngine.Object)
-UnityEditor.Search.AssetIndexer:IndexCustomGameObjectProperties (string,int,UnityEngine.GameObject)
-UnityEditor.Search.AssetIndexer:IndexObjects (UnityEngine.GameObject[],string,string,string,bool)
-UnityEditor.Search.AssetIndexer:IndexScene (string,bool)
-UnityEditor.Search.AssetIndexer:IndexSceneDocument (string,bool)
-UnityEditor.Search.AssetIndexer:IndexDocument (string,bool)
-UnityEditor.Search.SearchIndexEntryImporter:OnImportAsset (UnityEditor.AssetImporters.AssetImportContext)
-UnityEditor.AssetImporters.ScriptedImporter:GenerateAssetData (UnityEditor.AssetImporters.AssetImportContext)
-
-(Filename: Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/MaterialReferenceBuilder.cs Line: 133)
-
-The method get_fontSharedMaterials was not found on Text (TMP). This property will not be indexed.
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-UnityEditor.Rendering.Universal.Converters.MaterialReferenceBuilder:GetMaterialFromMethod (System.Reflection.MethodInfo,UnityEngine.Object,System.Func`3<string, string, string>) (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/MaterialReferenceBuilder.cs:133)
-UnityEditor.Rendering.Universal.Converters.ConversionIndexers:ConversionIndexer (UnityEditor.Search.CustomObjectIndexerTarget,UnityEditor.Search.ObjectIndexer) (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/ConversionIndexers.cs:21)
-UnityEditor.Search.ObjectIndexer:CallCustomIndexers (string,int,UnityEngine.Object,UnityEditor.SerializedObject,bool)
-UnityEditor.Search.ObjectIndexer:IndexCustomProperties (string,int,UnityEngine.Object)
-UnityEditor.Search.AssetIndexer:IndexCustomGameObjectProperties (string,int,UnityEngine.GameObject)
-UnityEditor.Search.AssetIndexer:IndexObjects (UnityEngine.GameObject[],string,string,string,bool)
-UnityEditor.Search.AssetIndexer:IndexScene (string,bool)
-UnityEditor.Search.AssetIndexer:IndexSceneDocument (string,bool)
-UnityEditor.Search.AssetIndexer:IndexDocument (string,bool)
-UnityEditor.Search.SearchIndexEntryImporter:OnImportAsset (UnityEditor.AssetImporters.AssetImportContext)
-UnityEditor.AssetImporters.ScriptedImporter:GenerateAssetData (UnityEditor.AssetImporters.AssetImportContext)
-
-(Filename: Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/MaterialReferenceBuilder.cs Line: 133)
-
-The method get_fontSharedMaterials was not found on Text (TMP). This property will not be indexed.
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-UnityEditor.Rendering.Universal.Converters.MaterialReferenceBuilder:GetMaterialFromMethod (System.Reflection.MethodInfo,UnityEngine.Object,System.Func`3<string, string, string>) (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/MaterialReferenceBuilder.cs:133)
-UnityEditor.Rendering.Universal.Converters.ConversionIndexers:ConversionIndexer (UnityEditor.Search.CustomObjectIndexerTarget,UnityEditor.Search.ObjectIndexer) (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/ConversionIndexers.cs:21)
-UnityEditor.Search.ObjectIndexer:CallCustomIndexers (string,int,UnityEngine.Object,UnityEditor.SerializedObject,bool)
-UnityEditor.Search.ObjectIndexer:IndexCustomProperties (string,int,UnityEngine.Object)
-UnityEditor.Search.AssetIndexer:IndexCustomGameObjectProperties (string,int,UnityEngine.GameObject)
-UnityEditor.Search.AssetIndexer:IndexObjects (UnityEngine.GameObject[],string,string,string,bool)
-UnityEditor.Search.AssetIndexer:IndexScene (string,bool)
-UnityEditor.Search.AssetIndexer:IndexSceneDocument (string,bool)
-UnityEditor.Search.AssetIndexer:IndexDocument (string,bool)
-UnityEditor.Search.SearchIndexEntryImporter:OnImportAsset (UnityEditor.AssetImporters.AssetImportContext)
-UnityEditor.AssetImporters.ScriptedImporter:GenerateAssetData (UnityEditor.AssetImporters.AssetImportContext)
-
-(Filename: Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/MaterialReferenceBuilder.cs Line: 133)
-
-The method get_fontSharedMaterials was not found on you're already in serviceText. This property will not be indexed.
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-UnityEditor.Rendering.Universal.Converters.MaterialReferenceBuilder:GetMaterialFromMethod (System.Reflection.MethodInfo,UnityEngine.Object,System.Func`3<string, string, string>) (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/MaterialReferenceBuilder.cs:133)
-UnityEditor.Rendering.Universal.Converters.ConversionIndexers:ConversionIndexer (UnityEditor.Search.CustomObjectIndexerTarget,UnityEditor.Search.ObjectIndexer) (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/ConversionIndexers.cs:21)
-UnityEditor.Search.ObjectIndexer:CallCustomIndexers (string,int,UnityEngine.Object,UnityEditor.SerializedObject,bool)
-UnityEditor.Search.ObjectIndexer:IndexCustomProperties (string,int,UnityEngine.Object)
-UnityEditor.Search.AssetIndexer:IndexCustomGameObjectProperties (string,int,UnityEngine.GameObject)
-UnityEditor.Search.AssetIndexer:IndexObjects (UnityEngine.GameObject[],string,string,string,bool)
-UnityEditor.Search.AssetIndexer:IndexScene (string,bool)
-UnityEditor.Search.AssetIndexer:IndexSceneDocument (string,bool)
-UnityEditor.Search.AssetIndexer:IndexDocument (string,bool)
-UnityEditor.Search.SearchIndexEntryImporter:OnImportAsset (UnityEditor.AssetImporters.AssetImportContext)
-UnityEditor.AssetImporters.ScriptedImporter:GenerateAssetData (UnityEditor.AssetImporters.AssetImportContext)
-
-(Filename: Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/Converter/MaterialReferenceBuilder.cs Line: 133)
-
-Generated GUIDs only implemented for interfaces!
- -> (artifact id: '70481ebd5f039ffd2e951beb9fe87011') in 2.333555 seconds 
-========================================================================
-Received Prepare
-Switching render pipeline 00000000000000000000000000000000 -> 602318b9c3b593c478bb300c0977b7f8
-Refreshing native plugins compatible for Editor in 4.28 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 77 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 31 unused Assets / (0.7 MB). Loaded Objects now: 5879.
-Memory consumption went from 104.6 MB to 103.9 MB.
-Total: 5.593500 ms (FindLiveObjects: 0.414500 ms CreateObjectMapping: 0.134700 ms MarkObjects: 4.763400 ms  DeleteObjects: 0.280300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 5.32 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 31 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 29 unused Assets / (0.7 MB). Loaded Objects now: 5881.
-Memory consumption went from 103.1 MB to 102.4 MB.
-Total: 4.384900 ms (FindLiveObjects: 0.530400 ms CreateObjectMapping: 0.130300 ms MarkObjects: 3.498600 ms  DeleteObjects: 0.225100 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 315.272011 seconds.
-  path: Assets/Settings
-  artifactKey: Guid(acccdef8c6f54ca40b8090838c047ffc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Settings using Guid(acccdef8c6f54ca40b8090838c047ffc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '95332ebe3bdf61d070da94d1822359d3') in 0.005729 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.003089 seconds.
-  path: Assets/Settings/Medium_PipelineAsset.asset
-  artifactKey: Guid(a20171694ebd7af4aa3d1f09654d67ff) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Settings/Medium_PipelineAsset.asset using Guid(a20171694ebd7af4aa3d1f09654d67ff) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'f93a5d4c1301181435d032f4f86568fe') in 0.016244 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Prefabs/Places.prefab
-  artifactKey: Guid(3b95e7b59b04e7548b7200630f435175) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Prefabs/Places.prefab using Guid(3b95e7b59b04e7548b7200630f435175) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '7ba37023a54922452ef58b83b909b41b') in 0.006574 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/AFRC_Env_Mat.mat
-  artifactKey: Guid(69b6e8fa160b23c42a4052f818eb166c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/AFRC_Env_Mat.mat using Guid(69b6e8fa160b23c42a4052f818eb166c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '74d1c90e0ed4da79999b8291537b87b1') in 0.014840 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Prefabs/AICARTEST (22).prefab
-  artifactKey: Guid(5745e4785fcf3ed45ad917e0940e05df) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Prefabs/AICARTEST (22).prefab using Guid(5745e4785fcf3ed45ad917e0940e05df) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '1133ecaba0851a32b673106bf4433b06') in 0.010646 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Materials/Blue Material.mat
-  artifactKey: Guid(ceb4bd3ab16d1b54bbe74cb478811f01) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Materials/Blue Material.mat using Guid(ceb4bd3ab16d1b54bbe74cb478811f01) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8ed45c66ecae7a457c4a88c160ab648c') in 0.007830 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/2D Assets/Ui assets/MiniMap/Materials/Mapa3.mat
-  artifactKey: Guid(0521acff18a177a458e231a37fe0e0fa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/2D Assets/Ui assets/MiniMap/Materials/Mapa3.mat using Guid(0521acff18a177a458e231a37fe0e0fa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'e09eb2d8a7116d53555581821065e69e') in 0.010036 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Scenes/Puzzle Scenes/Coffe.unity
-  artifactKey: Guid(c1b551d283d3350449693325eb4233b8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scenes/Puzzle Scenes/Coffe.unity using Guid(c1b551d283d3350449693325eb4233b8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '067c8c8c0d6ea8306965a51a62f567aa') in 0.006159 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/2D Assets/Ui assets/MiniMap/Materials/map.mat
-  artifactKey: Guid(6e63c11d9547b154e9a09f7ca7ca0936) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/2D Assets/Ui assets/MiniMap/Materials/map.mat using Guid(6e63c11d9547b154e9a09f7ca7ca0936) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'f68234092271c2fc455ce3ee7451dd4c') in 0.011511 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Scenes/PlayTest.unity
-  artifactKey: Guid(d39e32a861542de47b664d8bb50a482c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scenes/PlayTest.unity using Guid(d39e32a861542de47b664d8bb50a482c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '17b86a2b42d8822b3912c81733f0dcdd') in 0.005773 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col5.mat
-  artifactKey: Guid(74196cf5d503c14488ae1ef1dbc6c9a4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col5.mat using Guid(74196cf5d503c14488ae1ef1dbc6c9a4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'd57327e8a84fa7abdc9340f994a5ad49') in 0.073650 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Scenes/Tommy/TomyTest.unity
-  artifactKey: Guid(7eb1ee030e41f9a4ca15a70b9adc6789) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scenes/Tommy/TomyTest.unity using Guid(7eb1ee030e41f9a4ca15a70b9adc6789) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '7d5211d32611659d146a2ec2e3f8e205') in 0.005526 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Scenes/MainMenu.unity
-  artifactKey: Guid(e05e28adde365514da66cdbebb3c9a9f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scenes/MainMenu.unity using Guid(e05e28adde365514da66cdbebb3c9a9f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'e9c8f4dad0ec8c1bc1ba9154afc92db2') in 0.005272 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Settings/Low_PipelineAsset.asset
-  artifactKey: Guid(63a1b0496e07f2a4e8df8aa50ac7a0a6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Settings/Low_PipelineAsset.asset using Guid(63a1b0496e07f2a4e8df8aa50ac7a0a6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '67a71666861f946b39606821d59ed170') in 0.013043 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Prefabs/ClientsButtons/GridElement.prefab
-  artifactKey: Guid(f143d1b9dc932a742bc13e9374c1e563) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Prefabs/ClientsButtons/GridElement.prefab using Guid(f143d1b9dc932a742bc13e9374c1e563) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'acb703493f0758aa2d548c3ee0c71b24') in 0.009635 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/AFRC_Emission.mat
-  artifactKey: Guid(ab035d7682921704a9015ac353311d57) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TestCar - Delete/ARCADE - FREE Racing Car/Materials/AFRC_Emission.mat using Guid(ab035d7682921704a9015ac353311d57) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '3c4a6e1f21a620237e9565ec89daf06c') in 0.007430 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Scenes/Tutorial.unity
-  artifactKey: Guid(f3f97a141c3d7f447a0f5c1770a602b1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scenes/Tutorial.unity using Guid(f3f97a141c3d7f447a0f5c1770a602b1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '96a00f20053ef1b9ca6e53eb7f41dde8') in 0.006367 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/FBX/NPC_Textures/Material.002.mat
-  artifactKey: Guid(10cd655b10b9fb5439d7a36d006b48e9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/FBX/NPC_Textures/Material.002.mat using Guid(10cd655b10b9fb5439d7a36d006b48e9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'bd44c47679fb60815daaca8b60cba7b1') in 0.008172 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Scenes/ComedyShow/ComedyShow.unity
-  artifactKey: Guid(7d9d03b6dcc95d940bc9757782535f36) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scenes/ComedyShow/ComedyShow.unity using Guid(7d9d03b6dcc95d940bc9757782535f36) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'eee8c36f5d883a9404a08d54426cf299') in 0.005797 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Materials/unknown.mat
-  artifactKey: Guid(4bd304848a033214fa6b88bf3655a685) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Materials/unknown.mat using Guid(4bd304848a033214fa6b88bf3655a685) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '57b2f33b539b7e16a1a3031ac663c504') in 0.008012 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Settings/Very High_PipelineAsset.asset
-  artifactKey: Guid(b3da1a9b04b83cf499cddd0fe9e26d89) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Settings/Very High_PipelineAsset.asset using Guid(b3da1a9b04b83cf499cddd0fe9e26d89) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '447e478adf3c6733bec4c03d12cd33f8') in 0.011336 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Settings/High_PipelineAsset.asset
-  artifactKey: Guid(9a81ba3a515255244aba27979a53d89b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Settings/High_PipelineAsset.asset using Guid(9a81ba3a515255244aba27979a53d89b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '5db6d9c72a0c41c2bc0a4c323cb2d6ac') in 0.011371 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Settings/High_PipelineAsset_ForwardRenderer.asset
-  artifactKey: Guid(d6447b71dc842bc46b8eeae3665c23ec) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Settings/High_PipelineAsset_ForwardRenderer.asset using Guid(d6447b71dc842bc46b8eeae3665c23ec) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'edffe59ffa57748a9b4dc74330db5018') in 0.011544 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Scenes/Rafa/Rafa.unity
-  artifactKey: Guid(1060ac367fcb16446bf3a1dfa198baeb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scenes/Rafa/Rafa.unity using Guid(1060ac367fcb16446bf3a1dfa198baeb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '85f91daddd67674c8cc7cef5a47c0431') in 0.005122 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Settings/Low_PipelineAsset_ForwardRenderer.asset
-  artifactKey: Guid(078051e2359e47847be30ad289a68861) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Settings/Low_PipelineAsset_ForwardRenderer.asset using Guid(078051e2359e47847be30ad289a68861) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '89a2cccb5f19e362f747c7d66fb3a2b9') in 0.011350 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Settings/Very Low_PipelineAsset.asset
-  artifactKey: Guid(602318b9c3b593c478bb300c0977b7f8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Settings/Very Low_PipelineAsset.asset using Guid(602318b9c3b593c478bb300c0977b7f8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '48b2a168fc48f48945387e6323df3d92') in 0.010896 seconds 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
+  Time since last request: 8.900957 seconds.
+  path: Assets/FBX/Cars/ImphenziaPalette01.png
+  artifactKey: Guid(12d5a2acfe12b494db4a4ca55be90c3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FBX/Cars/ImphenziaPalette01.png using Guid(12d5a2acfe12b494db4a4ca55be90c3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '672bb5b281c70d793cb2737c2e7bc17c') in 0.010545 seconds 
