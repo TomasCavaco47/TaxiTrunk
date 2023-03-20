@@ -17,6 +17,7 @@ public class Phone
     [SerializeField] List<GameObject> _buttonsDescriptonList = new List<GameObject>();
     [SerializeField] List<GameObject> _buttonsList = new List<GameObject>();
     [SerializeField] EventSystem _eventSystem;
+
    
     bool _missionMenuOppened;
 
@@ -180,8 +181,9 @@ public class UiManager : MonoBehaviour
     [Header("refs")]
     [SerializeField] Phone _cellPhone;
     [SerializeField] CarControllerTest _car;
+    [SerializeField] GameObject _inGameUi;
 
-   [Header("Speedometer")]
+    [Header("Speedometer")]
     [SerializeField] Image _visualSpeedometer;
     [SerializeField] Text _numbersSpeedometer;
 
@@ -203,6 +205,7 @@ public class UiManager : MonoBehaviour
 
     public Phone CellPhone { get => _cellPhone; set => _cellPhone = value; }
     public CarControllerTest Car { get => _car; set => _car = value; }
+    public GameObject InGameUi { get => _inGameUi; set => _inGameUi = value; }
 
     private void Awake()
     {
@@ -386,6 +389,7 @@ public class UiManager : MonoBehaviour
     }
     public void OpenStore()
     {
+        InGameUi.SetActive(false);
         SceneManager.LoadSceneAsync("Store",LoadSceneMode.Additive);
     }
 }
