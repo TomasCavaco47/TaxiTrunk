@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     MissionManager _missionManager;
     [SerializeField]bool _canEnterStore;
     int _money;
+    
 
     public GameObject CurrentCarInUse { get => _currentCarInUse; set => _currentCarInUse = value; }
     public List<GameObject> CarModels { get => _carModels; set => _carModels = value; }
@@ -71,6 +72,7 @@ public class GameManager : MonoBehaviour
             {
                 if(_currentCarInUse.GetComponent<CarControllerTest>().CurrentSpeed==0)
                 {
+                    
                     UiManager.instance!.OpenStore();
                 }
             }
