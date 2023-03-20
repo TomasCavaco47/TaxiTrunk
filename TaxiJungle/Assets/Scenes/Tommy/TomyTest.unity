@@ -183,9 +183,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1080345874}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &11646386
 GameObject:
@@ -247,9 +248,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2023351105}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &16831198
 GameObject:
@@ -311,9 +313,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1735859202}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &18077070
 GameObject:
@@ -375,9 +378,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1504743222}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1001 &19681605
 PrefabInstance:
@@ -478,6 +482,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546721634170, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -486,6 +494,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546968756040, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -494,6 +506,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729547089453228, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -598,9 +614,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1818302861}
   - {fileID: 853330288}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &26168630
 GameObject:
@@ -662,9 +679,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 703521545}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &30235729
 GameObject:
@@ -864,9 +882,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1711754418}
   - {fileID: 1683426624}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &33444792
 PrefabInstance:
@@ -927,6 +946,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &38883403
@@ -1124,9 +1155,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 806015859}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 45
 --- !u!1 &52193998
 GameObject:
@@ -1188,9 +1220,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 986760426}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &53517717
 GameObject:
@@ -1252,9 +1285,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 286893992}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &54722447
 GameObject:
@@ -1316,9 +1350,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1833128261}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &67167533
 GameObject:
@@ -1380,9 +1415,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 10333162}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &68877439
 GameObject:
@@ -1444,9 +1480,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 237614405}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &71778174
 GameObject:
@@ -1508,9 +1545,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 328062939}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &75016705
 GameObject:
@@ -1573,9 +1611,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1589720730}
   - {fileID: 1096889503}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!64 &77292412
 MeshCollider:
@@ -1651,9 +1690,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 897599099}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &87524444
 GameObject:
@@ -1715,9 +1755,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2102789542}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &87851697
 PrefabInstance:
@@ -1778,6 +1819,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &88952297
@@ -1840,9 +1893,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 101648302}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &92424197
 GameObject:
@@ -1904,9 +1958,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 217226235}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &93896780
 GameObject:
@@ -1968,9 +2023,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 303947853}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &93966679
 GameObject:
@@ -2032,9 +2088,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1978703890}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &100994894
 GameObject:
@@ -2095,9 +2152,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextWaypoint: []
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &101648301
 GameObject:
@@ -2159,9 +2217,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1112234596}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &106739022
 GameObject:
@@ -2223,9 +2282,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 428761720}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &108036919
 GameObject:
@@ -2287,9 +2347,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 345513302}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &109484374
 GameObject:
@@ -2351,9 +2412,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1561472292}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 45
 --- !u!1 &121474605
 GameObject:
@@ -2415,9 +2477,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1875598492}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &123463311
 GameObject:
@@ -2479,9 +2542,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1367217470}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &131053085
 GameObject:
@@ -2543,9 +2607,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 68877440}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &141649133
 GameObject:
@@ -2607,9 +2672,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 653629856}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &146683481
 GameObject:
@@ -2671,9 +2737,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 645958550}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &148283759
 GameObject:
@@ -2735,9 +2802,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 379070822}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &152946088
 GameObject:
@@ -2799,9 +2867,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1428384122}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &160057511
 GameObject:
@@ -2863,9 +2932,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1005761313}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!64 &167248817
 MeshCollider:
@@ -2941,9 +3011,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1686411196}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!64 &175505297
 MeshCollider:
@@ -3019,9 +3090,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2129294973}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &185408213
 GameObject:
@@ -3083,9 +3155,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 344619343}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &194654933
 GameObject:
@@ -3147,9 +3220,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1382738087}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &194936350
 GameObject:
@@ -3212,9 +3286,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1711754418}
   - {fileID: 278018133}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &208391138 stripped
 Transform:
@@ -3281,9 +3356,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1867905976}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &217226234
 GameObject:
@@ -3345,9 +3421,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1769722884}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &220376398 stripped
 Transform:
@@ -3415,9 +3492,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 179604261}
   - {fileID: 1589720730}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &232610070
 GameObject:
@@ -3479,9 +3557,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 422140122}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &237614404
 GameObject:
@@ -3543,9 +3622,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1725669027}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &242685948
 GameObject:
@@ -3607,9 +3687,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 160057512}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &245601042
 GameObject:
@@ -3671,9 +3752,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1156007937}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &254007388
 GameObject:
@@ -3735,9 +3817,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1931379633}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &255595132
 GameObject:
@@ -3799,9 +3882,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 991922601}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1001 &262136334
 PrefabInstance:
@@ -3862,6 +3946,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &274054282
@@ -3924,9 +4020,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1650954569}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &278018132
 GameObject:
@@ -3988,9 +4085,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1248817972}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &281005950
 GameObject:
@@ -4052,9 +4150,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 603044720}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &286893991
 GameObject:
@@ -4118,9 +4217,10 @@ MonoBehaviour:
   - {fileID: 1866487048}
   - {fileID: 1794017632}
   - {fileID: 245601043}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &291365882
 PrefabInstance:
@@ -4181,6 +4281,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &292764288
@@ -4243,9 +4355,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2107077107}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &294350414
 GameObject:
@@ -4467,9 +4580,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 544895013}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &303947852
 GameObject:
@@ -4531,9 +4645,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 414407327}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &309687556
 GameObject:
@@ -4595,9 +4710,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1133130186}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &311516035
 GameObject:
@@ -4659,9 +4775,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 979234249}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &313250106
 PrefabInstance:
@@ -4722,6 +4839,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1001 &313731135
@@ -4783,6 +4912,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &320130673
@@ -4877,9 +5018,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1141653392}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &331297571
 GameObject:
@@ -4941,9 +5083,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 705906522}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!64 &332536733
 MeshCollider:
@@ -5019,9 +5162,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2091447996}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &335061194
 GameObject:
@@ -5083,9 +5227,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1428575102}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &339498981
 GameObject:
@@ -5147,9 +5292,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 842821784}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &344619342
 GameObject:
@@ -5211,9 +5357,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1519598863}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &344838300
 GameObject:
@@ -5275,9 +5422,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1465430756}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &345513301
 GameObject:
@@ -5339,9 +5487,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 169989889}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &351241342 stripped
 GameObject:
@@ -5408,9 +5557,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1971778156}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &366423133 stripped
 Transform:
@@ -5581,9 +5731,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1777668485}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &371492205
 GameObject:
@@ -5646,9 +5797,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 513764985}
   - {fileID: 1553195214}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &376579487
 GameObject:
@@ -5710,9 +5862,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1439308134}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &377327465
 GameObject:
@@ -5774,9 +5927,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1928005883}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &379070821
 GameObject:
@@ -5838,9 +5992,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 536334025}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &380257618
 GameObject:
@@ -5902,9 +6057,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1442599593}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &381812565
 GameObject:
@@ -6004,9 +6160,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1834456942}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &390057313
 GameObject:
@@ -6068,9 +6225,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 854224117}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &392845811
 PrefabInstance:
@@ -6171,6 +6329,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546721634170, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -6179,6 +6341,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546968756040, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -6187,6 +6353,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729547089453228, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -6304,9 +6474,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1212046279}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &414407326
 GameObject:
@@ -6368,9 +6539,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1465006057}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &417274698
 GameObject:
@@ -6432,9 +6604,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 23058693}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &422140121
 GameObject:
@@ -6496,9 +6669,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1780608746}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &428761719
 GameObject:
@@ -6560,9 +6734,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1907036427}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &429473810
 GameObject:
@@ -6624,9 +6799,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 779968809}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &435953051
 GameObject:
@@ -6688,9 +6864,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1595861730}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &440423133
 GameObject:
@@ -6752,9 +6929,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2107263913}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &441559155
 GameObject:
@@ -6816,9 +6994,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2081342794}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 35
 --- !u!4 &446811105 stripped
 Transform:
@@ -6886,9 +7065,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1735926546}
   - {fileID: 1880088087}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &449459118
 GameObject:
@@ -6950,9 +7130,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 639272900}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &455410401
 GameObject:
@@ -7087,9 +7268,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 335061195}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &468930780
 GameObject:
@@ -7151,9 +7333,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1210078660}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &477485314
 GameObject:
@@ -7215,9 +7398,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1220690981}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &477634653
 PrefabInstance:
@@ -7278,6 +7462,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &479895658
@@ -7340,9 +7536,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 146683482}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &481138334
 GameObject:
@@ -7404,9 +7601,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2028378202}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &481510515
 GameObject:
@@ -7469,9 +7667,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1841731739}
   - {fileID: 492019259}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &482365971
 GameObject:
@@ -7533,9 +7732,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 229677762}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &482388798
 GameObject:
@@ -7597,9 +7797,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1998806539}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &486859138
 GameObject:
@@ -7661,9 +7862,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 148283760}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &487213277
 GameObject:
@@ -7725,9 +7927,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 53517718}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &488193865
 GameObject:
@@ -7789,9 +7992,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1234178322}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &491628348
 GameObject:
@@ -7853,9 +8057,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1007815856}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &492019258
 GameObject:
@@ -7917,9 +8122,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 609954841}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &497220652
 GameObject:
@@ -7981,9 +8187,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1071387746}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &497565474
 GameObject:
@@ -8045,9 +8252,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2007391707}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &498146974
 GameObject:
@@ -8109,9 +8317,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1976794309}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &500538830
 GameObject:
@@ -8173,9 +8382,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1794779416}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &503317757
 GameObject:
@@ -8237,9 +8447,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2045966141}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &506329988
 GameObject:
@@ -8301,9 +8512,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1373067397}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &513764984
 GameObject:
@@ -8365,9 +8577,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 991718928}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &513823294
 PrefabInstance:
@@ -8428,6 +8641,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &518996901
@@ -8490,9 +8715,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1144638830}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 20
 --- !u!1 &525218863
 GameObject:
@@ -8554,9 +8780,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2023447001}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 45
 --- !u!1 &530205315
 GameObject:
@@ -8618,9 +8845,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1960987505}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 45
 --- !u!1 &536334024
 GameObject:
@@ -8682,9 +8910,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 825532002}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &538440163
 GameObject:
@@ -8746,9 +8975,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1351862411}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &538478325
 GameObject:
@@ -8810,9 +9040,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 435953052}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &542368233
 GameObject:
@@ -8874,9 +9105,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1808787582}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &542503753
 PrefabInstance:
@@ -8937,6 +9169,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &543808562
@@ -8999,9 +9243,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 518996902}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 20
 --- !u!1 &544895012
 GameObject:
@@ -9065,9 +9310,10 @@ MonoBehaviour:
   - {fileID: 468930781}
   - {fileID: 1620265345}
   - {fileID: 500538831}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &564925039
 PrefabInstance:
@@ -9128,6 +9374,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &567169282
@@ -9190,9 +9448,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1783938103}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &570593397
 GameObject:
@@ -9399,9 +9658,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 917042565}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &585777261
 GameObject:
@@ -9463,9 +9723,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 52193999}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &589338747
 GameObject:
@@ -9527,9 +9788,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 411482367}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &592058932
 GameObject:
@@ -9684,15 +9946,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cellPhone:
     _phoneImage: {fileID: 739107346}
-    _phoneQuickMissonMenu: {fileID: 1922741388}
-    _phoneStoryMissonMenu: {fileID: 757664468}
+    _quickTab: {fileID: 0}
+    _storyTab: {fileID: 0}
     _inServiceMenu: {fileID: 30235729}
-    _phoneFirstButtonSelected: {fileID: 1000400951}
-    _quickMissionFirstButtonSelected: {fileID: 1844247113}
-    _storyMissionButtonSelected: {fileID: 38883403}
+    _quickTabFirstButton: {fileID: 0}
+    _storyTabButton: {fileID: 0}
+    _buttonsDescriptonList: []
+    _buttonsList: []
+    _eventSystem: {fileID: 0}
+  _car: {fileID: 0}
+  _visualSpeedometer: {fileID: 0}
+  _numbersSpeedometer: {fileID: 0}
   _timerObject: {fileID: 579486868}
   _currentTimeText: {fileID: 294350416}
   _dialogueObject: {fileID: 1786619405}
+  _lineAI: {fileID: 0}
+  _lineRender: {fileID: 0}
   _gps: {fileID: 0}
   _miniMapCam: {fileID: 595599884}
   _miniMapSize: 51.81
@@ -9877,9 +10146,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1757864915}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &603515435
 GameObject:
@@ -9943,9 +10213,10 @@ MonoBehaviour:
   - {fileID: 500538831}
   - {fileID: 468930781}
   - {fileID: 1582359378}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &604769217
 GameObject:
@@ -10007,9 +10278,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2020527879}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &608899289 stripped
 Transform:
@@ -10076,9 +10348,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1234684408}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &615237295
 GameObject:
@@ -10140,9 +10413,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1339270314}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &617027319
 GameObject:
@@ -10206,9 +10480,10 @@ MonoBehaviour:
   - {fileID: 1906415271}
   - {fileID: 1135364676}
   - {fileID: 615237296}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &625394133
 GameObject:
@@ -10468,9 +10743,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1818982163}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &641505545
 GameObject:
@@ -10532,9 +10808,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1184289040}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &642999858
 GameObject:
@@ -10596,9 +10873,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 16831199}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &643039337
 GameObject:
@@ -10660,9 +10938,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2137859503}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &643288864
 GameObject:
@@ -10724,9 +11003,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 727051578}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &643526856
 GameObject:
@@ -10788,9 +11068,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1171805263}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &645958549
 GameObject:
@@ -10852,9 +11133,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1005781707}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &647743848
 GameObject:
@@ -10916,9 +11198,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1426660494}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &652621682
 GameObject:
@@ -10980,9 +11263,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2053482083}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &653629855
 GameObject:
@@ -11044,9 +11328,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2045918465}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &654187380
 GameObject:
@@ -11108,9 +11393,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1070260457}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &654297179
 GameObject:
@@ -11226,9 +11512,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1765038365}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &659115280
 GameObject:
@@ -11290,9 +11577,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1998330270}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &665721814
 GameObject:
@@ -11354,9 +11642,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1025726276}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &673030669
 GameObject:
@@ -11418,9 +11707,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1826784907}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!64 &686332690
 MeshCollider:
@@ -11496,9 +11786,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 777864722}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &693211035
 GameObject:
@@ -11560,9 +11851,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1868562882}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &696161248
 GameObject:
@@ -11759,9 +12051,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1973940868}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &699707365
 GameObject:
@@ -11823,9 +12116,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1457310660}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &702045561
 GameObject:
@@ -11887,9 +12181,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2121976274}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &703114252
 GameObject:
@@ -11951,9 +12246,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1712020707}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &703521544
 GameObject:
@@ -12015,9 +12311,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 538478326}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &705906521
 GameObject:
@@ -12079,9 +12376,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1730485558}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &709791036
 GameObject:
@@ -12145,9 +12443,10 @@ MonoBehaviour:
   - {fileID: 1612553043}
   - {fileID: 1378046955}
   - {fileID: 1696020750}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &713755007
 GameObject:
@@ -12209,9 +12508,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1711999016}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &727034905
 GameObject:
@@ -12273,9 +12573,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 498146975}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &727051577
 GameObject:
@@ -12337,9 +12638,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1811184047}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &732731153
 GameObject:
@@ -12401,9 +12703,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 754412336}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &735239321
 GameObject:
@@ -12464,9 +12767,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextWaypoint: []
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &739107346
 GameObject:
@@ -12714,9 +13018,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1880088087}
   - {fileID: 487213278}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &755464239
 GameObject:
@@ -12779,9 +13084,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1683426624}
   - {fileID: 278018133}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &757664468
 GameObject:
@@ -12920,9 +13226,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 842811170}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &763490248
 GameObject:
@@ -12984,9 +13291,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1279585065}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &766633226
 GameObject:
@@ -13048,9 +13356,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2115704755}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &768813597
 GameObject:
@@ -13114,9 +13423,10 @@ MonoBehaviour:
   - {fileID: 1637456279}
   - {fileID: 1135364676}
   - {fileID: 1906415271}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &769237210
 GameObject:
@@ -13178,9 +13488,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1859094180}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &776910971
 GameObject:
@@ -13242,9 +13553,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 255595133}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &777864721
 GameObject:
@@ -13306,9 +13618,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 999160337}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &779968808
 GameObject:
@@ -13371,9 +13684,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 449459119}
   - {fileID: 567169283}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &780062228
 GameObject:
@@ -13427,7 +13741,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13531,6 +13845,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &804077608
@@ -13593,9 +13919,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 713755008}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &806015858
 GameObject:
@@ -13657,9 +13984,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2092798708}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &807448401
 GameObject:
@@ -13721,9 +14049,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 763115722}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &808071633
 GameObject:
@@ -13785,9 +14114,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1253435329}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &813213325
 GameObject:
@@ -13849,9 +14179,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 109484375}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 45
 --- !u!1 &814788345
 GameObject:
@@ -13913,9 +14244,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 935934787}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 45
 --- !u!1001 &817576722
 PrefabInstance:
@@ -14016,6 +14348,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546721634170, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -14024,6 +14360,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546968756040, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -14032,6 +14372,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729547089453228, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -14135,9 +14479,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1095114692}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &825532001
 GameObject:
@@ -14199,9 +14544,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 482365972}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &827303987
 GameObject:
@@ -14263,9 +14609,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 916978635}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &832526815
 GameObject:
@@ -14327,9 +14674,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1909951506}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &842811169
 GameObject:
@@ -14391,9 +14739,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2103923588}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &842821783
 GameObject:
@@ -14455,9 +14804,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1471463936}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &843589808
 GameObject:
@@ -14519,9 +14869,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1985902522}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &848367577
 GameObject:
@@ -14583,9 +14934,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1745230905}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &848628068
 GameObject:
@@ -14647,9 +14999,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 417274699}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &852303183
 GameObject:
@@ -14711,9 +15064,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1375043095}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 35
 --- !u!1 &853330287
 GameObject:
@@ -14775,9 +15129,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 604769218}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &854224116
 GameObject:
@@ -14839,9 +15194,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 71778175}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &860197137
 GameObject:
@@ -14903,9 +15259,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1070260457}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &862522944
 GameObject:
@@ -14968,9 +15325,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 503317758}
   - {fileID: 1841731739}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &870016721 stripped
 Transform:
@@ -15228,6 +15586,7 @@ MonoBehaviour:
   _startgamePos: {fileID: 0}
   _miniMapCamera: {fileID: 0}
   _gps: {fileID: 0}
+  _ui: {fileID: 0}
   _canEnterStore: 0
 --- !u!1 &893932516
 GameObject:
@@ -15289,9 +15648,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 525218864}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &897599098
 GameObject:
@@ -15353,9 +15713,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2047025339}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &904113783
 GameObject:
@@ -15417,9 +15778,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2037094822}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &905286920
 GameObject:
@@ -15560,9 +15922,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 339498982}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &907861602
 GameObject:
@@ -15624,9 +15987,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1466996149}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &911803433 stripped
 Transform:
@@ -15693,9 +16057,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 75016706}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &915155221
 GameObject:
@@ -15757,9 +16122,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1344676430}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &916978634
 GameObject:
@@ -15822,9 +16188,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 513764985}
   - {fileID: 804077609}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &917042564
 GameObject:
@@ -15886,9 +16253,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1700966635}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &928184507 stripped
 Transform:
@@ -15955,9 +16323,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 852303184}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &940574147
 GameObject:
@@ -16019,9 +16388,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 642999859}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &941527707 stripped
 Transform:
@@ -16088,9 +16458,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1196321597}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &953013530
 GameObject:
@@ -16152,9 +16523,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 769237211}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!4 &958453749 stripped
 Transform:
@@ -16223,9 +16595,10 @@ MonoBehaviour:
   - {fileID: 1612553043}
   - {fileID: 1378046955}
   - {fileID: 1672869712}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &970769420
 GameObject:
@@ -16287,9 +16660,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1485418779}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &970852805
 GameObject:
@@ -16351,9 +16725,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1767978310}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &979234248
 GameObject:
@@ -16415,9 +16790,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 388277100}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &980408969
 GameObject:
@@ -16479,9 +16855,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1596020998}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &986760425
 GameObject:
@@ -16543,9 +16920,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 123463312}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &989711029
 GameObject:
@@ -16608,9 +16986,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 503317758}
   - {fileID: 492019259}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &990220626 stripped
 Transform:
@@ -16677,9 +17056,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1610285720}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &991922600
 GameObject:
@@ -16741,9 +17121,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1332429247}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 20
 --- !u!1 &993880765
 GameObject:
@@ -16805,9 +17186,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 776910972}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &995116209
 GameObject:
@@ -16869,9 +17251,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 735239322}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &999160336
 GameObject:
@@ -16934,9 +17317,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1431738659}
   - {fileID: 727034906}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1000400951
 GameObject:
@@ -17152,9 +17536,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 212860952}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1005761312
 GameObject:
@@ -17216,9 +17601,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 643526857}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1005781706
 GameObject:
@@ -17280,9 +17666,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1909243780}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1007815855
 GameObject:
@@ -17344,9 +17731,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 617027320}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1015615802
 GameObject:
@@ -17408,9 +17796,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2034354646}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1015759889
 GameObject:
@@ -17472,9 +17861,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 292764289}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1017445732
 GameObject:
@@ -17536,9 +17926,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 486859139}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1018435796
 GameObject:
@@ -17600,9 +17991,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1096195891}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1022949913
 GameObject:
@@ -17664,9 +18056,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1037767127}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &1023509958
 PrefabInstance:
@@ -17727,6 +18120,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &1025726275
@@ -17789,9 +18194,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 832526816}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1029379784
 GameObject:
@@ -17853,9 +18259,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 131053086}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1037767126
 GameObject:
@@ -17917,9 +18324,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 481510516}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &1040285629
 PrefabInstance:
@@ -17984,6 +18392,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &1040499826
@@ -18046,9 +18466,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 194936351}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!54 &1047296804
 Rigidbody:
@@ -18126,9 +18547,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 344838301}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1060356287
 GameObject:
@@ -18190,9 +18612,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1107268931}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1001 &1064844306
 PrefabInstance:
@@ -18619,9 +19042,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1218700334}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1071387745
 GameObject:
@@ -18685,9 +19109,10 @@ MonoBehaviour:
   - {fileID: 479895659}
   - {fileID: 1091399446}
   - {fileID: 1860546155}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1080345873
 GameObject:
@@ -18751,9 +19176,10 @@ MonoBehaviour:
   - {fileID: 1637456279}
   - {fileID: 1135364676}
   - {fileID: 615237296}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1082686553 stripped
 GameObject:
@@ -18855,9 +19281,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 655531491}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1089098460
 GameObject:
@@ -18963,9 +19390,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 440423134}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1095114691
 GameObject:
@@ -19027,9 +19455,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1453677708}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1096195890
 GameObject:
@@ -19091,9 +19520,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1127434849}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1096889502
 GameObject:
@@ -19155,9 +19585,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 477485315}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1100165665
 GameObject:
@@ -19219,9 +19650,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1679512687}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1107268930
 GameObject:
@@ -19283,9 +19715,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1501512781}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1107673248
 GameObject:
@@ -19347,9 +19780,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 481138335}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1112234595
 GameObject:
@@ -19411,9 +19845,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1972715372}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!64 &1112608463
 MeshCollider:
@@ -19505,9 +19940,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 93896781}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &1129155737 stripped
 Transform:
@@ -19574,9 +20010,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 356074354}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1135364675
 GameObject:
@@ -19638,9 +20075,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 311516036}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1141653391
 GameObject:
@@ -19702,9 +20140,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2128156747}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1144638829
 GameObject:
@@ -19766,9 +20205,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1100165666}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!64 &1147674475
 MeshCollider:
@@ -19954,9 +20394,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1161302640}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1159636009
 GameObject:
@@ -20018,9 +20459,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1838530422}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1161302639
 GameObject:
@@ -20082,9 +20524,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 603515436}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1162436401
 GameObject:
@@ -20146,9 +20589,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1653469276}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1167075747
 GameObject:
@@ -20287,9 +20731,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1949879888}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!64 &1179046443
 MeshCollider:
@@ -20386,9 +20831,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1695586675}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1183203030
 GameObject:
@@ -20587,9 +21033,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2052961570}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1196289499
 GameObject:
@@ -20651,9 +21098,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 906455518}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1196321596
 GameObject:
@@ -20715,9 +21163,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1015615803}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1210078659
 GameObject:
@@ -20779,9 +21228,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1614560341}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1211527510
 GameObject:
@@ -20843,9 +21293,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 673030670}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1212046278
 GameObject:
@@ -20907,9 +21358,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 334017697}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1218013982
 GameObject:
@@ -20970,9 +21422,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextWaypoint: []
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1218700333
 GameObject:
@@ -21034,9 +21487,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1870617136}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1220690980
 GameObject:
@@ -21098,9 +21552,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 18077071}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &1229188062 stripped
 Transform:
@@ -21167,9 +21622,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 699707366}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1234178321
 GameObject:
@@ -21231,9 +21687,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 686690984}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1234684407
 GameObject:
@@ -21297,9 +21754,10 @@ MonoBehaviour:
   - {fileID: 1582359378}
   - {fileID: 468930781}
   - {fileID: 1620265345}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1237350070
 GameObject:
@@ -21362,9 +21820,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 92424198}
   - {fileID: 1211527511}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1240728634
 GameObject:
@@ -21426,9 +21885,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 87524445}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1244324800
 GameObject:
@@ -21490,9 +21950,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2101593202}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 20
 --- !u!1001 &1244399950
 PrefabInstance:
@@ -21593,6 +22054,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546721634170, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -21601,6 +22066,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546968756040, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -21609,6 +22078,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729547089453228, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -21712,9 +22185,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 814788346}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1253435328
 GameObject:
@@ -21778,9 +22252,10 @@ MonoBehaviour:
   - {fileID: 1866487048}
   - {fileID: 1393929501}
   - {fileID: 1794017632}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!54 &1254470217
 Rigidbody:
@@ -21897,6 +22372,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546721634170, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -21905,6 +22384,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546968756040, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -21913,6 +22396,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729547089453228, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -21994,7 +22481,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22542,9 +23029,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 699044411}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1290293167
 GameObject:
@@ -22606,9 +23094,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1772267370}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1292406512
 GameObject:
@@ -22672,9 +23161,10 @@ MonoBehaviour:
   - {fileID: 309687557}
   - {fileID: 1352843474}
   - {fileID: 1794239324}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1295576834
 GameObject:
@@ -22736,9 +23226,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 506329989}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!54 &1296925313
 Rigidbody:
@@ -22816,9 +23307,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1937806291}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1001 &1315888636
 PrefabInstance:
@@ -22919,6 +23411,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546721634170, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -22927,6 +23423,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546968756040, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -22935,6 +23435,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729547089453228, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -23077,6 +23581,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546721634170, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -23085,6 +23593,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546968756040, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -23093,6 +23605,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729547089453228, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -23196,9 +23712,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 893932517}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 45
 --- !u!1 &1331717251
 GameObject:
@@ -23260,9 +23777,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1401857183}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1331814401
 GameObject:
@@ -23324,9 +23842,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1966826764}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 20
 --- !u!1 &1332429246
 GameObject:
@@ -23388,9 +23907,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 949172249}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 20
 --- !u!1 &1339270313
 GameObject:
@@ -23452,9 +23972,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1295576835}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1342006412
 GameObject:
@@ -23516,9 +24037,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 232610071}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1344676429
 GameObject:
@@ -23580,9 +24102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 67167534}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1350496437
 GameObject:
@@ -23644,9 +24167,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1060356288}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &1351862410
 GameObject:
@@ -23708,9 +24232,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2085147865}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 20
 --- !u!1 &1352843473
 GameObject:
@@ -23772,9 +24297,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1680834074}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1353657162
 GameObject:
@@ -23908,9 +24434,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 995116210}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1373067396
 GameObject:
@@ -23973,9 +24500,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 108036920}
   - {fileID: 567169283}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1375043094
 GameObject:
@@ -24037,9 +24565,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 376579488}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!64 &1376602874
 MeshCollider:
@@ -24115,9 +24644,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2085933859}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &1380868817
 PrefabInstance:
@@ -24178,6 +24708,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &1382738086
@@ -24240,9 +24782,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 693211036}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &1387807080
 PrefabInstance:
@@ -24303,6 +24846,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &1393929500
@@ -24365,9 +24920,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1900606291}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1401857182
 GameObject:
@@ -24429,9 +24985,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 643039338}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1402276533
 GameObject:
@@ -24493,9 +25050,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1230107859}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &1416336373
 PrefabInstance:
@@ -24556,6 +25114,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &1426660493
@@ -24620,9 +25190,10 @@ MonoBehaviour:
   - {fileID: 1612553043}
   - {fileID: 1696020750}
   - {fileID: 1672869712}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1428384121
 GameObject:
@@ -24684,9 +25255,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1040499827}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1428575101
 GameObject:
@@ -24748,9 +25320,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1015759890}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1431738658
 GameObject:
@@ -24811,9 +25384,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextWaypoint: []
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1001 &1435789605
 PrefabInstance:
@@ -24874,6 +25448,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &1439308133
@@ -24936,9 +25522,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 185408214}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 45
 --- !u!1 &1442599592
 GameObject:
@@ -25000,9 +25587,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 274054283}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1453677707
 GameObject:
@@ -25066,9 +25654,10 @@ MonoBehaviour:
   - {fileID: 1620265345}
   - {fileID: 1582359378}
   - {fileID: 500538831}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1455432006
 GameObject:
@@ -25130,9 +25719,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1797273749}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1457310659
 GameObject:
@@ -25194,9 +25784,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 848628069}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1465006056
 GameObject:
@@ -25258,9 +25849,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 441559156}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &1465430755
 GameObject:
@@ -25322,9 +25914,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1497566036}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1466996148
 GameObject:
@@ -25387,9 +25980,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1794239324}
   - {fileID: 390057314}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1471463935
 GameObject:
@@ -25451,9 +26045,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 766633227}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1485418778
 GameObject:
@@ -25516,9 +26111,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1029379785}
   - {fileID: 92424198}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1496737940
 GameObject:
@@ -25580,9 +26176,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1331717252}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1497566035
 GameObject:
@@ -25646,9 +26243,10 @@ MonoBehaviour:
   - {fileID: 1896555548}
   - {fileID: 479895659}
   - {fileID: 1860546155}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1501512780
 GameObject:
@@ -25710,9 +26308,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 88952298}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!64 &1503377989
 MeshCollider:
@@ -25804,9 +26403,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 488193866}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1001 &1505184375
 PrefabInstance:
@@ -25867,6 +26467,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &1519598862
@@ -25929,9 +26541,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1623710683}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1537416910
 GameObject:
@@ -25993,9 +26606,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 915155222}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1538104959
 GameObject:
@@ -26057,9 +26671,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1853821488}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &1539781834 stripped
 Transform:
@@ -26126,9 +26741,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 482388799}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1553195213
 GameObject:
@@ -26190,9 +26806,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1196289500}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1561472291
 GameObject:
@@ -26254,9 +26871,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1943530443}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1569084747
 GameObject:
@@ -26356,9 +26974,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1615411668}
   - {fileID: 1818302861}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1582359377
 GameObject:
@@ -26420,9 +27039,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1799328577}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1589720729
 GameObject:
@@ -26483,9 +27103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextWaypoint: []
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1591742307
 GameObject:
@@ -26682,9 +27303,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1292406513}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1596020997
 GameObject:
@@ -26746,9 +27368,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 907861603}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1609002131
 GameObject:
@@ -26810,9 +27433,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1496737941}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1610285719
 GameObject:
@@ -26874,9 +27498,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 904113784}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1612553042
 GameObject:
@@ -26938,9 +27563,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1107673249}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1614560340
 GameObject:
@@ -27002,9 +27628,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1756484322}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1615411667
 GameObject:
@@ -27066,9 +27693,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1742242261}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1620265344
 GameObject:
@@ -27130,9 +27758,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 808071634}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1621362325
 GameObject:
@@ -27194,9 +27823,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 491628349}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1623710682
 GameObject:
@@ -27258,9 +27888,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 538440164}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &1624341299
 GameObject:
@@ -27322,9 +27953,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 371492206}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!64 &1631910144
 MeshCollider:
@@ -27416,9 +28048,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 643288865}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &1638068818
 PrefabInstance:
@@ -27479,6 +28112,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &1650954568
@@ -27542,9 +28187,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1553195214}
   - {fileID: 804077609}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1653469275
 GameObject:
@@ -27606,9 +28252,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1331814402}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 20
 --- !u!4 &1667217432 stripped
 Transform:
@@ -27675,9 +28322,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1402276534}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1672869711
 GameObject:
@@ -27739,9 +28387,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1705224021}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1677843624
 GameObject:
@@ -27879,9 +28528,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 194654934}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &1680002639
 PrefabInstance:
@@ -27982,6 +28632,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546721634170, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -27990,6 +28644,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546968756040, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -27998,6 +28656,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729547089453228, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -28101,9 +28763,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 732731154}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1683426623
 GameObject:
@@ -28165,9 +28828,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 497220653}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1686411195
 GameObject:
@@ -28229,9 +28893,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 989711030}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1695586674
 GameObject:
@@ -28293,9 +28958,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1570152735}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1696020749
 GameObject:
@@ -28357,9 +29023,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1775749037}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1696697529
 GameObject:
@@ -28423,9 +29090,10 @@ MonoBehaviour:
   - {fileID: 1637456279}
   - {fileID: 1906415271}
   - {fileID: 615237296}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!54 &1699870275
 Rigidbody:
@@ -28503,9 +29171,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 542368234}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1705224020
 GameObject:
@@ -28567,9 +29236,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1022949914}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1709794820
 GameObject:
@@ -28633,9 +29303,10 @@ MonoBehaviour:
   - {fileID: 1091399446}
   - {fileID: 1896555548}
   - {fileID: 479895659}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &1711428397 stripped
 Transform:
@@ -28702,9 +29373,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 121474606}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1711999015
 GameObject:
@@ -28766,9 +29438,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 843589809}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1712020706
 GameObject:
@@ -28830,9 +29503,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 369858075}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1712918821
 GameObject:
@@ -28894,9 +29568,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2125228098}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &1716946570 stripped
 Transform:
@@ -28962,6 +29637,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &1725669026
@@ -29024,9 +29711,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 141649134}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1730485557
 GameObject:
@@ -29088,9 +29776,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1240728635}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1735859201
 GameObject:
@@ -29152,9 +29841,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2009936386}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1735926545
 GameObject:
@@ -29216,9 +29906,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 763490249}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1742242260
 GameObject:
@@ -29280,9 +29971,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 940574148}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1743690411
 GameObject:
@@ -29344,9 +30036,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 953013531}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &1745230904
 GameObject:
@@ -29410,9 +30103,10 @@ MonoBehaviour:
   - {fileID: 1696020750}
   - {fileID: 1378046955}
   - {fileID: 1672869712}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1747251525
 GameObject:
@@ -29474,9 +30168,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 530205316}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1001 &1747354872
 PrefabInstance:
@@ -29577,6 +30272,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546721634170, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -29585,6 +30284,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546968756040, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -29593,6 +30296,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729547089453228, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -29696,9 +30403,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 702045562}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1757864914
 GameObject:
@@ -29760,9 +30468,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1086663726}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!64 &1757890806
 MeshCollider:
@@ -29856,9 +30565,10 @@ MonoBehaviour:
   - {fileID: 1896555548}
   - {fileID: 1091399446}
   - {fileID: 1860546155}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1766111793
 GameObject:
@@ -29996,9 +30706,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 980408970}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1768003842
 GameObject:
@@ -30195,9 +30906,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 827303988}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1772267369
 GameObject:
@@ -30259,9 +30971,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 647743849}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1775749036
 GameObject:
@@ -30323,9 +31036,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1537416911}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1777668484
 GameObject:
@@ -30387,9 +31101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 93966680}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!54 &1779500628
 Rigidbody:
@@ -30467,9 +31182,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1809131264}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1783938102
 GameObject:
@@ -30531,9 +31247,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 665721815}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1785366738
 GameObject:
@@ -30595,9 +31312,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1538104960}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1786619405
 GameObject:
@@ -30739,9 +31457,10 @@ MonoBehaviour:
   - {fileID: 1352843474}
   - {fileID: 390057314}
   - {fileID: 309687557}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1794017631
 GameObject:
@@ -30803,9 +31522,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 641505546}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1794239323
 GameObject:
@@ -30867,9 +31587,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1342006413}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1794779415
 GameObject:
@@ -30931,9 +31652,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 862522945}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1797273748
 GameObject:
@@ -30995,9 +31717,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1017445733}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1799048531
 GameObject:
@@ -31059,9 +31782,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1785366739}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 20
 --- !u!1 &1799328576
 GameObject:
@@ -31123,9 +31847,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 659115281}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1808787581
 GameObject:
@@ -31187,9 +31912,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 429473811}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1809131263
 GameObject:
@@ -31251,9 +31977,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 300982793}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &1810819578 stripped
 Transform:
@@ -31320,9 +32047,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1162436402}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1818302860
 GameObject:
@@ -31384,9 +32112,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1550766533}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1818982162
 GameObject:
@@ -31448,9 +32177,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 768813598}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &1819460333
 GameObject:
@@ -31513,9 +32243,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1455432007}
   - {fileID: 1431738659}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1822199788
 GameObject:
@@ -31602,7 +32333,6 @@ MonoBehaviour:
         sprite: {fileID: 21300000, guid: 4a88e6cdd465ecf4398d809329329389, type: 3}
         _text: fds macaco de merda
   _uiManager: {fileID: 595064196}
-  _playerCar: {fileID: 1911476870}
   _PuzzleCanvas: {fileID: 845482070221855631, guid: bfabdaf8aa82a334bb86ecad8332d231, type: 3}
   _database: {fileID: 654297180}
   _activeMission:
@@ -31691,7 +32421,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31783,9 +32513,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 970852806}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1833128260
 GameObject:
@@ -31847,9 +32578,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1328846052}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1834456941
 GameObject:
@@ -31911,9 +32643,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2131422662}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1838530421
 GameObject:
@@ -31975,9 +32708,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1624341300}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1841731738
 GameObject:
@@ -32039,9 +32773,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 581992237}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1844247113
 GameObject:
@@ -32237,9 +32972,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 106739023}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1859094179
 GameObject:
@@ -32301,9 +33037,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 970769421}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1860546154
 GameObject:
@@ -32365,9 +33102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1290293168}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1866487047
 GameObject:
@@ -32429,9 +33167,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 497565475}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1867905975
 GameObject:
@@ -32493,9 +33232,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 85587485}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1868562881
 GameObject:
@@ -32557,9 +33297,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1671909848}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1870617135
 GameObject:
@@ -32621,9 +33362,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1315458406}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &1875598491
 GameObject:
@@ -32685,9 +33427,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1181049382}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1880088086
 GameObject:
@@ -32748,9 +33491,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextWaypoint: []
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1886590837 stripped
 GameObject:
@@ -32831,9 +33575,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 152946089}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1900606290
 GameObject:
@@ -32895,9 +33640,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 448681607}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!4 &1901496385 stripped
 Transform:
@@ -32963,6 +33709,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &1905461267
@@ -33179,9 +33937,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 703114253}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1907036426
 GameObject:
@@ -33243,9 +34002,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 654187381}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1909243779
 GameObject:
@@ -33307,9 +34067,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1712918822}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1909951505
 GameObject:
@@ -33371,9 +34132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1001665646}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!114 &1911476870
 MonoBehaviour:
@@ -33502,9 +34264,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 755464240}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1922741388
 GameObject:
@@ -33642,6 +34405,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546721634170, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -33650,6 +34417,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546968756040, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -33658,6 +34429,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729547089453228, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -33761,9 +34536,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2025054245}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1001 &1930340249
 PrefabInstance:
@@ -33864,6 +34640,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546721634170, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -33872,6 +34652,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546968756040, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -33880,6 +34664,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729547089453228, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -33983,9 +34771,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 824746062}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1937806290
 GameObject:
@@ -34047,9 +34836,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1350496438}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 20
 --- !u!1 &1943530442
 GameObject:
@@ -34111,9 +34901,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 242685949}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &1949271074
 PrefabInstance:
@@ -34214,6 +35005,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546721634170, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -34222,6 +35017,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729546968756040, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -34230,6 +35029,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7830729547089453228, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -34333,9 +35136,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1244324801}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1949955999
 GameObject:
@@ -34482,9 +35286,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 54722448}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 45
 --- !u!1 &1966826763
 GameObject:
@@ -34546,9 +35351,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 589338748}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1971778155
 GameObject:
@@ -34610,9 +35416,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1743690412}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1972715371
 GameObject:
@@ -34674,9 +35481,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 380257619}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1973940867
 GameObject:
@@ -34740,9 +35548,10 @@ MonoBehaviour:
   - {fileID: 309687557}
   - {fileID: 1794239324}
   - {fileID: 390057314}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1976794308
 GameObject:
@@ -34806,9 +35615,10 @@ MonoBehaviour:
   - {fileID: 1393929501}
   - {fileID: 1794017632}
   - {fileID: 245601043}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 1
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &1978703889
 GameObject:
@@ -34870,9 +35680,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 966316844}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1985902521
 GameObject:
@@ -34934,9 +35745,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 2017890633}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1998330269
 GameObject:
@@ -34998,9 +35810,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 807448402}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &1998806538
 GameObject:
@@ -35062,9 +35875,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1159636010}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &2001857865
 PrefabInstance:
@@ -35125,6 +35939,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &2007391706
@@ -35187,9 +36013,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1819460334}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2009936385
 GameObject:
@@ -35251,9 +36078,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 41197581}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2017890632
 GameObject:
@@ -35316,9 +36144,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 853330288}
   - {fileID: 1615411668}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2020527878
 GameObject:
@@ -35380,9 +36209,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1915166451}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &2022807209
 PrefabInstance:
@@ -35443,6 +36273,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!1 &2023351104
@@ -35505,9 +36347,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1709794821}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2023447000
 GameObject:
@@ -35569,9 +36412,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 377327466}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 45
 --- !u!1 &2025054244
 GameObject:
@@ -35633,9 +36477,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 543808563}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 30
 --- !u!1 &2028378201
 GameObject:
@@ -35697,9 +36542,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 26168631}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2032489236
 GameObject:
@@ -35862,9 +36708,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 32496053}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2037094821
 GameObject:
@@ -35926,9 +36773,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1609002132}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2045918464
 GameObject:
@@ -35990,9 +36838,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 281005951}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2045966140
 GameObject:
@@ -36054,9 +36903,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 709791037}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2047025338
 GameObject:
@@ -36118,9 +36968,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 331297572}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2052961569
 GameObject:
@@ -36182,9 +37033,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 585777262}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2053482082
 GameObject:
@@ -36246,9 +37098,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 848367578}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!4 &2065514883 stripped
 Transform:
@@ -36320,9 +37173,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1747251526}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 35
 --- !u!1 &2085147864
 GameObject:
@@ -36384,9 +37238,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1621362326}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &2085933858
 GameObject:
@@ -36448,9 +37303,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 11646387}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2091447995
 GameObject:
@@ -36512,9 +37368,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 993880766}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2092798707
 GameObject:
@@ -36576,9 +37433,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 813213326}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 40
 --- !u!1 &2093975800
 GameObject:
@@ -36731,9 +37589,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1799048532}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 20
 --- !u!1 &2102789541
 GameObject:
@@ -36795,9 +37654,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 100994895}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2103923587
 GameObject:
@@ -36859,9 +37719,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1792996325}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2107077106
 GameObject:
@@ -36923,9 +37784,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1696697530}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2107263912
 GameObject:
@@ -36987,9 +37849,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 467087120}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2115704754
 GameObject:
@@ -37052,9 +37915,10 @@ MonoBehaviour:
   _nextWaypoint:
   - {fileID: 1029379785}
   - {fileID: 1211527511}
-  _slowDown: 0
   _hasATurn: 1
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2121976273
 GameObject:
@@ -37116,9 +37980,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 913821254}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2125228097
 GameObject:
@@ -37180,9 +38045,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1237350071}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2128156746
 GameObject:
@@ -37244,9 +38110,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 652621683}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2129294972
 GameObject:
@@ -37308,9 +38175,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 254007389}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2131422661
 GameObject:
@@ -37372,9 +38240,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1053974752}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1 &2137859502
 GameObject:
@@ -37436,9 +38305,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextWaypoint:
   - {fileID: 1018435797}
-  _slowDown: 0
   _hasATurn: 0
   _stop: 0
+  _hasATraficLight: 0
+  _traficLight: {fileID: 0}
   _roadMaxSpeed: 50
 --- !u!1001 &2139039063
 PrefabInstance:
@@ -37499,6 +38369,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7830729546693373960, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729546805743434, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7830729547057648700, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5745e4785fcf3ed45ad917e0940e05df, type: 3}
 --- !u!4 &28636839358099666
@@ -38385,6 +39267,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Places
       objectReference: {fileID: 0}
+    - target: {fileID: 8678003416338274884, guid: 3b95e7b59b04e7548b7200630f435175, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 8678003417887311076, guid: 3b95e7b59b04e7548b7200630f435175, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 8678003417901202723, guid: 3b95e7b59b04e7548b7200630f435175, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.92
@@ -38393,6 +39283,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 261.07
       objectReference: {fileID: 0}
+    - target: {fileID: 8678003417901202909, guid: 3b95e7b59b04e7548b7200630f435175, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b95e7b59b04e7548b7200630f435175, type: 3}
 --- !u!4 &9188640840753848305

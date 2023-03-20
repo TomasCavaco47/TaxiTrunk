@@ -25,7 +25,7 @@ public class CameraFollow : MonoBehaviour
 
     private void HandleRotation()
     {
-        var direction = Target.position - transform.position;
+        var direction = new Vector3(Target.position.x, Target.position.y+1, Target.position.z)  - transform.position;
         var rotation = Quaternion.LookRotation(direction, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, _rotationSpeed * Time.deltaTime);
     }

@@ -45,9 +45,6 @@ public class NPC_WaypointNavigator : MonoBehaviour
 
                 }
             }
-
-
-
             if (shouldBranch)
             {          
                 NPC_Waypoint previousWaypoint = CurrentWaypoint;
@@ -59,6 +56,8 @@ public class NPC_WaypointNavigator : MonoBehaviour
                 if(previousWaypoint.IsAExitBranch)
                 {
                     OnExitCrossRoad();
+                    Debug.Log(gameObject.name); 
+                        
                     previousWaypoint.TraficLight.NcpCrossing--;
                 }
                 else
@@ -68,9 +67,7 @@ public class NPC_WaypointNavigator : MonoBehaviour
                     StartCoroutine(WaitForGreenLight(previousWaypoint.TraficLight));
                                                    
                 }
-                i = 0;
-                
-
+                i = 0;              
             }
             else
             {
