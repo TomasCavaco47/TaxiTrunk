@@ -15,6 +15,7 @@ public class MissionManager : MonoBehaviour
 
     [Header("Refferences")]
     [SerializeField] UiManager _uiManager;
+    [SerializeField] CarControllerTest _playerCar;
     [SerializeField] GameObject _PuzzleCanvas;
     public static MissionManager instance;
 
@@ -33,16 +34,15 @@ public class MissionManager : MonoBehaviour
     [SerializeField] bool _clientPickedUp;
     [SerializeField] bool _clientReachedDestination;
     [SerializeField] float _slowMotionTimeScale;
-    Vector3 _initialCarPos;
 
     float _startTimeScale;
     float _startFixedDeltaTime;
     [SerializeField]private int _dialogueCounter;
-    private bool _canShowDialogueInMission=true;
 
     public bool MissionStarted { get => _missionStarted; set => _missionStarted = value; }
     public MissionData Missions { get => _missions; set => _missions = value; }
     public List<GameObject> Places { get => _places; set => _places = value; }
+    public CarControllerTest PlayerCar { get => _playerCar; set => _playerCar = value; }
 
     private void Awake()
     {
@@ -58,9 +58,7 @@ public class MissionManager : MonoBehaviour
         Places = _database.Places;
         _uiManager = UiManager.instance;
         _startFixedDeltaTime = Time.fixedDeltaTime;
-        Debug.Log(_startFixedDeltaTime);
         _startTimeScale = Time.timeScale;
-        Debug.Log(_startTimeScale);
     }
   
     private void OnValidate()
@@ -160,10 +158,6 @@ public class MissionManager : MonoBehaviour
 
         }
     }
-    private void FixedUpdate()
-    {
-        //Time.fixedDeltaTime = Time.timeScale * 0.02f;
-    }
     public void StartStoryMissions()
     {
         _activeMission = Missions.ArcOneMissions[0];
@@ -197,13 +191,11 @@ public class MissionManager : MonoBehaviour
     #region Cliente Origin and Destination Checkers
     void ClientPickUp()
     {
-        
-        if (Vector3.Distance(GameManager.instance.CurrentCarInUse.transform.position, _activeMission.Origin.transform.position) <= 5 && GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().CurrentSpeed == 0 && _clientPickedUp == false)
+        if (Vector3.Distance(PlayerCar.transform.position, _activeMission.Origin.transform.position) <= 5 && PlayerCar.CurrentSpeed == 0 && _clientPickedUp == false)
         {
-            GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().CanMove = false;
+            PlayerCar.CanMove = false;
             _uiManager.GpsOn(_activeMission.Destination.transform);
-            Debug.Log(_activeMission.Destination);
-            _timer = ((int)(Vector3.Distance(GameManager.instance.CurrentCarInUse.transform.position, _activeMission.Destination.transform.position)) / 4);
+            _timer = ((int)(Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position)) / 4);
             if (CheckDialog(_activeMission.DialoguesPickUp))
             {
                 StartDialogue();
@@ -216,53 +208,28 @@ public class MissionManager : MonoBehaviour
     {
         _clientPickedUp = true;
         _startTimer = true;
-        _initialCarPos = GameManager.instance.CurrentCarInUse.transform.position;
-        GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().CanMove = true;
+        PlayerCar.CanMove = true;
         _dialogueCounter = 0;
         Timer();
     }
 
     void ClientDestination()
     {
-        //if(_canShowDialogueInMission)
-        //{
-        //    if (Vector3.Distance(GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().transform.position, _activeMission.Destination.transform.position) <= Vector3.Distance(_initialCarPos, _activeMission.Destination.transform.position) / 2)
-        //    {
-        //        if (CheckDialog(_activeMission.DialoguesInMission))
-        //        {
-        //            StartDialogue();
-        //            _canShowDialogueInMission = false;
-        //            Debug.Log("did");
-        //            Time.timeScale = 0.3f;
-
-        //        }
-        //        if (_dialogueCounter >= _activeMission.DialoguesInMission.Length)
-        //        {
-        //            _dialogueCounter = 0;
-        //            Time.timeScale = 1;
-
-        //        }
-
-        //    }
-        //}
        
-        if (Vector3.Distance(GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().transform.position, _activeMission.Destination.transform.position) <= 5 && GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().CurrentSpeed == 0)
+        Debug.Log(Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position));
+        if (Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position) <= 5 && PlayerCar.CurrentSpeed == 0)
         {
             if (_activeMission.MissionType == MissionType.Coffee)
             {
-                if(SceneManager.sceneCount>1)
-                {
-                    SceneManager.UnloadSceneAsync("Coffe");
-
-                }
+                SceneManager.UnloadSceneAsync("Coffe");
 
             }
             _clientReachedDestination = true;
             _uiManager.GpsOff();
             _uiManager.ShowTimer(false, 0);
-            GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().CanMove = false;
+            PlayerCar.CanMove = false;
             _uiManager.GpsOn(_activeMission.Destination.transform);
-            _startTimer = false;
+            _timer = ((int)(Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position)) / 4);
             if (CheckDialog(_activeMission.DialoguesDestination))
             {
                StartDialogue();
@@ -270,13 +237,14 @@ public class MissionManager : MonoBehaviour
             }
             if(_dialogueCounter >= _activeMission.DialoguesDestination.Length)
             {
+
                 _dialogueCounter = 0;
                 _clientPickedUp = false;
                 MissionStarted = false;
-                //_activeMission = null;
+                _activeMission = null;
                 _startTimer = false;
                 _clientReachedDestination = false;
-                GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().CanMove = true;
+                PlayerCar.CanMove = true;
 
                 Missions.ArcOneMissions.RemoveAt(0);
             }
@@ -291,7 +259,7 @@ public class MissionManager : MonoBehaviour
         if (dialogues.Length == 0)
         {
             _startTimer = true;
-            GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().CanMove = true;
+            PlayerCar.CanMove = true;
 
             return false;
         }
@@ -304,11 +272,13 @@ public class MissionManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            Debug.Log("1");
 
             _dialogueCounter++;
         }
         if (_clientPickedUp == false)
         {
+            Debug.Log("1");
             if (_dialogueCounter < _activeMission.DialoguesPickUp.Length)
             {
                 _uiManager.Dialogue(_activeMission.DialoguesPickUp[_dialogueCounter].Sprite, _activeMission.DialoguesPickUp[_dialogueCounter].Text);
@@ -316,6 +286,7 @@ public class MissionManager : MonoBehaviour
             }
             else
             {
+                Debug.Log("2");
 
                 _uiManager.CloseDialogue();
                 switch (_activeMission.MissionType)
@@ -349,7 +320,7 @@ public class MissionManager : MonoBehaviour
                 }
             }
         }
-        else if (_clientPickedUp == true && _clientReachedDestination == false )
+        else if (_clientPickedUp == true && _clientReachedDestination == false)
         {
             if (_dialogueCounter < _activeMission.DialoguesInMission.Length)
             {
@@ -382,7 +353,7 @@ public class MissionManager : MonoBehaviour
     {
         _timer = _timer - Time.deltaTime;
         _uiManager.ShowTimer(true, _timer);
-        if (_timer < 0)
+        if (_timer <= 0)
         {
             LostMission();
         }
