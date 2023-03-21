@@ -51,7 +51,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
     [SerializeField] private bool _front;
     [SerializeField] private bool _side;
     [SerializeField] private bool _nPCCrossing;
-    [SerializeField]float timer;
+
     public int Speed { get => _speed; set => _speed = value; }
     public float DistanceToWaypoint { get => _distanceToWaypoint; set => _distanceToWaypoint = value; }
 
@@ -78,9 +78,14 @@ public class AICARCONTROLLE2 : MonoBehaviour
     }
     private void Update()
     {
+        if(_carsStopedInFront != null)
+        {
+
+        }
+        //Debug.Log(Speed);
         if (_currentWaypoint == null)
         {
-             timer += Time.deltaTime;
+            float timer = +Time.deltaTime;
             if (timer > 3)
             {
                 Debug.Log("1");
@@ -205,10 +210,18 @@ public class AICARCONTROLLE2 : MonoBehaviour
                     else
                     {
                         _canMove = true;
+                       
+
+
+
                     }
+
                 }
             }
-    
+            
+            
+            
+            
         }
         else if(DistanceToWaypoint <= 5 && _currentWaypoint.GetComponent<WayPoints>().HasATurn|| DistanceToWaypoint <= 5 && _currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
         {
@@ -261,7 +274,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                 if (yourAngle < 90)
                                 {
                                     Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.magenta);
-                                    Debug.Log(tempTarget.gameObject.name);
+
                                     _numberOfcarsPassing++;
                                     _canMove = false;
                                     _side = true;
@@ -716,7 +729,10 @@ public class AICARCONTROLLE2 : MonoBehaviour
                         _nextWaypoint = null;
                     }
                 }
-            }                              
+            }
+            
+            
+            
         }
     }
 
@@ -734,14 +750,13 @@ public class AICARCONTROLLE2 : MonoBehaviour
  
         foreach (var item in wheels)
         {
-            
             RaycastHit objectHit;
-            Debug.DrawRay(new Vector3(_checkFront.position.x, _checkFront.position.y, _checkFront.position.z), transform.forward * Mathf.Clamp(_speed, 6, 16), Color.green);
+            Debug.DrawRay(new Vector3(_checkFront.position.x, _checkFront.position.y, _checkFront.position.z), transform.forward * 7, Color.green);
             
 
 
            
-            if (Physics.Raycast(new Vector3(_checkFront.position.x, _checkFront.position.y, _checkFront.position.z), transform.forward, out objectHit, Mathf.Clamp(_speed,6,16), _aiCarLayer + _playerCarLayer))
+            if (Physics.Raycast(new Vector3(_checkFront.position.x, _checkFront.position.y, _checkFront.position.z), transform.forward, out objectHit, 7, _aiCarLayer + _playerCarLayer))
             {
                 //do something if hit object ie
                 Vector3 dir = objectHit.transform.position - _checkLeft.position; // find target direction
@@ -757,8 +772,13 @@ public class AICARCONTROLLE2 : MonoBehaviour
                         if (yourAngle > 90)
                         {
                             _carInFront = true;
-                        }  
+                        }
+
+                    
+                    
                 }
+              
+
             }
             else
             {
@@ -772,7 +792,6 @@ public class AICARCONTROLLE2 : MonoBehaviour
                     {
                         item.motorTorque = _totalPower;
                         item.brakeTorque = 0;
-                        
 
                     }
                     else if(Speed > _currentWaypoint.GetComponent<WayPoints>().RoadMaxSpeed)
@@ -799,7 +818,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                         else if (Speed > objectHit.transform.GetComponent<AICARCONTROLLE2>().Speed)
                         {
                             item.motorTorque = 0;
-                            item.brakeTorque = 1000;
+                            item.brakeTorque = 400;
                         }
                         else
                         {
@@ -813,7 +832,6 @@ public class AICARCONTROLLE2 : MonoBehaviour
                         {
                             item.motorTorque = _totalPower;
                             item.brakeTorque = 0;
-
 
                         }
                         else if (Speed > objectHit.transform.GetComponent<CarControllerScript>().CurrentSpeed)
