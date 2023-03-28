@@ -26,6 +26,7 @@ public class MissionManager : MonoBehaviour
     [Header("MissionConfirmations")]
     [SerializeField] Mission _activeMission;
     [SerializeField] bool _puzzleCompleted;
+    private bool _isInDialogue;
 
     [SerializeField] float _timer;
     [SerializeField] bool _startTimer=false;
@@ -43,6 +44,7 @@ public class MissionManager : MonoBehaviour
     public MissionData Missions { get => _missions; set => _missions = value; }
     public List<GameObject> Places { get => _places; set => _places = value; }
     public CarControllerTest PlayerCar { get => _playerCar; set => _playerCar = value; }
+    public bool IsInDialogue { get => _isInDialogue;}
 
     private void Awake()
     {
@@ -233,7 +235,7 @@ public class MissionManager : MonoBehaviour
             if (CheckDialog(_activeMission.DialoguesDestination))
             {
                StartDialogue();
-                
+                _isInDialogue = true; 
             }
             if(_dialogueCounter >= _activeMission.DialoguesDestination.Length)
             {
@@ -289,6 +291,7 @@ public class MissionManager : MonoBehaviour
                 Debug.Log("2");
 
                 _uiManager.CloseDialogue();
+                _isInDialogue = false;
                 switch (_activeMission.MissionType)
                 {
                     case MissionType.AtoB:
