@@ -14,7 +14,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
     }
     [SerializeField] private float _maxDistance;
     [SerializeField] private float _distanceToWaypoint;
-    [Range(0,360)]
+    [Range(0, 360)]
     [SerializeField] private float _angle;
     [SerializeField] private LayerMask _waypointsLayer;
     [SerializeField] private LayerMask _aiCarLayer;
@@ -51,7 +51,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
     [SerializeField] private bool _front;
     [SerializeField] private bool _side;
     [SerializeField] private bool _nPCCrossing;
-
+    [SerializeField] float timer;
     public int Speed { get => _speed; set => _speed = value; }
     public float DistanceToWaypoint { get => _distanceToWaypoint; set => _distanceToWaypoint = value; }
 
@@ -69,23 +69,18 @@ public class AICARCONTROLLE2 : MonoBehaviour
 
     private void Awake()
     {
-        _rb=GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
     private void Start()
     {
-        
+
 
     }
     private void Update()
     {
-        if(_carsStopedInFront != null)
-        {
-
-        }
-        //Debug.Log(Speed);
         if (_currentWaypoint == null)
         {
-            float timer = +Time.deltaTime;
+            timer += Time.deltaTime;
             if (timer > 3)
             {
                 Debug.Log("1");
@@ -118,14 +113,14 @@ public class AICARCONTROLLE2 : MonoBehaviour
         }
         Speed = Mathf.RoundToInt(_rb.velocity.magnitude * 3.6f);
         ////////////
-        if(_nextWaypoint != null)
+        if (_nextWaypoint != null)
         {
             Vector3 localPos = transform.InverseTransformPoint(_nextWaypoint.transform.position);
-            if(localPos.x < -2)
+            if (localPos.x < -2)
             {
                 _turnDirection = TurnDirection.Left;
             }
-            else if(localPos.x >2)
+            else if (localPos.x > 2)
             {
                 _turnDirection = TurnDirection.Right;
             }
@@ -136,7 +131,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
 
         }
     }
-    
+
 
     private void FixedUpdate()
     {
@@ -157,25 +152,25 @@ public class AICARCONTROLLE2 : MonoBehaviour
     {
         //Draw cone FOV
         Gizmos.DrawWireSphere(transform.position, _maxDistance);
-       // Gizmos.DrawLine(_checkLeftAndFront.position, Quaternion.AngleAxis(140 / 2, transform.up)*(_checkLeftAndFront.forward * _maxDistance));
+        // Gizmos.DrawLine(_checkLeftAndFront.position, Quaternion.AngleAxis(140 / 2, transform.up)*(_checkLeftAndFront.forward * _maxDistance));
         //Gizmos.DrawLine(_checkLeftAndFront.position, Quaternion.AngleAxis(-140 / 2, transform.up) * (_checkLeftAndFront.forward * _maxDistance));
     }
     private void ChangeWaypoint()
     {
-        DistanceToWaypoint= Vector3.Distance(transform.position, _currentWaypoint.position);
+        DistanceToWaypoint = Vector3.Distance(transform.position, _currentWaypoint.position);
         //Debug.Log(Vector3.Distance(transform.position, _currentWaypoint.position));
-        if(DistanceToWaypoint <=3 && _currentWaypoint.GetComponent<WayPoints>().HasATurn == false && _currentWaypoint.GetComponent<WayPoints>().HasATraficLight==false)
-        {       
-                if(_currentWaypoint.GetComponent<WayPoints>().NextWaypoint.Length == 1)
-                {
-                    _currentWaypoint = _currentWaypoint.GetComponent<WayPoints>().NextWaypoint[0];
-                    _nextWaypoint = null;
-                    CheckPath();            
-                }                                                 
-        }
-        else if (DistanceToWaypoint <= 25&&DistanceToWaypoint>5 && _currentWaypoint.GetComponent<WayPoints>().HasATurn || DistanceToWaypoint <= 25 && DistanceToWaypoint > 5 && _currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
+        if (DistanceToWaypoint <= 3 && _currentWaypoint.GetComponent<WayPoints>().HasATurn == false && _currentWaypoint.GetComponent<WayPoints>().HasATraficLight == false)
         {
-            if(_currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
+            if (_currentWaypoint.GetComponent<WayPoints>().NextWaypoint.Length == 1)
+            {
+                _currentWaypoint = _currentWaypoint.GetComponent<WayPoints>().NextWaypoint[0];
+                _nextWaypoint = null;
+                CheckPath();
+            }
+        }
+        else if (DistanceToWaypoint <= 25 && DistanceToWaypoint > 5 && _currentWaypoint.GetComponent<WayPoints>().HasATurn || DistanceToWaypoint <= 25 && DistanceToWaypoint > 5 && _currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
+        {
+            if (_currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
             {
                 if (_currentWaypoint.GetComponent<WayPoints>().TraficLight.CarCanGo)
                 {
@@ -210,22 +205,14 @@ public class AICARCONTROLLE2 : MonoBehaviour
                     else
                     {
                         _canMove = true;
-                       
-
-
-
                     }
-
                 }
             }
-            
-            
-            
-            
+
         }
-        else if(DistanceToWaypoint <= 5 && _currentWaypoint.GetComponent<WayPoints>().HasATurn|| DistanceToWaypoint <= 5 && _currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
+        else if (DistanceToWaypoint <= 5 && _currentWaypoint.GetComponent<WayPoints>().HasATurn || DistanceToWaypoint <= 5 && _currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
         {
-            if(_currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
+            if (_currentWaypoint.GetComponent<WayPoints>().HasATraficLight)
             {
                 if (_currentWaypoint.GetComponent<WayPoints>().TraficLight.CarCanGo)
                 {
@@ -274,7 +261,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                 if (yourAngle < 90)
                                 {
                                     Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.magenta);
-
+                                    Debug.Log(tempTarget.gameObject.name);
                                     _numberOfcarsPassing++;
                                     _canMove = false;
                                     _side = true;
@@ -730,33 +717,31 @@ public class AICARCONTROLLE2 : MonoBehaviour
                     }
                 }
             }
-            
-            
-            
         }
     }
 
     private void CheckPath()
     {
-        if(_currentWaypoint.GetComponent<WayPoints>().NextWaypoint.Length > 1)
+        if (_currentWaypoint.GetComponent<WayPoints>().NextWaypoint.Length > 1)
         {
             //Debug.Log(_currentWaypoint.GetComponent<WayPoints>().NextWaypoint.Length);
             int i = Random.Range(0, _currentWaypoint.GetComponent<WayPoints>().NextWaypoint.Length);
-            _nextWaypoint = _currentWaypoint.GetComponent<WayPoints>().NextWaypoint[i]; 
+            _nextWaypoint = _currentWaypoint.GetComponent<WayPoints>().NextWaypoint[i];
         }
     }
     private void MoveCar()
     {
- 
+
         foreach (var item in wheels)
         {
+
             RaycastHit objectHit;
-            Debug.DrawRay(new Vector3(_checkFront.position.x, _checkFront.position.y, _checkFront.position.z), transform.forward * 7, Color.green);
-            
+            Debug.DrawRay(new Vector3(_checkFront.position.x, _checkFront.position.y, _checkFront.position.z), transform.forward * Mathf.Clamp(_speed, 6, 16), Color.green);
 
 
-           
-            if (Physics.Raycast(new Vector3(_checkFront.position.x, _checkFront.position.y, _checkFront.position.z), transform.forward, out objectHit, 7, _aiCarLayer + _playerCarLayer))
+
+
+            if (Physics.Raycast(new Vector3(_checkFront.position.x, _checkFront.position.y, _checkFront.position.z), transform.forward, out objectHit, Mathf.Clamp(_speed, 6, 16), _aiCarLayer + _playerCarLayer))
             {
                 //do something if hit object ie
                 Vector3 dir = objectHit.transform.position - _checkLeft.position; // find target direction
@@ -768,17 +753,12 @@ public class AICARCONTROLLE2 : MonoBehaviour
                 if (Vector3.Angle(dir, _checkLeft.forward) <= 100 / 2)
                 {
                     // Debug.Log(myAngle + " " + yourAngle);
-                   
-                        if (yourAngle > 90)
-                        {
-                            _carInFront = true;
-                        }
 
-                    
-                    
+                    if (yourAngle > 90)
+                    {
+                        _carInFront = true;
+                    }
                 }
-              
-
             }
             else
             {
@@ -786,15 +766,16 @@ public class AICARCONTROLLE2 : MonoBehaviour
             }
             if (_canMove)
             {
-                if(_carInFront ==false)
+                if (_carInFront == false)
                 {
-                    if (Speed< _currentWaypoint.GetComponent<WayPoints>().RoadMaxSpeed)
+                    if (Speed < _currentWaypoint.GetComponent<WayPoints>().RoadMaxSpeed)
                     {
                         item.motorTorque = _totalPower;
                         item.brakeTorque = 0;
 
+
                     }
-                    else if(Speed > _currentWaypoint.GetComponent<WayPoints>().RoadMaxSpeed)
+                    else if (Speed > _currentWaypoint.GetComponent<WayPoints>().RoadMaxSpeed)
                     {
                         item.motorTorque = 0;
                         item.brakeTorque = 400;
@@ -807,7 +788,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                 }
                 else
                 {
-                    if(_carInFront==true)
+                    if (_carInFront == true)
                     {
                         if (Speed < objectHit.transform.GetComponent<AICARCONTROLLE2>().Speed)
                         {
@@ -818,20 +799,21 @@ public class AICARCONTROLLE2 : MonoBehaviour
                         else if (Speed > objectHit.transform.GetComponent<AICARCONTROLLE2>().Speed)
                         {
                             item.motorTorque = 0;
-                            item.brakeTorque = 400;
+                            item.brakeTorque = 1000;
                         }
                         else
                         {
                             item.motorTorque = 0;
                             item.brakeTorque = 0;
                         }
-                    }                                      
+                    }
                     else
                     {
                         if (Speed < objectHit.transform.GetComponent<CarControllerScript>().CurrentSpeed)
                         {
                             item.motorTorque = _totalPower;
                             item.brakeTorque = 0;
+
 
                         }
                         else if (Speed > objectHit.transform.GetComponent<CarControllerScript>().CurrentSpeed)
@@ -846,8 +828,8 @@ public class AICARCONTROLLE2 : MonoBehaviour
                         }
                     }
                 }
-              
-            }   
+
+            }
             else
             {
                 item.motorTorque = 0;
@@ -938,10 +920,10 @@ public class AICARCONTROLLE2 : MonoBehaviour
         //    if (other.GetComponent<WayPoints>().NextWaypoint.Length == 1)
         //    {
         //        _currentWaypoint = other.GetComponent<WayPoints>().NextWaypoint[0];
-            
+
 
         //    }
-           
+
 
         //}
 
