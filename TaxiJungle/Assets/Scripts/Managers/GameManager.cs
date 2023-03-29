@@ -77,6 +77,37 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-       
+        
     }
+    public void changestattion()
+    {
+        
+        int i = 0;
+
+        i++;
+        
+        if (i >= 5)
+        {
+            i = 0;
+        }
+
+        switch (i)
+        {
+            case 0:
+                bool radio1 = true;
+                break;
+            case 1:
+                EnterStore();
+                bool radio2 = true;
+                int volumeRadio1 = 0;
+                int volumeRadio2 = 1;
+                int volumeRadio3 = 0;
+                i = -1;
+                break;
+            default:
+                break;
+        }
+     
+    }
+
 }
