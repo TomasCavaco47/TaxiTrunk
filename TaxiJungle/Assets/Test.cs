@@ -26,10 +26,7 @@ public class Test : MonoBehaviour
     }
     private void Start()
     {
-        _cam1.Follow = GameManager.instance.CurrentCarInUse.transform;
-        _cam1.LookAt = GameManager.instance.CurrentCarInUse.transform;
-        _cam2.Follow = GameManager.instance.CurrentCarInUse.transform;
-        _cam2.LookAt = GameManager.instance.CurrentCarInUse.transform;
+        ChangeCameraTargets();
     }
 
     public void ChangeCameraReverse()

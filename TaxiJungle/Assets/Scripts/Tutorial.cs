@@ -50,6 +50,7 @@ public class Tutorial : MonoBehaviour
         }
         if(_missionManager.Missions.ArcOneMissions.Count == 2 && _missionManager.MissionStarted == false)
         {
+            Debug.Log(_missionManager.MissionStarted);
             SceneManager.LoadScene("Tutorial");
         }
     }

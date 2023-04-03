@@ -257,6 +257,8 @@ public class CarControllerTest : MonoBehaviour
         Quaternion rotation;
 
         collider.GetWorldPose(out position, out rotation);
+       // Debug.Log(tyre+" "+position);
+
         tyre.transform.position = position;
         tyre.transform.rotation = rotation;
     }

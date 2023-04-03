@@ -35,13 +35,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-    }
-    private void Update()
-    {
-        EnterStore();
-    }
-    private void Start()
-    {
         for (int i = 0; i < CarModels.Count; i++)
         {
         GameObject a= Instantiate(CarModels[i]);
@@ -52,11 +45,20 @@ public class GameManager : MonoBehaviour
         _currentCarInUse = PlayerCarsBought[0];
         _currentCarInUse.SetActive(true);
         _currentCarInUse.transform.position = _startgamePos.position;
+    }
+    private void Update()
+    {
+        EnterStore();
+    }
+    private void Start()
+    {
+        _missionManager = MissionManager.instance;
+
+        _missionManager.PlayerCar = _currentCarInUse.GetComponent<CarControllerTest>();
         UpdateCamerasAndGps();
         //_ui.Car = _currentCarInUse;
         
 
-        _missionManager = MissionManager.instance;
     }
     public void UpdateCamerasAndGps()
     {

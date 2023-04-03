@@ -252,6 +252,7 @@ public class StoreManager : MonoBehaviour
         GameManager.instance.UpdateCamerasAndGps();
         GameManager.instance.CurrentCarInUse.transform.position = GameManager.instance.CarExitStorePos.position;
         GameManager.instance.CurrentCarInUse.transform.rotation = GameManager.instance.CarExitStorePos.rotation;
+        MissionManager.instance.PlayerCar = GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>();
         SceneManager.UnloadSceneAsync("Store");
         _uiManager.InGameUi.SetActive(true);
         

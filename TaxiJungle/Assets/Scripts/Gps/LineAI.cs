@@ -29,6 +29,10 @@ public class LineAI : MonoBehaviour
        
     }
 
+    private void Start()
+    {
+        player=GameManager.instance.transform;
+    }
     private void Update()
     {
         transform.position = Player.position;
