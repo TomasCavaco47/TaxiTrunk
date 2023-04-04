@@ -83,7 +83,6 @@ public class AICARCONTROLLE2 : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > 3)
             {
-                Debug.Log("1");
                 List<Collider> wayPoints = new List<Collider>();
                 wayPoints = Physics.OverlapSphere(_checkFront.position, 20, _waypointsLayer).ToList();
                 Transform newWaypoint = null;
@@ -261,7 +260,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                 if (yourAngle < 90)
                                 {
                                     Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.magenta);
-                                    Debug.Log(tempTarget.gameObject.name);
+                                   // Debug.Log(tempTarget.gameObject.name);
                                     _numberOfcarsPassing++;
                                     _canMove = false;
                                     _side = true;
