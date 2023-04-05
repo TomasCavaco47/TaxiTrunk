@@ -260,7 +260,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                 if (yourAngle < 90)
                                 {
                                     Debug.DrawRay(_checkLeft.position, tempTarget.position - _checkLeft.position, Color.magenta);
-                                   // Debug.Log(tempTarget.gameObject.name);
+                                    // Debug.Log(tempTarget.gameObject.name);
                                     _numberOfcarsPassing++;
                                     _canMove = false;
                                     _side = true;
@@ -912,19 +912,5 @@ public class AICARCONTROLLE2 : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        //if (other.tag == "WayPoints")
-        //{
-        //    if (other.GetComponent<WayPoints>().NextWaypoint.Length == 1)
-        //    {
-        //        _currentWaypoint = other.GetComponent<WayPoints>().NextWaypoint[0];
 
-
-        //    }
-
-
-        //}
-
-    }
 }

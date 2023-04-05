@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] private List<GameObject> _carModels;
     [SerializeField] private List<GameObject> _playerCarsBought;
+    [SerializeField] private List<GameObject> _aICars;
+    [SerializeField] GameObject aIWaypointsParent;
+    [SerializeField] int numberOfAICars;
     [SerializeField] GameObject _currentCarInUse;
     [SerializeField] Transform _carExitStorePos;
     [SerializeField] Transform _startgamePos;
@@ -45,6 +48,8 @@ public class GameManager : MonoBehaviour
         _currentCarInUse = PlayerCarsBought[0];
         _currentCarInUse.SetActive(true);
         _currentCarInUse.transform.position = _startgamePos.position;
+        spawnAICars();
+
     }
     private void Update()
     {
@@ -59,6 +64,27 @@ public class GameManager : MonoBehaviour
         //_ui.Car = _currentCarInUse;
         
 
+    }
+    private void spawnAICars()
+    {
+        List<int> teste = new List<int>(); 
+        for (int i = 0;i<=numberOfAICars;i++) 
+        {
+            int pos = Random.Range(0, aIWaypointsParent.transform.childCount);
+            if(teste.Contains(pos))
+            {
+                i--;
+            }
+            else
+            {
+                teste.Add(pos);
+                WayPoints waypointToSPawn = aIWaypointsParent.transform.GetChild(pos).GetComponent<WayPoints>();
+                GameObject a= Instantiate(_aICars[ Random.Range(0, _aICars.Count)]);
+                a.transform.position = waypointToSPawn.transform.position;
+                a.transform.LookAt(waypointToSPawn.NextWaypoint[0]);
+            }
+            
+        }
     }
     public void UpdateCamerasAndGps()
     {
