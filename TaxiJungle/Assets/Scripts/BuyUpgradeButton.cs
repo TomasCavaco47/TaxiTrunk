@@ -11,6 +11,8 @@ public class BuyUpgradeButton : MonoBehaviour
     [SerializeField] Text _text;
     [SerializeField] StoreManager _storeManager;
 
+    public List<string> Car1Prices { get => _car1Prices; set => _car1Prices = value; }
+
     public void CkeckUpgradesButtons(int levelUpgrade)
     {
       switch(_storeManager.CurrentDisplaying)
