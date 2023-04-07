@@ -8,6 +8,10 @@ public class MiniMapCameraFolows : MonoBehaviour
 
     public Transform Target { get => _target; set => _target = value; }
 
+    private void Start()
+    {
+        _target = GameManager.instance.CurrentCarInUse.transform;
+    }
     private void LateUpdate()
     {
       

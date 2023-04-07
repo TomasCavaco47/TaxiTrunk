@@ -17,26 +17,11 @@ public class Phone
     [SerializeField] List<GameObject> _buttonsDescriptonList = new List<GameObject>();
     [SerializeField] List<GameObject> _buttonsList = new List<GameObject>();
     [SerializeField] EventSystem _eventSystem;
-
-   
     bool _missionMenuOppened;
-
-
-
     public GameObject QuickTab { get => _quickTab; set => _quickTab = value; }
     public GameObject StoryTab { get => _storyTab; set => _storyTab = value; }
     public GameObject QuickTabFirstButton { get => _quickTabFirstButton; set => _quickTabFirstButton = value; }
     public GameObject StoryTabButton { get => _storyTabButton; set => _storyTabButton = value; }
-
-
-
-
-
-    //int _indexClient;
-    // GameObject _gridLayoutGroup;
-    //[SerializeField] GameObject _buttonPrefab;
-
-
     public void OpenClosePhone()
     {
         if (_phoneImage.activeSelf == false)
@@ -75,38 +60,6 @@ public class Phone
     }
     public void ShowQuickButtonsInfo()
     {
-        //int i =1;
-        //switch(i)
-        //{
-        //    case 1:
-        //        if(_eventSystem.currentSelectedGameObject == _buttonsList[0])
-        //        {
-        //            _buttonsDescriptonList[1].SetActive(false);
-        //            _buttonsDescriptonList[2].SetActive(false);
-        //            _buttonsDescriptonList[0].SetActive(true);
-        //        }
-        //        i++;
-        //    break;
-        //    case 2:
-        //        if (_eventSystem.currentSelectedGameObject == _buttonsList[1])
-        //        {
-        //            _buttonsDescriptonList[0].SetActive(false);
-        //            _buttonsDescriptonList[2].SetActive(false);
-        //            _buttonsDescriptonList[1].SetActive(true);
-        //        }
-        //        i++;
-        //        break;
-        //    case 3:
-        //        if (_eventSystem.currentSelectedGameObject == _buttonsList[2])
-        //        {
-        //            _buttonsDescriptonList[0].SetActive(false);
-        //            _buttonsDescriptonList[1].SetActive(false);
-        //            _buttonsDescriptonList[2].SetActive(true);
-        //            i = 1;
-        //        }
-        //        break;
-
-        //}
         if(_eventSystem.currentSelectedGameObject == _buttonsList[0])
         {
             _buttonsDescriptonList[1].SetActive(false);
@@ -125,11 +78,7 @@ public class Phone
             _buttonsDescriptonList[1].SetActive(false);
             _buttonsDescriptonList[2].SetActive(true);
         }
-
-
     }
-
-  
     public void StartStoryMissonButton()
     {
         // acho que nao se devia vir aqui quando ja estamos em missão
@@ -148,12 +97,12 @@ public class Phone
         }
 
     }
-    public void StartQuickMissonButton()
+    public void StartQuickMissonButton(int i)
     {
 
         if (MissionManager.instance.MissionStarted == false)
         {
-            MissionManager.instance.StartQuickMissions();
+            MissionManager.instance.StartQuickMissions(i);
             OpenClosePhone();
         }
         else
@@ -319,9 +268,9 @@ public class UiManager : MonoBehaviour
     }
 
 
-    public void StartQuickMissonButton()
+    public void StartQuickMissonButton(int i)
     {
-        CellPhone.StartQuickMissonButton();
+        CellPhone.StartQuickMissonButton(i);
     }
     public void StartStoryMissonButton()
     {
