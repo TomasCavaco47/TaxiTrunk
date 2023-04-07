@@ -86,9 +86,8 @@ public class CarControllerTest : MonoBehaviour
 
     void Update()
     {
-
         _currentMotorTorque = Mathf.Lerp(Upgrades.Acelaration[Upgrades.AcelarationUpgradeLevel], Upgrades.Acelaration[Upgrades.AcelarationUpgradeLevel] / 1.5f, _currentSpeed / 50f);
-       // Debug.Log(_currentMotorTorque);
+      
         Drag();
         LimitMaxSpeed();
         UpdateCurrentSpeed();
