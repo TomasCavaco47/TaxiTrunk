@@ -1123,7 +1123,7 @@ Transform:
   m_GameObject: {fileID: 6078581282454253620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 94.78, y: 0.15500069, z: 49.51}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2670226716603421904}
@@ -1200,8 +1200,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9909598, y: 1.7241518, z: 7.3173957}
-  m_Center: {x: 0, y: 0.85662663, z: -0.4603126}
+  m_Size: {x: 1.9909598, y: 1.2169867, z: 7.317395}
+  m_Center: {x: 0, y: 1.1102097, z: -0.46031284}
 --- !u!54 &6078581282454253642
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1230,7 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e839bf86d9dbd4a95740ff58a2707b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxDistance: 27.99
+  _maxDistance: 46
   _distanceToWaypoint: 47.787575
   _angle: 140
   _waypointsLayer:
@@ -1254,6 +1254,7 @@ MonoBehaviour:
   _totalPower: 150
   _vertical: 0
   _horizontal: -0.000010457231
+  _canMove: 1
   _currentWaypoint: {fileID: 0}
   _nextWaypoint: {fileID: 0}
   _turnWaypoint: {fileID: 0}

@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e839bf86d9dbd4a95740ff58a2707b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxDistance: 27.99
+  _maxDistance: 46
   _distanceToWaypoint: 46.35
   _angle: 140
   _waypointsLayer:
@@ -1059,6 +1059,7 @@ MonoBehaviour:
   _totalPower: 150
   _vertical: 0
   _horizontal: 0
+  _canMove: 1
   _currentWaypoint: {fileID: 0}
   _nextWaypoint: {fileID: 0}
   _turnWaypoint: {fileID: 0}
@@ -1102,8 +1103,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0500321, y: 1.7195351, z: 4.3685136}
-  m_Center: {x: 0, y: 0.85431826, z: 0.2476824}
+  m_Size: {x: 2.0500321, y: 1.3117678, z: 4.3685136}
+  m_Center: {x: 0, y: 1.0582021, z: 0.24768233}
 --- !u!1 &2859811536410771547
 GameObject:
   m_ObjectHideFlags: 0
