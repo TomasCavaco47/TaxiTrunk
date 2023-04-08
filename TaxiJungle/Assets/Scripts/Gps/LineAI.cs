@@ -42,11 +42,11 @@ public class LineAI : MonoBehaviour
         {
             NavMeshHit hit;
             
-            if (NavMesh.FindClosestEdge(transform.position, out hit, NavMesh.AllAreas))
-            {
-                NavMesh.CalculatePath(hit.position, GoalT.position, NavMesh.AllAreas, _path);
+                NavMesh.CalculatePath(transform.position, GoalT.position, NavMesh.AllAreas, _path);
                 Agent.SetPath(_path);
                 timePassed = 0;
+            if (NavMesh.FindClosestEdge(transform.position, out hit, NavMesh.AllAreas))
+            {
 
             }
             //
