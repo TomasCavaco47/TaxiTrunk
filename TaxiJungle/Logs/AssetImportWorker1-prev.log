@@ -1,23 +1,23 @@
 Using pre-set license
 Built from '2021.3/staging' branch; Version is '2021.3.10f1 (1c7d0df0160b) revision 1867021'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19044) 64bit Core' Language: 'en' Physical Memory: 16302 MB
+OS: 'Windows 11  (10.0.22621) 64bit Professional' Language: 'pt' Physical Memory: 16221 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity 2021.3.10f1\Editor\Unity.exe
+C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker1
 -projectPath
-C:/Users/user/Desktop/Coisas Escola de Videojogos/TaxiJungle/TaxiJungle
+C:/Users/Aluno/Documents/TaxiTrunk/TaxiJungle
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-50152
-Successfully changed project path to: C:/Users/user/Desktop/Coisas Escola de Videojogos/TaxiJungle/TaxiJungle
-C:/Users/user/Desktop/Coisas Escola de Videojogos/TaxiJungle/TaxiJungle
+58567
+Successfully changed project path to: C:/Users/Aluno/Documents/TaxiTrunk/TaxiJungle
+C:/Users/Aluno/Documents/TaxiTrunk/TaxiJungle
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,105 +47,119 @@ C:/Users/user/Desktop/Coisas Escola de Videojogos/TaxiJungle/TaxiJungle
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 107.62 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 77.16 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.10f1 (1c7d0df0160b)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity 2021.3.10f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/user/Desktop/Coisas Escola de Videojogos/TaxiJungle/TaxiJungle/Assets
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Aluno/Documents/TaxiTrunk/TaxiJungle/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 2080 SUPER (ID=0x1e81)
+    Renderer: NVIDIA GeForce RTX 3060 Ti (ID=0x2489)
     Vendor:   NVIDIA
-    VRAM:     8010 MB
-    Driver:   31.0.15.1694
+    VRAM:     8038 MB
+    Driver:   31.0.15.2824
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity 2021.3.10f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity 2021.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'C:/Program Files/Unity 2021.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56748
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56440
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity 2021.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.005773 seconds.
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.005897 seconds.
+Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 101.87 ms, found 3 plugins.
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 88.99 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.697 seconds
+- Completed reload, in  0.542 seconds
 Domain Reload Profiling:
-	ReloadAssembly (698ms)
-		BeginReloadAssembly (128ms)
+	ReloadAssembly (542ms)
+		BeginReloadAssembly (58ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (459ms)
-			LoadAssemblies (124ms)
-			RebuildTransferFunctionScriptingTraits (1ms)
-			SetupTypeCache (98ms)
+		EndReloadAssembly (393ms)
+			LoadAssemblies (58ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (90ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (26ms)
-			SetupLoadedEditorAssemblies (286ms)
+			RebuildScriptCaches (21ms)
+			SetupLoadedEditorAssemblies (243ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (7ms)
+				InitializePlatformSupportModulesInManaged (47ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (102ms)
+				RefreshPlugins (89ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (132ms)
-				ProcessInitializeOnLoadMethodAttributes (44ms)
+				ProcessInitializeOnLoadAttributes (72ms)
+				ProcessInitializeOnLoadMethodAttributes (33ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.023974 seconds.
+Registered in 0.005680 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\user\Desktop\Coisas Escola de Videojogos\TaxiJungle\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\user\Desktop\Coisas Escola de Videojogos\TaxiJungle\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Aluno\Documents\TaxiTrunk\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Aluno\Documents\TaxiTrunk\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 105.62 ms, found 3 plugins.
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 78.91 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.523 seconds
+- Completed reload, in  1.114 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1524ms)
-		BeginReloadAssembly (145ms)
+	ReloadAssembly (1114ms)
+		BeginReloadAssembly (186ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (7ms)
+			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (19ms)
-		EndReloadAssembly (1251ms)
-			LoadAssemblies (206ms)
+			CreateAndSetChildDomain (116ms)
+		EndReloadAssembly (843ms)
+			LoadAssemblies (81ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (278ms)
+			SetupTypeCache (229ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (66ms)
-			SetupLoadedEditorAssemblies (693ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (455ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (3ms)
+				InitializePlatformSupportModulesInManaged (18ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (106ms)
-				BeforeProcessingInitializeOnLoad (112ms)
-				ProcessInitializeOnLoadAttributes (360ms)
-				ProcessInitializeOnLoadMethodAttributes (105ms)
-				AfterProcessingInitializeOnLoad (6ms)
+				RefreshPlugins (79ms)
+				BeforeProcessingInitializeOnLoad (86ms)
+				ProcessInitializeOnLoadAttributes (202ms)
+				ProcessInitializeOnLoadMethodAttributes (66ms)
+				AfterProcessingInitializeOnLoad (4ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 0.95 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.73 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5421 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 52 unused Assets / (0.8 MB). Loaded Objects now: 5875.
-Memory consumption went from 214.2 MB to 213.4 MB.
-Total: 5.029600 ms (FindLiveObjects: 0.652400 ms CreateObjectMapping: 0.702600 ms MarkObjects: 3.343000 ms  DeleteObjects: 0.330000 ms)
+Unloading 5419 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 51 unused Assets / (0.7 MB). Loaded Objects now: 5897.
+Memory consumption went from 222.6 MB to 221.9 MB.
+Total: 3.199400 ms (FindLiveObjects: 0.392600 ms CreateObjectMapping: 0.177000 ms MarkObjects: 2.384400 ms  DeleteObjects: 0.244100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -159,163 +173,65 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 502022.837649 seconds.
-  path: Assets/Sound/Radios/Radio1/Cartoon  On  On feat Daniel Levi NCS Release.mp3
-  artifactKey: Guid(04244c32742ab0643a82dde7d44814f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio1/Cartoon  On  On feat Daniel Levi NCS Release.mp3 using Guid(04244c32742ab0643a82dde7d44814f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5ca1db3add797331d789136e05a417c') in 0.379238 seconds 
+  Time since last request: 2452.396436 seconds.
+  path: Assets/Free Racing Car (2).prefab
+  artifactKey: Guid(b6b0339f6736fae45b53399534e5f679) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Free Racing Car (2).prefab using Guid(b6b0339f6736fae45b53399534e5f679) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4a291a3d93f73d4d0179d978dca08a6') in 0.230343 seconds 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000032 seconds.
-  path: Assets/Sound/Radios/Radio1/Summer Deep House EDM by Alexi Action No Copyright MusicPromise.mp3
-  artifactKey: Guid(2696b740db3057348a6a4908285ea167) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio1/Summer Deep House EDM by Alexi Action No Copyright MusicPromise.mp3 using Guid(2696b740db3057348a6a4908285ea167) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2851b9d7b9c9cd41d061500e43761c50') in 0.023984 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Sound/Radios/Radio1/Julius Dreisig  Zeus X Crona  Invisible NCS Release.mp3
-  artifactKey: Guid(1d06a393d861f9a49af6348c51c2ac3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio1/Julius Dreisig  Zeus X Crona  Invisible NCS Release.mp3 using Guid(1d06a393d861f9a49af6348c51c2ac3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b81e718a2117e8dd61cd1bf4eadc6ad') in 0.034381 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Sound/Radios/Radio1/Night Racing Hardwave by Infraction No Copyright Music  Post Blue.mp3
-  artifactKey: Guid(ba08c0310dd5b844b9d7b1eb83850fce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio1/Night Racing Hardwave by Infraction No Copyright Music  Post Blue.mp3 using Guid(ba08c0310dd5b844b9d7b1eb83850fce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff5c83ef5cc6da4aadbbb952c3a19733') in 0.029389 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000304 seconds.
-  path: Assets/Sound/Radios/Radio1/Chill Vlog Fashion by Infraction No Copyright Music  New Light.mp3
-  artifactKey: Guid(dbefd91af3691c740aad31177ae1116b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio1/Chill Vlog Fashion by Infraction No Copyright Music  New Light.mp3 using Guid(dbefd91af3691c740aad31177ae1116b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7eab1a165f8d1c26732b3785cec3011') in 0.017943 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Sound/Radios/Radio1/Sport Aggressive Trap by Infraction No Copyright Music  Looney.mp3
-  artifactKey: Guid(6650cb1f17c1e884fa67bc99a9454833) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio1/Sport Aggressive Trap by Infraction No Copyright Music  Looney.mp3 using Guid(6650cb1f17c1e884fa67bc99a9454833) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08c1f926f9626b689c9e1e62eb5f2dcc') in 0.028304 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Sound/Radios/Radio1/EDM Deep House by Infraction Alexi Action No Copyright Music  Dune.mp3
-  artifactKey: Guid(14e8e39579b5c7d4eb0f771e130c9034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio1/EDM Deep House by Infraction Alexi Action No Copyright Music  Dune.mp3 using Guid(14e8e39579b5c7d4eb0f771e130c9034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '582ae51ae0a79ad680f30adb9a6aae81') in 0.033418 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Sound/Radios/Radio1/Phonk Drift Dirty Beat by Alexi Action No Copyright MusicYou Wanna Play.mp3
-  artifactKey: Guid(57b896f237418d3408f31539fbc6f500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio1/Phonk Drift Dirty Beat by Alexi Action No Copyright MusicYou Wanna Play.mp3 using Guid(57b896f237418d3408f31539fbc6f500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '737d2c89b4cd49fdbe281ae5d1411a1e') in 0.022367 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 20.995226 seconds.
-  path: Assets/Sound/Radios/Radio2/EDM Anime Party by Infraction No Copyright Music  Losing Control.mp3
-  artifactKey: Guid(1f625817edefa7f4a8948f14c1df7a18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio2/EDM Anime Party by Infraction No Copyright Music  Losing Control.mp3 using Guid(1f625817edefa7f4a8948f14c1df7a18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9429426baadfde0105881da29ee08ec0') in 0.066307 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000816 seconds.
-  path: Assets/Sound/Radios/Radio2/Upbeat Dance Pop by Infraction No Copyright Music  No Gravity.mp3
-  artifactKey: Guid(888d223e7b200bb4c9278c69c6d6c5af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio2/Upbeat Dance Pop by Infraction No Copyright Music  No Gravity.mp3 using Guid(888d223e7b200bb4c9278c69c6d6c5af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5b9d5fd4576b7a2df5160172fa1aae8') in 0.021951 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000067 seconds.
-  path: Assets/Sound/Radios/Radio2/Sport Technology Electronic by Infraction No Copyright Music  Play The Game.mp3
-  artifactKey: Guid(5e2079caff765f7448eaab7b646e9db3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio2/Sport Technology Electronic by Infraction No Copyright Music  Play The Game.mp3 using Guid(5e2079caff765f7448eaab7b646e9db3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aeccaf10637d536317a711d972163332') in 0.023007 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Sound/Radios/Radio2/Happy EDM by Alexi Action Copyright Free Music  Future House.mp3
-  artifactKey: Guid(c391e9a8cfd619243a1670275f449cd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio2/Happy EDM by Alexi Action Copyright Free Music  Future House.mp3 using Guid(c391e9a8cfd619243a1670275f449cd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c01a276105ef148fc7ac573bbfc8a816') in 0.023532 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Sound/Radios/Radio2/Warriyo  Mortals feat Laura Brehm NCS Release.mp3
-  artifactKey: Guid(1dfd274e2d926dd4ca5a0d7c6af0e135) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio2/Warriyo  Mortals feat Laura Brehm NCS Release.mp3 using Guid(1dfd274e2d926dd4ca5a0d7c6af0e135) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9104fc38ba81a9c6c288e2dcfd44a42') in 0.017900 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Sound/Radios/Radio2/Happy Future Pop by Alexi Action No Copyright Music1234.mp3
-  artifactKey: Guid(778c8b009f9acf8499bf826353142064) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio2/Happy Future Pop by Alexi Action No Copyright Music1234.mp3 using Guid(778c8b009f9acf8499bf826353142064) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01f18028c9d0c9567476eccae88c5b63') in 0.015841 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Sound/Radios/Radio2/Unknown Brain  Superhero feat Chris Linton NCS Release.mp3
-  artifactKey: Guid(2ca035f4435764145b126a171f772ac2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio2/Unknown Brain  Superhero feat Chris Linton NCS Release.mp3 using Guid(2ca035f4435764145b126a171f772ac2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e15fc84adfc814e37464dff2e670c17') in 0.016802 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 37.483164 seconds.
-  path: Assets/Sound/Radios/Radio3/Different Heaven  EHDE  My Heart NCS Release.mp3
-  artifactKey: Guid(c2bbaa9f40f4732458e292af03668843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio3/Different Heaven  EHDE  My Heart NCS Release.mp3 using Guid(c2bbaa9f40f4732458e292af03668843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7de30eef86f251056eb50e00de8d0cb') in 0.019291 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Sound/Radios/Radio3/Music for Showreel by Alexi Action No Copyright Music.mp3
-  artifactKey: Guid(064bb24c37e8f4742909a80780089f03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio3/Music for Showreel by Alexi Action No Copyright Music.mp3 using Guid(064bb24c37e8f4742909a80780089f03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '048f8f6cccbee384b10009b21bdde2f2') in 0.020040 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Sound/Radios/Radio3/Upbeat Food Journey by Infraction No Copyright Music  Hightech.mp3
-  artifactKey: Guid(5840b64f70ca63e4e9206b8916e991ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio3/Upbeat Food Journey by Infraction No Copyright Music  Hightech.mp3 using Guid(5840b64f70ca63e4e9206b8916e991ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53d5afdd2ced48cbfbdf06b321bec7cf') in 0.021691 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Sound/Radios/Radio3/Future Bass by Alexi Action  No Copyright Music.mp3
-  artifactKey: Guid(f3ce3e45a43d01747823a9ee43ff5736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Radios/Radio3/Future Bass by Alexi Action  No Copyright Music.mp3 using Guid(f3ce3e45a43d01747823a9ee43ff5736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e00c96aa8123a3b6a545c121c28ff4ad') in 0.021729 seconds 
+  path: Assets/CinemaChinhe Blend.asset
+  artifactKey: Guid(511cf3bed686e0d42896e0bfae9dea78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CinemaChinhe Blend.asset using Guid(511cf3bed686e0d42896e0bfae9dea78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b971e0b9c9b5aa4befcccac40205712d') in 0.003612 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005356 seconds.
+Registered in 0.007129 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\user\Desktop\Coisas Escola de Videojogos\TaxiJungle\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\user\Desktop\Coisas Escola de Videojogos\TaxiJungle\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Aluno\Documents\TaxiTrunk\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Aluno\Documents\TaxiTrunk\TaxiJungle\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.90 ms, found 3 plugins.
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.320 seconds
+- Completed reload, in  0.982 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1321ms)
-		BeginReloadAssembly (178ms)
+	ReloadAssembly (982ms)
+		BeginReloadAssembly (121ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (41ms)
-		EndReloadAssembly (1043ms)
-			LoadAssemblies (127ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (791ms)
+			LoadAssemblies (78ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (402ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (48ms)
-			SetupLoadedEditorAssemblies (447ms)
+			SetupTypeCache (279ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (44ms)
+			SetupLoadedEditorAssemblies (333ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (12ms)
-				SetLoadedEditorAssemblies (1ms)
+				InitializePlatformSupportModulesInManaged (22ms)
+				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (87ms)
-				ProcessInitializeOnLoadAttributes (251ms)
-				ProcessInitializeOnLoadMethodAttributes (89ms)
-				AfterProcessingInitializeOnLoad (5ms)
+				BeforeProcessingInitializeOnLoad (60ms)
+				ProcessInitializeOnLoadAttributes (187ms)
+				ProcessInitializeOnLoadMethodAttributes (60ms)
+				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (9ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.92 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.67 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5284 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 29 unused Assets / (0.8 MB). Loaded Objects now: 5900.
-Memory consumption went from 208.3 MB to 207.5 MB.
-Total: 3.911000 ms (FindLiveObjects: 0.345600 ms CreateObjectMapping: 0.335500 ms MarkObjects: 2.999900 ms  DeleteObjects: 0.229000 ms)
+Unloading 5289 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (0.7 MB). Loaded Objects now: 5965.
+Memory consumption went from 219.6 MB to 218.9 MB.
+Total: 3.328700 ms (FindLiveObjects: 0.369100 ms CreateObjectMapping: 0.256600 ms MarkObjects: 2.493800 ms  DeleteObjects: 0.208100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -327,33 +243,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 205.887469 seconds.
-  path: Assets/2D Assets
-  artifactKey: Guid(f6f7a68cb6b78e94d83f7f737230c688) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D Assets using Guid(f6f7a68cb6b78e94d83f7f737230c688) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '836c671ca9025da3af44e9189f650096') in 0.013826 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.035047 seconds.
-  path: Assets/2D Assets/LondrinaSolid-Regular.ttf
-  artifactKey: Guid(020e115004d8ad9418b40c31da0c4c22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D Assets/LondrinaSolid-Regular.ttf using Guid(020e115004d8ad9418b40c31da0c4c22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '361c3e01f0a997256b4dcb61d310baf4') in 0.262103 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.622776 seconds.
-  path: Assets/Models
-  artifactKey: Guid(446a2a3ea1355734bb72253a21deeb2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models using Guid(446a2a3ea1355734bb72253a21deeb2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e307dadc8b99351efbf9869ec991a2b3') in 0.005731 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.088494 seconds.
-  path: Assets/Models/City Island.fbx
-  artifactKey: Guid(56d7233e1faf9c64bb4f26cac3615402) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/City Island.fbx using Guid(56d7233e1faf9c64bb4f26cac3615402) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e66bbeaa9252bbedf1a29db706714c72') in 0.331722 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.589551 seconds.
-  path: Assets/Models/Cars
-  artifactKey: Guid(bfc422f7d4907784cb4873e87607dc40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Cars using Guid(bfc422f7d4907784cb4873e87607dc40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8fdeb607b737902daf77549f3c826f0') in 0.006030 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
