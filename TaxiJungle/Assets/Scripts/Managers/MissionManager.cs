@@ -159,7 +159,9 @@ public class MissionManager : MonoBehaviour
     public void StartStoryMissions()
     {
         _activeMission = Missions.ArcOneMissions[0];
+        Debug.Log(_activeMission.Origin);
         _uiManager.GpsOn(_activeMission.Origin.transform);
+
         MissionStarted = true;
     }
     #region QuickMission
@@ -294,14 +296,13 @@ public class MissionManager : MonoBehaviour
                 if(isQuickMission)
                 {
                     isQuickMission = false;
-
+                    GameManager.instance.Money += Random.Range(100, 250);
                 }
                 else
                 {
-
+                    GameManager.instance.Money += Missions.ArcOneMissions[0].Reward;
                 Missions.ArcOneMissions.RemoveAt(0);
                 }
-                Debug.Log("aqui");
                 _dialogueCounter = 0;
                 _clientPickedUp = false;
                 MissionStarted = false;
@@ -406,7 +407,6 @@ public class MissionManager : MonoBehaviour
         Debug.Log(_timer);
         if (_timer < 0)
         {
-            Debug.Log("wtf");
 
             LostMission();
 

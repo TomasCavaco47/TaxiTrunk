@@ -39,6 +39,7 @@ public class Mission
     public GameObject Origin { get => _origin; set => _origin = value; }
     public GameObject Destination { get => _destination; set => _destination = value; }
     public Client Client { get => _client; set => _client = value; }
+    public int Reward { get => _reward; set => _reward = value; }
 }
 
 public enum WhosTalking

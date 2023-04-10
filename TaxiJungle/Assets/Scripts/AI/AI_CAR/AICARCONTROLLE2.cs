@@ -364,7 +364,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                             _carsStopedInFront = new List<GameObject>();
                             List<Collider> hitColliders = new List<Collider>();
                             List<Collider> hitColliders2 = new List<Collider>();
-                            hitColliders = Physics.OverlapSphere(_checkFront.position, _maxDistance, _aiCarLayer + _playerCarLayer).ToList();
+                            hitColliders = Physics.OverlapSphere(_checkFront.position, _maxDistance, _aiCarLayer ).ToList();
                             hitColliders2 = Physics.OverlapSphere(_checkFront.position, _maxDistance + 10, _aiCarLayer).ToList();
                             for (var i = 0; i < hitColliders.Count; i++)
                             {
@@ -597,7 +597,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                         _carsStopedInFront = new List<GameObject>();
                         List<Collider> hitColliders = new List<Collider>();
                         List<Collider> hitColliders2 = new List<Collider>();
-                        hitColliders = Physics.OverlapSphere(_checkFront.position, _maxDistance, _aiCarLayer + _playerCarLayer).ToList();
+                        hitColliders = Physics.OverlapSphere(_checkFront.position, _maxDistance, _aiCarLayer ).ToList();
                         hitColliders2 = Physics.OverlapSphere(_checkFront.position, _maxDistance+10, _aiCarLayer).ToList();
                         for (var i = 0; i < hitColliders.Count; i++)
                         {

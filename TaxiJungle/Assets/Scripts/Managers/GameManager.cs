@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] UiManager _ui;
     MissionManager _missionManager;
     [SerializeField]bool _canEnterStore;
-    int _money;
+    [SerializeField] int _money;
     
 
     public GameObject CurrentCarInUse { get => _currentCarInUse; set => _currentCarInUse = value; }
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public bool CanEnterStore { get => _canEnterStore; set => _canEnterStore = value; }
     public List<GameObject> PlayerCarsBought { get => _playerCarsBought; set => _playerCarsBought = value; }
     public Transform CarExitStorePos { get => _carExitStorePos; set => _carExitStorePos = value; }
+    public int Money { get => _money; set => _money = value; }
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
         _currentCarInUse = PlayerCarsBought[0];
         _currentCarInUse.SetActive(true);
         _currentCarInUse.transform.position = _startgamePos.position;
+        _currentCarInUse.transform.rotation=new Quaternion(0, -174.8f, 0,0);
         spawnAICars();
 
     }
