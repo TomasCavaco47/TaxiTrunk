@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 [System.Serializable]
 
 public class Phone
@@ -44,6 +45,10 @@ public class Phone
                 _phoneImage.SetActive(false);
                 
             }
+        }
+        if(MissionManager.instance.Missions.ArcOneMissions.Count == 0)
+        {
+
         }
     }
     public void OpenStorytab()
