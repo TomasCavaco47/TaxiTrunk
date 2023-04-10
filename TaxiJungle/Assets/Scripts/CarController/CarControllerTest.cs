@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Il2Cpp;
 using UnityEngine;
 
 [System.Serializable]
@@ -60,6 +61,8 @@ public class CarControllerTest : MonoBehaviour
     [SerializeField] AnimationCurve _drag;
     [SerializeField] WheelFrictionCurve _normal;
     [SerializeField] WheelFrictionCurve _new;
+
+    bool _canChangeCamera = true;
     List<int> _upgradeLevels = new List<int> { 0, 1, 2 };
 
     GameManager _gameManager;
@@ -86,8 +89,9 @@ public class CarControllerTest : MonoBehaviour
 
     void Update()
     {
+
         _currentMotorTorque = Mathf.Lerp(Upgrades.Acelaration[Upgrades.AcelarationUpgradeLevel], Upgrades.Acelaration[Upgrades.AcelarationUpgradeLevel] / 1.5f, _currentSpeed / 50f);
-      
+        // Debug.Log(_currentMotorTorque);
         Drag();
         LimitMaxSpeed();
         UpdateCurrentSpeed();
@@ -130,11 +134,25 @@ public class CarControllerTest : MonoBehaviour
     private void HandleDrive()
     {
         float input = Input.GetAxis("Vertical") * _currentMotorTorque;
+        if (_currentSpeed == 0)
+        {
+
+            Test.instance.ChangeCameraFowards();
+            _canChangeCamera = true;
+
+
+        }
         if (CanMove)
         {
             //Accelerate
             if (input > 0)
             {
+                if (_canChangeCamera)
+                {
+
+                    Test.instance.ChangeCameraFowards();
+                    _canChangeCamera = false;
+                }
                 if (_reachedMaxSpeed == false)
                 {
 
@@ -192,6 +210,12 @@ public class CarControllerTest : MonoBehaviour
             //Reverse
             if (input < 0 && _wheelData[0].LeftWheel.rpm <= 0)
             {
+                if (_canChangeCamera && _currentSpeed > 0)
+                {
+                    Test.instance.ChangeCameraReverse();
+                    _canChangeCamera = false;
+                }
+
                 if (_reachedMaxSpeed == false)
                 {
                     foreach (WheelElements element in _wheelData)
@@ -296,6 +320,7 @@ public class CarControllerTest : MonoBehaviour
                 _reachedMaxSpeed = false;
             }
         }
+
     }
     void Drag()
     {
@@ -351,3 +376,4 @@ public class CarControllerTest : MonoBehaviour
     }
 
 }
+
