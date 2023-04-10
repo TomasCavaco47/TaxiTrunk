@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e839bf86d9dbd4a95740ff58a2707b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxDistance: 46
+  _maxDistance: 50
   _distanceToWaypoint: 46.35
   _angle: 140
   _waypointsLayer:
@@ -409,7 +409,7 @@ MonoBehaviour:
   - {fileID: 8132079559028696067}
   - {fileID: 8132079558466141733}
   - {fileID: 8132079557812693434}
-  _totalPower: 150
+  _totalPower: 300
   _vertical: 0
   _horizontal: 0
   _canMove: 1
@@ -429,6 +429,7 @@ MonoBehaviour:
   _nPCCrossing: 0
   timer: 0
   _massCenter: {fileID: 2496886049473443655}
+  _tempcarsinfront: []
 --- !u!65 &133052912766441342
 BoxCollider:
   m_ObjectHideFlags: 0
