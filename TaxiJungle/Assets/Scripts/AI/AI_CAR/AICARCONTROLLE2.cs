@@ -737,7 +737,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
             _tempcarsinfront = new List<GameObject>();
 
             List<Collider> hitColliders2 = new List<Collider>();
-            hitColliders2 = Physics.OverlapSphere(_checkFront.position, 15, _aiCarLayer).ToList();
+            hitColliders2 = Physics.OverlapSphere(_checkFront.position, 15, _aiCarLayer+_playerCarLayer).ToList();
 
             for (var i = 0; i < hitColliders2.Count; i++)
             {
@@ -790,13 +790,33 @@ public class AICARCONTROLLE2 : MonoBehaviour
                 {
                     if (_carInFront == true)
                     {
-                        if (Speed < _tempcarsinfront[0].transform.GetComponent<AICARCONTROLLE2>().Speed)//objectHit.transform.GetComponent<AICARCONTROLLE2>().Speed)
+                        if(_tempcarsinfront[0].GetComponent<AICARCONTROLLE2>() != null)
+                        {
+                            if (Speed < _tempcarsinfront[0].transform.GetComponent<AICARCONTROLLE2>().Speed)
+                            {
+                                item.motorTorque = _totalPower;
+                                item.brakeTorque = 0;
+
+                            }
+                            else if (Speed > _tempcarsinfront[0].transform.GetComponent<AICARCONTROLLE2>().Speed)
+                            {
+                                item.motorTorque = 0;
+                                item.brakeTorque = 1000;
+                            }
+                            else
+                            {
+                                item.motorTorque = 0;
+                                item.brakeTorque = 0;
+                            }
+                        }
+                        else
+                            if (Speed < _tempcarsinfront[0].transform.GetComponent<CarControllerTest>().CurrentSpeed)
                         {
                             item.motorTorque = _totalPower;
                             item.brakeTorque = 0;
 
                         }
-                        else if (Speed > _tempcarsinfront[0].transform.GetComponent<AICARCONTROLLE2>().Speed)
+                        else if (Speed > _tempcarsinfront[0].transform.GetComponent<CarControllerTest>().CurrentSpeed - 5)
                         {
                             item.motorTorque = 0;
                             item.brakeTorque = 1000;
@@ -806,26 +826,51 @@ public class AICARCONTROLLE2 : MonoBehaviour
                             item.motorTorque = 0;
                             item.brakeTorque = 0;
                         }
+
                     }
                     else
                     {
-                        if (Speed < _tempcarsinfront[0].transform.GetComponent<AICARCONTROLLE2>().Speed)
+                        if (_tempcarsinfront[0].GetComponent<AICARCONTROLLE2>() != null)
                         {
-                            item.motorTorque = _totalPower;
-                            item.brakeTorque = 0;
+                            if (Speed < _tempcarsinfront[0].transform.GetComponent<AICARCONTROLLE2>().Speed)
+                            {
+                                item.motorTorque = _totalPower;
+                                item.brakeTorque = 0;
 
 
-                        }
-                        else if (Speed > _tempcarsinfront[0].transform.GetComponent<AICARCONTROLLE2>().Speed)
-                        {
-                            item.motorTorque = 0;
-                            item.brakeTorque = 400;
+                            }
+                            else if (Speed > _tempcarsinfront[0].transform.GetComponent<AICARCONTROLLE2>().Speed)
+                            {
+                                item.motorTorque = 0;
+                                item.brakeTorque = 400;
+                            }
+                            else
+                            {
+                                item.motorTorque = 0;
+                                item.brakeTorque = 0;
+                            }
                         }
                         else
                         {
-                            item.motorTorque = 0;
-                            item.brakeTorque = 0;
+                            if (Speed < _tempcarsinfront[0].transform.GetComponent<CarControllerTest>().CurrentSpeed)
+                            {
+                                item.motorTorque = _totalPower;
+                                item.brakeTorque = 0;
+
+
+                            }
+                            else if (Speed > _tempcarsinfront[0].transform.GetComponent<CarControllerTest>().CurrentSpeed - 5)
+                            {
+                                item.motorTorque = 0;
+                                item.brakeTorque = 400;
+                            }
+                            else
+                            {
+                                item.motorTorque = 0;
+                                item.brakeTorque = 0;
+                            }
                         }
+                            
                     }
                 }
             }

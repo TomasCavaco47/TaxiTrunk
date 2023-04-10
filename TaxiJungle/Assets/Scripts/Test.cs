@@ -45,5 +45,32 @@ public class Test : MonoBehaviour
         _cam1.LookAt = GameManager.instance.CurrentCarInUse.transform;
         _cam2.Follow = GameManager.instance.CurrentCarInUse.transform;
         _cam2.LookAt = GameManager.instance.CurrentCarInUse.transform;
+        switch (GameManager.instance.CurrentCarInUse.name)
+        {
+            case "Our taxi_ basic car (Clone)":
+                var camera = _cam1.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
+                camera.ShoulderOffset = new Vector3(0,2.7f,0);
+                camera.CameraDistance = 5;
+                break;
+            case "Our taxi_ cadillac(Clone)":
+                var camera2 = _cam1.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
+
+                camera2.ShoulderOffset = new Vector3(0, 3, 0);
+                camera2.CameraDistance = 8;
+                break;
+            case "our taxi_ mustang(Clone)":
+                var camera3 = _cam1.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
+
+                camera3.ShoulderOffset = new Vector3(0, 3, 0);
+                camera3.CameraDistance = 6;
+                break;
+
+
+            default:
+                break;
+        }
+       
+
+
     }
 }
