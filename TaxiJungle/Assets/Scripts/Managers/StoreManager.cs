@@ -299,8 +299,9 @@ public class StoreManager : MonoBehaviour
     {
         GameManager.instance.UpdateCamerasAndGps();
         GameManager.instance.CurrentCarInUse.transform.position = GameManager.instance.CarExitStorePos.position;
-        GameManager.instance.CurrentCarInUse.transform.rotation = GameManager.instance.CarExitStorePos.rotation;
+        GameManager.instance.CurrentCarInUse.transform.rotation = new Quaternion(0, -174.8f, 0, 0);
         MissionManager.instance.PlayerCar = GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>();
+        Test.instance.ChangeCameraTargets();
         SceneManager.UnloadSceneAsync("Store");
         _uiManager.InGameUi.SetActive(true);
 

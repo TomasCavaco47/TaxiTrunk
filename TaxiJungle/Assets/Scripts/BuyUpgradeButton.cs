@@ -18,24 +18,20 @@ public class BuyUpgradeButton : MonoBehaviour
       switch(_storeManager.CurrentDisplaying)
         {
             case (0):
-            {
-             _text.text = _car1Prices[levelUpgrade];
-             break;
-            }
-            case (1):
-            {
-             _text.text = _car2Prices[levelUpgrade];
-             break;
-            }
-            case (2):
-            {
 
-             _text.text = _car3Prices[levelUpgrade];
-              break;
-            }
+                _text.text = _car1Prices[levelUpgrade];
+                break;
+            case (1):
+                _text.text = _car2Prices[levelUpgrade];
+                break;
+            case (2):
+                _text.text = _car3Prices[levelUpgrade];
+                break;
+            default:
+                break;
 
         }
-       
+
 
     }
 
