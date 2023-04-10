@@ -188,7 +188,6 @@ public class MissionManager : MonoBehaviour
                 break; 
             case 1:
                 _activeMission.MissionType = MissionType.Coffee;
-                _activeMission.MissionType = MissionType.AtoB;
                 _activeMission.DialoguesPickUp = new Dialogue[2];
                 _activeMission.DialoguesPickUp[0].Text = "Take me to the " + _activeMission.Destination.name + " but be carefull i have a coffee";
                 _activeMission.DialoguesPickUp[0].Sprite = _database.Clients[client].ClientSprite;
@@ -203,7 +202,6 @@ public class MissionManager : MonoBehaviour
                 break;
             case 2:
                 _activeMission.MissionType = MissionType.Tetris;
-                _activeMission.MissionType = MissionType.AtoB;
                 _activeMission.DialoguesPickUp = new Dialogue[2];
                 _activeMission.DialoguesPickUp[0].Text = "Help me with my bags and take me to the" + _activeMission.Destination.name;
                 _activeMission.DialoguesPickUp[0].Sprite = _database.Clients[client].ClientSprite;
