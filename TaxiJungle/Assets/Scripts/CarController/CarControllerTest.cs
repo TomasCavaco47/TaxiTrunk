@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Il2Cpp;
 using UnityEngine;
 
 [System.Serializable]
@@ -372,6 +370,7 @@ public class CarControllerTest : MonoBehaviour
         if (other.tag == "Store")
         {
             _gameManager.CanEnterStore = false;
+
         }
     }
 
