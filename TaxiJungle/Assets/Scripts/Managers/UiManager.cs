@@ -156,7 +156,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject _gps;
     [SerializeField] Transform _miniMapCam;
     [SerializeField] float _miniMapSize;
-    bool gameIsPaused=false;
+    [SerializeField] bool gameIsPaused=false;
     Vector3 _gpsVector = new Vector3(0, 30, 0);
 
    // [Header("Refs")]
@@ -188,23 +188,28 @@ public class UiManager : MonoBehaviour
         CellPhone.ShowQuickButtonsInfo();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            gameIsPaused = !gameIsPaused;
+            
             PauseGame();
         }
     }
     public void PauseGame()
     {
-        if(GameManager.instance.InStore==false)
+        
+        if (GameManager.instance.InStore==false)
         {
+            gameIsPaused = !gameIsPaused;
             if (gameIsPaused)
             {
+                _pausePanel.SetActive(true);
                 Time.timeScale = 0f;
-                _pausePanel.SetActive(false);
+                
+
             }
             else
             {
+                _pausePanel.SetActive(false);
                 Time.timeScale = 1;
-                _pausePanel.SetActive(true);
+                
             }
         }    
     }

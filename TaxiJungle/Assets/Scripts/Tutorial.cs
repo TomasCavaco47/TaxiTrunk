@@ -10,6 +10,7 @@ public class Tutorial : MonoBehaviour
     GameManager _gameManager;
 
     int i=0;
+    int once = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,15 @@ public class Tutorial : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-       if(_missionManager.Missions.ArcOneMissions.Count == i-2)
+        if (_missionManager.Missions.ArcOneMissions.Count == i - 1)
+        {
+            if(once==0)
+            {
+             GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().CanMove = false;
+                once++;
+            }
+        }
+        if (_missionManager.Missions.ArcOneMissions.Count == i-2)
         {
             DestroyThisObject();
         }
