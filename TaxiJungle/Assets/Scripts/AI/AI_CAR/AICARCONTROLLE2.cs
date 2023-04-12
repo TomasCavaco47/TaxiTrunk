@@ -645,7 +645,6 @@ public class AICARCONTROLLE2 : MonoBehaviour
                             float yourAngle3 = Vector3.Angle(yourDir, -dir3);
                             if (Vector3.Angle(dir3, _checkFront.forward) <= 110 / 2)
                             {
-                                Debug.Log(yourAngle3);
                                 if (yourAngle3 < 90)
                                 {
                                   
@@ -725,7 +724,6 @@ public class AICARCONTROLLE2 : MonoBehaviour
     private void CheckPath()
     {
        
-            Debug.Log(_currentWaypoint.GetComponent<WayPoints>().NextWaypoint.Length);
             int i = Random.Range(0, CurrentWaypoint.GetComponent<WayPoints>().NextWaypoint.Length);
             _nextWaypoint = CurrentWaypoint.GetComponent<WayPoints>().NextWaypoint[i];
         

@@ -54,6 +54,7 @@ public struct Dialogue
     [SerializeField] private WhosTalking _whosTalking;
     [SerializeField] private Sprite sprite;
     [SerializeField] private string _text;
+    
 
     public Sprite Sprite { get => sprite; set => sprite = value; }
     public WhosTalking WhosTalking { get => _whosTalking; set => _whosTalking = value; }

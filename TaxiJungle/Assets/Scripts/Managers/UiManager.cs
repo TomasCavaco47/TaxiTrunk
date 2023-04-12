@@ -330,6 +330,16 @@ public class UiManager : MonoBehaviour
         _dialogueObject.SetActive(true);
         _dialogueObject.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
         _dialogueObject.transform.GetChild(1).GetComponent<Text>().text = text;
+        if(sprite.name=="Vin")
+        {
+            _dialogueObject.transform.GetChild(2).GetComponent<Text>().text = "Vin";
+        }
+        else
+        {
+            _dialogueObject.transform.GetChild(2).GetComponent<Text>().text = MissionManager.instance.Missions.ArcOneMissions[0].Client.ClientName;
+
+        }
+
     }
     public void CloseDialogue()
     {
