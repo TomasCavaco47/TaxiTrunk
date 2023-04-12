@@ -17,6 +17,7 @@ public class Phone
     [SerializeField] GameObject  _quickTabFirstButton, _storyTabButton;
     [SerializeField] List<GameObject> _buttonsDescriptonList = new List<GameObject>();
     [SerializeField] List<GameObject> _buttonsList = new List<GameObject>();
+    [SerializeField] Button _startStoryMissionButton;
     [SerializeField] EventSystem _eventSystem;
     bool _missionMenuOppened;
     public GameObject QuickTab { get => _quickTab; set => _quickTab = value; }
@@ -48,7 +49,7 @@ public class Phone
         }
         if(MissionManager.instance.Missions.ArcOneMissions.Count == 0)
         {
-
+            _startStoryMissionButton.interactable = false;
         }
     }
     public void OpenStorytab()
@@ -131,6 +132,8 @@ public class Phone
 public class UiManager : MonoBehaviour
 {
     public static UiManager instance;
+    [SerializeField] GameObject _enterStoreText;
+    [SerializeField] GameObject _pausePanel;
 
     [Header("refs")]
     [SerializeField] Phone _cellPhone;
@@ -153,6 +156,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject _gps;
     [SerializeField] Transform _miniMapCam;
     [SerializeField] float _miniMapSize;
+    bool gameIsPaused=false;
     Vector3 _gpsVector = new Vector3(0, 30, 0);
 
    // [Header("Refs")]
@@ -160,6 +164,8 @@ public class UiManager : MonoBehaviour
     public Phone CellPhone { get => _cellPhone; set => _cellPhone = value; }
     public CarControllerTest Car { get => _car; set => _car = value; }
     public GameObject InGameUi { get => _inGameUi; set => _inGameUi = value; }
+    public GameObject EnterStoreText { get => _enterStoreText; set => _enterStoreText = value; }
+    public GameObject PausePanel { get => _pausePanel; set => _pausePanel = value; }
 
     private void Awake()
     {
@@ -172,7 +178,6 @@ public class UiManager : MonoBehaviour
         {
             instance = this;
         }
-        //CellPhone.GridLayoutGroup = CellPhone.ScrollSystem.transform.GetChild(0).GetChild(0).gameObject;
     }
     private void Update()
     {
@@ -181,12 +186,33 @@ public class UiManager : MonoBehaviour
         GpsAllwaysInMap();
         OpenPhone();
         CellPhone.ShowQuickButtonsInfo();
-        //retirar
-        //if (Input.GetKeyDown(KeyCode.Y))
-        //{
-        //    AddNewButton();
-        //}
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameIsPaused = !gameIsPaused;
+            PauseGame();
+        }
     }
+    public void PauseGame()
+    {
+        if(GameManager.instance.InStore==false)
+        {
+            if (gameIsPaused)
+            {
+                Time.timeScale = 0f;
+                _pausePanel.SetActive(false);
+            }
+            else
+            {
+                Time.timeScale = 1;
+                _pausePanel.SetActive(true);
+            }
+        }    
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     public void ShowTimer(bool active, float timer)
     {
         _timerObject.SetActive(active);
@@ -304,6 +330,16 @@ public class UiManager : MonoBehaviour
         _dialogueObject.SetActive(true);
         _dialogueObject.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
         _dialogueObject.transform.GetChild(1).GetComponent<Text>().text = text;
+        if(sprite.name=="Vin")
+        {
+            _dialogueObject.transform.GetChild(2).GetComponent<Text>().text = "Vin";
+        }
+        else
+        {
+            _dialogueObject.transform.GetChild(2).GetComponent<Text>().text = MissionManager.instance.Missions.ArcOneMissions[0].Client.ClientName;
+
+        }
+
     }
     public void CloseDialogue()
     {

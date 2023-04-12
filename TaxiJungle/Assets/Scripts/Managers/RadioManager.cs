@@ -122,7 +122,6 @@ public class RadioManager : MonoBehaviour
             _beenPlayedRadio2[songPicked] = true;
             _radio2AudioSource.clip = _songsRadio2[songPicked];
             _radio2AudioSource.Play();
-            Debug.Log(bools.Length);
         }
         
 

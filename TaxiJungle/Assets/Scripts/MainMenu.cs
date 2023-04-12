@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("PlayTest");
         
     }
     public void OpenSettings()

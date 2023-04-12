@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] UiManager _ui;
     MissionManager _missionManager;
     [SerializeField]bool _canEnterStore;
+    [SerializeField]bool _inStore=false;
     [SerializeField] int _money;
     
 
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> PlayerCarsBought { get => _playerCarsBought; set => _playerCarsBought = value; }
     public Transform CarExitStorePos { get => _carExitStorePos; set => _carExitStorePos = value; }
     public int Money { get => _money; set => _money = value; }
+    public bool InStore { get => _inStore; set => _inStore = value; }
 
     private void Awake()
     {
@@ -99,16 +101,25 @@ public class GameManager : MonoBehaviour
     {
         if(_canEnterStore==true)
         {
-            if(Input.GetKeyDown(KeyCode.K))
+            UiManager.instance.EnterStoreText.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.K))
             {
                 if(_currentCarInUse.GetComponent<CarControllerTest>().CurrentSpeed==0)
                 {
                     
                     UiManager.instance!.OpenStore();
+                    InStore=true;
                 }
             }
         }
-        
+        else
+        {
+            UiManager.instance.EnterStoreText.SetActive(false);
+
+        }
+
+
     }
     public void changestattion()
     {

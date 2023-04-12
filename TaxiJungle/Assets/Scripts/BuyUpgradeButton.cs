@@ -12,6 +12,8 @@ public class BuyUpgradeButton : MonoBehaviour
     [SerializeField] StoreManager _storeManager;
 
     public List<string> Car1Prices { get => _car1Prices; set => _car1Prices = value; }
+    public List<string> Car2Prices { get => _car2Prices; set => _car2Prices = value; }
+    public List<string> Car3Prices { get => _car3Prices; set => _car3Prices = value; }
 
     public void CkeckUpgradesButtons(int levelUpgrade)
     {
@@ -22,10 +24,10 @@ public class BuyUpgradeButton : MonoBehaviour
                 _text.text = _car1Prices[levelUpgrade];
                 break;
             case (1):
-                _text.text = _car2Prices[levelUpgrade];
+                _text.text = Car2Prices[levelUpgrade];
                 break;
             case (2):
-                _text.text = _car3Prices[levelUpgrade];
+                _text.text = Car3Prices[levelUpgrade];
                 break;
             default:
                 break;

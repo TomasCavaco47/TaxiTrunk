@@ -159,7 +159,6 @@ public class MissionManager : MonoBehaviour
     public void StartStoryMissions()
     {
         _activeMission = Missions.ArcOneMissions[0];
-        Debug.Log(_activeMission.Origin);
         _uiManager.GpsOn(_activeMission.Origin.transform);
 
         MissionStarted = true;
@@ -264,7 +263,6 @@ public class MissionManager : MonoBehaviour
 
     void ClientDestination()
     { 
-        Debug.Log(Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position));
         if (Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position) <= 5 && PlayerCar.CurrentSpeed == 0)
         {
             _startTimer = false;
@@ -386,6 +384,7 @@ public class MissionManager : MonoBehaviour
         {
             if (_dialogueCounter < _activeMission.DialoguesDestination.Length)
             {
+
                 _uiManager.Dialogue(_activeMission.DialoguesDestination[_dialogueCounter].Sprite, _activeMission.DialoguesDestination[_dialogueCounter].Text);
 
             }
@@ -402,7 +401,7 @@ public class MissionManager : MonoBehaviour
     {
         _timer = _timer - Time.deltaTime;
         _uiManager.ShowTimer(true, _timer);
-        Debug.Log(_timer);
+
         if (_timer < 0)
         {
 
