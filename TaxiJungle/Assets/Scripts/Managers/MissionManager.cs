@@ -26,7 +26,7 @@ public class MissionManager : MonoBehaviour
     [Header("MissionConfirmations")]
     [SerializeField] Mission _activeMission;
     [SerializeField] bool _puzzleCompleted;
-    private bool _isInDialogue;
+    [SerializeField] private bool _isInDialogue;
 
     [SerializeField] float _timer;
     [SerializeField] bool _startTimer=false;
@@ -247,6 +247,7 @@ public class MissionManager : MonoBehaviour
             _timer = ((int)(Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position)) / 4);
             if (CheckDialog(_activeMission.DialoguesPickUp))
             {
+                _isInDialogue = true;
                 StartDialogue();
             }
         }
@@ -338,6 +339,7 @@ public class MissionManager : MonoBehaviour
         {
             if (_dialogueCounter < _activeMission.DialoguesPickUp.Length)
             {
+                _isInDialogue = true;
                 _uiManager.Dialogue(_activeMission.DialoguesPickUp[_dialogueCounter].Sprite, _activeMission.DialoguesPickUp[_dialogueCounter].Text);
             }
             else
