@@ -99,19 +99,23 @@ public class GameManager : MonoBehaviour
     }
     public void EnterStore()
     {
-        if(_canEnterStore==true)
+        if(_canEnterStore==true && MissionManager.instance.MissionStarted==false )
         {
-            UiManager.instance.EnterStoreText.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.K))
+           
+            if (_currentCarInUse.GetComponent<CarControllerTest>().CurrentSpeed == 0)
             {
-                if(_currentCarInUse.GetComponent<CarControllerTest>().CurrentSpeed==0)
+                UiManager.instance.EnterStoreText.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.K))
                 {
-                    
+
+
                     UiManager.instance!.OpenStore();
-                    InStore=true;
+                    InStore = true;
+
                 }
             }
+
+                
         }
         else
         {
