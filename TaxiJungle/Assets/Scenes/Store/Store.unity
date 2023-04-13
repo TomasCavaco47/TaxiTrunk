@@ -684,21 +684,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cbafc9ac0a82944a49c79f895c23f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _car1Prices:
-  - 10$
-  - 20$
-  - 30$
-  - Max
-  _car2Prices:
-  - 40$
-  - 50$
-  - 60$
-  - Max
-  _car3Prices:
-  - 70$
-  - 80$
-  - 90$
-  - Max
+  _carPricesList1: 0a000000140000001e00000000000000
+  _carPricesList2: 0a000000140000001e00000000000000
+  _car3PricesList3: 0a000000140000001e00000000000000
   _text: {fileID: 85870623}
   _storeManager: {fileID: 1035359495}
 --- !u!1 &92232928
@@ -2543,7 +2531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &287972129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3622,15 +3610,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cbafc9ac0a82944a49c79f895c23f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _car1Prices:
-  - $10
-  - $20
-  - $30
-  _car2Prices:
-  - $40
-  - $50
-  - $60
-  _car3Prices: []
+  _carPricesList1: 
+  _carPricesList2: 
+  _car3PricesList3: 
   _text: {fileID: 539893147}
   _storeManager: {fileID: 1035359495}
 --- !u!1 &564928306
@@ -4246,21 +4228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cbafc9ac0a82944a49c79f895c23f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _car1Prices:
-  - 10$
-  - 20$
-  - 30$
-  - Max
-  _car2Prices:
-  - 40$
-  - 50$
-  - 60$
-  - Max
-  _car3Prices:
-  - 70$
-  - 80$
-  - 90$
-  - Max
+  _carPricesList1: 0a000000140000001e00000000000000
+  _carPricesList2: 0a000000140000001e00000000000000
+  _car3PricesList3: 0a000000140000001e00000000000000
   _text: {fileID: 653608104}
   _storeManager: {fileID: 1035359495}
 --- !u!1 &667447242
@@ -4799,18 +4769,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cbafc9ac0a82944a49c79f895c23f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _car1Prices:
-  - 10$
-  - 20$
-  - 30$
-  _car2Prices:
-  - 40$
-  - 50$
-  - 60$
-  _car3Prices:
-  - 70$
-  - 80$
-  - 90$
+  _carPricesList1: 
+  _carPricesList2: 
+  _car3PricesList3: 
   _text: {fileID: 710270268}
   _storeManager: {fileID: 1035359495}
 --- !u!114 &710270268
@@ -6315,6 +6276,7 @@ MonoBehaviour:
   - Beat-It
   - CaroiLargo
   - MacSandes
+  _currentMoney: {fileID: 687562970}
   _equipTab: {fileID: 810299000}
   _buyTab: {fileID: 1669454441}
   _upgradeTab: {fileID: 287972128}
@@ -6333,6 +6295,8 @@ MonoBehaviour:
   - {fileID: 1414546828}
   - {fileID: 1200536211}
   - {fileID: 2123500827}
+  _carPriceText: {fileID: 2020181567}
+  _carPrices: 00000000e8030000d0070000
   _upgradeUI:
     _acelarationUpgradeImages:
     - {fileID: 451002571}
@@ -6349,10 +6313,9 @@ MonoBehaviour:
     - {fileID: 1833722321}
     - {fileID: 1636878641}
     - {fileID: 564928306}
-    _acelarationPrice: {fileID: 1743033486}
-    _topSpeedPrices: {fileID: 85870621}
-    _brakePrices: {fileID: 653608102}
-  _carIndex: 0
+    _acelarationText: {fileID: 1743033486}
+    _topSpeedText: {fileID: 85870621}
+    _brakesText: {fileID: 653608102}
 --- !u!4 &1035359496
 Transform:
   m_ObjectHideFlags: 0
@@ -6785,18 +6748,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cbafc9ac0a82944a49c79f895c23f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _car1Prices:
-  - 10$
-  - 20$
-  - 30$
-  _car2Prices:
-  - 40$
-  - 50$
-  - 60$
-  _car3Prices:
-  - 70$
-  - 80$
-  - 90$
+  _carPricesList1: 
+  _carPricesList2: 
+  _car3PricesList3: 
   _text: {fileID: 1108829972}
   _storeManager: {fileID: 1035359495}
 --- !u!114 &1108829972
@@ -8221,10 +8175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cbafc9ac0a82944a49c79f895c23f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _car1Prices:
-  - 
-  _car2Prices: []
-  _car3Prices: []
+  _carPricesList1: 
+  _carPricesList2: 
+  _car3PricesList3: 
   _text: {fileID: 0}
   _storeManager: {fileID: 0}
 --- !u!1 &1332226018
@@ -10445,15 +10398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cbafc9ac0a82944a49c79f895c23f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _car1Prices:
-  - $10
-  - $20
-  - $30
-  _car2Prices:
-  - $40
-  - $50
-  - $60
-  _car3Prices: []
+  _carPricesList1: 
+  _carPricesList2: 
+  _car3PricesList3: 
   _text: {fileID: 1580902520}
   _storeManager: {fileID: 1035359495}
 --- !u!1 &1581998332
@@ -10917,7 +10864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1669454442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11244,21 +11191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cbafc9ac0a82944a49c79f895c23f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _car1Prices:
-  - 10$
-  - 20$
-  - 30$
-  - Max
-  _car2Prices:
-  - 40$
-  - 50$
-  - 60$
-  - Max
-  _car3Prices:
-  - 50$
-  - 60$
-  - 70$
-  - Max
+  _carPricesList1: 0a000000140000001e00000000000000
+  _carPricesList2: 0a000000140000001e00000000000000
+  _car3PricesList3: 0a000000140000001e00000000000000
   _text: {fileID: 1743033488}
   _storeManager: {fileID: 1035359495}
 --- !u!1 &1766433456
@@ -12258,9 +12193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cbafc9ac0a82944a49c79f895c23f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _car1Prices: []
-  _car2Prices: []
-  _car3Prices: []
+  _carPricesList1: 
+  _carPricesList2: 
+  _car3PricesList3: 
   _text: {fileID: 0}
   _storeManager: {fileID: 0}
 --- !u!1 &1928207715
@@ -13058,7 +12993,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1000$
+  m_Text: 0
 --- !u!222 &2020181568
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13564,18 +13499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cbafc9ac0a82944a49c79f895c23f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _car1Prices:
-  - 10$
-  - 20$
-  - 30$
-  _car2Prices:
-  - 40$
-  - 50$
-  - 60$
-  _car3Prices:
-  - 70$
-  - 80$
-  - 90$
+  _carPricesList1: 
+  _carPricesList2: 
+  _car3PricesList3: 
   _text: {fileID: 2098432747}
   _storeManager: {fileID: 1035359495}
 --- !u!114 &2098432747
@@ -13713,15 +13639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cbafc9ac0a82944a49c79f895c23f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _car1Prices:
-  - $10
-  - $20
-  - $30
-  _car2Prices:
-  - $40
-  - $50
-  - $60
-  _car3Prices: []
+  _carPricesList1: 
+  _carPricesList2: 
+  _car3PricesList3: 
   _text: {fileID: 2113233537}
   _storeManager: {fileID: 1035359495}
 --- !u!1 &2123500827
