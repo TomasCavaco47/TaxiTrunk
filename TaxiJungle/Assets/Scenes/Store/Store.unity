@@ -692,7 +692,10 @@ MonoBehaviour:
   - 40$
   - 50$
   - 60$
-  _car3Prices: []
+  _car3Prices:
+  - 70$
+  - 80$
+  - 90$
   _text: {fileID: 85870623}
   _storeManager: {fileID: 1035359495}
 --- !u!1 &92232928
@@ -2537,7 +2540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &287972129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4248,7 +4251,10 @@ MonoBehaviour:
   - 40$
   - 50$
   - 60$
-  _car3Prices: []
+  _car3Prices:
+  - 70$
+  - 80$
+  - 90$
   _text: {fileID: 653608104}
   _storeManager: {fileID: 1035359495}
 --- !u!1 &667447242
@@ -6295,12 +6301,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiManager: {fileID: 0}
   _eventSystem: {fileID: 719725074}
+  _displayPos: {fileID: 1880515729}
   _currentDisplaying: 0
   _carModels: []
-  _displayPos: {fileID: 1880515729}
+  _carName: {fileID: 1448954730}
+  _carNames:
+  - Beat-It
+  - CaroiLargo
+  - MacSandes
   _equipTab: {fileID: 810299000}
   _buyTab: {fileID: 1669454441}
-  _UpgradeTab: {fileID: 287972128}
+  _upgradeTab: {fileID: 287972128}
   _allButtons:
   - {fileID: 1129400840}
   - {fileID: 1190528696}
@@ -6308,11 +6319,6 @@ MonoBehaviour:
   - {fileID: 248793664}
   - {fileID: 816577760}
   - {fileID: 103128088}
-  _carName: {fileID: 1448954730}
-  _carNames:
-  - Beat-It
-  - CaroiLargo
-  - MacSandes
   _carLogos:
   - {fileID: 672193560}
   - {fileID: 102324651}
@@ -6340,6 +6346,7 @@ MonoBehaviour:
     _acelarationPrice: {fileID: 1743033486}
     _topSpeedPrices: {fileID: 85870621}
     _brakePrices: {fileID: 653608102}
+  _carIndex: 0
 --- !u!4 &1035359496
 Transform:
   m_ObjectHideFlags: 0
@@ -11239,7 +11246,10 @@ MonoBehaviour:
   - 40$
   - 50$
   - 60$
-  _car3Prices: []
+  _car3Prices:
+  - 50$
+  - 60$
+  - 70$
   _text: {fileID: 1743033488}
   _storeManager: {fileID: 1035359495}
 --- !u!1 &1766433456

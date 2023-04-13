@@ -15,12 +15,11 @@ public class BuyUpgradeButton : MonoBehaviour
     public List<string> Car2Prices { get => _car2Prices; set => _car2Prices = value; }
     public List<string> Car3Prices { get => _car3Prices; set => _car3Prices = value; }
 
-    public void CkeckUpgradesButtons(int levelUpgrade)
+    public void ChangePriceInTheButton(int levelUpgrade)
     {
       switch(_storeManager.CurrentDisplaying)
         {
             case (0):
-
                 _text.text = _car1Prices[levelUpgrade];
                 break;
             case (1):

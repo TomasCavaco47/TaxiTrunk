@@ -10,15 +10,21 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class UpgradeUI
 {
+    #region Variaveis
     [SerializeField] List<GameObject> _acelarationUpgradeImages;
     [SerializeField] List<GameObject> _maxSpeedUpgradeImages;
     [SerializeField] List<GameObject> _brakingUpgradeImages;
     [Space]
     [SerializeField] GameObject _acelarationPrice, _topSpeedPrices, _brakePrices;
-
+    public List<GameObject> AcelarationUpgradeImages { get => _acelarationUpgradeImages; set => _acelarationUpgradeImages = value; }
+    public List<GameObject> BrakingUpgradeImages { get => _brakingUpgradeImages; set => _brakingUpgradeImages = value; }
+    public List<GameObject> MaxSpeedUpgradeImages { get => _maxSpeedUpgradeImages; set => _maxSpeedUpgradeImages = value; }
+    
+    #endregion
 
     public void CkeckUpgrades(int currentcardisplay, List<GameObject> cars)
     {
+      
         for (int i = 0; i < 4; i++)
         {
             _acelarationUpgradeImages[i].SetActive(false);
@@ -28,68 +34,67 @@ public class UpgradeUI
         for (int i = 0; i < cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel; i++)
         {
             _acelarationUpgradeImages[i].SetActive(true);
-            if (i < 3)
-            {
-             AcelarationPrice.GetComponent<BuyUpgradeButton>().CkeckUpgradesButtons(i);
-            }
-        } 
+            //_acelarationPrice.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
+
+        }
         for (int i = 0; i < cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel; i++)
         {
             _maxSpeedUpgradeImages[i].SetActive(true);
-            if (i < 3)
-            {
-                TopSpeedPrices.GetComponent<BuyUpgradeButton>().CkeckUpgradesButtons(i);
-            }
+
+            //_topSpeedPrices.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
+            
         }
         for (int i = 0; i < cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel; i++)
         {
             _brakingUpgradeImages[i].SetActive(true);
-            if (i <3)
-            {
-                BrakePrices.GetComponent<BuyUpgradeButton>().CkeckUpgradesButtons(i);
-            }
+
+            //_brakePrices.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
 
         } 
         
     }
 
-    public List<GameObject> AcelarationUpgradeImages { get => _acelarationUpgradeImages; set => _acelarationUpgradeImages = value; }
-    public List<GameObject> BrakingUpgradeImages { get => _brakingUpgradeImages; set => _brakingUpgradeImages = value; }
-    public List<GameObject> MaxSpeedUpgradeImages { get => _maxSpeedUpgradeImages; set => _maxSpeedUpgradeImages = value; }
-    public GameObject AcelarationPrice { get => _acelarationPrice; set => _acelarationPrice = value; }
-    public GameObject TopSpeedPrices { get => _topSpeedPrices; set => _topSpeedPrices = value; }
-    public GameObject BrakePrices { get => _brakePrices; set => _brakePrices = value; }
 }
 public class StoreManager : MonoBehaviour
 {
+    #region Variaveis
+    [Header("Refss & Info")]
     [SerializeField] UiManager _uiManager;
     [SerializeField] EventSystem _eventSystem;
+    [SerializeField] Transform _displayPos;
     [SerializeField] int _currentDisplaying;
     [SerializeField] List<GameObject> _carModels;
-    [SerializeField] Transform _displayPos;
+
     [Space]
-    [Header("editables")]
-    [SerializeField] GameObject _equipTab, _buyTab, _UpgradeTab;
-    [SerializeField] List<GameObject> _allButtons;
-    bool _But1 = false, _But2 = false, _But3 = false;
+    [Header("LowerPainel")]
     [SerializeField] Text _carName;
     [SerializeField] List<string> _carNames;
+
+    [Header("RightPainel")]
+    [SerializeField] GameObject _equipTab;
+    [SerializeField] GameObject _buyTab;
+    [SerializeField] GameObject _upgradeTab;
+    [SerializeField] List<GameObject> _allButtons;
+    bool _but1 = false, _but2 = false, _but3 = false;
     [SerializeField] List<GameObject> _carLogos;
     [SerializeField] List<GameObject> _descripton;
+
     [Space]
     [SerializeField] UpgradeUI _upgradeUI;
 
     int carPrices = 1000;
-
-
+    public int _carIndex = 0;
     public int CurrentDisplaying { get => _currentDisplaying; set => _currentDisplaying = value; }
+    #endregion
 
+    #region MonoBehavior
     private void Awake()
     {
         _uiManager = UiManager.instance;
     }
     void Start()
     {
+        
         _carModels = GameManager.instance.CarModels;
         for (int i = 0; i < _carModels.Count; i++)
         {
@@ -109,53 +114,77 @@ public class StoreManager : MonoBehaviour
         WitchButonToBeSelected();
     }
 
-    // Update is called once per frame
     void Update()
     {
        _carModels[_currentDisplaying].transform.Rotate(0, 4 * 8 * Time.deltaTime, 0 );
         Inputs();
     }
+    #endregion
     private void Inputs()
     {
-        int nextcar = 0;
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (_currentDisplaying + 1 == _carModels.Count)
             {
-                ChangeCarAndTab(nextcar);
+                //VOLTAR AO CARRO INICIAL dar o flip
+                _carIndex = 0;
+                CheckCar();
             }
             else
             {
-                ChangeCarAndTab(_currentDisplaying + 1);
+                //vai para o proximo
+                _carIndex = _currentDisplaying + 1;
+                CheckCar();
             }
         } 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (_currentDisplaying == 0)
             {
-                ChangeCarAndTab(_carModels.Count-1);
+               _carIndex =_carModels.Count-1;
+                CheckCar();
             }
             else
             {
-                ChangeCarAndTab(_currentDisplaying - 1);
+                _carIndex =_currentDisplaying - 1;
+                CheckCar();
             }
         }
     }
 
-   private void ChangeCarAndTab(int carToShow)
+  
+    private void CheckCar()
     {
-        //Desliga tudo o que ta ativo
         _carModels[_currentDisplaying].SetActive(false);
         _buyTab.SetActive(false); _equipTab.SetActive(false); _descripton[_currentDisplaying].SetActive(false); _carLogos[_currentDisplaying].SetActive(false);
-        _UpgradeTab.SetActive(false);
+        _upgradeTab.SetActive(false);
 
-        _currentDisplaying = carToShow;
+        _currentDisplaying = _carIndex;
         _carModels[_currentDisplaying].transform.eulerAngles = new Vector3(0, 130, 0);
         _carName.text = _carNames[_currentDisplaying].ToString();
         _carModels[_currentDisplaying].SetActive(true);
-        _carLogos[_currentDisplaying].SetActive(true);
-        CheckCar();
-        WitchButonToBeSelected();
+
+        //Ativaa Tab De Upgrades
+        if (_carModels[_currentDisplaying]==GameManager.instance.CurrentCarInUse)
+        {
+            _upgradeTab.SetActive(true);
+            _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+            WitchButonToBeSelected();
+            ButtonsSwitch();
+        }
+        //Ativa a Tab de equip
+        else if(GameManager.instance.PlayerCarsBought.Contains(_carModels[_currentDisplaying]))
+        {
+            _equipTab.SetActive(true); _descripton[_currentDisplaying].SetActive(true); _carLogos[_currentDisplaying].SetActive(true);
+            WitchButonToBeSelected();
+        }
+        //Ativa a tab de Buy
+        else
+        {
+            _buyTab.SetActive(true); _descripton[_currentDisplaying].SetActive(true); _carLogos[_currentDisplaying].SetActive(true);
+            WitchButonToBeSelected();
+        }
+
     }
     private void WitchButonToBeSelected()
     {
@@ -174,103 +203,61 @@ public class StoreManager : MonoBehaviour
         if(_carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel == 3)
         {
             _allButtons[0].SetActive(false);
-            if(_But1 == false)
+            if(_but1 == false)
             {
                 Debug.Log("testeqw");
              WitchButonToBeSelected();
             }
-            _But1 = true;
+            _but1 = true;
         }
         else
         {
             _allButtons[0].SetActive(true);
-            _But1 = false;
+            _but1 = false;
         }
        
         if (_carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel == 3)
         {
             _allButtons[1].SetActive(false);
-            if(_But2 == false)
+            if(_but2 == false)
             {
              WitchButonToBeSelected();
             }
-            _But2 = true;
+            _but2 = true;
         }
         else
         {
             _allButtons[1].SetActive(true);
-            _But2 = false;
+            _but2 = false;
         }
         if (_carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel == 3)
         {
             _allButtons[2].SetActive(false);
-            if(_But3 == false)
+            if(_but3 == false)
             {
              WitchButonToBeSelected();
             }
-            _But3 = true;
+            _but3 = true;
         }
         else
         {
             _allButtons[2].SetActive(true);
-            _But3 = false;
+            _but3 = false;
         }
 
 
     }
    
-    private void CheckCar()
-    {
-        if (_carModels[_currentDisplaying]==GameManager.instance.CurrentCarInUse)
-        {
-            _buyTab.SetActive(false); _equipTab.SetActive(false); _descripton[_currentDisplaying].SetActive(false); _carLogos[_currentDisplaying].SetActive(false);
-            _UpgradeTab.SetActive(false);
-            //ativaa Tab De Upgrades
-            _UpgradeTab.SetActive(true);
-            _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-            WitchButonToBeSelected();
-            ButtonsSwitch();
-
-            
-
-
-        }
-        else if(GameManager.instance.PlayerCarsBought.Contains(_carModels[_currentDisplaying]))
-        {
-            _buyTab.SetActive(false); _equipTab.SetActive(false); _descripton[_currentDisplaying].SetActive(false); _carLogos[_currentDisplaying].SetActive(false);
-            _UpgradeTab.SetActive(false);
-            //Ativa a Tab de equip
-            _equipTab.SetActive(true); _descripton[_currentDisplaying].SetActive(true); _carLogos[_currentDisplaying].SetActive(true);
-            _upgradeUI.CkeckUpgrades(_currentDisplaying,_carModels);
-           
-        }
-        else
-        {
-            _buyTab.SetActive(false); _equipTab.SetActive(false); _descripton[_currentDisplaying].SetActive(false); _carLogos[_currentDisplaying].SetActive(false);
-            _UpgradeTab.SetActive(false);
-            //ativa a tab de Buy
-            _buyTab.SetActive(true); _descripton[_currentDisplaying].SetActive(true); _carLogos[_currentDisplaying].SetActive(true);
-            _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-           
-        }
-
-
-
-        //Dessativar os botoes dps de todas a melhorias sempre compradas
-      
-     
-
-    }
 
     #region ButtonsActions
     public void BuyCarButton()
     {
-        if(GameManager.instance.Money>=carPrices)
-        {
             GameManager.instance.PlayerCarsBought.Add(_carModels[_currentDisplaying]);
             GameManager.instance.CurrentCarInUse = _carModels[_currentDisplaying];
             CheckCar();
             WitchButonToBeSelected();
+        if(GameManager.instance.Money>=carPrices)
+        {
 
         }
     }
@@ -282,153 +269,165 @@ public class StoreManager : MonoBehaviour
     }
     public void UpgradeAcelaration()
     {
-        if (_carModels[CurrentDisplaying]== _carModels[0])
-        {
-          
-            string value2 = _upgradeUI.AcelarationPrice.GetComponent<BuyUpgradeButton>().Car1Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
-            value2 = _upgradeUI.AcelarationPrice.GetComponent<BuyUpgradeButton>().Car1Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
-            int i = int.Parse(value2);
-           
+        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel++;
+        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        ButtonsSwitch();
 
-            if (GameManager.instance.Money >= i)
-            {
-                _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel++;
-                _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-                ButtonsSwitch();
-            }
-        }
-        if(_carModels[CurrentDisplaying] == _carModels[1])
-        {
-            string value2 = _upgradeUI.AcelarationPrice.GetComponent<BuyUpgradeButton>().Car2Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
-            value2 = _upgradeUI.AcelarationPrice.GetComponent<BuyUpgradeButton>().Car2Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
-            int i = int.Parse(value2);
+        #region SalvaçãoDoRafa
+        //if (_carModels[CurrentDisplaying]== _carModels[0])
+        //{
+
+        //    string value2 = _upgradeUI.AcelarationPrice.GetComponent<BuyUpgradeButton>().Car1Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
+        //    value2 = _upgradeUI.AcelarationPrice.GetComponent<BuyUpgradeButton>().Car1Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
+        //    int i = int.Parse(value2);
 
 
-            if (GameManager.instance.Money >= i) 
-            {
-                _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel++;
-                _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-                ButtonsSwitch();
-            }
-        }
-        if (_carModels[CurrentDisplaying] == _carModels[2])
-        {
-            string value2 = _upgradeUI.AcelarationPrice.GetComponent<BuyUpgradeButton>().Car3Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
-            value2 = _upgradeUI.AcelarationPrice.GetComponent<BuyUpgradeButton>().Car3Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
-            int i = int.Parse(value2);
+        //    if (GameManager.instance.Money >= i)
+        //    {
+        //        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel++;
+        //        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        //        ButtonsSwitch();
+        //    }
+        //}
+        //if(_carModels[CurrentDisplaying] == _carModels[1])
+        //{
+        //    string value2 = _upgradeUI.AcelarationPrice.GetComponent<BuyUpgradeButton>().Car2Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
+        //    value2 = _upgradeUI.AcelarationPrice.GetComponent<BuyUpgradeButton>().Car2Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
+        //    int i = int.Parse(value2);
 
 
-            if (GameManager.instance.Money >= i) 
-            {
-                _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel++;
-                _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-                ButtonsSwitch();
-            }
-        }
+        //    if (GameManager.instance.Money >= i) 
+        //    {
+        //        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel++;
+        //        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        //        ButtonsSwitch();
+        //    }
+        //}
+        //if (_carModels[CurrentDisplaying] == _carModels[2])
+        //{
+        //    string value2 = _upgradeUI.AcelarationPrice.GetComponent<BuyUpgradeButton>().Car3Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
+        //    value2 = _upgradeUI.AcelarationPrice.GetComponent<BuyUpgradeButton>().Car3Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
+        //    int i = int.Parse(value2);
 
 
-
-    } 
+        //    if (GameManager.instance.Money >= i) 
+        //    {
+        //        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel++;
+        //        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        //        ButtonsSwitch();
+        //    }
+        //}
+        #endregion
+    }
     public void UpgradeMaxSpeed()
     {
+        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel++;
+        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        ButtonsSwitch();
 
-        if (_carModels[CurrentDisplaying] == _carModels[0])
-        {
+        #region Salvavação Do Rafa 2
+        //if (_carModels[CurrentDisplaying] == _carModels[0])
+        //{
 
-            string value2 = _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car1Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
-            value2 = _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car1Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
-            int i = int.Parse(value2);
-
-
-            if (GameManager.instance.Money >= i) 
-            {
-                _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel++;
-                _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-                ButtonsSwitch();
-            }
-        }
-        if (_carModels[CurrentDisplaying] == _carModels[1])
-        {
-
-            string value2 = _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car2Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
-            value2 = _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car2Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
-            int i = int.Parse(value2);
+        //    string value2 = _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car1Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
+        //    value2 = _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car1Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
+        //    int i = int.Parse(value2);
 
 
-            if (GameManager.instance.Money >= i)
-            {
-                _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel++;
-                _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-                ButtonsSwitch();
-            }
-        }
-        if (_carModels[CurrentDisplaying] == _carModels[2])
-        {
+        //    if (GameManager.instance.Money >= i) 
+        //    {
+        //        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel++;
+        //        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        //        ButtonsSwitch();
+        //    }
+        //}
+        //if (_carModels[CurrentDisplaying] == _carModels[1])
+        //{
 
-            string value2 = _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car3Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
-            value2 = _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car3Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
-            int i = int.Parse(value2);
+        //    string value2 = _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car2Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
+        //    value2 = _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car2Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
+        //    int i = int.Parse(value2);
 
 
-            if (GameManager.instance.Money >= i)
-            {
-                _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel++;
-                _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-                ButtonsSwitch();
-            }
-        }
+        //    if (GameManager.instance.Money >= i)
+        //    {
+        //        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel++;
+        //        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        //        ButtonsSwitch();
+        //    }
+        //}
+        //if (_carModels[CurrentDisplaying] == _carModels[2])
+        //{
 
-    } 
+        //    string value2 = _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car3Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
+        //    value2 = _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car3Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
+        //    int i = int.Parse(value2);
+
+
+        //    if (GameManager.instance.Money >= i)
+        //    {
+        //        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel++;
+        //        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        //        ButtonsSwitch();
+        //    }
+        //}
+        #endregion
+    }
     public void UpgradeBrakes()
     {
-        if (_carModels[CurrentDisplaying] == _carModels[0])
-        {
+        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel++;
+        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        ButtonsSwitch();
 
-            string value2 = _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car1Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
-            value2 = _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car1Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
-            int i = int.Parse(value2);
+        #region SalvaçãoDoRafa3
+        //if (_carModels[CurrentDisplaying] == _carModels[0])
+        //{
 
-
-            if (GameManager.instance.Money >= i)
-            {
-                _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel++;
-                _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-                ButtonsSwitch();
-            }
-        }
-        if (_carModels[CurrentDisplaying] == _carModels[1])
-        {
-
-            string value2 = _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car2Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
-            value2 = _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car2Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
-            int i = int.Parse(value2);
+        //    string value2 = _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car1Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
+        //    value2 = _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car1Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
+        //    int i = int.Parse(value2);
 
 
-            if (GameManager.instance.Money >= i)
-            {
-                _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel++;
-                _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-                ButtonsSwitch();
-            }
-        }
-        if (_carModels[CurrentDisplaying] == _carModels[2])
-        {
+        //    if (GameManager.instance.Money >= i)
+        //    {
+        //        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel++;
+        //        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        //        ButtonsSwitch();
+        //    }
+        //}
+        //if (_carModels[CurrentDisplaying] == _carModels[1])
+        //{
 
-            string value2 = _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car3Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
-            value2 = _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car3Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
-            int i = int.Parse(value2);
+        //    string value2 = _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car2Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
+        //    value2 = _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car2Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
+        //    int i = int.Parse(value2);
 
 
-            if (GameManager.instance.Money >= i)
-            {
-                _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel++;
-                _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-                ButtonsSwitch();
-            }
-        }
+        //    if (GameManager.instance.Money >= i)
+        //    {
+        //        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel++;
+        //        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        //        ButtonsSwitch();
+        //    }
+        //}
+        //if (_carModels[CurrentDisplaying] == _carModels[2])
+        //{
 
+        //    string value2 = _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car3Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel];
+        //    value2 = _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car3Prices[_carModels[CurrentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel].Substring(0, value2.Length - 1);
+        //    int i = int.Parse(value2);
+
+
+        //    if (GameManager.instance.Money >= i)
+        //    {
+        //        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel++;
+        //        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        //        ButtonsSwitch();
+        //    }
+        //}
+        #endregion
     }
-      
+
 
     public void ExitStore()
     {
