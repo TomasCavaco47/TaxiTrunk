@@ -31,24 +31,24 @@ public class UpgradeUI
             _brakingUpgradeImages[i].SetActive(false);
             _maxSpeedUpgradeImages[i].SetActive(false);
         }
-        for (int i = 0; i < cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel; i++)
+        for (int i = 0; i <= cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel; i++)
         {
             _acelarationUpgradeImages[i].SetActive(true);
-            //_acelarationPrice.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
+            _acelarationPrice.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
 
         }
-        for (int i = 0; i < cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel; i++)
+        for (int i = 0; i <= cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel; i++)
         {
             _maxSpeedUpgradeImages[i].SetActive(true);
 
-            //_topSpeedPrices.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
+            _topSpeedPrices.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
             
         }
-        for (int i = 0; i < cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel; i++)
+        for (int i = 0; i <= cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel; i++)
         {
             _brakingUpgradeImages[i].SetActive(true);
 
-            //_brakePrices.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
+            _brakePrices.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
 
         } 
         
