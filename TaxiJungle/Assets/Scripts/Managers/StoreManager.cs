@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 [System.Serializable]
 
@@ -14,14 +15,11 @@ public class UpgradeUI
     [SerializeField] List<GameObject> _maxSpeedUpgradeImages;
     [SerializeField] List<GameObject> _brakingUpgradeImages;
     [Space]
-    [SerializeField] GameObject _acelarationText, _topSpeedText, _brakesText;
+    [SerializeField] GameObject _acelarationPrice, _topSpeedPrices, _brakePrices;
     public List<GameObject> AcelarationUpgradeImages { get => _acelarationUpgradeImages; set => _acelarationUpgradeImages = value; }
     public List<GameObject> BrakingUpgradeImages { get => _brakingUpgradeImages; set => _brakingUpgradeImages = value; }
     public List<GameObject> MaxSpeedUpgradeImages { get => _maxSpeedUpgradeImages; set => _maxSpeedUpgradeImages = value; }
-    public GameObject AcelarationText { get => _acelarationText; set => _acelarationText = value; }
-    public GameObject TopSpeedPrices { get => _topSpeedText; set => _topSpeedText = value; }
-    public GameObject BrakePrices { get => _brakesText; set => _brakesText = value; }
-
+    
     #endregion
 
     public void CkeckUpgrades(int currentcardisplay, List<GameObject> cars)
@@ -33,24 +31,24 @@ public class UpgradeUI
             _brakingUpgradeImages[i].SetActive(false);
             _maxSpeedUpgradeImages[i].SetActive(false);
         }
-        for (int i = 0; i <= cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel; i++)
+        for (int i = 0; i < cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel; i++)
         {
             _acelarationUpgradeImages[i].SetActive(true);
-            _acelarationText.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
+            //_acelarationPrice.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
 
         }
-        for (int i = 0; i <= cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel; i++)
+        for (int i = 0; i < cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel; i++)
         {
             _maxSpeedUpgradeImages[i].SetActive(true);
 
-            TopSpeedPrices.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
+            //_topSpeedPrices.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
             
         }
-        for (int i = 0; i <= cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel; i++)
+        for (int i = 0; i < cars[currentcardisplay].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel; i++)
         {
             _brakingUpgradeImages[i].SetActive(true);
 
-            BrakePrices.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
+            //_brakePrices.GetComponent<BuyUpgradeButton>().ChangePriceInTheButton(i);
 
         } 
         
@@ -73,7 +71,6 @@ public class StoreManager : MonoBehaviour
     [SerializeField] List<string> _carNames;
 
     [Header("RightPainel")]
-    [SerializeField] Text _currentMoney;
     [SerializeField] GameObject _equipTab;
     [SerializeField] GameObject _buyTab;
     [SerializeField] GameObject _upgradeTab;
@@ -81,13 +78,12 @@ public class StoreManager : MonoBehaviour
     bool _but1 = false, _but2 = false, _but3 = false;
     [SerializeField] List<GameObject> _carLogos;
     [SerializeField] List<GameObject> _descripton;
-    [SerializeField] Text _carPriceText;
-    [SerializeField] List<int> _carPrices;
 
     [Space]
     [SerializeField] UpgradeUI _upgradeUI;
 
-    int _carIndex = 0;
+    int carPrices = 1000;
+    public int _carIndex = 0;
     public int CurrentDisplaying { get => _currentDisplaying; set => _currentDisplaying = value; }
     #endregion
 
@@ -98,6 +94,7 @@ public class StoreManager : MonoBehaviour
     }
     void Start()
     {
+        
         _carModels = GameManager.instance.CarModels;
         for (int i = 0; i < _carModels.Count; i++)
         {
@@ -113,7 +110,6 @@ public class StoreManager : MonoBehaviour
         _carName.text = _carNames[_currentDisplaying].ToString();
         _carModels[_currentDisplaying].SetActive(true);
         _carModels[_currentDisplaying].transform.position = _displayPos.position;
-        _currentMoney.text = GameManager.instance.Money.ToString();
         CheckCar();
         WitchButonToBeSelected();
     }
@@ -156,6 +152,7 @@ public class StoreManager : MonoBehaviour
         }
     }
 
+  
     private void CheckCar()
     {
         _carModels[_currentDisplaying].SetActive(false);
@@ -178,14 +175,12 @@ public class StoreManager : MonoBehaviour
         //Ativa a Tab de equip
         else if(GameManager.instance.PlayerCarsBought.Contains(_carModels[_currentDisplaying]))
         {
-            
             _equipTab.SetActive(true); _descripton[_currentDisplaying].SetActive(true); _carLogos[_currentDisplaying].SetActive(true);
             WitchButonToBeSelected();
         }
         //Ativa a tab de Buy
         else
         {
-            _carPriceText.text = _carPrices[_currentDisplaying].ToString() + "$";
             _buyTab.SetActive(true); _descripton[_currentDisplaying].SetActive(true); _carLogos[_currentDisplaying].SetActive(true);
             WitchButonToBeSelected();
         }
@@ -257,18 +252,13 @@ public class StoreManager : MonoBehaviour
     #region ButtonsActions
     public void BuyCarButton()
     {
-        if (GameManager.instance.Money >= _carPrices[_currentDisplaying])
-        {
-            GameManager.instance.Money -= _carPrices[_currentDisplaying];
-            _currentMoney.text = GameManager.instance.Money.ToString();
             GameManager.instance.PlayerCarsBought.Add(_carModels[_currentDisplaying]);
             GameManager.instance.CurrentCarInUse = _carModels[_currentDisplaying];
             CheckCar();
             WitchButonToBeSelected();
-        }
-        else
+        if(GameManager.instance.Money>=carPrices)
         {
-            StartCoroutine(NoMoney());
+
         }
     }
     public void EquipCarButton()
@@ -279,21 +269,9 @@ public class StoreManager : MonoBehaviour
     }
     public void UpgradeAcelaration()
     {
-        int upgradeLevel = _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel;
-
-        if (GameManager.instance.Money >= _upgradeUI.AcelarationText.GetComponent<BuyUpgradeButton>().Car1Prices[upgradeLevel])
-        {
-            GameManager.instance.Money -= _upgradeUI.AcelarationText.GetComponent<BuyUpgradeButton>().Car1Prices[upgradeLevel];
-            _currentMoney.text = GameManager.instance.Money.ToString();
-            _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel++;
-            _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-            ButtonsSwitch();
-
-        }
-        else
-        {
-            StartCoroutine(NoMoney());
-        }
+        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel++;
+        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        ButtonsSwitch();
 
         #region SalvaçãoDoRafa
         //if (_carModels[CurrentDisplaying]== _carModels[0])
@@ -343,21 +321,9 @@ public class StoreManager : MonoBehaviour
     }
     public void UpgradeMaxSpeed()
     {
-        int upgradeLevel = _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel;
-        if (GameManager.instance.Money >= _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car2Prices[upgradeLevel])
-        {
-            GameManager.instance.Money -= _upgradeUI.TopSpeedPrices.GetComponent<BuyUpgradeButton>().Car2Prices[upgradeLevel];
-            _currentMoney.text = GameManager.instance.Money.ToString();
-            _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel++;
-            _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-            ButtonsSwitch();
-
-        }
-        else
-        {
-            StartCoroutine(NoMoney());
-        }
-
+        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel++;
+        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        ButtonsSwitch();
 
         #region Salvavação Do Rafa 2
         //if (_carModels[CurrentDisplaying] == _carModels[0])
@@ -409,19 +375,9 @@ public class StoreManager : MonoBehaviour
     }
     public void UpgradeBrakes()
     {
-        int upgradeLevel = _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel;
-        if (GameManager.instance.Money >= _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car3Prices[upgradeLevel])
-        {
-            GameManager.instance.Money -= _upgradeUI.BrakePrices.GetComponent<BuyUpgradeButton>().Car3Prices[upgradeLevel];
-            _currentMoney.text = GameManager.instance.Money.ToString();
-            _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel++;
-            _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
-            ButtonsSwitch();
-        }
-        else
-        {
-            StartCoroutine(NoMoney());
-        }
+        _carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel++;
+        _upgradeUI.CkeckUpgrades(_currentDisplaying, _carModels);
+        ButtonsSwitch();
 
         #region SalvaçãoDoRafa3
         //if (_carModels[CurrentDisplaying] == _carModels[0])
@@ -492,19 +448,4 @@ public class StoreManager : MonoBehaviour
     }
     #endregion
 
-    IEnumerator NoMoney()
-    {
-        _currentMoney.color = Color.red;
-       yield return new WaitForSeconds(0.1f);
-        _currentMoney.color = Color.white;
-        yield return new WaitForSeconds(0.1f);
-        _currentMoney.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        _currentMoney.color = Color.white;
-        yield return new WaitForSeconds(0.1f);
-        _currentMoney.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        _currentMoney.color = Color.white;
-
-    }
 }
