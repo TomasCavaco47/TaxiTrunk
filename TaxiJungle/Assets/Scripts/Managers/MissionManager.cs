@@ -307,6 +307,7 @@ public class MissionManager : MonoBehaviour
                 _startTimer = false;
                 _clientReachedDestination = false;
                 PlayerCar.CanMove = true;
+                _isInDialogue = false;
 
             }
             //send to ui next mission info
