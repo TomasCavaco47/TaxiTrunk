@@ -487,7 +487,7 @@ public class StoreManager : MonoBehaviour
         _uiManager.InGameUi.SetActive(true);
         GameManager.instance.InStore = false;
         SceneManager.UnloadSceneAsync("Store");
-        
+        UiManager.instance.UpdateMoney();
 
     }
     #endregion

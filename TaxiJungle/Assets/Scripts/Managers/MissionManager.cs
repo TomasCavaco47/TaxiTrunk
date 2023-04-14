@@ -278,7 +278,7 @@ public class MissionManager : MonoBehaviour
 
             }
             _clientReachedDestination = true;
-            _uiManager.GpsOff();
+            
             _uiManager.ShowTimer(false, 0);
             PlayerCar.CanMove = false;
             _uiManager.GpsOn(_activeMission.Destination.transform);
@@ -300,6 +300,7 @@ public class MissionManager : MonoBehaviour
                     GameManager.instance.Money += Missions.ArcOneMissions[0].Reward;
                 Missions.ArcOneMissions.RemoveAt(0);
                 }
+                UiManager.instance.UpdateMoney();
                 _dialogueCounter = 0;
                 _clientPickedUp = false;
                 MissionStarted = false;
@@ -308,6 +309,7 @@ public class MissionManager : MonoBehaviour
                 _clientReachedDestination = false;
                 PlayerCar.CanMove = true;
                 _isInDialogue = false;
+                _uiManager.GpsOff();
 
             }
             //send to ui next mission info

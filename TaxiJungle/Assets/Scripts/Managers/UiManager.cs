@@ -159,6 +159,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] bool gameIsPaused=false;
     Vector3 _gpsVector = new Vector3(0, 30, 0);
 
+    [SerializeField] Text _money;
+
    // [Header("Refs")]
 
     public Phone CellPhone { get => _cellPhone; set => _cellPhone = value; }
@@ -178,6 +180,12 @@ public class UiManager : MonoBehaviour
         {
             instance = this;
         }
+
+    }
+    private void Start()
+    {
+        UiManager.instance.UpdateMoney();
+        
     }
     private void Update()
     {
@@ -192,6 +200,12 @@ public class UiManager : MonoBehaviour
             PauseGame();
         }
     }
+
+    public void UpdateMoney()
+    {
+        _money.text = GameManager.instance.Money.ToString();
+    }
+
     public void PauseGame()
     {
         
