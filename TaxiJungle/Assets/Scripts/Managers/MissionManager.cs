@@ -154,13 +154,14 @@ public class MissionManager : MonoBehaviour
             {
                 Timer();
             }
+
         }
     }
     public void StartStoryMissions()
     {
         _activeMission = Missions.ArcOneMissions[0];
         _uiManager.GpsOn(_activeMission.Origin.transform);
-
+        _activeMission.Origin.GetComponent<MeshRenderer>().enabled = true;
         MissionStarted = true;
     }
     #region QuickMission
@@ -168,7 +169,8 @@ public class MissionManager : MonoBehaviour
     {
         _activeMission = new Mission();
         _activeMission.Origin = Places[Random.Range(0, Places.Count)];
-        SpawnDestination();
+        _activeMission.Origin.GetComponent<MeshRenderer>().enabled = true;
+                SpawnDestination();
         int client = Random.Range(0, _database.Clients.Count);
         switch (i)
         {
@@ -240,9 +242,16 @@ public class MissionManager : MonoBehaviour
     #region Cliente Origin and Destination Checkers
     void ClientPickUp()
     {
-        if (Vector3.Distance(PlayerCar.transform.position, _activeMission.Origin.transform.position) <= 5 && PlayerCar.CurrentSpeed == 0 && _clientPickedUp == false)
+        if (Vector3.Distance(PlayerCar.transform.position, _activeMission.Origin.transform.position) <= 8.5f && PlayerCar.CurrentSpeed == 0 && _clientPickedUp == false)
         {
+            if (_activeMission.Origin != GameManager.instance.CurrentCarInUse)
+            {
+                _activeMission.Origin.GetComponent<MeshRenderer>().enabled=false;
+
+            }
+
             PlayerCar.CanMove = false;
+            Debug.Log(_activeMission.Destination);
             _uiManager.GpsOn(_activeMission.Destination.transform);
             _timer = ((int)(Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position)) / 4);
             if (CheckDialog(_activeMission.DialoguesPickUp))
@@ -258,16 +267,18 @@ public class MissionManager : MonoBehaviour
         _clientPickedUp = true;
         _startTimer = true;
         PlayerCar.CanMove = true;
+        _activeMission.Destination.GetComponent<MeshRenderer>().enabled = true;
+
         _dialogueCounter = 0;
         Timer();
     }
 
     void ClientDestination()
-    { 
-        if (Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position) <= 5 && PlayerCar.CurrentSpeed == 0)
+    {
+        if (Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position) <= 8.5f && PlayerCar.CurrentSpeed == 0)
         {
             _startTimer = false;
-
+            _activeMission.Destination.GetComponent<MeshRenderer>().enabled = false;
             if (_activeMission.MissionType == MissionType.Coffee)
             {
                 if(SceneManager.sceneCount>1)
@@ -324,6 +335,8 @@ public class MissionManager : MonoBehaviour
         {
             _startTimer = true;
             PlayerCar.CanMove = true;
+            _activeMission.Destination.SetActive(true);
+
 
             return false;
         }
@@ -428,10 +441,13 @@ public class MissionManager : MonoBehaviour
         _startTimer = false;
         _uiManager.ShowTimer(false, 0);
         _uiManager.GpsOff();
+        _activeMission.Destination.GetComponent<MeshRenderer>().enabled = false;
+
         _activeMission = null;
         _clientPickedUp = false;
         MissionStarted = false;
         _clientReachedDestination = false;
+
      
     }
 

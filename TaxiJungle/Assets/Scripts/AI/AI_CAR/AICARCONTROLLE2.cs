@@ -202,7 +202,6 @@ public class AICARCONTROLLE2 : MonoBehaviour
                 {
                     _canMove = true;
                     CheckPath();
-                    Debug.Log("321");
                     CurrentWaypoint = CurrentWaypoint.GetComponent<WayPoints>().NextWaypoint[0];
                 }
                 else
@@ -240,7 +239,6 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                     if (tempTarget.GetComponent<AICARCONTROLLE2>().CurrentWaypoint.GetComponent<WayPoints>().Stop == false)
                                     {
                                         Debug.DrawRay(_checkFront.position, tempTarget.position - _checkFront.position, Color.blue);
-                                        Debug.Log(tempTarget.gameObject.name);
 
                                         if (tempTarget.gameObject != this.gameObject)
                                         {
