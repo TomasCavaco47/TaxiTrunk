@@ -247,7 +247,7 @@ public class UiManager : MonoBehaviour
     private void OpenPhone()
     {
         //List<Client> clientsList=null;
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && MissionManager.instance.MissionStarted==false)
         {
             // precisa de melhorias
             CellPhone.OpenClosePhone();
