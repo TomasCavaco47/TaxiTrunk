@@ -19,6 +19,7 @@ public class Tutorial : MonoBehaviour
         i = _missionManager.Missions.ArcOneMissions.Count;
         _missionManager.Missions.ArcOneMissions[0].Origin =_gameManager.CurrentCarInUse;
         _missionManager.StartStoryMissions();
+        
 
        
     }
