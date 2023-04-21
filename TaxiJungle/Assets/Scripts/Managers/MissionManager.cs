@@ -251,7 +251,6 @@ public class MissionManager : MonoBehaviour
             }
 
             PlayerCar.CanMove = false;
-            Debug.Log(_activeMission.Destination);
             _uiManager.GpsOn(_activeMission.Destination.transform);
             _timer = ((int)(Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position)) / 4);
             if (CheckDialog(_activeMission.DialoguesPickUp))

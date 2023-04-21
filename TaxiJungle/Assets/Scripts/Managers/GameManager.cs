@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
                 WayPoints waypointToSPawn = aIWaypointsParent.transform.GetChild(pos).GetComponent<WayPoints>();
                 GameObject a= Instantiate(_aICars[ Random.Range(0, _aICars.Count)]);
                 a.transform.position = waypointToSPawn.transform.position;
-                a.GetComponent<AICARCONTROLLE2>().CurrentWaypoint=waypointToSPawn.NextWaypoint[0];
+                a.GetComponent<AI_Car_Script>().CurrentWaypoint=waypointToSPawn.NextWaypoint[0];
                 a.transform.LookAt(waypointToSPawn.NextWaypoint[0]);
             }
             

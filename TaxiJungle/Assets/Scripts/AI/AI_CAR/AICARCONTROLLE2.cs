@@ -12,6 +12,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
         Center,
         Right
     }
+    [SerializeField] private TurnDirection _turnDirection;
     [SerializeField] private float _maxDistance;
     [SerializeField] private float _distanceToWaypoint;
     [Range(0, 360)]
@@ -20,7 +21,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
     [SerializeField] private LayerMask _aiCarLayer;
     [SerializeField] private LayerMask _playerCarLayer;
     [SerializeField] private LayerMask _npcLayer;
-    [SerializeField] private TurnDirection _turnDirection;
+    
 
     [SerializeField] private WheelCollider[] wheels;
     [SerializeField] private float _totalPower;
@@ -72,39 +73,39 @@ public class AICARCONTROLLE2 : MonoBehaviour
     }
     private void Update()
     {
-        if (CurrentWaypoint == null)
-        {
-            timer += Time.deltaTime;
-            if (timer > 3)
-            {
-                Debug.Log("1");
-                List<Collider> wayPoints = new List<Collider>();
-                wayPoints = Physics.OverlapSphere(_checkFront.position, 20, _waypointsLayer).ToList();
-                Transform newWaypoint = null;
-                float newWaypointCurrentAngle = 0;
-                for (var i = 0; i < wayPoints.Count; i++)
-                {
-                    Transform tempTarget = wayPoints[i].transform;
-                    Vector3 dir = tempTarget.position - _checkFront.position; // find target direction
-                    Vector3 yourDir = tempTarget.forward;
-                    float yourAngle = Vector3.Angle(yourDir, -dir);
-                    if (newWaypoint == null)
-                    {
-                        newWaypoint = wayPoints[i].transform;
-                        newWaypointCurrentAngle = yourAngle;
-                    }
-                    else
-                    {
-                        if (newWaypointCurrentAngle < yourAngle)
-                        {
-                            newWaypoint = wayPoints[i].transform;
-                            newWaypointCurrentAngle = yourAngle;
-                        }
-                    }
-                }
-                CurrentWaypoint = newWaypoint;
-            }
-        }
+        //if (CurrentWaypoint == null)
+        //{
+        //    timer += Time.deltaTime;
+        //    if (timer > 3)
+        //    {
+        //        Debug.Log("1");
+        //        List<Collider> wayPoints = new List<Collider>();
+        //        wayPoints = Physics.OverlapSphere(_checkFront.position, 20, _waypointsLayer).ToList();
+        //        Transform newWaypoint = null;
+        //        float newWaypointCurrentAngle = 0;
+        //        for (var i = 0; i < wayPoints.Count; i++)
+        //        {
+        //            Transform tempTarget = wayPoints[i].transform;
+        //            Vector3 dir = tempTarget.position - _checkFront.position; // find target direction
+        //            Vector3 yourDir = tempTarget.forward;
+        //            float yourAngle = Vector3.Angle(yourDir, -dir);
+        //            if (newWaypoint == null)
+        //            {
+        //                newWaypoint = wayPoints[i].transform;
+        //                newWaypointCurrentAngle = yourAngle;
+        //            }
+        //            else
+        //            {
+        //                if (newWaypointCurrentAngle < yourAngle)
+        //                {
+        //                    newWaypoint = wayPoints[i].transform;
+        //                    newWaypointCurrentAngle = yourAngle;
+        //                }
+        //            }
+        //        }
+        //        CurrentWaypoint = newWaypoint;
+        //    }
+        //}
         Speed = Mathf.RoundToInt(_rb.velocity.magnitude * 3.6f);
         if (_nextWaypoint != null)
         {
@@ -142,6 +143,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, _maxDistance);
     }
+    
     private void ChangeWaypoint()
     {
         DistanceToWaypoint = Vector3.Distance(transform.position, CurrentWaypoint.position);
@@ -307,7 +309,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                 }
                                 else
                                 {
-                                    if (_carsStopedInFront.Count == 1)
+                                    if (_carsStopedInFront.Count > 0)
                                     {
                                         if (_carsStopedInFront[0].GetComponent<AICARCONTROLLE2>()._turnDirection == TurnDirection.Center)
                                         {
@@ -411,7 +413,7 @@ public class AICARCONTROLLE2 : MonoBehaviour
                                 Vector3 myDir3 = _checkFront.forward;
                                 Vector3 yourDir = tempTarget.forward;
                                 float yourAngle3 = Vector3.Angle(yourDir, -dir3);
-                                if (Vector3.Angle(dir3, _checkFront.forward) <= 110 / 2)
+                                if (Vector3.Angle(dir3, _checkFront.forward) <= 110/ 2)
                                 {
                                     if (yourAngle3 < 90)
                                     {
@@ -730,6 +732,8 @@ public class AICARCONTROLLE2 : MonoBehaviour
     {  
         foreach (var item in wheels)
         {
+            List<Collider> hitColliders = new List<Collider>();
+            hitColliders = Physics.OverlapSphere(_checkFront.position, 15, _aiCarLayer + _playerCarLayer).ToList();
             _tempcarsinfront = new List<GameObject>();
 
             List<Collider> hitColliders2 = new List<Collider>();
@@ -743,10 +747,11 @@ public class AICARCONTROLLE2 : MonoBehaviour
                 float yourAngle3 = Vector3.Angle(yourDir, -dir3);
                 if (Vector3.Angle(dir3, _checkFront.forward) <= 50 / 2)
                 {
-                    if (yourAngle3 > 100)
+                    if (yourAngle3 > 110)
                     {
-
                         _tempcarsinfront.Add(tempTarget.transform.gameObject);
+                        Debug.Log(gameObject.name +" "+yourAngle3 + " " + Vector3.Angle(dir3, _checkFront.forward) + " " + _tempcarsinfront[0].gameObject.name);
+
                         _carInFront = true;
                     }
                    
@@ -971,5 +976,25 @@ public class AICARCONTROLLE2 : MonoBehaviour
         collider.GetWorldPose(out position, out rotation);
         tyre.transform.position = position;
         tyre.transform.rotation = rotation;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.GetComponent<AICARCONTROLLE2>()!=null || other.GetComponent<CarControllerTest>()!=null)
+        {
+            if(other.gameObject!= this.gameObject)
+            {
+                _canMove = false;
+            }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<AICARCONTROLLE2>() != null || other.GetComponent<CarControllerTest>() != null)
+        {
+            if (other.gameObject != this.gameObject)
+            {
+                _canMove = true;
+            }
+        }
     }
 }
