@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum MissionType
 {
@@ -26,20 +27,22 @@ public class Mission
 
 
     [SerializeField] private int _reward;
+    [SerializeField] private string discription;
     [SerializeField] private Dialogue[] _dialoguesPickUp;
-    [SerializeField] private Dialogue[] _dialoguesInMission;
+   // [SerializeField] private Dialogue[] _dialoguesInMission;
     [SerializeField] private Dialogue[] _dialoguesDestination;
 
 
 
     public Dialogue[] DialoguesPickUp { get => _dialoguesPickUp; set => _dialoguesPickUp = value; }
-    public Dialogue[] DialoguesInMission { get => _dialoguesInMission; set => _dialoguesInMission = value; }
+   // public Dialogue[] DialoguesInMission { get => _dialoguesInMission; set => _dialoguesInMission = value; }
     public Dialogue[] DialoguesDestination { get => _dialoguesDestination; set => _dialoguesDestination = value; }
     public MissionType MissionType { get => _missionType; set => _missionType = value; }
     public GameObject Origin { get => _origin; set => _origin = value; }
     public GameObject Destination { get => _destination; set => _destination = value; }
     public Client Client { get => _client; set => _client = value; }
     public int Reward { get => _reward; set => _reward = value; }
+    public string Discription { get => discription; set => discription = value; }
 }
 
 public enum WhosTalking

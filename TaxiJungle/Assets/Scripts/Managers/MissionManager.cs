@@ -99,24 +99,24 @@ public class MissionManager : MonoBehaviour
                         }
                     }
                 }
-                for (int a = 0; a < Missions.ArcOneMissions[i].DialoguesInMission.Length; a++)
-                {
-                    if (Missions.ArcOneMissions[i].DialoguesInMission.Length != 0)
-                    {
-                        switch (Missions.ArcOneMissions[i].DialoguesInMission[a].WhosTalking)
-                        {
-                            case WhosTalking.Client:
-                                Missions.ArcOneMissions[i].DialoguesInMission[a].Sprite = Missions.ArcOneMissions[i].Client.ClientSprite;
-                                break;
-                            case WhosTalking.Vin:
-                                Missions.ArcOneMissions[i].DialoguesInMission[a].Sprite = _database.VinSprite;
+                //for (int a = 0; a < Missions.ArcOneMissions[i].DialoguesInMission.Length; a++)
+                //{
+                //    if (Missions.ArcOneMissions[i].DialoguesInMission.Length != 0)
+                //    {
+                //        switch (Missions.ArcOneMissions[i].DialoguesInMission[a].WhosTalking)
+                //        {
+                //            case WhosTalking.Client:
+                //                Missions.ArcOneMissions[i].DialoguesInMission[a].Sprite = Missions.ArcOneMissions[i].Client.ClientSprite;
+                //                break;
+                //            case WhosTalking.Vin:
+                //                Missions.ArcOneMissions[i].DialoguesInMission[a].Sprite = _database.VinSprite;
 
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }
+                //                break;
+                //            default:
+                //                break;
+                //        }
+                //    }
+                //}
                 for (int a = 0; a < Missions.ArcOneMissions[i].DialoguesDestination.Length; a++)
                 {
                     if (Missions.ArcOneMissions[i].DialoguesDestination.Length != 0)
@@ -251,7 +251,6 @@ public class MissionManager : MonoBehaviour
             }
 
             PlayerCar.CanMove = false;
-            Debug.Log(_activeMission.Destination);
             _uiManager.GpsOn(_activeMission.Destination.transform);
             _timer = ((int)(Vector3.Distance(PlayerCar.transform.position, _activeMission.Destination.transform.position)) / 4);
             if (CheckDialog(_activeMission.DialoguesPickUp))
@@ -321,6 +320,7 @@ public class MissionManager : MonoBehaviour
                 PlayerCar.CanMove = true;
                 _isInDialogue = false;
                 _uiManager.GpsOff();
+                UiManager.instance.updateMissionButtonInfo(_missions.ArcOneMissions[0].Client.ClientName, _missions.ArcOneMissions[0].Client.ClientSprite, _missions.ArcOneMissions[0].Discription);
 
             }
             //send to ui next mission info
@@ -385,19 +385,19 @@ public class MissionManager : MonoBehaviour
                 }
             }
         }
-        else if (_clientPickedUp == true && _clientReachedDestination == false)
-        {
-            if (_dialogueCounter < _activeMission.DialoguesInMission.Length)
-            {
-                _uiManager.Dialogue(_activeMission.DialoguesInMission[_dialogueCounter].Sprite, _activeMission.DialoguesInMission[_dialogueCounter].Text);
+        //else if (_clientPickedUp == true && _clientReachedDestination == false)
+        //{
+        //    if (_dialogueCounter < _activeMission.DialoguesInMission.Length)
+        //    {
+        //        _uiManager.Dialogue(_activeMission.DialoguesInMission[_dialogueCounter].Sprite, _activeMission.DialoguesInMission[_dialogueCounter].Text);
 
-            }
-            else
-            {
-                _uiManager.CloseDialogue();
-            }
+        //    }
+        //    else
+        //    {
+        //        _uiManager.CloseDialogue();
+        //    }
 
-        }
+        //}
         else
         {
             if (_dialogueCounter < _activeMission.DialoguesDestination.Length)

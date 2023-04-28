@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using TMPro;
 
 [System.Serializable]
 
@@ -131,14 +131,20 @@ public class Phone
 
 public class UiManager : MonoBehaviour
 {
-    public static UiManager instance;
-    [SerializeField] GameObject _enterStoreText;
-    [SerializeField] GameObject _pausePanel;
+    [Header("MisionButtonInfo")]
+    [SerializeField] TMP_Text _clientName;
+    [SerializeField] Image _clientIconSlot;
+    [SerializeField] TMP_Text _missionDiscription;
+
+    
 
     [Header("refs")]
     [SerializeField] Phone _cellPhone;
     [SerializeField] CarControllerTest _car;
     [SerializeField] GameObject _inGameUi;
+    [SerializeField] GameObject _enterStoreText;
+    [SerializeField] GameObject _pausePanel;
+    public static UiManager instance;
 
     [Header("Speedometer")]
     [SerializeField] Image _visualSpeedometer;
@@ -400,5 +406,11 @@ public class UiManager : MonoBehaviour
     {
         InGameUi.SetActive(false);
         SceneManager.LoadSceneAsync("Store",LoadSceneMode.Additive);
+    }
+    public void updateMissionButtonInfo(string clientName,Sprite clientImage, string description)
+    {
+        _clientName.text=clientName;
+        _missionDiscription.text = description;
+        _clientIconSlot.sprite = clientImage;
     }
 }

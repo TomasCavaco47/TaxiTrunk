@@ -49,8 +49,7 @@ public class TraficLight : MonoBehaviour
         _canStartTimer = true;
         _carCanGo=false; 
         _npcCanCross=true;
-        Debug.Log(_timer);
-        Debug.Log(_canStartTimer);
+
 
         
     }
