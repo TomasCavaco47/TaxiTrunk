@@ -1046,6 +1046,7 @@ GameObject:
   - component: {fileID: 6078581282454253642}
   - component: {fileID: 6078581282454253621}
   - component: {fileID: -6392571017849708518}
+  - component: {fileID: 4433805364414181367}
   m_Layer: 9
   m_Name: Limusine Body
   m_TagString: AICar
@@ -1163,11 +1164,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6078581282454253620}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54e839bf86d9dbd4a95740ff58a2707b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _turnDirection: 1
   _maxDistance: 48
   _distanceToWaypoint: 47.787575
   _angle: 140
@@ -1183,7 +1185,6 @@ MonoBehaviour:
   _npcLayer:
     serializedVersion: 2
     m_Bits: 0
-  _turnDirection: 1
   wheels:
   - {fileID: 2670226717614085883}
   - {fileID: 2670226716603421917}
@@ -1306,6 +1307,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4433805364414181367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078581282454253620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6acf7841c4ad345a13b178e1a808d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheels:
+  - {fileID: 2670226716603421917}
+  - {fileID: 2670226717614085883}
+  - {fileID: 2670226716973622633}
+  - {fileID: 2670226717012075839}
+  _totalPower: 300
+  _turnDirection: 0
+  _currentWaypoint: {fileID: 0}
+  _nextWaypoint: {fileID: 0}
+  _distanceToWaypoint: 0
+  _canMove: 1
+  _checkFront: {fileID: 5368660090659607219}
+  _massCenter: {fileID: 369929537178313939}
+  _size: 40
+  _aiCarLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  _carsLeft: []
+  _carsRight: []
+  _carsCenter: []
 --- !u!1 &7359432565958882171
 GameObject:
   m_ObjectHideFlags: 0

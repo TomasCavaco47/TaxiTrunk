@@ -17,6 +17,7 @@ public class AI_Car_Script : MonoBehaviour
         Right
     }
     [SerializeField] private TurnDirection _turnDirection;
+    
     [SerializeField] private Transform _currentWaypoint;
     [SerializeField] private Transform _nextWaypoint;
     private int _speed;
@@ -38,6 +39,7 @@ public class AI_Car_Script : MonoBehaviour
     private LayerMask _playerCarLayer;
     private List<GameObject> _tempcarsinfront;
     private bool _carInFront;
+   [SerializeField] float collisionTimer;
 
     public Transform CurrentWaypoint { get => _currentWaypoint; set => _currentWaypoint = value; }
     public int Speed { get => _speed; set => _speed = value; }
@@ -65,13 +67,17 @@ public class AI_Car_Script : MonoBehaviour
             SteerVehicle();
             TractionControl();
         }
-        catch (System.Exception)
+        catch
         {
-            throw;
+           
         }
     }
     private void Accelarate()
     {
+        if(_currentWaypoint==null)
+        {
+            GameManager.instance.RespawnCars(this.gameObject);
+        }
         List<Collider> hitColliders = new List<Collider>();
         hitColliders = Physics.OverlapSphere(_checkFront.position, 10, _aiCarLayer + _playerCarLayer).ToList();
         _tempcarsinfront = new List<GameObject>();
@@ -83,9 +89,8 @@ public class AI_Car_Script : MonoBehaviour
             Vector3 myDir = _checkFront.forward;
             float visionRadious = Vector3.SignedAngle(myDir, targetPos, Vector3.up);
             float targetAngle = Vector3.SignedAngle(myDir, targetDir, Vector3.up);
-            if (visionRadious > -55 && visionRadious < 20)
+            if (visionRadious > -20 && visionRadious < 20)
             {
-                Debug.Log(targetAngle);
                 if (targetAngle <= 100 && targetAngle >= 90 || targetAngle <= -90 && targetAngle >= -100)
                 { 
                     _tempcarsinfront.Add(tempTarget.gameObject);
@@ -109,12 +114,12 @@ public class AI_Car_Script : MonoBehaviour
             {
                 if (_carInFront == false)
                 {
-                    if (Speed < CurrentWaypoint!.GetComponent<WayPoints>().RoadMaxSpeed)
+                    if (Speed < CurrentWaypoint.GetComponent<WayPoints>().RoadMaxSpeed)
                     {
                         item.motorTorque = _totalPower;
                         item.brakeTorque = 0;
                     }
-                    else if (Speed > CurrentWaypoint!.GetComponent<WayPoints>().RoadMaxSpeed)
+                    else if (Speed > CurrentWaypoint.GetComponent<WayPoints>().RoadMaxSpeed)
                     {
                         item.motorTorque = 0;
                         item.brakeTorque = 1000;
@@ -219,11 +224,9 @@ public class AI_Car_Script : MonoBehaviour
                     default:
                 }
                 CheckpointAfterATurn();
-                Debug.Log("0");
             }
             else
             {
-                Debug.Log("1");
                 CheckCars();
                 CheckpointAfterATurn();
             }
@@ -314,7 +317,6 @@ public class AI_Car_Script : MonoBehaviour
             {
                 if (targetAngle <= 155 && targetAngle >= 105)
                 {
-                    Debug.Log("esquerda");
                     _carsLeft.Add(tempTarget.gameObject);
                     _carsLeft = _carsLeft.OrderBy(x => (this.transform.position - x.transform.position).sqrMagnitude).ToList();
                     Debug.DrawRay(_checkFront.position, tempTarget.position - _checkFront.position, UnityEngine.Color.magenta);
@@ -330,7 +332,6 @@ public class AI_Car_Script : MonoBehaviour
                 {
                     _carsCenter.Add(tempTarget.gameObject);
                     _carsCenter = _carsCenter.OrderBy(x => (this.transform.position - x.transform.position).sqrMagnitude).ToList();
-                    Debug.Log("centro");
                     Debug.DrawRay(_checkFront.position, tempTarget.position - _checkFront.position, UnityEngine.Color.green);
                 }
                 else
@@ -340,17 +341,13 @@ public class AI_Car_Script : MonoBehaviour
             }
             else if (visionRadious >= 20 && visionRadious <= 90)
             {
-                if (targetAngle <= -112 && targetAngle >= -155)
+                if (targetAngle <= -112 && targetAngle >= -157)
                 {
-                    Debug.Log(targetAngle);
-                    Debug.Log(Vector3.Distance(targetPos, transform.position));
-                    if(Vector3.Distance(targetPos, transform.position)>104)
-                    {
+                    
                         _carsRight.Add(tempTarget.gameObject);
                         _carsRight = _carsRight.OrderBy(x => (this.transform.position - x.transform.position).sqrMagnitude).ToList();
-                        Debug.Log("Direita");
                         Debug.DrawRay(_checkFront.position, tempTarget.position - _checkFront.position, UnityEngine.Color.yellow);
-                    }
+                    
                 }
                 else
                 {
@@ -607,6 +604,30 @@ public class AI_Car_Script : MonoBehaviour
                 _canMove = true;
             }
         }
+    }
+    // preciso de detetar colisoes com os predios e mapa exepto o chao, caso ele falhe
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.transform.tag=="AICar")
+        {
+        collisionTimer = 0;
+
+        }
+    }
+
+    void OnCollisionStay(Collision other)
+    {
+        if (other.transform.tag == "AICar" )
+        {
+            collisionTimer += Time.deltaTime;
+
+        }
+        if(collisionTimer>=6)
+        {
+            GameManager.instance.RespawnCars(this.gameObject);
+            collisionTimer = 0;
+        }
+        
     }
 }
 

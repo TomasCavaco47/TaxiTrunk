@@ -1039,6 +1039,7 @@ GameObject:
   - component: {fileID: 6364503443651878706}
   - component: {fileID: 6364503443651878705}
   - component: {fileID: -1994538729911227586}
+  - component: {fileID: 8621155439972271004}
   m_Layer: 9
   m_Name: police car
   m_TagString: AICar
@@ -1129,11 +1130,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4067428450474301060}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54e839bf86d9dbd4a95740ff58a2707b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _turnDirection: 1
   _maxDistance: 48
   _distanceToWaypoint: 46.35
   _angle: 140
@@ -1149,7 +1151,6 @@ MonoBehaviour:
   _npcLayer:
     serializedVersion: 2
     m_Bits: 0
-  _turnDirection: 1
   wheels:
   - {fileID: 3516772223228425231}
   - {fileID: 3516772223330167556}
@@ -1301,6 +1302,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8621155439972271004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4067428450474301060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6acf7841c4ad345a13b178e1a808d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheels:
+  - {fileID: 3516772223228425231}
+  - {fileID: 3516772223330167556}
+  - {fileID: 3516772223068139560}
+  - {fileID: 3516772222448909307}
+  _totalPower: 300
+  _turnDirection: 0
+  _currentWaypoint: {fileID: 0}
+  _nextWaypoint: {fileID: 0}
+  _distanceToWaypoint: 0
+  _canMove: 1
+  _checkFront: {fileID: 3516772223639706105}
+  _massCenter: {fileID: 4578593482028371221}
+  _size: 40
+  _aiCarLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  _carsLeft: []
+  _carsRight: []
+  _carsCenter: []
 --- !u!1 &7217265375906826598
 GameObject:
   m_ObjectHideFlags: 0

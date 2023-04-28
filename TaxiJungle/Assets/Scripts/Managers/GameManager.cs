@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using static UnityEditor.PlayerSettings;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,7 +22,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]bool _canEnterStore;
     [SerializeField]bool _inStore=false;
     [SerializeField] int _money;
-    
+
+    [SerializeField] LayerMask _aiCarLayer;
+    [SerializeField] LayerMask _playerCarLayer;
+
+
 
     public GameObject CurrentCarInUse { get => _currentCarInUse; set => _currentCarInUse = value; }
     public List<GameObject> CarModels { get => _carModels; set => _carModels = value; }
@@ -87,9 +93,38 @@ public class GameManager : MonoBehaviour
                 a.transform.position = waypointToSPawn.transform.position;
                 a.GetComponent<AI_Car_Script>().CurrentWaypoint=waypointToSPawn.NextWaypoint[0];
                 a.transform.LookAt(waypointToSPawn.NextWaypoint[0]);
+
             }
-            
+
         }
+    }
+    public void RespawnCars(GameObject aiCar)
+    {
+        aiCar.SetActive(false);
+        
+        StartCoroutine(WaitToActive(aiCar));
+    }
+    IEnumerator WaitToActive(GameObject aiCar)
+    {
+        bool wait = true;
+        int pos = Random.Range(0, aIWaypointsParent.transform.childCount);
+        WayPoints waypointToSPawn = aIWaypointsParent.transform.GetChild(pos).GetComponent<WayPoints>();
+        aiCar.transform.position = waypointToSPawn.transform.position;
+        aiCar.GetComponent<AI_Car_Script>().CurrentWaypoint = waypointToSPawn.NextWaypoint[0];
+        aiCar.transform.LookAt(waypointToSPawn.NextWaypoint[0]);
+        while (wait)
+        {
+            List<Collider> hitColliders = new List<Collider>();
+            hitColliders = Physics.OverlapSphere(aiCar.transform.position, 5, _aiCarLayer + _playerCarLayer).ToList();
+            if(hitColliders.Count==0)
+            {
+                wait = false; 
+                break;
+            }
+        }
+        aiCar.SetActive(true);
+
+        yield return null;
     }
     public void UpdateCamerasAndGps()
     {

@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 5152513310747793716}
   - component: {fileID: 5152513310747793717}
   - component: {fileID: -317406273039640717}
+  - component: {fileID: 253455740253735628}
   m_Layer: 9
   m_Name: Three window van
   m_TagString: AICar
@@ -202,11 +203,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130091900025020822}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54e839bf86d9dbd4a95740ff58a2707b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _turnDirection: 1
   _maxDistance: 48
   _distanceToWaypoint: 46.35
   _angle: 140
@@ -222,7 +224,6 @@ MonoBehaviour:
   _npcLayer:
     serializedVersion: 2
     m_Bits: 0
-  _turnDirection: 1
   wheels:
   - {fileID: 3999890054984314949}
   - {fileID: 3999890055292631210}
@@ -374,6 +375,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &253455740253735628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130091900025020822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6acf7841c4ad345a13b178e1a808d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheels:
+  - {fileID: 3999890054984314949}
+  - {fileID: 3999890055292631210}
+  - {fileID: 3999890056103645426}
+  - {fileID: 3999890055652784360}
+  _totalPower: 300
+  _turnDirection: 0
+  _currentWaypoint: {fileID: 0}
+  _nextWaypoint: {fileID: 0}
+  _distanceToWaypoint: 0
+  _canMove: 1
+  _checkFront: {fileID: 3999890056435671840}
+  _massCenter: {fileID: 8198131060211639470}
+  _size: 40
+  _aiCarLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  _carsLeft: []
+  _carsRight: []
+  _carsCenter: []
 --- !u!1 &3460707509294208567
 GameObject:
   m_ObjectHideFlags: 0
