@@ -36,10 +36,10 @@ public class AI_Car_Script : MonoBehaviour
     private float _horizontal;
     private float _radius=8;
     private bool _tractionControl=true;
-    private LayerMask _playerCarLayer;
-    private List<GameObject> _tempcarsinfront;
+    [SerializeField] private LayerMask _playerCarLayer;
+    [SerializeField] private List<GameObject> _tempcarsinfront;
     private bool _carInFront;
-   [SerializeField] float collisionTimer;
+    [SerializeField] float collisionTimer;
 
     public Transform CurrentWaypoint { get => _currentWaypoint; set => _currentWaypoint = value; }
     public int Speed { get => _speed; set => _speed = value; }
@@ -79,7 +79,7 @@ public class AI_Car_Script : MonoBehaviour
             GameManager.instance.RespawnCars(this.gameObject);
         }
         List<Collider> hitColliders = new List<Collider>();
-        hitColliders = Physics.OverlapSphere(_checkFront.position, 10, _aiCarLayer + _playerCarLayer).ToList();
+        hitColliders = Physics.OverlapSphere(_checkFront.position, 5+(Speed/2), _aiCarLayer + _playerCarLayer).ToList();
         _tempcarsinfront = new List<GameObject>();
         for (var i = 0; i < hitColliders.Count; i++)
         {
@@ -96,7 +96,6 @@ public class AI_Car_Script : MonoBehaviour
                     _tempcarsinfront.Add(tempTarget.gameObject);
                     _tempcarsinfront = _tempcarsinfront.OrderBy(x => (this.transform.position - x.transform.position).sqrMagnitude).ToList();
                     Debug.DrawRay(_checkFront.position, tempTarget.position - _checkFront.position, UnityEngine.Color.black);
-                    _carInFront = true;
                 }
                 else
                 {
@@ -107,6 +106,11 @@ public class AI_Car_Script : MonoBehaviour
         if(_tempcarsinfront.Count==0)
         {
             _carInFront=false;
+        }
+        else
+        {
+            _carInFront = true;
+
         }
         foreach (var item in wheels)
         {
@@ -132,21 +136,47 @@ public class AI_Car_Script : MonoBehaviour
                 }
                 else
                 {
-                    if (Speed < _tempcarsinfront[0].transform.GetComponent<AI_Car_Script>().Speed)
+                    if (_tempcarsinfront[0].tag=="AICar")
                     {
-                        item.motorTorque = _totalPower;
-                        item.brakeTorque = 0;
+                        if (Speed < _tempcarsinfront[0].transform.GetComponent<AI_Car_Script>().Speed)
+                        {
+                            item.motorTorque = _totalPower;
+                            item.brakeTorque = 0;
+                        }
+                        else if (Speed > _tempcarsinfront[0].transform.GetComponent<AI_Car_Script>().Speed)
+                        {
+                            item.motorTorque = 0;
+                            item.brakeTorque = 1000;
+                        }
+                        else
+                        {
+                            item.motorTorque = 0;
+                            item.brakeTorque = 0;
+                        }
                     }
-                    else if (Speed > _tempcarsinfront[0].transform.GetComponent<AI_Car_Script>().Speed)
+                    if(_tempcarsinfront[0].tag == "Player")
                     {
-                        item.motorTorque = 0;
-                        item.brakeTorque = 1000;
+                        if (Speed < _tempcarsinfront[0].transform.GetComponent<CarControllerTest>().CurrentSpeed)
+                        {
+                            Debug.Log("1");
+                            item.motorTorque = _totalPower;
+                            item.brakeTorque = 0;
+                        }
+                        else if (Speed > _tempcarsinfront[0].transform.GetComponent<CarControllerTest>().CurrentSpeed)
+                        {
+                            Debug.Log("2");
+                            item.motorTorque = 0;
+                            item.brakeTorque = 1000;
+                        }
+                        else
+                        {
+                            Debug.Log("3");
+                            item.motorTorque = 0;
+                            item.brakeTorque = 0;
+                        }
                     }
-                    else
-                    {
-                        item.motorTorque = 0;
-                        item.brakeTorque = 0;
-                    }
+                    
+                    
                 }
             }
             else

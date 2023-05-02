@@ -677,7 +677,7 @@ MonoBehaviour:
   _currentWaypoint: {fileID: 0}
   _nextWaypoint: {fileID: 0}
   _distanceToWaypoint: 0
-  _canMove: 0
+  _canMove: 1
   _checkFront: {fileID: 8132079558930115622}
   _massCenter: {fileID: 2496886049473443655}
   _size: 40
@@ -687,6 +687,11 @@ MonoBehaviour:
   _carsLeft: []
   _carsRight: []
   _carsCenter: []
+  _playerCarLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _tempcarsinfront: []
+  collisionTimer: 0
 --- !u!1 &8031789978390769052
 GameObject:
   m_ObjectHideFlags: 0
