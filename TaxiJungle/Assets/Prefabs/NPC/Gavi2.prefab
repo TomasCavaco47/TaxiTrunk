@@ -46,6 +46,8 @@ GameObject:
   - component: {fileID: 6907670266272142977}
   - component: {fileID: 2514379079961462890}
   - component: {fileID: 590442806950745925}
+  - component: {fileID: 6319373960107579629}
+  - component: {fileID: 450680538939116252}
   m_Layer: 0
   m_Name: Gavi2
   m_TagString: Untagged
@@ -119,6 +121,43 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.04, y: 7.47, z: 1.69}
   m_Center: {x: 0, y: 3.68, z: 0}
+--- !u!114 &6319373960107579629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177617282164348481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78da8d191d4421449bf36a258564d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destination: {x: 0, y: 0, z: 0}
+  _reachedDestination: 0
+  _stopDistance: 2.5
+  _rotationSpeed: 120
+  _minSpeed: 1
+  _maxSpeed: 3
+  _movementSpeed: 0
+  _animator: {fileID: 0}
+  _onBranch: 0
+--- !u!114 &450680538939116252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177617282164348481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaed3b5cee8c4954e9099ed71cd25767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentWaypoint: {fileID: 0}
+  _direction: 0
+  _canGoToCrosswalk: 1
+  _onTheCrossWalk: 0
 --- !u!1 &912346506734086486
 GameObject:
   m_ObjectHideFlags: 0
