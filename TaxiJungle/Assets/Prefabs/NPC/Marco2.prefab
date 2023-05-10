@@ -2289,6 +2289,8 @@ GameObject:
   - component: {fileID: 2994697692966519253}
   - component: {fileID: 2776508888687421915}
   - component: {fileID: 428331602923634435}
+  - component: {fileID: -4829516295241880152}
+  - component: {fileID: 2334283978588376274}
   m_Layer: 0
   m_Name: Marco2
   m_TagString: Untagged
@@ -2362,6 +2364,43 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &-4829516295241880152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369009546571415829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78da8d191d4421449bf36a258564d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destination: {x: 0, y: 0, z: 0}
+  _reachedDestination: 0
+  _stopDistance: 2.5
+  _rotationSpeed: 120
+  _minSpeed: 1
+  _maxSpeed: 3
+  _movementSpeed: 0
+  _animator: {fileID: 0}
+  _onBranch: 0
+--- !u!114 &2334283978588376274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369009546571415829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaed3b5cee8c4954e9099ed71cd25767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentWaypoint: {fileID: 0}
+  _direction: 0
+  _canGoToCrosswalk: 1
+  _onTheCrossWalk: 0
 --- !u!1 &8389581329101208028
 GameObject:
   m_ObjectHideFlags: 0
