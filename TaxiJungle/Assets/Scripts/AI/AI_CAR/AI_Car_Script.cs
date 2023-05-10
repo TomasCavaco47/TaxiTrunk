@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class AI_Car_Script : MonoBehaviour
 {
