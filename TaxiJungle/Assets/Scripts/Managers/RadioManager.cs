@@ -21,11 +21,15 @@ public class RadioManager : MonoBehaviour
     private bool[] _beenPlayedRadio2;
     private bool[] _beenPlayedRadio3;
     [SerializeField] private int _radioValue;
+    [SerializeField] UiManager _uiManager;
+
+    public int RadioValue { get => _radioValue; set => _radioValue = value; }
     #endregion
     #region Start and Update
     // Start is called before the first frame update
     void Start()
     {
+        _uiManager = UiManager.instance;
         _radioValue = 0;
         volume = _volumeSetByUser;
        _radio1AudioSource.volume = volume;
@@ -83,6 +87,7 @@ public class RadioManager : MonoBehaviour
             switch (_radioValue)
             {
                 case 0:
+                    
                     _radio1AudioSource.volume = volume;
                     _radio2AudioSource.volume = 0;
                     _radio3AudioSource.volume = 0;
@@ -203,21 +208,25 @@ public class RadioManager : MonoBehaviour
         switch (_radioValue)
         {
             case 0:
+                _uiManager.RadioVisuals(_radioValue);
                 _radio1AudioSource.volume = volume; 
                 _radio2AudioSource.volume = 0;
                 _radio3AudioSource.volume = 0;
                 break;
             case 1:
+                _uiManager.RadioVisuals(_radioValue);
                 _radio1AudioSource.volume = 0;
                 _radio2AudioSource.volume = volume;
                 _radio3AudioSource.volume = 0;
                 break;
             case 2:
+                _uiManager.RadioVisuals(_radioValue);
                 _radio1AudioSource.volume = 0;
                 _radio2AudioSource.volume = 0;
                 _radio3AudioSource.volume = volume;
                 break;
             case 3:
+                _uiManager.RadioVisuals(_radioValue);
                 _radio1AudioSource.volume = 0;
                 _radio2AudioSource.volume = 0;
                 _radio3AudioSource.volume = 0;

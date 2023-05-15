@@ -19,18 +19,21 @@ public class Phone
     [SerializeField] List<GameObject> _buttonsList = new List<GameObject>();
     [SerializeField] Button _startStoryMissionButton;
     [SerializeField] EventSystem _eventSystem;
+    [SerializeField] Animator _phoneAnimator; 
     bool _missionMenuOppened;
+    bool _isPhoneOpened = false;
     public GameObject QuickTab { get => _quickTab; set => _quickTab = value; }
     public GameObject StoryTab { get => _storyTab; set => _storyTab = value; }
     public GameObject QuickTabFirstButton { get => _quickTabFirstButton; set => _quickTabFirstButton = value; }
     public GameObject StoryTabButton { get => _storyTabButton; set => _storyTabButton = value; }
     public void OpenClosePhone()
     {
-        if (_phoneImage.activeSelf == false)
+        if (_isPhoneOpened == false)
         {
+            _isPhoneOpened = true;
             QuickTab.SetActive(false);
             StoryTab.SetActive(true);
-            _phoneImage.SetActive(true);
+            _phoneAnimator.SetTrigger("OpenPhone");
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(StoryTabButton);
             
@@ -43,7 +46,9 @@ public class Phone
             }
             else
             {
-                _phoneImage.SetActive(false);
+                _isPhoneOpened = false;
+                EventSystem.current.SetSelectedGameObject(null);
+                _phoneAnimator.SetTrigger("ClosePhone");
                 
             }
         }
@@ -52,6 +57,7 @@ public class Phone
             _startStoryMissionButton.interactable = false;
         }
     }
+   
     public void OpenStorytab()
     {
         QuickTab.SetActive(false);
@@ -165,6 +171,12 @@ public class UiManager : MonoBehaviour
     [SerializeField] bool gameIsPaused=false;
     Vector3 _gpsVector = new Vector3(0, 30, 0);
 
+    [Header("Radio")]
+   
+    [SerializeField] GameObject[] _radioIcons;
+    [SerializeField] Animator _radioAnimator;
+
+
     [SerializeField] Text _money;
 
    // [Header("Refs")]
@@ -191,7 +203,8 @@ public class UiManager : MonoBehaviour
     private void Start()
     {
         UiManager.instance.UpdateMoney();
-        
+        EventSystem.current.SetSelectedGameObject(null);
+
     }
     private void Update()
     {
@@ -248,8 +261,21 @@ public class UiManager : MonoBehaviour
             _currentTimeText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString();
         }
     }
+    #region Radio
+    public void RadioVisuals(int radioIndex)
+    {
+        for (int i = 0; i < _radioIcons.Length; i++)
+        {
+            _radioIcons[i].SetActive(false);
+        }
+
+        _radioIcons[radioIndex].SetActive(true);
+        _radioAnimator.SetTrigger("Vai");
+
+    }
+    #endregion
     #region CellPhone
-    
+
     private void OpenPhone()
     {
         //List<Client> clientsList=null;
