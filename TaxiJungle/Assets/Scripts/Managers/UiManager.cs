@@ -270,8 +270,13 @@ public class UiManager : MonoBehaviour
         }
 
         _radioIcons[radioIndex].SetActive(true);
-        _radioAnimator.SetTrigger("Vai");
+        if(!_radioAnimator.GetCurrentAnimatorStateInfo(0).IsName("Radio"))
+        {
 
+         _radioAnimator.SetTrigger("Vai");
+        }
+        
+        
     }
     #endregion
     #region CellPhone
