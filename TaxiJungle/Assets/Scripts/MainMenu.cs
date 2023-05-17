@@ -35,10 +35,18 @@ public class MainMenu : MonoBehaviour
             Debug.Log(teste);
         }
     }
+    IEnumerator StartGameCoroutine()
+    {
+        yield return new WaitForSeconds(0.15f);
+
+        StartCoroutine(StartLoading());
+
+        yield return null;
+    }
     public void StartGame()
     {
 
-        StartCoroutine(StartLoading());
+        StartCoroutine(StartGameCoroutine());
         
     }
     IEnumerator StartLoading()
@@ -84,8 +92,16 @@ public class MainMenu : MonoBehaviour
     {
         
     }
+    IEnumerator ExitGameCoroutine()
+    {
+        yield return new WaitForSeconds(0.15f);
+
+        Application.Quit();
+
+        yield return null;
+    }
     public void ExitGame()
     {
-        Application.Quit();
+        StartCoroutine(ExitGameCoroutine());
     }
 }
