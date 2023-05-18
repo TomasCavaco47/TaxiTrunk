@@ -364,6 +364,15 @@ public class CarControllerTest : MonoBehaviour
         {
             _gameManager.CanEnterStore = true;
         }
+        if (other.transform.tag == "River")
+        {
+            _gameManager.RespawInRiverCar();
+        }
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
     private void OnTriggerExit(Collider other)
     {
