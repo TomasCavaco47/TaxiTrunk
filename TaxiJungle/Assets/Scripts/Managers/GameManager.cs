@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]bool _canEnterStore;
     [SerializeField]bool _inStore=false;
     [SerializeField] int _money;
+    [SerializeField] GameObject _riverRespawn;
 
     [SerializeField] LayerMask _aiCarLayer;
     [SerializeField] LayerMask _playerCarLayer;
@@ -102,6 +103,11 @@ public class GameManager : MonoBehaviour
         aiCar.SetActive(false);
         
         StartCoroutine(WaitToActive(aiCar));
+    }
+    public void RespawInRiverCar()
+    {
+        _currentCarInUse.transform.position=_riverRespawn.transform.position;
+        _currentCarInUse.transform.rotation= new Quaternion(-0.000310014904f, -0.406461269f, -0.000138505347f, 0.913667977f);
     }
     IEnumerator WaitToActive(GameObject aiCar)
     {
