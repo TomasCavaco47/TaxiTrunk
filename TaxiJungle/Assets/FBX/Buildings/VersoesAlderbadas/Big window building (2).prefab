@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 5680355550269501013}
   - component: {fileID: 6795817800263086180}
   - component: {fileID: 5049127137438210931}
+  - component: {fileID: 3770798479183331501}
   m_Layer: 0
   m_Name: main building
   m_TagString: Untagged
@@ -166,6 +167,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3770798479183331501
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912129781100068374}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8982106622296832981, guid: cece45a498148634cb0c87d0c2c60635, type: 3}
 --- !u!1 &912129782473100210
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,9 +287,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954571795902766136}
-  m_LocalRotation: {x: -0, y: 0.33734164, z: -0, w: 0.9413823}
+  m_LocalRotation: {x: 0, y: 0.33734164, z: 0, w: 0.9413823}
   m_LocalPosition: {x: -63.16, y: 0.52827454, z: 128.46}
-  m_LocalScale: {x: 0.6000001, y: 0.6, z: 0.6000001}
+  m_LocalScale: {x: 0.60000014, y: 0.6, z: 0.60000014}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 122688811572799270}
