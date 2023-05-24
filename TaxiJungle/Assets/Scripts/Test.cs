@@ -73,4 +73,9 @@ public class Test : MonoBehaviour
 
 
     }
+    public void ExitStoreCameraFix()
+    {
+        _cam1.transform.position= new Vector3(-235.063354f, 118.249199f, -91.0201416f);
+        _cam2.transform.position = new Vector3(-235.063354f, 118.249199f, -91.0201416f);
+    }
 }

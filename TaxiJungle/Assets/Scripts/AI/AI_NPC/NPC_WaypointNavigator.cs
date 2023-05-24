@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPC_WaypointNavigator : MonoBehaviour
 {
     NPC_NavigatorController _controller;
+    Animator _animator;
     [SerializeField] NPC_Waypoint _currentWaypoint;
     [SerializeField]int _direction;
     [SerializeField] bool _canGoToCrosswalk=true;
@@ -16,6 +17,7 @@ public class NPC_WaypointNavigator : MonoBehaviour
 
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
         _controller = GetComponent<NPC_NavigatorController>();
         _onTheCrossWalk = false;
     }
@@ -203,18 +205,21 @@ public class NPC_WaypointNavigator : MonoBehaviour
     {
         float _normalSpeed = _controller.MovementSpeed;
         _controller.MovementSpeed = 0;
-        //Animation
+        _animator.SetBool("Iddle", true);
         yield return new WaitForSeconds(Random.Range(8,20));
         _controller.MovementSpeed = _normalSpeed;
+        _animator.SetBool("Iddle", false);
     }
     IEnumerator WaitForGreenLight(TraficLight traficLight)
     {
         float _normalSpeed = _controller.MovementSpeed;
         _controller.MovementSpeed = 0;
-        //Idle Animation
+        _animator.SetBool("Iddle", true);
         yield return new WaitUntil(() => traficLight.NpcCanCross);
         traficLight .NcpCrossing++;
         _controller.MovementSpeed = _normalSpeed;
+        _animator.SetBool("Iddle", false);
+
 
     }
 }
