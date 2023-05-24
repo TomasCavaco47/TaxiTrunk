@@ -488,6 +488,8 @@ public class StoreManager : MonoBehaviour
         GameManager.instance.InStore = false;
         SceneManager.UnloadSceneAsync("Store");
         UiManager.instance.UpdateMoney();
+        Test.instance.ExitStoreCameraFix();
+        
 
     }
     #endregion
