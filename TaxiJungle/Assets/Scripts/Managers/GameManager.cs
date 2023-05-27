@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] LayerMask _aiCarLayer;
     [SerializeField] LayerMask _playerCarLayer;
-
+                     RadioManager _radioManager;
 
 
     public GameObject CurrentCarInUse { get => _currentCarInUse; set => _currentCarInUse = value; }
@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        _radioManager = RadioManager._instance;
         _missionManager = MissionManager.instance;
 
         _missionManager.PlayerCar = _currentCarInUse.GetComponent<CarControllerTest>();
@@ -142,13 +143,13 @@ public class GameManager : MonoBehaviour
         if(_canEnterStore==true && MissionManager.instance.MissionStarted==false )
         {
            
-            if (_currentCarInUse.GetComponent<CarControllerTest>().CurrentSpeed == 0)
+            if (_currentCarInUse.GetComponent<CarControllerTest>().CurrentSpeed < 2)
             {
                 UiManager.instance.EnterStoreText.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.K))
                 {
 
-
+                    _radioManager.PauseRadio();
                     UiManager.instance!.OpenStore();
                     InStore = true;
 

@@ -175,7 +175,7 @@ public class UiManager : MonoBehaviour
    
     [SerializeField] GameObject[] _radioIcons;
     [SerializeField] Animator _radioAnimator;
-
+                     RadioManager _radioManager;
 
     [SerializeField] Text _money;
 
@@ -186,6 +186,8 @@ public class UiManager : MonoBehaviour
     public GameObject InGameUi { get => _inGameUi; set => _inGameUi = value; }
     public GameObject EnterStoreText { get => _enterStoreText; set => _enterStoreText = value; }
     public GameObject PausePanel { get => _pausePanel; set => _pausePanel = value; }
+    
+    public bool GameIsPaused { get => gameIsPaused; }
 
     private void Awake()
     {
@@ -204,7 +206,7 @@ public class UiManager : MonoBehaviour
     {
         UiManager.instance.UpdateMoney();
         EventSystem.current.SetSelectedGameObject(null);
-
+        _radioManager = RadioManager._instance;
     }
     private void Update()
     {
@@ -225,6 +227,14 @@ public class UiManager : MonoBehaviour
         _money.text = GameManager.instance.Money.ToString();
     }
 
+    IEnumerator ResumeGameCoroutine()
+    {
+        yield return new WaitForSeconds(0.15f);
+        _pausePanel.SetActive(false);
+        _radioManager.ResumeRadio();
+        AudioManager._instance.ResumeSounds();
+        
+    }
     public void PauseGame()
     {
         
@@ -234,13 +244,15 @@ public class UiManager : MonoBehaviour
             if (gameIsPaused)
             {
                 _pausePanel.SetActive(true);
+                _radioManager.PauseRadio();
+                AudioManager._instance.PauseSounds();
                 Time.timeScale = 0f;
                 
 
             }
             else
             {
-                _pausePanel.SetActive(false);
+                StartCoroutine(ResumeGameCoroutine());
                 Time.timeScale = 1;
                 
             }
