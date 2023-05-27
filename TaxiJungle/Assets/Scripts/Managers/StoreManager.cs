@@ -207,7 +207,12 @@ public class StoreManager : MonoBehaviour
     {
         if(_carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.AcelarationUpgradeLevel == 3)
         {
-            _allButtons[0].SetActive(false);
+            IEnumerator AcelarationUpgradeLevel3()
+            {
+                yield return new WaitForSeconds(0.15f);
+                _allButtons[0].SetActive(false);
+            }
+            StartCoroutine(AcelarationUpgradeLevel3());
             if(_but1 == false)
             {
                 Debug.Log("testeqw");
@@ -223,7 +228,12 @@ public class StoreManager : MonoBehaviour
        
         if (_carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.MaxSpeedLevel == 3)
         {
-            _allButtons[1].SetActive(false);
+            IEnumerator MaxSpeedLevel3()
+            {
+                yield return new WaitForSeconds(0.15f);
+                _allButtons[1].SetActive(false);
+            }
+            StartCoroutine(MaxSpeedLevel3());
             if(_but2 == false)
             {
              WitchButonToBeSelected();
@@ -237,7 +247,12 @@ public class StoreManager : MonoBehaviour
         }
         if (_carModels[_currentDisplaying].GetComponent<CarControllerTest>().Upgrades.BrakeUpgradeLevel == 3)
         {
-            _allButtons[2].SetActive(false);
+            IEnumerator BrakeUpgradeLevel3Coroutine()
+            {
+                yield return new WaitForSeconds(0.15f);
+                _allButtons[2].SetActive(false);
+            }
+            StartCoroutine(BrakeUpgradeLevel3Coroutine());
             if(_but3 == false)
             {
              WitchButonToBeSelected();
@@ -259,12 +274,17 @@ public class StoreManager : MonoBehaviour
     {
         if (GameManager.instance.Money >= _carPrices[_currentDisplaying])
         {
-            GameManager.instance.Money -= _carPrices[_currentDisplaying];
-            _currentMoney.text = GameManager.instance.Money.ToString();
-            GameManager.instance.PlayerCarsBought.Add(_carModels[_currentDisplaying]);
-            GameManager.instance.CurrentCarInUse = _carModels[_currentDisplaying];
-            CheckCar();
-            WitchButonToBeSelected();
+            IEnumerator BuyCarCoroutine()
+            {
+                yield return new WaitForSeconds(0.15f);
+                GameManager.instance.Money -= _carPrices[_currentDisplaying];
+                _currentMoney.text = GameManager.instance.Money.ToString();
+                GameManager.instance.PlayerCarsBought.Add(_carModels[_currentDisplaying]);
+                GameManager.instance.CurrentCarInUse = _carModels[_currentDisplaying];
+                CheckCar();
+                WitchButonToBeSelected();
+            }
+            StartCoroutine(BuyCarCoroutine());
         }
         else
         {
@@ -273,9 +293,14 @@ public class StoreManager : MonoBehaviour
     }
     public void EquipCarButton()
     {
-        GameManager.instance.CurrentCarInUse = _carModels[_currentDisplaying];
-        CheckCar();
-        WitchButonToBeSelected();
+        IEnumerator EquipCarCoroutine()
+        {
+            yield return new WaitForSeconds(0.15f);
+            GameManager.instance.CurrentCarInUse = _carModels[_currentDisplaying];
+            CheckCar();
+            WitchButonToBeSelected();
+        }
+        StartCoroutine(EquipCarCoroutine());
     }
     public void UpgradeAcelaration()
     {
@@ -472,9 +497,9 @@ public class StoreManager : MonoBehaviour
         #endregion
     }
 
-
-    public void ExitStore()
+    IEnumerator ExitStoreCoroutine()
     {
+        yield return new WaitForSeconds(0.15f);
         _carModels[_currentDisplaying].SetActive(false);
         GameManager.instance.CurrentCarInUse.SetActive(true);
         GameManager.instance.UpdateCamerasAndGps();
@@ -486,10 +511,29 @@ public class StoreManager : MonoBehaviour
         Test.instance.ChangeCameraTargets();
         _uiManager.InGameUi.SetActive(true);
         GameManager.instance.InStore = false;
-        SceneManager.UnloadSceneAsync("Store");
+        RadioManager._instance.ResumeRadio();
         UiManager.instance.UpdateMoney();
+        SceneManager.UnloadSceneAsync("Store");
         Test.instance.ExitStoreCameraFix();
-        
+    }
+    public void ExitStore()
+    {
+        //_carModels[_currentDisplaying].SetActive(false);
+        //GameManager.instance.CurrentCarInUse.SetActive(true);
+        //GameManager.instance.UpdateCamerasAndGps();
+        //GameManager.instance.CurrentCarInUse.transform.position = GameManager.instance.CarExitStorePos.position;
+        //GameManager.instance.CurrentCarInUse.transform.rotation = new Quaternion(0, -174.8f, 0, 0);
+        //MissionManager.instance.PlayerCar = GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>();
+        //GameManager.instance.CurrentCarInUse.GetComponent<CarControllerTest>().CanMove = true;
+
+        //Test.instance.ChangeCameraTargets();
+        //_uiManager.InGameUi.SetActive(true);
+        //GameManager.instance.InStore = false;
+        //RadioManager._instance.ResumeRadio();
+        //UiManager.instance.UpdateMoney();
+        //SceneManager.UnloadSceneAsync("Store");        
+        //Test.instance.ExitStoreCameraFix();
+        StartCoroutine(ExitStoreCoroutine());
 
     }
     #endregion

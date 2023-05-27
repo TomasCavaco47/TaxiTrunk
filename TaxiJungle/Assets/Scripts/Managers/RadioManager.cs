@@ -22,10 +22,25 @@ public class RadioManager : MonoBehaviour
     private bool[] _beenPlayedRadio3;
     [SerializeField] private int _radioValue;
     [SerializeField] UiManager _uiManager;
+    private bool _isPaused;
 
     public int RadioValue { get => _radioValue; set => _radioValue = value; }
     #endregion
     #region Start and Update
+
+    public static RadioManager _instance { get; private set; }
+
+    public void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else 
+        {
+            Destroy(gameObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -52,25 +67,25 @@ public class RadioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKeyUp(KeyCode.Tab)) 
+       if(Input.GetKeyUp(KeyCode.Tab) && _isPaused == false) 
        {
             ChangeStation();
        }
 
-        if (_radio1AudioSource.isPlaying == false)
+        if (_radio1AudioSource.isPlaying == false && _isPaused == false)
         {
             ResetShuffle();
             ChangeSong(Random.Range(0, _songsRadio1.Length), _beenPlayedRadio1);
          
         }
 
-        if (_radio2AudioSource.isPlaying == false)
+        if (_radio2AudioSource.isPlaying == false && _isPaused == false)
         {
             ResetShuffle();
             ChangeSong(Random.Range(0, _songsRadio2.Length), _beenPlayedRadio2);
         }
 
-        if (_radio3AudioSource.isPlaying == false)
+        if (_radio3AudioSource.isPlaying == false && _isPaused == false)
         {
             ResetShuffle();
             ChangeSong(Random.Range(0, _songsRadio3.Length), _beenPlayedRadio3);
@@ -113,7 +128,7 @@ public class RadioManager : MonoBehaviour
         }
     }
     #endregion
-    #region ChangeSong / ChangeStation / ResetShuffle
+    #region ChangeSong / ResumeRadio / PauseRadio / ChangeStation / ResetShuffle
     public void ChangeSong(int songPicked, bool[] bools)
     {
         if (bools == _beenPlayedRadio1 && !_beenPlayedRadio1[songPicked])
@@ -147,6 +162,22 @@ public class RadioManager : MonoBehaviour
 
     }
 
+    public void ResumeRadio()
+    {
+        
+        _radio1AudioSource.UnPause();
+        _radio2AudioSource.UnPause();
+        _radio3AudioSource.UnPause();
+        _isPaused = false;
+    }
+
+    public void PauseRadio()
+    {
+        _isPaused = true;
+        _radio1AudioSource.Pause();
+        _radio2AudioSource.Pause();
+        _radio3AudioSource.Pause();
+    }
     private void ResetShuffle()
     {
         if (_songsPlayedRadio1 == _songsRadio1.Length)
