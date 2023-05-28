@@ -57,7 +57,9 @@ public class GameManager : MonoBehaviour
         _currentCarInUse = PlayerCarsBought[0];
         _currentCarInUse.SetActive(true);
         _currentCarInUse.transform.position = _startgamePos.position;
-        _currentCarInUse.transform.rotation=new Quaternion(0, -174.8f, 0,0);
+        _currentCarInUse.transform.rotation=new Quaternion(-0.000317146303f, 0.383167118f, 0.000130905319f, 0.923678994f);
+
+
         spawnAICars();
 
     }
