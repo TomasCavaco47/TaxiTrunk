@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5680355550269501013}
   - component: {fileID: 6795817800263086180}
   - component: {fileID: 5049127137438210931}
-  - component: {fileID: 3770798479183331501}
+  - component: {fileID: 3721545872659477630}
   m_Layer: 0
   m_Name: main building
   m_TagString: Untagged
@@ -167,8 +167,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3770798479183331501
-MeshCollider:
+--- !u!65 &3721545872659477630
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -177,10 +177,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8982106622296832981, guid: cece45a498148634cb0c87d0c2c60635, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.021480836, y: 0.021480832, z: 0.013648097}
+  m_Center: {x: -0.00000011920929, y: 1.1439392e-17, z: 0.0064398306}
 --- !u!1 &912129782473100210
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +191,7 @@ GameObject:
   - component: {fileID: 5680355549089127409}
   - component: {fileID: 6795817801088894400}
   - component: {fileID: 5049127136453013207}
+  - component: {fileID: 2134106260674796953}
   m_Layer: 0
   m_Name: main building
   m_TagString: Untagged
@@ -264,6 +264,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2134106260674796953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912129782473100210}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020435773, y: 0.019999996, z: 0.04046368}
+  m_Center: {x: -0.00021800632, y: 4.1858764e-17, z: 0.023564385}
 --- !u!1 &954571795902766136
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +323,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 465138848080294694}
-  - component: {fileID: 143614000100062164}
   m_Layer: 0
   m_Name: Big window building ENTRANCE
   m_TagString: Untagged
@@ -340,20 +352,6 @@ Transform:
   m_Father: {fileID: 465138847455659650}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &143614000100062164
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954571797284465052}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &1373161154102553095
 GameObject:
   m_ObjectHideFlags: 0
