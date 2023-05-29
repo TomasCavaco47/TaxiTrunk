@@ -39,6 +39,7 @@ public class AI_Car_Script : MonoBehaviour
     [SerializeField] private List<GameObject> _tempcarsinfront;
     private bool _carInFront;
     [SerializeField] float collisionTimer;
+    [SerializeField] float timer;
 
     public Transform CurrentWaypoint { get => _currentWaypoint; set => _currentWaypoint = value; }
     public int Speed { get => _speed; set => _speed = value; }
@@ -54,6 +55,18 @@ public class AI_Car_Script : MonoBehaviour
     {
         CheckSpeed();
         CheckTurningDirection();
+        if(Speed<1)
+        {
+            timer += Time.deltaTime;
+            if(timer>35)
+            {
+                GameManager.instance.RespawnCars(this.gameObject);
+            }
+        }
+        else
+        {
+            timer = 0;
+        }
     }
 
     private void FixedUpdate()
