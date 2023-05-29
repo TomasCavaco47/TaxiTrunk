@@ -159,9 +159,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858551124302533489}
-  m_LocalRotation: {x: -0, y: 0.44814923, z: -0, w: 0.8939588}
+  m_LocalRotation: {x: 0, y: 0.44814923, z: 0, w: 0.8939588}
   m_LocalPosition: {x: -91.1, y: 0.35827637, z: 102.6}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.59999996, y: 0.6, z: 0.59999996}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7004814498114139505}
@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: 7004814498114139505}
   - component: {fileID: 6884854573412112332}
   - component: {fileID: 2844737007203540171}
+  - component: {fileID: 4928828723681076429}
   m_Layer: 0
   m_Name: Base Building
   m_TagString: Untagged
@@ -505,6 +506,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4928828723681076429
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3489631217801100600}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13088433, y: 0.13088432, z: 0.254129}
+  m_Center: {x: 0.0000009536743, y: 0.0000009536743, z: 0.06162225}
 --- !u!1 &3489631218672825182
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +530,7 @@ GameObject:
   - component: {fileID: 7004814497108458263}
   - component: {fileID: 6884854572268738986}
   - component: {fileID: 2844737006065996461}
-  - component: {fileID: 8614898989000282969}
+  - component: {fileID: 8954456550228414649}
   m_Layer: 0
   m_Name: Base Building
   m_TagString: Untagged
@@ -589,8 +603,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8614898989000282969
-MeshCollider:
+--- !u!65 &8954456550228414649
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -599,10 +613,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 430996753354047373, guid: 4506801816d6b3b428ebe4e17724166c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.13088433, y: 0.13088432, z: 0.087250955}
+  m_Center: {x: 0.0000009536743, y: 0.0000009536743, z: -0.021816853}
 --- !u!1 &4200335549787533349
 GameObject:
   m_ObjectHideFlags: 0

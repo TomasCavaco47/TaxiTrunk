@@ -51,11 +51,7 @@ public class MainMenu : MonoBehaviour
     }
     IEnumerator StartLoading()
     {
-
-
-      
-          yield return null;
-
+        Debug.Log("1");
         _mainMenu.SetActive(false);
         string currentScene = SceneManager.GetActiveScene().name;
         var sceneLoading = SceneManager.LoadSceneAsync("PlayTest", LoadSceneMode.Additive);
